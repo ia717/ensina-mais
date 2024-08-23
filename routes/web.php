@@ -3,8 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/login1', function () {
+    return view('login1');
+});
+
+Route::get('/login2', function () {
+    return view('login2');
 });
 
 Route::get('/dashboard', function () {
