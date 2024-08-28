@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Usuario extends Authenticatable
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -17,11 +17,10 @@ class Usuario extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nome',  // Alterado de 'name' para 'nome'
+        'name',
         'email',
-        'senha',  // Alterado de 'password' para 'senha'
+        'password',
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,10 +28,9 @@ class Usuario extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'senha',  // Alterado de 'password' para 'senha'
+        'password',
         'remember_token',
     ];
-
 
     /**
      * Get the attributes that should be cast.
@@ -43,7 +41,7 @@ class Usuario extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'senha' => 'hashed',  // Alterado de 'password' para 'senha'
+            'password' => 'hashed',
         ];
     }
 }
