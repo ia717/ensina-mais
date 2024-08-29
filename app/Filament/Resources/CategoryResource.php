@@ -16,8 +16,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
+    protected static ?string $modelLabel = 'categoria';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationLabel = 'Categorias';
+
+    protected static ?string $slug = 'categorias';
 
     public static function form(Form $form): Form
     {
@@ -28,12 +32,15 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->label('Slug')
                     ->required()
                     ->unique()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
+                    ->label('Descrição')
                     ->nullable(),
                 Forms\Components\ColorPicker::make('color')
+                    ->label('Cor')
                     ->nullable(),
             ]);
     }
@@ -47,9 +54,11 @@ class CategoryResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('color')
+                    ->label('Cor')
                     ->searchable()
                     ->sortable(),
             ])
