@@ -1,7 +1,10 @@
-<body class="m-0 font-sans h-screen overflow-hidden bg-gray-100 transition-colors duration-300">
+
 
     <!-- Script do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<body class="bg-gray-100 text-black transition-colors duration-300 h-screen flex overflow-hidden">
 
     <div class="flex bg-red-500">
         <!-- Menu Hambúrguer -->
@@ -14,6 +17,12 @@
             <div class="w-8 h-1 bg-black my-1.5 transition-all duration-300 transform origin-bottom-left bars"
                 :class="{'-rotate-45 -translate-y-2': checkbox.checked}"></div>
         </label>
+    <!-- Menu Hambúrguer -->
+    <input type="checkbox" id="checkbox" class="hidden">
+    <label for="checkbox" class="fixed top-4 left-4 lg:hidden w-10 h-8 cursor-pointer flex items-center justify-center z-[1100]">
+        <i class="fas fa-bars text-2xl text-teal-500"></i>
+        <i class="fas fa-times text-2xl text-teal-500 hidden"></i>
+    </label>
 
         <!-- Menu Lateral -->
         <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white pt-16 transform transition-transform duration-300 z-[1000] sm:relative sm:translate-x-0 sm:w-64 -translate-x-64"
@@ -76,5 +85,6 @@
             sidebar.classList.toggle('-translate-x-64', !this.checked);
         });
     </script>
+
 
 </body>
