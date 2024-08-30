@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SubjectResource\Pages;
-use App\Filament\Resources\SubjectResource\RelationManagers;
-use App\Models\Subject;
+use App\Filament\Resources\LessonResource\Pages;
+use App\Filament\Resources\LessonResource\RelationManagers;
+use App\Models\Lesson;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SubjectResource extends Resource
+class LessonResource extends Resource
 {
-    protected static ?string $model = Subject::class;
+    protected static ?string $model = Lesson::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -32,12 +32,16 @@ class SubjectResource extends Resource
                     ->required()
                     ->unique()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição')
+                Forms\Components\TextEntry::make('title')
+                    ->url(fn (Post $record): string => route('posts.edit', ['post' => $record])),
+                Forms\Components\Textarea::make('content')
+                    ->label('Conteúdo')
                     ->nullable(),
-                Forms\Components\ColorPicker::make('color')
-                    ->label('Cor')
-                    ->nullable(),
+                Forms\Components\ToggleButtons::make('is_high_relevance')
+                    ->label('Alta Relevância')
+                    ->boolean(),
+
+                
             ]);
     }
 
@@ -70,9 +74,9 @@ class SubjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSubjects::route('/'),
-            'create' => Pages\CreateSubject::route('/create'),
-            'edit' => Pages\EditSubject::route('/{record}/edit'),
+            'index' => Pages\ListLessons::route('/'),
+            'create' => Pages\CreateLesson::route('/create'),
+            'edit' => Pages\EditLesson::route('/{record}/edit'),
         ];
     }
 }
