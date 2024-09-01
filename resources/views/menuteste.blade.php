@@ -1,13 +1,16 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progresso de Estudo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Matemática</title>
+    <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Estilo padrão do tema claro */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -22,7 +25,7 @@
         /* Estilo para o tema escuro */
         body.dark-mode {
             background-color: #333;
-            color: #f5f5f5;
+            color: red;
         }
 
         /* Menu Lateral */
@@ -46,10 +49,6 @@
 
         .sidebar.hidden {
             transform: translateX(-250px); /* Esconde o menu */
-        }
-
-        .sidebar.visible {
-            transform: translateX(0); /* Mostra o menu */
         }
 
         .sidebar ul {
@@ -85,7 +84,7 @@
         }
 
         .sidebar.dark-mode ul li a {
-            color: #f5f5f5;
+            color: #fff;
         }
 
         .sidebar.dark-mode ul li a:hover {
@@ -93,6 +92,10 @@
         }
 
         /* Menu Hambúrguer */
+        #checkbox {
+            display: none;
+        }
+
         .toggle {
             position: fixed;
             top: 15px;
@@ -114,27 +117,27 @@
         }
 
         /* Inicialmente mostrar o ícone de barras */
-        .toggle i.fa-bars {
+        #checkbox:not(:checked) ~ .toggle i.fa-times {
             display: block;
         }
 
-        .toggle i.fa-times {
+        #checkbox:not(:checked) ~ .toggle i.fa-bars {
             display: none;
         }
 
         /* Quando o menu está aberto */
-        .sidebar.visible ~ .toggle i.fa-bars {
+        #checkbox:checked ~ .toggle i.fa-times {
             display: none;
         }
 
-        .sidebar.visible ~ .toggle i.fa-times {
+        #checkbox:checked ~ .toggle i.fa-bars {
             display: block;
         }
 
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%; /* Largura total da tela */
-                height: 100%;
+                height: 100%;               
                 position: fixed;
                 top: 0;
                 right: 0; /* Menu alinhado à direita */
@@ -144,15 +147,31 @@
                 transition: transform 0.3s ease;
             }
 
-            .sidebar.visible {
-                transform: translateX(0); /* Mostra o menu quando visível */
-            }
-
             .toggle {
                 top: 15px; /* Mantém a distância do topo */
                 right: 15px; /* Move o ícone para o lado direito */
                 left: auto; /* Remove o alinhamento à esquerda */
             }
+
+            #checkbox:checked ~ .sidebar {
+                transform: translateX(0); /* Mostra o menu quando o checkbox está marcado */
+            }
+            #checkbox:not(:checked) ~ .toggle i.fa-bars {
+            display: block;
+        }
+
+        #checkbox:not(:checked) ~ .toggle i.fa-times {
+            display: none;
+        }
+
+        /* Quando o menu está aberto */
+        #checkbox:checked ~ .toggle i.fa-bars {
+            display: none;
+        }
+
+        #checkbox:checked ~ .toggle i.fa-times {
+            display: block;
+        }
         }
 
         /* Botão de alternância de tema */
@@ -175,50 +194,27 @@
         }
 
         .sidebar.dark-mode .theme-toggle {
-            color: #f5f5f5;
+            color: #fff;
         }
 
         .sidebar.dark-mode .theme-toggle:hover {
             background-color: #555;
         }
 
-        /* Conteúdo Principal */
-        .main-content {
-            margin-left: 250px; /* Espaço para o menu lateral */
-            padding: 1rem; /* Padding padrão */
-            transition: margin-left 0.3s ease;
-            flex: 1; /* Preenche o restante do espaço */
-            overflow-y: auto;
-            background-color: #f5f5f5;
-        }
 
-        .sidebar.hidden ~ .main-content {
-            margin-left: 0; /* Remove o espaço quando o menu está oculto */
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0; /* Remove o espaço em dispositivos móveis */
-                padding: 0.5rem; /* Padding menor em dispositivos móveis */
-            }
-        }
-
-        /* Estilo para o tema escuro no conteúdo principal */
-        body.dark-mode .main-content {
-            background-color: #333;
-        }
     </style>
 </head>
 
 <body>
     <!-- Menu Hambúrguer -->
-    <label for="menu-toggle" class="toggle">
-        <i class="fas fa-times"></i>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="toggle">
         <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
     </label>
 
     <!-- Menu Lateral -->
-    <div class="sidebar visible">
+    <div class="sidebar">
         <ul>
         <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="/usuario"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
@@ -235,78 +231,45 @@
         </ul>
     </div>
 
-    <!-- Conteúdo principal -->
-    <div id="main-content" class="main-content">
-        <!-- Seção de Banner -->
-        <div class="bg-teal-500 text-white p-6 rounded-lg shadow-lg mb-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-2/3">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4">A PREPARAÇÃO QUE VOCÊ PRECISA PARA GABARITAR</h1>
-                    <span class="bg-orange-500 text-white py-2 px-4 rounded-full inline-block mb-4">NOTA 1000</span>
-                    <ul class="text-lg list-disc pl-6">
-                        <li>Vídeo aulas online</li>
-                        <li>Correção de redações</li>
-                        <li>Dicas e mentorias</li>
-                        <li>Aulas e correções ao vivo</li>
-                        <li>Mais de 1000 questões</li>
-                        <li>Simulados semanais</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/3 flex justify-center mt-6 md:mt-0">
-                    <img src="https://via.placeholder.com/300" alt="Livros" class="w-64 h-64">
-                </div>
-            </div>
-        </div>
-
-        <!-- Seção de Progresso -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-semibold mb-4 text-black dark:text-white">Progresso diário</h2>
-                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-4 mb-4">
-                    <div class="bg-teal-500 h-4 rounded-full" style="width: 10%;"></div>
-                </div>
-                <p class="text-teal-500 text-lg font-semibold">10%</p>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-semibold mb-4 text-black dark:text-white">Progresso mensal</h2>
-                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-4 mb-4">
-                    <div class="bg-teal-500 h-4 rounded-full" style="width: 25%;"></div>
-                </div>
-                <p class="text-teal-500 text-lg font-semibold">25%</p>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-semibold mb-4 text-black dark:text-white">Progresso anual</h2>
-                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-4 mb-4">
-                    <div class="bg-teal-500 h-4 rounded-full" style="width: 45%;"></div>
-                </div>
-                <p class="text-teal-500 text-lg font-semibold">45%</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        document.querySelector('.toggle').addEventListener('click', function () {
-            const sidebar = document.querySelector('.sidebar');
-            const mainContent = document.querySelector('.main-content');
-            
-            if (sidebar.classList.contains('visible')) {
-                sidebar.classList.add('hidden');
-                sidebar.classList.remove('visible');
-                mainContent.style.marginLeft = '0'; // Remove o espaço quando o menu está oculto
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('checkbox');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const themeToggle = document.querySelector('.theme-toggle');
+
+        // Verifica se há uma preferência salva no localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            sidebar.classList.add('dark-mode');
+        }
+
+        // Função para alternar entre tema claro e escuro
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            sidebar.classList.toggle('dark-mode');
+
+            // Salva a preferência do tema no localStorage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
             } else {
-                sidebar.classList.add('visible');
-                sidebar.classList.remove('hidden');
-                mainContent.style.marginLeft = '250px'; // Espaço para o menu lateral
+                localStorage.setItem('theme', 'light');
             }
         });
 
-        // Alternar entre o tema claro e escuro
-        document.querySelector('.theme-toggle').addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('.sidebar').classList.toggle('dark-mode');
+        // Função para esconder/mostrar a barra lateral e ajustar o conteúdo
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                sidebar.classList.add('hidden');  // Esconde o menu
+                mainContent.classList.add('hamburger-active'); // Ajusta o conteúdo
+            } else {
+                sidebar.classList.remove('hidden');  // Mostra o menu
+                mainContent.classList.remove('hamburger-active'); // Ajusta o conteúdo
+            }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
+
