@@ -16,8 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class TopicResource extends Resource
 {
     protected static ?string $model = Topic::class;
+    protected static ?string $modelLabel = 'tópico';
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationLabel = 'Tópicos';
+    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'Painel de Aulas';
+
+
+    protected static ?string $slug = 'topicos';
 
     public static function form(Form $form): Form
     {
@@ -30,18 +37,18 @@ class TopicResource extends Resource
             Forms\Components\TextInput::make('slug')
                 ->label('Slug')
                 ->required()
-                ->unique()
+                // ->unique()
                 ->maxLength(255),
             Forms\Components\Textarea::make('description')
                 ->label('Descrição')
                 ->nullable(),
-            Forms\Components\ColorPicker::make('color')
-                ->label('Cor')
-                ->nullable(),
             Forms\Components\ToggleButtons::make('is_high_relevance')
                 ->label('Alta Relevância')
                 ->boolean(),
-                
+            Forms\Components\FileUpload::make('image')
+                ->label('Imagem')
+                ->image()
+                ->nullable(),
             ]);
     }
 
