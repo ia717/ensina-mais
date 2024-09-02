@@ -16,8 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SubjectResource extends Resource
 {
     protected static ?string $model = Subject::class;
+    protected static ?string $modelLabel = 'matéria';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    // protected static ?string $navigationLabel = 'Matérias';
+    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationGroup = 'Painel de Aulas';
+
+
+    protected static ?string $slug = 'materias';
 
     public static function form(Form $form): Form
     {
@@ -30,14 +37,23 @@ class SubjectResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->unique()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')
                     ->nullable(),
-                Forms\Components\ColorPicker::make('color')
-                    ->label('Cor')
-                    ->nullable(),
+                Forms\Components\Select::make('category_id')
+                    ->label('Categoria')
+                    ->options(\App\Models\Category::pluck('name', 'id')->toArray())
+                    ->required(),
+                Forms\Components\TextInput::make('material_link')
+                    ->label('Link do Material')
+                    ->url() // valida se realmente é uma URL
+                    ->required(),
+                Forms\Components\TextInput::make('material_info')
+                    ->label('Informações do Material')
+                    ->required()
+                    ->maxLength(550),
+
             ]);
     }
 
@@ -45,7 +61,18 @@ class SubjectResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->label('Categoria')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

@@ -20,8 +20,11 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     protected static ?string $navigationLabel = 'Categorias';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationGroup = 'Painel de Aulas';
 
     protected static ?string $slug = 'categorias';
+
 
     public static function form(Form $form): Form
     {
@@ -32,9 +35,10 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    ->label('Slug')
+                    ->label('Url')
                     ->required()
-                    ->unique()
+                    ->hidden()
+                    // ->unique('categories', 'slug')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')

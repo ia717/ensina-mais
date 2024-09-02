@@ -16,8 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class LessonResource extends Resource
 {
     protected static ?string $model = Lesson::class;
+    protected static ?string $modelLabel = 'aula';
 
-    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationIcon = 'heroicon-o-video-camera';
+    protected static ?string $navigationLabel = 'Aulas';
+    protected static ?int $navigationSort = 4;
+    protected static ?string $navigationGroup = 'Painel de Aulas';
+
+
+    protected static ?string $slug = 'aulas';
 
     public static function form(Form $form): Form
     {
@@ -30,18 +37,18 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->unique()
+                    ->maxLength(255)
+                    ->disabled(),
+                Forms\Components\TextInput::make('topic_id')
+                    ->label('Tópico')
+                    ->required()
                     ->maxLength(255),
-                Forms\Components\TextEntry::make('title')
-                    ->url(fn (Post $record): string => route('posts.edit', ['post' => $record])),
+                Forms\Components\TextInput::make('link')
+                    ->label('Link da aula')
+                    ->required(),
                 Forms\Components\Textarea::make('content')
                     ->label('Conteúdo')
                     ->nullable(),
-                Forms\Components\ToggleButtons::make('is_high_relevance')
-                    ->label('Alta Relevância')
-                    ->boolean(),
-
-                
             ]);
     }
 
@@ -49,7 +56,33 @@ class LessonResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\BooleanColumn::make('is_high_relevance')
+                    ->label('Alta Relevância')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('topic_id')
+                    ->label('Tópico')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('link')
+                    ->label('Link')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('content')
+                    ->label('Conteúdo')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->label('Ordem')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
