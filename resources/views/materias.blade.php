@@ -1,6 +1,6 @@
+@include('menuteste')
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,75 +8,13 @@
     <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-            background-color: #f5f5f5;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Menu Lateral */
-        .sidebar {
-            width: 250px;
-            height: 100%;
-            background-color: #fff;
-            padding-top: 60px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
-            transform: translateX(0); /* Mostra o menu por padrão */
-            z-index: 1000;
-        }
-
-        .sidebar.hidden {
-            transform: translateX(-250px); /* Esconde o menu */
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar ul li {
-            padding: 10px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-        }
-
-        .sidebar ul li a {
-            color: #000;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            flex: 1;
-        }
-
-        .sidebar ul li i {
-            margin-right: 10px;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #f0f0f0;
-            padding-left: 10px;
-            transition: padding-left 0.3s;
-        }
-
-        .sidebar ul li a.logout {
-            color: red;
-        }
+        
 
         /* Conteúdo Principal */
         .main-content {
             margin-left: 245px;
             flex: 1;
-            padding: 1rem;
+            padding: 1.5rem;
             overflow-y: auto;
             transition: margin-left 0.3s ease;
         }
@@ -140,44 +78,129 @@
 
         /* Cores específicas para as categorias */
         .math {
-            background-color: #cce5ff;
+            background-color: #F79014;
         }
 
         .science {
-            background-color: #d4edda;
+            background-color: #21C61C;
         }
 
         .humanities {
-            background-color: #fff3cd;
+            background-color: #F2DA2F;
         }
 
         .languages {
-            background-color: #f8d7da;
+            background-color: #ffa1c4;
         }
 
         .preparation {
-            background-color: #d6d8d9;
+            background-color: #BE7EE8;
         }
 
         /* Ícones específicos para as matérias */
         .subject.math i {
-            color: #007bff;
+            color: #ffc107;
         }
 
         .subject.science i {
-            color: #28a745;
+            color: #aff999;
         }
 
         .subject.humanities i {
             color: #ffc107;
         }
-
+        
         .subject.languages i {
-            color: #dc3545;
+            color: #E53CC6;
         }
 
-        .subject.preparation i {
-            color: #6c757d;
+        .subject.preparation i 
+
+        
+         /* Estilo padrão do tema claro */
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            color: #000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Estilo para o tema escuro */
+        body.dark-mode {
+            background-color: #333;
+            color: red;
+        }
+
+        body.dark-mode h1, 
+    body.dark-mode h2 {
+        color: #fff; /* Títulos em branco */
+    }
+
+        /* Menu Lateral */
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            padding-top: 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+            transform: translateX(0); /* Mostra o menu por padrão */
+            z-index: 1000;
+            overflow-y: auto; /* Permite rolar o menu se necessário */
+        }
+
+        .sidebar.dark-mode {
+            background-color: #444;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-250px); /* Esconde o menu */
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            flex: 1;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            padding-left: 10px;
+            transition: padding-left 0.3s;
+        }
+
+        .sidebar ul li a.logout {
+            color: red;
+        }
+
+        .sidebar.dark-mode ul li a {
+            color: #fff;
+        }
+
+        .sidebar.dark-mode ul li a:hover {
+            background-color: #555;
         }
 
         /* Menu Hambúrguer */
@@ -187,101 +210,131 @@
 
         .toggle {
             position: fixed;
-            top: 15px;
-            left: 15px;
-            width: 40px;
-            height: 30px;
+            top: 5px;
+            width: 50px;
+            height: 35px;
             cursor: pointer;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             transition-duration: .3s;
             z-index: 1100;
         }
 
-        .bars {
-            width: 100%;
-            height: 4px;
-            background-color: rgb(76, 189, 151);
-            border-radius: 5px;
-            transition-duration: .3s;
+        /* Estilo para os ícones */
+        .toggle i {
+            font-size: 24px;
+            color: rgb(76, 189, 151);
+            transition: transform 0.3s, opacity 0.3s;
         }
 
-        #checkbox:checked + .toggle .bars {
-            margin-left: 13px;
+        /* Inicialmente mostrar o ícone de barras */
+        #checkbox:not(:checked) ~ .toggle i.fa-times {
+            display: block;
         }
 
-        #checkbox:checked + .toggle #bar2 {
-            transform: rotate(135deg);
-            margin-left: 0;
-            transform-origin: center;
-            transition-duration: .3s;
+        #checkbox:not(:checked) ~ .toggle i.fa-bars {
+            display: none;
         }
 
-        #checkbox:checked + .toggle #bar1 {
-            transform: rotate(45deg);
-            transition-duration: .3s;
-            transform-origin: left center;
+        /* Quando o menu está aberto */
+        #checkbox:checked ~ .toggle i.fa-times {
+            display: none;
         }
 
-        #checkbox:checked + .toggle #bar3 {
-            transform: rotate(-45deg);
-            transition-duration: .3s;
-            transform-origin: left center;
+        #checkbox:checked ~ .toggle i.fa-bars {
+            display: block;
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
+
+            .main-content{
+                margin-left: 1.5rem;
+                
+            }
             .sidebar {
-                width: 100%;
-                height: 100%;
+                display: flex;
+
+                width: 100%; /* Largura total da tela */
+                height: 100%;               
                 position: fixed;
                 top: 0;
-                left: 0;
+                right: 0; /* Menu alinhado à direita */
+                left: auto; /* Remove alinhamento à esquerda */
+                transform: translateX(100%); /* Esconde o menu fora da tela à direita */
+                z-index: 1000;
+                transition: transform 0.3s ease;
             }
 
-            .main-content {
-                margin-left: 0;
-                padding: 3rem;
+            .toggle {
+                
+                top: 15px; /* Mantém a distância do topo */
+                right: 15px; /* Move o ícone para o lado direito */
+                left: auto; /* Remove o alinhamento à esquerda */
+
             }
+
+            #checkbox:checked ~ .sidebar {
+                transform: translateX(0); /* Mostra o menu quando o checkbox está marcado */
+            }
+            #checkbox:not(:checked) ~ .toggle i.fa-bars {
+            display: block;
         }
+
+        #checkbox:not(:checked) ~ .toggle i.fa-times {
+            display: none;
+        }
+
+        /* Quando o menu está aberto */
+        #checkbox:checked ~ .toggle i.fa-bars {
+            display: none;
+        }
+
+        #checkbox:checked ~ .toggle i.fa-times {
+            display: block;
+        }
+        }
+
+        /* Botão de alternância de tema */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            margin: 20px;
+            color: #000;
+            transition: color 0.3s;
+        }
+
+        .theme-toggle i {
+            margin-right: 10px;
+        }
+
+        .theme-toggle:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sidebar.dark-mode .theme-toggle {
+            color: #fff;
+        }
+
+        .sidebar.dark-mode .theme-toggle:hover {
+            background-color: #555;
+        }
+        
+
     </style>
 </head>
 
 <body>
-    <!-- Menu Hambúrguer -->
-    <input type="checkbox" id="checkbox">
-    <label for="checkbox" class="toggle">
-        <div class="bars" id="bar1"></div>
-        <div class="bars" id="bar2"></div>
-        <div class="bars" id="bar3"></div>
-    </label>
-
-    <!-- Menu Lateral -->
-    <div class="sidebar">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
-            <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
-            <li><a href="#"><i class="fas fa-list"></i> Cronograma</a></li>
-            <li><a href="#"><i class="fas fa-book"></i> Matérias</a></li>
-            <li><a href="#"><i class="fas fa-pencil-ruler"></i> Simulados</a></li>
-            <li><a href="#"><i class="fas fa-comments"></i> Fórum</a></li>
-            <li><a href="#"><i class="fas fa-file-alt"></i> Redação</a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> Questões</a></li>
-            <li><a href="#" style="color: red;"><i class="fas fa-cog"></i> Configurações</a></li>
-            <li><a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
+   
 
     <!-- Conteúdo Principal -->
     <div class="main-content">
         <h1>Matérias</h1>
 
         <div class="category">
-            <h2>Matemática</h2>
+            <h2></h2>
             <div class="subject-grid">
                 <div class="subject math">
                     <i class="fas fa-calculator"></i>
@@ -294,16 +347,16 @@
             <h2>Ciências da Natureza</h2>
             <div class="subject-grid">
                 <div class="subject science">
-                    <i class="fas fa-leaf"></i>
-                    <span>Biologia</span>
-                </div>
-                <div class="subject science">
                     <i class="fas fa-flask"></i>
                     <span>Química</span>
                 </div>
                 <div class="subject science">
                     <i class="fas fa-atom"></i>
                     <span>Física</span>
+                </div>
+                <div class="subject science">
+                    <i class="fas fa-leaf"></i>
+                    <span>Biologia</span>
                 </div>
             </div>
         </div>
@@ -312,20 +365,20 @@
             <h2>Ciências Humanas</h2>
             <div class="subject-grid">
                 <div class="subject humanities">
+                    <i class="fas fa-globe"></i>
+                    <span>Geografia</span>
+                </div>
+                <div class="subject humanities">
                     <i class="fas fa-landmark"></i>
                     <span>História</span>
                 </div>
                 <div class="subject humanities">
-                    <i class="fas fa-globe-americas"></i>
-                    <span>Geografia</span>
-                </div>
-                <div class="subject humanities">
                     <i class="fas fa-balance-scale"></i>
-                    <span>Sociologia</span>
+                    <span>Filosofia</span>
                 </div>
                 <div class="subject humanities">
-                    <i class="fas fa-gavel"></i>
-                    <span>Filosofia</span>
+                    <i class="fas fa-users"></i>
+                    <span>Sociologia</span>
                 </div>
             </div>
         </div>
@@ -334,56 +387,42 @@
             <h2>Linguagens</h2>
             <div class="subject-grid">
                 <div class="subject languages">
-                    <i class="fas fa-font"></i>
-                    <span>Gramática</span>
+                    <i class="fas fa-book-open"></i>
+                    <span>Português</span>
                 </div>
                 <div class="subject languages">
-                    <i class="fas fa-book-open"></i>
+                    <i class="fas fa-book"></i>
                     <span>Literatura</span>
                 </div>
                 <div class="subject languages">
-                    <i class="fas fa-pencil-alt"></i>
-                    <span>Redação</span>
-                </div>
-                <div class="subject languages">
                     <i class="fas fa-language"></i>
-                    <span>Inglês</span>
+                    <span>Língua Estrangeira</span>
                 </div>
                 <div class="subject languages">
-                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-paint-brush"></i>
                     <span>Artes</span>
+                </div>
+                <div class="subject languages">
+                    <i class="fas fa-music"></i>
+                    <span>Educação Física</span>
                 </div>
             </div>
         </div>
 
         <div class="category">
-            <h2>Guia de Preparação</h2>
+            <h2>Preparação para o ENEM</h2>
             <div class="subject-grid">
                 <div class="subject preparation">
-                    <i class="fas fa-star"></i>
-                    <span>Guia de Preparação</span>
+                    <i class="fas fa-pencil-alt"></i>
+                    <span>Redação</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const sidebar = document.querySelector('.sidebar');
-        const mainContent = document.querySelector('.main-content');
-
-        // Função para esconder/mostrar a barra lateral
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                sidebar.classList.add('hidden');  // Esconde o menu
-                mainContent.classList.add('hamburger-active'); // Ajusta o conteúdo
-            } else {
-                sidebar.classList.remove('hidden');  // Mostra o menu
-                mainContent.classList.remove('hamburger-active'); // Ajusta o conteúdo
-            }
-        });
-    </script>
-
+   
 </body>
 
 </html>
+
+<div class="max-w-7xl mx-auto p-6 lg:p-8">
+    <x-theme-toggle/>

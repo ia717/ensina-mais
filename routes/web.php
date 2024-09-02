@@ -22,13 +22,36 @@ Route::get('materias', function () {
     return view('materias');
 });
 
-
 Route::get('questao', function () {
     return view('questao');
 });
 
+Route::get('cronograma', function () {
+    return view('cronograma');
+});
+
+Route::get('menuteste', function () {
+    return view('menuteste');
+});
+Route::get('calendario', function () {
+    return view('calendario');
+});
+
+Route::get('menuteste', function () {
+    return view('menuteste');
+});
+
+Route::get('teste', function () {
+    return view('teste');
+});
+
+
 Route::get('aula', function () {
     return view('aula');
+});
+
+Route::get('perguntas', function () {
+    return view('perguntas');
 });
 
 Route::get('matematica', function () {

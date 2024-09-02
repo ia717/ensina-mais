@@ -55,6 +55,7 @@
                    
                     
                 </div>
+                <p class="text-teal-500 text-lg font-semibold">45%</p>
             </div>
         </div>
     </div>
