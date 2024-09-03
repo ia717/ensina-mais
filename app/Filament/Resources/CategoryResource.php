@@ -37,7 +37,7 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->label('Url')
                     ->required()
-                    ->hidden()
+                    // ->hidden()
                     // ->unique('categories', 'slug')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
