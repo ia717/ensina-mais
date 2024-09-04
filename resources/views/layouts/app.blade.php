@@ -18,16 +18,6 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
-            @include('layouts.theme-toggle')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
 
             <!-- Page Content -->
             <main>
@@ -35,4 +25,33 @@
             </main>
         </div>
     </body>
+    <script>
+        const checkbox = document.getElementById('checkbox');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content'); // Seleciona o conteúdo principal
+        const bars = document.querySelectorAll('.bars');
+
+        checkbox.addEventListener('change', function() {
+            sidebar.classList.toggle('-translate-x-64'); // Mostra ou esconde o menu lateral
+            mainContent.classList.toggle('ml-64'); // Ajusta a margem do conteúdo principal
+            bars.forEach(bar => bar.classList.toggle('open')); // Animação do ícone de hambúrguer
+        });
+
+        function handleResize() {
+            const isSmallScreen = window.innerWidth < 640; // Verifica se a tela é menor que 640px
+            if (isSmallScreen) {
+                sidebar.classList.add('-translate-x-64'); // Esconde a barra lateral
+                mainContent.classList.remove('ml-64'); // Remove a margem do conteúdo principal
+            } else {
+                if (checkbox.checked) {
+                    mainContent.classList.add('ml-64'); // Se o checkbox estiver marcado, adiciona margem
+                }
+                sidebar.classList.remove('-translate-x-64'); // Garante que o menu esteja visível em telas maiores
+            }
+        }
+
+        // Chama a função na inicialização da página e no redimensionamento da janela
+        window.addEventListener('load', handleResize);
+        window.addEventListener('resize', handleResize);
+    </script>
 </html>

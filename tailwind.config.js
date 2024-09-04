@@ -9,8 +9,6 @@ export default {
     './resources/views/**/*.blade.php',
   ],
 
-  darkMode: 'class', // Mude para media para alterar com o sistema do usuario
-
   theme: {
     extend: {
       fontFamily: {
@@ -28,4 +26,6 @@ export default {
   },
 
   plugins: [forms],
+
+  darkMode: 'selector',
 };

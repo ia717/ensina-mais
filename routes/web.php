@@ -7,13 +7,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login2', function () {
+    return view('login2');
+});
+
 Route::get('/login1', function () {
     return view('login1');
 });
 
-Route::get('/login2', function () {
-    return view('login2');
-});
 Route::get('paginainicial', function () {
     return view('paginainicial');
 });
