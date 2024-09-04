@@ -17,6 +17,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@alpinejs/persist": "^3.14.1",
         "framer-motion": "^11.3.31"
     }
 }

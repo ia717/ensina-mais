@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Gabaritar</title>
-    <link rel="icon" href="{{asset('/imagens/mini logo nova(1).png')}}" type="image/x-icon">
+    
     {{-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- trocar a cor pela a que esta no figma -->
-    <script src="https://unpkg.com/scrollreveal">
-
-    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
 </head>
 <body class="relative bg-gray-100">
     <header id="inicio" class="bg-gray-100 shadow z-10">
