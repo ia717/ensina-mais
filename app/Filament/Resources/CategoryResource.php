@@ -6,12 +6,14 @@ use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
@@ -30,18 +32,40 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name') // Componente de input do Título da categoria
                     ->label('Nome')
                     ->required()
                     ->maxLength(255)
-                    ->live(onBlur: true) // onBlur: true
-                    ->afterStateUpdated(function(string $operation, string $state, Forms\Set $set) {
-                        dump($operation); // edit, create
-                        dump($state);
-                        dump($set);
+                    ->live(onBlur: true) // No caso ele só irá atualizar o campo slug quando o campo name perder o foco
+                    ->afterStateUpdated(function (
+                        string $operation,
+                        string $state,
+                        Forms\Set $set,
+                        Forms\get $get,
+                        
+                    ){ 
+
+                        /*
+                            Nota:
+                            o $get é uma instância da classe Get que é responsável por pegar o valor de outros campos do formulário
+                        
+                        */
+
+
+                        // Se for uma edição não atualiza o campo slug
+
+                        if($operation === 'edit'){ 
+                            return;
+                        }
+                        $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
+
                     }),
+
+
+
                 Forms\Components\TextInput::make('slug')
-                    ->label('Url')
+                    ->live()
+                    ->label('Slug')
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->maxLength(255),
