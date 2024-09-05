@@ -10,8 +10,10 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Infolists\Components\KeyValueEntry;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Validation\Rules\Unique;
 
 class SubjectResource extends Resource
 {
@@ -34,6 +36,11 @@ class SubjectResource extends Resource
                     ->label('Nome')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('subject_id')
+                    ->label('Id da Matéria')
+                    ->required()
+                    ->maxLength(255)
+                    ->Unique(),
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
                     ->required()

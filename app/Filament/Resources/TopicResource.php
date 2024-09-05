@@ -49,6 +49,10 @@ class TopicResource extends Resource
                 ->label('Imagem')
                 ->image()
                 ->nullable(),
+            Forms\Components\Select::make('subject_id')
+                ->label('Matéria')
+                ->options(\App\Models\Subject::pluck('name', 'id')->toArray())
+                ->required(),
             ]);
     }
 
@@ -56,8 +60,20 @@ class TopicResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('subject.name')
+                    ->label('Matéria')
+                    ->searchable()
+                    ->sortable(),
             ])
+
             ->filters([
                 //
             ])
