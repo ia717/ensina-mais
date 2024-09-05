@@ -34,17 +34,10 @@ class TopicResource extends Resource
                 Forms\Components\TextInput::make('name')
                 ->label('Nome')
                 ->required()
+                ->unique(ignoreRecord: true)
                 ->maxLength(255)
                 ->live(onBlur: true)
                 ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-
-                    /*
-                        Nota:
-                        o $get é uma instância da classe Get que é responsável por pegar o valor de outros campos do formulário
-                    
-                    */
-
-
                     // Se for uma edição não atualiza o campo slug
         
                     if ($operation === 'edit') {
@@ -53,11 +46,15 @@ class TopicResource extends Resource
                     $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
         
                 }),
-            Forms\Components\TextInput::make('slug')
+            Forms\Components\Hidden::make('slug')
                 ->label('Slug')
                 ->required()
-                // ->unique()
-                ->maxLength(255),
+                ->unique(ignoreRecord: true),
+                // ->maxLength(255),
+            Forms\Components\Select::make('subject_id')
+                ->label('Matéria')
+                ->options(\App\Models\Subject::pluck('name', 'id')->toArray())
+                ->required(),
             Forms\Components\Textarea::make('description')
                 ->label('Descrição')
                 ->nullable(),
@@ -68,11 +65,8 @@ class TopicResource extends Resource
                 ->label('Imagem')
                 ->image()
                 ->nullable(),
-            Forms\Components\Select::make('subject_id')
-                ->label('Matéria')
-                ->options(\App\Models\Subject::pluck('name', 'id')->toArray())
-                ->required(),
             ]);
+            
     }
 
     public static function table(Table $table): Table

@@ -22,7 +22,6 @@ class SubjectResource extends Resource
     protected static ?string $modelLabel = 'matéria';
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
-    // protected static ?string $navigationLabel = 'Matérias';
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
@@ -39,47 +38,37 @@ class SubjectResource extends Resource
                     ->maxLength(255)
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-
-                        /*
-                            Nota:
-                            o $get é uma instância da classe Get que é responsável por pegar o valor de outros campos do formulário
                         
-                        */
-
-
                         // Se for uma edição não atualiza o campo slug
-            
                         if ($operation === 'edit') {
                             return;
                         }
+
                         $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
             
                     }),
-                Forms\Components\TextInput::make('subject_id')
-                    ->label('Id da Matéria')
-                    ->required()
-                    ->maxLength(255)
-                    ->Unique(),
-                Forms\Components\TextInput::make('slug')
+                Forms\Components\Hidden::make('slug')
                     ->label('Slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição')
-                    ->nullable(),
+                    ->required(),
+                    // ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->label('Categoria')
                     ->options(\App\Models\Category::pluck('name', 'id')->toArray())
                     ->required(),
-                Forms\Components\TextInput::make('material_link')
-                    ->label('Link do Material')
-                    ->url() // valida se realmente é uma URL
-                    ->required(),
-                Forms\Components\TextInput::make('material_info')
-                    ->label('Informações do Material')
-                    ->required()
-                    ->maxLength(550),
-
+                Forms\Components\Textarea::make('description')
+                    ->label('Descrição')
+                    ->nullable(),
+                Forms\Components\Section::make('Material de Apoio')
+                    ->columns(2)
+                    ->schema([
+                        Forms\Components\TextInput::make('material_link')
+                            ->label('Link do Material')
+                            ->url(), // valida se realmente é uma URL
+                        Forms\Components\TextInput::make('material_info')
+                            ->label('Informações do Material')
+                            ->maxLength(550),
+                    ]),
+                
             ]);
     }
 

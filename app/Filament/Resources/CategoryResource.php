@@ -36,14 +36,14 @@ class CategoryResource extends Resource
                     ->label('Nome')
                     ->required()
                     ->maxLength(255)
+                    ->unique(ignoreRecord: true) // nome da aula unico
                     ->live(onBlur: true) // No caso ele só irá atualizar o campo slug quando o campo name perder o foco
                     ->afterStateUpdated(function (
                         string $operation,
                         string $state,
                         Forms\Set $set,
                         Forms\get $get,
-                        
-                    ){ 
+                    ) { 
 
                         /*
                             Nota:
@@ -61,14 +61,11 @@ class CategoryResource extends Resource
 
                     }),
 
-
-
-                Forms\Components\TextInput::make('slug')
-                    ->live()
+                Forms\Components\Hidden::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->unique(ignoreRecord: true)
-                    ->maxLength(255),
+                    ->unique(ignoreRecord: true),
+                    // ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')
                     ->nullable(),

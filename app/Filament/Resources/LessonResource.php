@@ -25,7 +25,6 @@ class LessonResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
-
     protected static ?string $slug = 'aulas';
 
     public static function form(Form $form): Form
@@ -38,14 +37,6 @@ class LessonResource extends Resource
                     ->maxLength(255)
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-
-                        /*
-                            Nota:
-                            o $get é uma instância da classe Get que é responsável por pegar o valor de outros campos do formulário
-                        
-                        */
-
-
                         // Se for uma edição não atualiza o campo slug
             
                         if ($operation === 'edit') {
@@ -54,12 +45,13 @@ class LessonResource extends Resource
                         $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
             
                     }),
-                Forms\Components\TextInput::make('slug')
+                Forms\Components\Hidden::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->maxLength(255),
+                    ->unique(ignoreRecord: true),
+                    // ->maxLength(255),
                 Forms\Components\Select::make('topic_id')
-                    ->label('Id do Tópico')
+                    ->label('Tópico')
                     ->options(\App\Models\Topic::pluck('name', 'id')->toArray())
                     ->required(),
                 Forms\Components\TextInput::make('link')
