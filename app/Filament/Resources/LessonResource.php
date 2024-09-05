@@ -37,18 +37,20 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->maxLength(255)
-                    ->disabled(),
-                Forms\Components\TextInput::make('topic_id')
-                    ->label('Tópico')
-                    ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('topic_id')
+                    ->label('Id do Tópico')
+                    ->options(\App\Models\Topic::pluck('name', 'id')->toArray())
+                    ->required(),
                 Forms\Components\TextInput::make('link')
                     ->label('Link da aula')
                     ->required(),
                 Forms\Components\Textarea::make('content')
                     ->label('Conteúdo')
                     ->nullable(),
+                Forms\Components\ToggleButtons::make('is_high_relevance')
+                    ->label('Alta Relevância')
+                    ->boolean(),
             ]);
     }
 
@@ -60,10 +62,6 @@ class LessonResource extends Resource
                     ->label('Nome')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\BooleanColumn::make('is_high_relevance')
                     ->label('Alta Relevância')
                     ->sortable(),
@@ -73,10 +71,6 @@ class LessonResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('link')
                     ->label('Link')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('content')
-                    ->label('Conteúdo')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('order')
