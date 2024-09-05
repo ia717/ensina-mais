@@ -12,4 +12,14 @@ class TeacherSubject extends Model
     protected $table = 'teachers_subjects';
 
     protected $fillable = ['user_id', 'subject_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class, 'subject_id');
+    }
 }
