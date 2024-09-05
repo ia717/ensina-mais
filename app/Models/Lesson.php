@@ -6,8 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
+
 class Lesson extends Model
 {   
 
@@ -25,8 +24,6 @@ class Lesson extends Model
     {
         return $this->belongsToMany(User::class, 'students_lessons')->withPivot('is_completed', 'completed_at');
     }
-    
-    use HasSlug;
 
     /**
      * Configura as opções para a geração do slug.
