@@ -33,12 +33,17 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nome')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live(onBlur: true) // onBlur: true
+                    ->afterStateUpdated(function(string $operation, string $state, Forms\Set $set) {
+                        dump($operation); // edit, create
+                        dump($state);
+                        dump($set);
+                    }),
                 Forms\Components\TextInput::make('slug')
                     ->label('Url')
                     ->required()
-                    // ->hidden()
-                    // ->unique('categories', 'slug')
+                    ->unique(ignoreRecord: true)
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')
