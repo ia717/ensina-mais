@@ -18,15 +18,25 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\LessonResource; 
+use App\Filament\Resources\TopicResource;
+use App\Policies\TeacherPanelPolicy;
+use App\Models\User; // Corrigido Model para Models
+use Filament\Facades\Filament;
 
 class TeacherPanelPanelProvider extends PanelProvider
 {
+    protected $policies = [
+        User::class => TeacherPanelPolicy::class,
+    ];
+
+    
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->id('teacherPanel')
             ->resources([
                 LessonResource::class,
+                TopicResource::class,
             ])
             ->path('teacherPanel')
             ->colors([

@@ -11,9 +11,6 @@ Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
 
-Route::get('/login2', function () {
-    return view('login2');
-});
 Route::get('/questaor', function () {
     return view('questaor');
 });
@@ -38,8 +35,19 @@ Route::get('paginainicial', function () {
 });
 
 Route::get('materias', function () {
-    return view('materias');
+    $categorias = \App\Models\Category::with('subjects')->get();
+    return view('materias', compact('categorias'));
 });
+
+Route::get('/materia/{slug}', function($slug) {
+    // Busca a matéria pelo slug
+    $materia = \App\Models\Subject::where('slug', $slug)->firstOrFail();
+    // Puxa os tópicos relacionados à matéria
+    $topicos = $materia->topicos;
+    // Retorna a view com a matéria e os tópicos
+    return view('matematica', compact('materia', 'topicos'));
+})->name('topicos');
+
 
 Route::get('questao', function () {
     return view('questao');
@@ -65,8 +73,9 @@ Route::get('teste', function () {
 });
 
 
-Route::get('aula', function () {
-    return view('aula');
+Route::get('topicos', function () {
+    $aulas = \App\Models\Lesson::with('topic')->get();
+    return view('matematica', compact('aulas'));
 });
 
 Route::get('perguntas', function () {
@@ -74,7 +83,9 @@ Route::get('perguntas', function () {
 });
 
 Route::get('matematica', function () {
-    return view('matematica');
+    
+    $topicos = \App\Models\Topic::all();
+    return view('matematica', compact('topicos'));
 });
 Route::get('usuario', function () {
     return view('usuario');

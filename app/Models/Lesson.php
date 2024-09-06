@@ -24,4 +24,6 @@ class Lesson extends Model
         return $this->belongsToMany(User::class, 'students_lessons')->withPivot('is_completed', 'completed_at');
     }
 
+    
+
 }

@@ -39,7 +39,7 @@
                 </li>
                 <li class="flex items-center px-5 py-3 dark:text-white">
                     <i class="mr-3 fa-solid fa-book"></i>
-                    <a href="#"
+                    <a href="/materias"
                         class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Matérias</a>
                 </li>
                 <li class="flex items-center px-5 py-3 dark:text-white">
