@@ -1,6 +1,7 @@
 @include('menuteste')
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,6 @@
     <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        
-
         /* Conteúdo Principal */
         .main-content {
             margin-left: 245px;
@@ -20,7 +19,8 @@
         }
 
         .main-content.hamburger-active {
-            margin-left: 0; /* Move o conteúdo para a esquerda quando o menu é escondido */
+            margin-left: 0;
+            /* Move o conteúdo para a esquerda quando o menu é escondido */
         }
 
         .main-content h1 {
@@ -109,16 +109,15 @@
         .subject.humanities i {
             color: #ffc107;
         }
-        
+
         .subject.languages i {
             color: #E53CC6;
         }
 
-        .subject.preparation i 
+        .subject.preparation i
 
-        
-         /* Estilo padrão do tema claro */
-         body {
+        /* Estilo padrão do tema claro */
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
             display: flex;
@@ -135,10 +134,11 @@
             color: red;
         }
 
-        body.dark-mode h1, 
-    body.dark-mode h2 {
-        color: #fff; /* Títulos em branco */
-    }
+        body.dark-mode h1,
+        body.dark-mode h2 {
+            color: #fff;
+            /* Títulos em branco */
+        }
 
         /* Menu Lateral */
         .sidebar {
@@ -150,9 +150,11 @@
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
-            transform: translateX(0); /* Mostra o menu por padrão */
+            transform: translateX(0);
+            /* Mostra o menu por padrão */
             z-index: 1000;
-            overflow-y: auto; /* Permite rolar o menu se necessário */
+            overflow-y: auto;
+            /* Permite rolar o menu se necessário */
         }
 
         .sidebar.dark-mode {
@@ -160,7 +162,8 @@
         }
 
         .sidebar.hidden {
-            transform: translateX(-250px); /* Esconde o menu */
+            transform: translateX(-250px);
+            /* Esconde o menu */
         }
 
         .sidebar ul {
@@ -229,70 +232,80 @@
         }
 
         /* Inicialmente mostrar o ícone de barras */
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
+        #checkbox:not(:checked)~.toggle i.fa-times {
             display: block;
         }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-bars {
+        #checkbox:not(:checked)~.toggle i.fa-bars {
             display: none;
         }
 
         /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-times {
+        #checkbox:checked~.toggle i.fa-times {
             display: none;
         }
 
-        #checkbox:checked ~ .toggle i.fa-bars {
+        #checkbox:checked~.toggle i.fa-bars {
             display: block;
         }
 
         @media (max-width: 768px) {
 
-            .main-content{
+            .main-content {
                 margin-left: 1.5rem;
-                
+
             }
+
             .sidebar {
                 display: flex;
 
-                width: 100%; /* Largura total da tela */
-                height: 100%;               
+                width: 100%;
+                /* Largura total da tela */
+                height: 100%;
                 position: fixed;
                 top: 0;
-                right: 0; /* Menu alinhado à direita */
-                left: auto; /* Remove alinhamento à esquerda */
-                transform: translateX(100%); /* Esconde o menu fora da tela à direita */
+                right: 0;
+                /* Menu alinhado à direita */
+                left: auto;
+                /* Remove alinhamento à esquerda */
+                transform: translateX(100%);
+                /* Esconde o menu fora da tela à direita */
                 z-index: 1000;
                 transition: transform 0.3s ease;
             }
 
             .toggle {
-                
-                top: 15px; /* Mantém a distância do topo */
-                right: 15px; /* Move o ícone para o lado direito */
-                left: auto; /* Remove o alinhamento à esquerda */
+
+                top: 15px;
+                /* Mantém a distância do topo */
+                right: 15px;
+                /* Move o ícone para o lado direito */
+                left: auto;
+                /* Remove o alinhamento à esquerda */
 
             }
 
-            #checkbox:checked ~ .sidebar {
-                transform: translateX(0); /* Mostra o menu quando o checkbox está marcado */
+            #checkbox:checked~.sidebar {
+                transform: translateX(0);
+                /* Mostra o menu quando o checkbox está marcado */
             }
-            #checkbox:not(:checked) ~ .toggle i.fa-bars {
-            display: block;
-        }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-bars {
+                display: block;
+            }
 
-        /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-bars {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-times {
+                display: none;
+            }
 
-        #checkbox:checked ~ .toggle i.fa-times {
-            display: block;
-        }
+            /* Quando o menu está aberto */
+            #checkbox:checked~.toggle i.fa-bars {
+                display: none;
+            }
+
+            #checkbox:checked~.toggle i.fa-times {
+                display: block;
+            }
         }
 
         /* Botão de alternância de tema */
@@ -321,13 +334,11 @@
         .sidebar.dark-mode .theme-toggle:hover {
             background-color: #555;
         }
-        
-
     </style>
 </head>
 
 <body>
-   
+
 
     <!-- Conteúdo Principal -->
     <div class="main-content">
@@ -419,10 +430,10 @@
             </div>
         </div>
     </div>
-   
+
 </body>
 
 </html>
 
 <div class="max-w-7xl mx-auto p-6 lg:p-8">
-    <x-theme-toggle/>
+    <x-theme-toggle />

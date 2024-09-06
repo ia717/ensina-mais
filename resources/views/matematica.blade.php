@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Matemática</title>
     <!-- Importando Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Importando Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -21,9 +21,10 @@
         }
 
         .main-content.hamburger-active {
-            margin-left: 0; /* Move o conteúdo para a esquerda quando o menu é escondido */
+            margin-left: 0;
+            /* Move o conteúdo para a esquerda quando o menu é escondido */
         }
-       
+
         .main-content h1 {
             font-size: 24px;
             color: #333;
@@ -118,8 +119,9 @@
         .subject.preparation i {
             color: purple;
         }
-         /* Estilo padrão do tema claro */
-         body {
+
+        /* Estilo padrão do tema claro */
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
             display: flex;
@@ -129,7 +131,7 @@
             color: #000;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+
 
         /* Estilo para o tema escuro */
         body.dark-mode {
@@ -137,20 +139,23 @@
             color: #444;
         }
 
-        body.dark-mode .main-content h1{
-    color: white; /* Cor do texto do conteúdo principal no tema escuro */
-}
+        body.dark-mode .main-content h1 {
+            color: white;
+            /* Cor do texto do conteúdo principal no tema escuro */
+        }
 
 
-    body.dark-mode .subject span,
-body.dark-mode .subject i {
-    color: #444; /* Cor do texto e dos ícones ajustada para modo escuro */
-}
+        body.dark-mode .subject span,
+        body.dark-mode .subject i {
+            color: #444;
+            /* Cor do texto e dos ícones ajustada para modo escuro */
+        }
 
-    /* Estilo para o tema escuro */
-body.dark-mode .main-content h2 {
-    color: #fff; /* Cor do texto do conteúdo principal no tema escuro */
-}
+        /* Estilo para o tema escuro */
+        body.dark-mode .main-content h2 {
+            color: #fff;
+            /* Cor do texto do conteúdo principal no tema escuro */
+        }
 
         /* Menu Lateral */
         .sidebar {
@@ -162,9 +167,11 @@ body.dark-mode .main-content h2 {
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
-            transform: translateX(0); /* Mostra o menu por padrão */
+            transform: translateX(0);
+            /* Mostra o menu por padrão */
             z-index: 1000;
-            overflow-y: auto; /* Permite rolar o menu se necessário */
+            overflow-y: auto;
+            /* Permite rolar o menu se necessário */
         }
 
         .sidebar.dark-mode {
@@ -172,7 +179,8 @@ body.dark-mode .main-content h2 {
         }
 
         .sidebar.hidden {
-            transform: translateX(-250px); /* Esconde o menu */
+            transform: translateX(-250px);
+            /* Esconde o menu */
         }
 
         .sidebar ul {
@@ -241,70 +249,80 @@ body.dark-mode .main-content h2 {
         }
 
         /* Inicialmente mostrar o ícone de barras */
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
+        #checkbox:not(:checked)~.toggle i.fa-times {
             display: block;
         }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-bars {
+        #checkbox:not(:checked)~.toggle i.fa-bars {
             display: none;
         }
 
         /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-times {
+        #checkbox:checked~.toggle i.fa-times {
             display: none;
         }
 
-        #checkbox:checked ~ .toggle i.fa-bars {
+        #checkbox:checked~.toggle i.fa-bars {
             display: block;
         }
 
         @media (max-width: 1000px) {
 
-            .main-content{
+            .main-content {
                 margin-left: 1.5rem;
-                
+
             }
+
             .sidebar {
                 display: flex;
-                
-                width: 100%; /* Largura total da tela */
-                height: 100%;               
+
+                width: 100%;
+                /* Largura total da tela */
+                height: 100%;
                 position: fixed;
                 top: 0;
-                right: 0; /* Menu alinhado à direita */
-                left: auto; /* Remove alinhamento à esquerda */
-                transform: translateX(100%); /* Esconde o menu fora da tela à direita */
+                right: 0;
+                /* Menu alinhado à direita */
+                left: auto;
+                /* Remove alinhamento à esquerda */
+                transform: translateX(100%);
+                /* Esconde o menu fora da tela à direita */
                 z-index: 1000;
                 transition: transform 0.3s ease;
             }
 
             .toggle {
-                
-                top: 15px; /* Mantém a distância do topo */
-                right: 15px; /* Move o ícone para o lado direito */
-                left: auto; /* Remove o alinhamento à esquerda */
+
+                top: 15px;
+                /* Mantém a distância do topo */
+                right: 15px;
+                /* Move o ícone para o lado direito */
+                left: auto;
+                /* Remove o alinhamento à esquerda */
 
             }
 
-            #checkbox:checked ~ .sidebar {
-                transform: translateX(0); /* Mostra o menu quando o checkbox está marcado */
+            #checkbox:checked~.sidebar {
+                transform: translateX(0);
+                /* Mostra o menu quando o checkbox está marcado */
             }
-            #checkbox:not(:checked) ~ .toggle i.fa-bars {
-            display: block;
-        }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-bars {
+                display: block;
+            }
 
-        /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-bars {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-times {
+                display: none;
+            }
 
-        #checkbox:checked ~ .toggle i.fa-times {
-            display: block;
-        }
+            /* Quando o menu está aberto */
+            #checkbox:checked~.toggle i.fa-bars {
+                display: none;
+            }
+
+            #checkbox:checked~.toggle i.fa-times {
+                display: block;
+            }
         }
 
         /* Botão de alternância de tema */
@@ -333,16 +351,15 @@ body.dark-mode .main-content h2 {
         .sidebar.dark-mode .theme-toggle:hover {
             background-color: #555;
         }
-        
     </style>
 </head>
 
 <body>
-  
+
 
     <!-- Conteúdo Principal -->
-   
-     <div class="main-content">
+
+    <div class="main-content">
         <h1>Página de Matemática</h1>
 
         <!-- Categoria: Matemática -->
@@ -350,56 +367,56 @@ body.dark-mode .main-content h2 {
             <h2>Escolha um assunto</h2>
             <!-- Grid de Assuntos -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
-        <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
-        <div class="bg-blue-400 h-1 mt-2 rounded"></div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
+                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
+                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
+                </div>
 
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
-        <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
-        <div class="bg-blue-400 h-1 mt-2 rounded"></div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
+                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
+                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
+                </div>
 
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Exponencial</h3>
-        <p class="text-sm text-gray-600 mt-2">15 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">0 de 15 aulas</div>
-        <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Exponencial</h3>
+                    <p class="text-sm text-gray-600 mt-2">15 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 15 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
 
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Probabilidade</h3>
-        <p class="text-sm text-gray-600 mt-2">10 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">0 de 10 aulas</div>
-        <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Probabilidade</h3>
+                    <p class="text-sm text-gray-600 mt-2">10 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 10 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
 
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
-        <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
-        <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
+                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
 
-      <div class="bg-white rounded-lg shadow p-4">
-        <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-        <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
-        <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
-        <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
-        <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-        </div> 
-      </div>
-      </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
+                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
+            </div>
         </div>
+    </div>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+@include ('menuteste')
 <x-app-layout> 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,5 +1,7 @@
+@include('menuteste')
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +9,21 @@
     <title>Perguntas Frequentes</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
-    <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl w-full">
+
+<body class="bg-gray-100 flex  items-center h-screen">
+<main class="items-center justify-center flex min-h-screen ml-96"> 
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl w-full justify-center items-center ">
         <h2 class="text-2xl font-bold mb-4 text-center text-blue-500">Perguntas Frequentes</h2>
         <div class="relative mb-6 text-center">
             <select class="block w-1/3 mx-auto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded-full shadow leading-tight focus:outline-none focus:shadow-outline">
                 <option>Selecione sua dúvida</option>
                 <!-- Options could be populated here -->
-                 
-                
+
+
             </select>
-            
+
         </div>
-        
+
         <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
             <!-- FAQ Container -->
             <div class="bg-gray-50 rounded-lg p-6 md:w-1/2">
@@ -86,7 +90,7 @@
             </div>
         </div>
     </div>
-
+</main>
     <script>
         function toggleAnswer(id) {
             var answer = document.getElementById(id);
@@ -96,8 +100,7 @@
                 answer.classList.add('hidden');
             }
         }
-        
     </script>
 </body>
-</html>
 
+</html>

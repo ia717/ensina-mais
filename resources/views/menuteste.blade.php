@@ -1,12 +1,11 @@
-
-
+@include('customcss')
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matemática</title>
+    <title>Redações</title>
     <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -25,7 +24,7 @@
         /* Estilo para o tema escuro */
         body.dark-mode {
             background-color: #333;
-            color: red;
+            color: black;
         }
 
         /* Menu Lateral */
@@ -38,9 +37,11 @@
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
-            transform: translateX(0); /* Mostra o menu por padrão */
+            transform: translateX(0);
+            /* Mostra o menu por padrão */
             z-index: 1000;
-            overflow-y: auto; /* Permite rolar o menu se necessário */
+            overflow-y: auto;
+            /* Permite rolar o menu se necessário */
         }
 
         .sidebar.dark-mode {
@@ -48,7 +49,8 @@
         }
 
         .sidebar.hidden {
-            transform: translateX(-250px); /* Esconde o menu */
+            transform: translateX(-250px);
+            /* Esconde o menu */
         }
 
         .sidebar ul {
@@ -117,61 +119,70 @@
         }
 
         /* Inicialmente mostrar o ícone de barras */
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
+        #checkbox:not(:checked)~.toggle i.fa-times {
             display: block;
         }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-bars {
+        #checkbox:not(:checked)~.toggle i.fa-bars {
             display: none;
         }
 
         /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-times {
+        #checkbox:checked~.toggle i.fa-times {
             display: none;
         }
 
-        #checkbox:checked ~ .toggle i.fa-bars {
+        #checkbox:checked~.toggle i.fa-bars {
             display: block;
         }
 
         @media (max-width: 768px) {
             .sidebar {
-                width: 100%; /* Largura total da tela */
-                height: 100%;               
+                width: 100%;
+                /* Largura total da tela */
+                height: 100%;
                 position: fixed;
                 top: 0;
-                right: 0; /* Menu alinhado à direita */
-                left: auto; /* Remove alinhamento à esquerda */
-                transform: translateX(100%); /* Esconde o menu fora da tela à direita */
+                right: 0;
+                /* Menu alinhado à direita */
+                left: auto;
+                /* Remove alinhamento à esquerda */
+                transform: translateX(100%);
+                /* Esconde o menu fora da tela à direita */
                 z-index: 1000;
                 transition: transform 0.3s ease;
             }
 
             .toggle {
-                top: 15px; /* Mantém a distância do topo */
-                right: 15px; /* Move o ícone para o lado direito */
-                left: auto; /* Remove o alinhamento à esquerda */
+                top: 15px;
+                /* Mantém a distância do topo */
+                right: 15px;
+                /* Move o ícone para o lado direito */
+                left: auto;
+                /* Remove o alinhamento à esquerda */
             }
 
-            #checkbox:checked ~ .sidebar {
-                transform: translateX(0); /* Mostra o menu quando o checkbox está marcado */
+            #checkbox:checked~.sidebar {
+                transform: translateX(0);
+                /* Mostra o menu quando o checkbox está marcado */
             }
-            #checkbox:not(:checked) ~ .toggle i.fa-bars {
-            display: block;
-        }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-bars {
+                display: block;
+            }
 
-        /* Quando o menu está aberto */
-        #checkbox:checked ~ .toggle i.fa-bars {
-            display: none;
-        }
+            #checkbox:not(:checked)~.toggle i.fa-times {
+                display: none;
+            }
 
-        #checkbox:checked ~ .toggle i.fa-times {
-            display: block;
-        }
+            /* Quando o menu está aberto */
+            #checkbox:checked~.toggle i.fa-bars {
+                display: none;
+            }
+
+            #checkbox:checked~.toggle i.fa-times {
+                display: block;
+            }
         }
 
         /* Botão de alternância de tema */
@@ -200,30 +211,28 @@
         .sidebar.dark-mode .theme-toggle:hover {
             background-color: #555;
         }
-
-
     </style>
 </head>
 
-<body>
+<body class="user-select-none">
     <!-- Menu Hambúrguer -->
     <input type="checkbox" id="checkbox">
     <label for="checkbox" class="toggle">
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-bars fixed"></i>
+        <i class="fas fa-times fixed"></i>
     </label>
 
     <!-- Menu Lateral -->
     <div class="sidebar">
         <ul>
-        <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="/usuario"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
             <li><a href="/calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
             <li><a href="/cronograma"><i class="fas fa-list"></i> Cronograma</a></li>
             <li><a href="/materias"><i class="fas fa-book"></i> Matérias</a></li>
             <li><a href="#"><i class="fas fa-pencil-ruler"></i> Simulados</a></li>
-            <li><a href="#"><i class="fas fa-comments"></i> Fórum</a></li>
-            <li><a href="#"><i class="fas fa-file-alt"></i> Redação</a></li>
+            <li><a href="forumduvida"><i class="fas fa-comments"></i> Fórum</a></li>
+            <li><a href="redacao"><i class="fas fa-file-alt"></i> Redação</a></li>
             <li><a href="questao"><i class="fas fa-question-circle"></i> Questões</a></li>
             <li><a href="#" style="color: #4cbd97;"><i class="fas fa-cog"></i> Configurações</a></li>
             <li><a href="#" class="logout" style="color: #4cbd97!important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -232,44 +241,44 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const checkbox = document.getElementById('checkbox');
-        const sidebar = document.querySelector('.sidebar');
-        const mainContent = document.querySelector('.main-content');
-        const themeToggle = document.querySelector('.theme-toggle');
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('checkbox');
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const themeToggle = document.querySelector('.theme-toggle');
 
-        // Verifica se há uma preferência salva no localStorage
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            sidebar.classList.add('dark-mode');
-        }
-
-        // Função para alternar entre tema claro e escuro
-        themeToggle.addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-            sidebar.classList.toggle('dark-mode');
-
-            // Salva a preferência do tema no localStorage
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
+            // Verifica se há uma preferência salva no localStorage
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                sidebar.classList.add('dark-mode');
             }
-        });
 
-        // Função para esconder/mostrar a barra lateral e ajustar o conteúdo
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                sidebar.classList.add('hidden');  // Esconde o menu
-                mainContent.classList.add('hamburger-active'); // Ajusta o conteúdo
-            } else {
-                sidebar.classList.remove('hidden');  // Mostra o menu
-                mainContent.classList.remove('hamburger-active'); // Ajusta o conteúdo
-            }
+            // Função para alternar entre tema claro e escuro
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                sidebar.classList.toggle('dark-mode');
+
+                // Salva a preferência do tema no localStorage
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Função para esconder/mostrar a barra lateral e ajustar o conteúdo
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    sidebar.classList.add('hidden'); // Esconde o menu
+                    mainContent.classList.add('hamburger-active'); // Ajusta o conteúdo
+                } else {
+                    sidebar.classList.remove('hidden'); // Mostra o menu
+                    mainContent.classList.remove('hamburger-active'); // Ajusta o conteúdo
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
-</html>
 
+</html>
