@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class TopicResource extends Resource
 {
@@ -33,12 +34,27 @@ class TopicResource extends Resource
                 Forms\Components\TextInput::make('name')
                 ->label('Nome')
                 ->required()
-                ->maxLength(255),
-            Forms\Components\TextInput::make('slug')
+                ->unique(ignoreRecord: true)
+                ->maxLength(255)
+                ->live(onBlur: true)
+                ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
+                    // Se for uma edição não atualiza o campo slug
+        
+                    if ($operation === 'edit') {
+                        return;
+                    }
+                    $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
+        
+                }),
+            Forms\Components\Hidden::make('slug')
                 ->label('Slug')
                 ->required()
-                // ->unique()
-                ->maxLength(255),
+                ->unique(ignoreRecord: true),
+                // ->maxLength(255),
+            Forms\Components\Select::make('subject_id')
+                ->label('Matéria')
+                ->options(\App\Models\Subject::pluck('name', 'id')->toArray())
+                ->required(),
             Forms\Components\Textarea::make('description')
                 ->label('Descrição')
                 ->nullable(),
@@ -50,14 +66,27 @@ class TopicResource extends Resource
                 ->image()
                 ->nullable(),
             ]);
+            
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('subject.name')
+                    ->label('Matéria')
+                    ->searchable()
+                    ->sortable(),
             ])
+
             ->filters([
                 //
             ])
