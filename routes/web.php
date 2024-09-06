@@ -7,8 +7,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/caixafiltros', function () {
+    return view('caixafiltros');
+});
+Route::get('/questaow', function () {
+    return view('questaow');
+});
+
+Route::get('/conteudo3', function () {
+    return view('conteudo3');
+});
+
+
 Route::get('/login2', function () {
     return view('login2');
+});
+Route::get('/questaor', function () {
+    return view('questaor');
+});
+Route::get('/forumduvida', function () {
+    return view('forumduvida');
+});
+
+Route::get('/redacao', function () {
+    return view('redacao');
+});
+
+Route::get('/redacao2', function () {
+    return view('redacao2');
 });
 
 Route::get('/login1', function () {

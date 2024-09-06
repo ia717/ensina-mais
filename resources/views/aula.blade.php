@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <x-app-layout>
     <!-- Conteúdo principal -->
     <div id="main-content" class="flex-1 lg:ml-64 p-8 transition-all duration-300 overflow-y-auto">
@@ -15,6 +16,28 @@
                         <li>Mais de 1000 questões</li>
                         <li>Simulados semanais</li>
                     </ul>
+=======
+@include ('menuteste')
+<x-app-layout> 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática Básica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-xl font-bold mb-4">Matemática Básica</h1>
+        <p class="text-gray-700 mb-4">Escolha uma aula</p>
+
+        <div class="space-y-4">
+            <!-- Aula 1 -->
+            <div class="p-4 border rounded-md flex justify-between items-center">
+                <div>
+                    <p class="text-gray-700"><br><span class="font-bold">20:00</span> </br>Adição e Subtração</p>
+>>>>>>> 76299679aa2cc658180f3082ffb49bf24069453b
                 </div>
                 <div class="md:w-1/3 flex justify-center mt-6 md:mt-0">
                     <img src="https://via.placeholder.com/300" alt="Livros" class="w-64 h-64">
