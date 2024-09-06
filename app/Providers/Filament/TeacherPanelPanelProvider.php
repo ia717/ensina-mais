@@ -17,26 +17,27 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\LessonResource; 
 
-class AdminPanelProvider extends PanelProvider
+class TeacherPanelPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
-            ->login()
+            ->id('teacherPanel')
+            ->resources([
+                LessonResource::class,
+            ])
+            ->path('teacherPanel')
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(asset('imagens/logo ensina claro.png'))
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
+            ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/TeacherPanel/Widgets'), for: 'App\\Filament\\TeacherPanel\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
