@@ -58,9 +58,9 @@ class TopicResource extends Resource
             Forms\Components\Textarea::make('description')
                 ->label('Descrição')
                 ->nullable(),
-            Forms\Components\ToggleButtons::make('is_high_relevance')
-                ->label('Alta Relevância')
-                ->boolean(),
+            Forms\Components\Toggle::make('is_high_relevance')
+                ->label('Alto Relevância')
+                ->inline(false),
             Forms\Components\FileUpload::make('image')
                 ->label('Imagem')
                 ->image()

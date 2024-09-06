@@ -1,77 +1,119 @@
-@include ('menuteste')
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Matemática</title>
+    <!-- Importando Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>TOPICOS DA MATERIA</title>
+    <!-- Importando Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Conteúdo Principal */
+        .main-content {
+            margin-left: 245px;
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.hamburger-active {
+            margin-left: 30px;
+            /* Move o conteúdo para a esquerda quando o menu é escondido */
+        }
+
+        .main-content h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="ml-[250px] bg-white p-6 rounded-md shadow-md">
-        <h1 class="text-xl font-bold mb-4"></h1>
-    <!-- Aulas -->
-     <!-- @foreach ($aulas as $aula)
-         <p>{{$aula->name}}</p>
-     @endforeach -->
 
+<body>
+    @include('menuteste')
 
+    <!-- Conteúdo Principal -->
 
+    <div class="main-content">
+        <h1>Página de {{ $materia->name }}</h1>
 
-
-
-
-
-
-
-        <!-- <div class="space-y-4"> -->
-            <!-- Aula 1 -->
-            <!-- <div class="p-4 border rounded-md flex justify-between items-center">
-                <div>
-                    <p class="text-gray-700"><br><span class="font-bold">20:00</span> </br>Adição e Subtração</p>
-                </div>
-                <span class="text-red-600 bg-red-100 px-2 py-1 rounded-full text-sm">Alta relevância para o ENEM</span>
-            </div> -->
-
-            <!-- Aula 2 -->
-            <!-- <div class="p-4 border rounded-md flex justify-between items-center">
-                <div>
-                    <p class="text-gray-700"><br><span class="font-bold">18:00</span> </br>Multiplicação e Divisão</p>
-                </div>
-                <span class="text-red-600 bg-red-100 px-2 py-1 rounded-full text-sm">Alta relevância para o ENEM</span>
-            </div> -->
-
-            <!-- Aula 3 -->
-            <!-- <div class="p-4 border rounded-md flex justify-between items-center">
-                <div>
-                    <p class="text-gray-700"><br><span class="font-bold">21:00</span> </br> Expressões Numéricas</p>
-                </div>
-                <span class="text-red-600 bg-red-100 px-2 py-1 rounded-full text-sm">Alta relevância para o ENEM</span>
-            </div> -->
-
-            <!-- Aula 4 -->
-            <!-- <div class="p-4 border rounded-md flex justify-between items-center">
-                <div>
-                    <p class="text-gray-700"><br><span class="font-bold">25:00</span></br> Fração</p>
-                    
-                </div>
-            </div> -->
-
-            <!-- Questões -->
-            <!-- <div class="p-4 border rounded-md flex items-center">
-                <div class="flex items-center space-x-2">
-                <p><label for="questoes" class="text-gray-700">Questões</p>
-                 </br>Multiplicação e Divisão</p>
-                    <input type="radio" id="questoes" name="aula" class="form-radio text-blue-600" checked>
-                    
-                   
-                    
-                </div>
-                <p class="text-teal-500 text-lg font-semibold">45%</p>
-            </div> -->
+        <div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                @if ($topicos->isEmpty())
+                    <p>Não há tópicos cadastrados para esta matéria.</p>
+                @else
+                    @foreach ($topicos as $topic)
+                        <a href="{{ route('aulas', ['materia' => $materia->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
+                            <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                            <h3 class="text-xl font-semibold text-gray-800">{{ $topic->name }}</h3>
+                            <p class="text-sm text-gray-600 mt-2">{{ $topic->lessons->count() }} AULAS</p>
+                            <div class="mt-2 text-sm text-gray-600">10 de {{ $topic->lessons->count() }} aulas</div>
+                            <div class="bg-blue-400 h-1 mt-2 rounded"></div>
+                        </a>
+                    @endforeach
+                @endif
+            </div>
         </div>
-    </div>
 
+        <!-- Categoria: Matemática -->
+        <!-- <div class="category">
+            <h2>Escolha um assunto</h2>
+            Grid de Assuntos
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
+                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
+                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
+                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
+                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Exponencial</h3>
+                    <p class="text-sm text-gray-600 mt-2">15 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 15 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Probabilidade</h3>
+                    <p class="text-sm text-gray-600 mt-2">10 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 10 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
+                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
+                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
+                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
+                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
+                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
+                </div>
+            </div>
+        </div> -->
+    </div>
 </body>
+
 </html>

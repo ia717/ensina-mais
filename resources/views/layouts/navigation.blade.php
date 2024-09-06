@@ -13,7 +13,7 @@
 
         <!-- Menu Lateral -->
         <div id="sidebar"
-            class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
+            class="fixed w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
             <h2 class="text-black dark:text-white text-center mb-5 text-xl font-bold">Menu</h2>
             <ul class="list-none p-0 m-0">
                 <li class="flex items-center px-5 py-3 dark:text-white">

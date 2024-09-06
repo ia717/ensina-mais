@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login1');
 });
 
 Route::get('/caixafiltros', function () {
@@ -43,11 +43,19 @@ Route::get('/materia/{slug}', function($slug) {
     // Busca a matéria pelo slug
     $materia = \App\Models\Subject::where('slug', $slug)->firstOrFail();
     // Puxa os tópicos relacionados à matéria
-    $topicos = $materia->topicos;
+    $topicos = $materia->topics;
     // Retorna a view com a matéria e os tópicos
-    return view('matematica', compact('materia', 'topicos'));
+    return view('topicos', compact('materia', 'topicos'));
 })->name('topicos');
 
+Route::get('/materia/{materia}/{slug}', function($materia, $slug) {
+    // Busca o topico pelo slug
+    $topico = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+    // Puxa as aulas relacionadas ao tópico
+    $aulas = $topico->lessons;
+    // Retorna a view com o tópico e as aulas
+    return view('aulas', compact('topico', 'aulas'));
+})->name('aulas');
 
 Route::get('questao', function () {
     return view('questao');
@@ -73,20 +81,17 @@ Route::get('teste', function () {
 });
 
 
-Route::get('topicos', function () {
+Route::get('aulas', function () {
     $aulas = \App\Models\Lesson::with('topic')->get();
-    return view('matematica', compact('aulas'));
+    return view('aulas', compact('aulas'));
 });
 
 Route::get('perguntas', function () {
     return view('perguntas');
 });
 
-Route::get('matematica', function () {
-    
-    $topicos = \App\Models\Topic::all();
-    return view('matematica', compact('topicos'));
-});
+
+
 Route::get('usuario', function () {
     return view('usuario');
 });
