@@ -10,6 +10,14 @@ Route::get('/', function () {
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
+Route::get('/questaow', function () {
+    return view('questaow');
+});
+
+Route::get('/conteudo3', function () {
+    return view('conteudo3');
+});
+
 
 Route::get('/login2', function () {
     return view('login2');
