@@ -27,8 +27,8 @@ Route::get('questao', function () {
     return view('questao');
 });
 
-Route::get('cronograma', function () {
-    return view('cronograma');
+Route::get('cronogramamobile', function () {
+    return view('cronogramamobile');
 });
 
 Route::get('menuteste', function () {
@@ -44,6 +44,13 @@ Route::get('menuteste', function () {
 
 Route::get('teste', function () {
     return view('teste');
+});
+
+Route::get('cronograma', function () {
+    return view('cronograma');
+});
+Route::get('semana', function () {
+    return view('semana');
 });
 
 
