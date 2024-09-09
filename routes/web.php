@@ -10,6 +10,14 @@ Route::get('/', function () {
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
+Route::get('/questaow', function () {
+    return view('questaow');
+});
+
+Route::get('/conteudo3', function () {
+    return view('conteudo3');
+});
+
 
 Route::get('/questaor', function () {
     return view('questaor');
@@ -61,8 +69,8 @@ Route::get('questao', function () {
     return view('questao');
 });
 
-Route::get('cronograma', function () {
-    return view('cronograma');
+Route::get('cronogramamobile', function () {
+    return view('cronogramamobile');
 });
 
 Route::get('menuteste', function () {
@@ -78,6 +86,13 @@ Route::get('menuteste', function () {
 
 Route::get('teste', function () {
     return view('teste');
+});
+
+Route::get('cronograma', function () {
+    return view('cronograma');
+});
+Route::get('semana', function () {
+    return view('semana');
 });
 
 

@@ -62,5 +62,10 @@
 </body>
 
 </html>
-
+    <!--
 <div class="max-w-7xl mx-auto p-6 lg:p-8">
+<<<<<<< HEAD
+    <x-theme-toggle/>-->
+=======
+    <x-theme-toggle />
+>>>>>>> 76299679aa2cc658180f3082ffb49bf24069453b

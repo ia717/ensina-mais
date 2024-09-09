@@ -18,6 +18,7 @@
             <div class="p-4 border rounded-md flex justify-between items-center">
                 <div>
                     <p class="text-gray-700"><br><span class="font-bold">20:00</span> </br>Adição e Subtração</p>
+>>>>>>> 76299679aa2cc658180f3082ffb49bf24069453b
                 </div>
                 <span class="text-red-600 bg-red-100 px-2 py-1 rounded-full text-sm">Alta relevância para o ENEM</span>
             </div> 

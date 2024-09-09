@@ -13,6 +13,7 @@
 </head>
 
 <body class="relative bg-gray-100 user-select-none">
+    <!-- @include('headernav') -->
     <header id="inicio" class="bg-gray-100 shadow z-10">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <div class="flex items-center space-x-2">
@@ -33,6 +34,7 @@
             <a href="#aluno" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Estude Conosco</a>
         </nav>
     </section>
+    
 
     <div><img class="absolute z-0 left-0 top-48" src="{{asset('/imagens/Vector (2).png')}}" alt=""></div>
 
@@ -147,9 +149,10 @@
                     <img src="{{asset('imagens/everton.PNG')}}" alt="" class="rounded-full h-80 w-80">
                 </div>
                 <div class="flex justify-between">
-                <button id="prev" class="absolute left-40 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75"><</button>
-                <button id="next" class="absolute right-40 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-6xl rounded-full font-medium pt-80 text-sky-500 mt-36 hover:text-sky-800 transition-all duration-75">></button>
-            </div>
+                    <button id="prev" class="absolute -left-20 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-1 mt-1 hover:text-sky-800 transition-all duration-75">
+                        << /button>
+                            <button id="next" class="absolute -right-20 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-6xl rounded-full font-medium pt-1 text-sky-500 mt-1 hover:text-sky-800 transition-all duration-75">></button>
+                </div>
                 <div class="flex-shrink-0 flex min-w-full space-x-8">
                     <img src="{{asset('imagens/Pedromendes.PNG')}}" alt="" class="rounded-full h-80 w-80">
                     <img src="{{asset('imagens/arthurcoghi.PNG')}}" alt="" class="rounded-full h-80 w-80">
@@ -157,17 +160,18 @@
                 </div>
             </div>
 
-           
+
 
             <!-- Controles -->
         </div>
-        
-    </section>
-       <div class="flex justify-between absolute">
-            <button id="prev" class="z-40 absolute left-40 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75"><</button>
-            <button id="next" class="z-40 absolute left-96 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75">></button>
 
-        </div>
+    </section>
+    <div class="flex justify-between absolute">
+        <button id="prev" class="z-40 absolute left-40 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75">
+            << /button>
+                <button id="next" class="z-40 absolute left-96 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75">></button>
+
+    </div>
     <!-- TURBINA -->
     <div id="turbina" class="reveal relative w-full mt-8 pt-1">
         <img src="{{asset('/imagens/turbinanovo.png')}}" class="w-full object-cover" alt="">
@@ -209,11 +213,11 @@
         </div>
     </footer>
     <a id="scrollToTop" class="fixed right-2 bottom-2 z-40 bg-sky-800 py-1 rounded-full px-1 text-white transition-opacity duration-300 ease-in-out opacity-0 hover:text-sky-500 font-bold text-xl no-underline border border-white" href="#inicio"><svg href="#inicio" class="hover:invert transition-all duration-100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" height="30px" width="30px" version="1.1" id="Layer_1" viewBox="0 0 330 330" xml:space="preserve">
-<g id="XMLID_13_">
-	<path id="XMLID_14_" d="M175.605,104.393c-2.814-2.813-6.628-4.393-10.607-4.393c-3.979,0-7.794,1.581-10.607,4.394l-79.998,80   c-5.857,5.858-5.857,15.355,0.001,21.213c5.857,5.857,15.355,5.858,21.213-0.001l69.392-69.393l69.395,69.394   C237.322,208.536,241.161,210,245,210s7.678-1.464,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L175.605,104.393z"/>
-	<path id="XMLID_15_" d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300   c-74.439,0-135-60.561-135-135S90.561,30,165,30s135,60.561,135,135S239.439,300,165,300z"/>
-</g>
-</svg></a>
+            <g id="XMLID_13_">
+                <path id="XMLID_14_" d="M175.605,104.393c-2.814-2.813-6.628-4.393-10.607-4.393c-3.979,0-7.794,1.581-10.607,4.394l-79.998,80   c-5.857,5.858-5.857,15.355,0.001,21.213c5.857,5.857,15.355,5.858,21.213-0.001l69.392-69.393l69.395,69.394   C237.322,208.536,241.161,210,245,210s7.678-1.464,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L175.605,104.393z" />
+                <path id="XMLID_15_" d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300   c-74.439,0-135-60.561-135-135S90.561,30,165,30s135,60.561,135,135S239.439,300,165,300z" />
+            </g>
+        </svg></a>
 </body>
 
 <script>
