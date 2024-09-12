@@ -13,29 +13,7 @@
 </head>
 
 <body class="relative bg-gray-100 user-select-none">
-   
-    <header id="inicio" class="bg-gray-100 shadow z-10">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
-                <span class="border-l border-gray-500 pl-2 flex items-center space-x-2">
-                    <img src="{{asset('/imagens/logos_sesi_preto_01.webp')}}" alt="SESI" class="inline h-6">
-                    <img src="{{asset('/imagens/logo-senai.fw_.png')}}" alt="SENAI" class="inline h-6 bg-black">
-                </span>
-            </div>
-            <!-- <a href="#" class="z-20 mr-5 font-bold text-blue-500 hover:cursor-pointer hover:underline text-bs mb-1">Login</a> -->
-        </div>
-    </header>
-    <section class="bg-sky-800 shadow-md p-1 mb-16 py-1.5 z-20">
-        <nav class="flex space-x-28 justify-center">
-            <a href="#sobre" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Sobre nós</a>
-            <a href="#aprova" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Mural dos Aprovados</a>
-            <a href="#turbina" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Nossa Metodologia</a>
-            <a href="#aluno" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Estude Conosco</a>
-        </nav>
-    </section>
-    
-
+    @include('headernav')
     <div><img class="absolute z-0 left-0 top-48" src="{{asset('/imagens/Vector (2).png')}}" alt=""></div>
 
     <!-- Main Content -->
