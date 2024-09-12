@@ -37,8 +37,7 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->maxLength(255)
-                    ->disabled(),
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('topic_id')
                     ->label('Tópico')
                     ->required()

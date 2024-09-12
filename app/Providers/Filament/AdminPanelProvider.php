@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Http\Middleware\CheckAdminPanelAccess; // Adicione esta linha
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -53,6 +54,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                CheckAdminPanelAccess::class, // Adicione esta linha
             ]);
     }
 }

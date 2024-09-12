@@ -18,6 +18,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\LessonResource; 
+use App\Filament\Resources\TopicResource;
+use App\Http\Middleware\CheckTeacherPanelAccess; // Adicione esta linha
 
 class TeacherPanelPanelProvider extends PanelProvider
 {
@@ -25,8 +27,10 @@ class TeacherPanelPanelProvider extends PanelProvider
     {
         return $panel
             ->id('teacherPanel')
+            ->login()
             ->resources([
                 LessonResource::class,
+                TopicResource::class,
             ])
             ->path('teacherPanel')
             ->colors([
@@ -55,6 +59,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                CheckTeacherPanelAccess::class, // Adicione esta linha
             ]);
     }
 }
