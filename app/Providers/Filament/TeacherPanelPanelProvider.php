@@ -20,6 +20,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\LessonResource; 
 use App\Filament\Resources\TopicResource;
 use App\Http\Middleware\CheckTeacherPanelAccess;
+use App\Policies\TeacherPanelPolicy;
+use App\Models\User;
 
 
 class TeacherPanelPanelProvider extends PanelProvider
