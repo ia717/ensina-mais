@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+
 
 class LessonResource extends Resource
 {
@@ -23,7 +25,6 @@ class LessonResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
-
     protected static ?string $slug = 'aulas';
 
     public static function form(Form $form): Form
@@ -33,21 +34,35 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nome')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
+                        // Se for uma edição não atualiza o campo slug
+            
+                        if ($operation === 'edit') {
+                            return;
+                        }
+                        $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
+            
+                    }),
+                Forms\Components\Hidden::make('slug')
                     ->label('Slug')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('topic_id')
+                    ->unique(ignoreRecord: true),
+                    // ->maxLength(255),
+                Forms\Components\Select::make('topic_id')
                     ->label('Tópico')
-                    ->required()
-                    ->maxLength(255),
+                    ->options(\App\Models\Topic::pluck('name', 'id')->toArray())
+                    ->required(),
                 Forms\Components\TextInput::make('link')
                     ->label('Link da aula')
                     ->required(),
                 Forms\Components\Textarea::make('content')
                     ->label('Conteúdo')
                     ->nullable(),
+                Forms\Components\ToggleButtons::make('is_high_relevance')
+                    ->label('Alta Relevância')
+                    ->boolean(),
             ]);
     }
 
@@ -59,23 +74,12 @@ class LessonResource extends Resource
                     ->label('Nome')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\BooleanColumn::make('is_high_relevance')
-                    ->label('Alta Relevância')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('topic_id')
+                Tables\Columns\TextColumn::make('topic.name')
                     ->label('Tópico')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('link')
                     ->label('Link')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('content')
-                    ->label('Conteúdo')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('order')

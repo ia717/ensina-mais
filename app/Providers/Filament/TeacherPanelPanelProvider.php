@@ -19,10 +19,16 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\LessonResource; 
 use App\Filament\Resources\TopicResource;
-use App\Http\Middleware\CheckTeacherPanelAccess; // Adicione esta linha
+use App\Http\Middleware\CheckTeacherPanelAccess;
+
 
 class TeacherPanelPanelProvider extends PanelProvider
 {
+    protected $policies = [
+        User::class => TeacherPanelPolicy::class,
+    ];
+
+    
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -36,6 +42,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->brandLogo(asset('imagens/logo ensina claro.png'))
             ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
             ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([

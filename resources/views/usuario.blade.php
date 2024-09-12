@@ -33,7 +33,8 @@
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
-            transform: translateX(0); /* Menu visível por padrão */
+            transform: translateX(0);
+            /* Menu visível por padrão */
             z-index: 1000;
             overflow-y: auto;
         }
@@ -111,19 +112,19 @@
             transition: transform 0.3s, opacity 0.3s;
         }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-times {
+        #checkbox:not(:checked)~.toggle i.fa-times {
             display: none;
         }
 
-        #checkbox:not(:checked) ~ .toggle i.fa-bars {
+        #checkbox:not(:checked)~.toggle i.fa-bars {
             display: block;
         }
 
-        #checkbox:checked ~ .toggle i.fa-times {
+        #checkbox:checked~.toggle i.fa-times {
             display: block;
         }
 
-        #checkbox:checked ~ .toggle i.fa-bars {
+        #checkbox:checked~.toggle i.fa-bars {
             display: none;
         }
 
@@ -135,7 +136,8 @@
                 top: 0;
                 right: 0;
                 left: auto;
-                transform: translateX(0); /* Menu visível por padrão */
+                transform: translateX(0);
+                /* Menu visível por padrão */
                 z-index: 1000;
                 transition: transform 0.3s ease;
             }
@@ -287,7 +289,7 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
         <ul>
-        <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="/usuario"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
             <li><a href="/calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
             <li><a href="/cronograma"><i class="fas fa-list"></i> Cronograma</a></li>
@@ -336,7 +338,7 @@
         const body = document.body;
         const sidebar = document.querySelector('.sidebar');
 
-        themeToggle.addEventListener('click', function () {
+        themeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
             sidebar.classList.toggle('dark-mode');
         });
@@ -345,15 +347,15 @@
         const profilePic = document.getElementById('profilePic');
         const changePhotoBtn = document.getElementById('changePhotoBtn');
 
-        changePhotoBtn.addEventListener('click', function () {
+        changePhotoBtn.addEventListener('click', function() {
             fileInput.click();
         });
 
-        fileInput.addEventListener('change', function () {
+        fileInput.addEventListener('change', function() {
             const file = fileInput.files[0];
             const reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 profilePic.src = e.target.result;
             }
 
@@ -365,7 +367,7 @@
         // Função para alternar a visibilidade do menu lateral
         const toggleMenu = document.querySelector('.toggle');
 
-        toggleMenu.addEventListener('click', function () {
+        toggleMenu.addEventListener('click', function() {
             sidebar.classList.toggle('hidden');
         });
     </script>

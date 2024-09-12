@@ -1,6 +1,7 @@
 <x-app-layout>
-        <!-- Conteúdo principal -->
-        <div id="main-content" class="main-content">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Conteúdo principal -->
+    <div id="main-content" class="main-content">
         <!-- Seção de Banner -->
         <div class="bg-teal-500 text-white p-6 rounded-lg shadow-lg mb-6">
             <div class="flex flex-col md:flex-row items-center">

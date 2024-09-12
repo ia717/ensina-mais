@@ -13,7 +13,7 @@
 
         <!-- Menu Lateral -->
         <div id="sidebar"
-            class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
+            class="fixed w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
             <h2 class="text-black dark:text-white text-center mb-5 text-xl font-bold">Menu</h2>
             <ul class="list-none p-0 m-0">
                 <li class="flex items-center px-5 py-3 dark:text-white">
@@ -39,7 +39,7 @@
                 </li>
                 <li class="flex items-center px-5 py-3 dark:text-white">
                     <i class="mr-3 fa-solid fa-book"></i>
-                    <a href="#"
+                    <a href="/materias"
                         class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Matérias</a>
                 </li>
                 <li class="flex items-center px-5 py-3 dark:text-white">
