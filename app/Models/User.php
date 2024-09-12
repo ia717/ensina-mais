@@ -56,4 +56,20 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Lesson::class, 'students_lessons')->withPivot('is_completed', 'completed_at');
     }
+
+    public function canAccessPanel(string $panel): bool
+    {
+        // Supondo que você tenha uma propriedade 'role' ou algo similar no seu modelo de usuário
+        $rolesAllowed = [
+            'teacherPanel' => ['professor', 'admin'],
+            'admin' => ['admin'],
+            // Adicione outros painéis e suas permissões conforme necessário
+        ];
+    
+        if (!array_key_exists($panel, $rolesAllowed)) {
+            return false;
+        }
+    
+        return in_array($this->role, $rolesAllowed[$panel]);
+    }
 }

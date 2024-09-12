@@ -19,9 +19,8 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Resources\LessonResource; 
 use App\Filament\Resources\TopicResource;
-use App\Policies\TeacherPanelPolicy;
-use App\Models\User; // Corrigido Model para Models
-use Filament\Facades\Filament;
+use App\Http\Middleware\CheckTeacherPanelAccess;
+
 
 class TeacherPanelPanelProvider extends PanelProvider
 {
@@ -34,6 +33,7 @@ class TeacherPanelPanelProvider extends PanelProvider
     {
         return $panel
             ->id('teacherPanel')
+            ->login()
             ->resources([
                 LessonResource::class,
                 TopicResource::class,
@@ -66,6 +66,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                CheckTeacherPanelAccess::class, // Adicione esta linha
             ]);
     }
 }
