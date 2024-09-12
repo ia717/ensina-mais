@@ -14,10 +14,16 @@ Route::get('/questaow', function () {
     return view('questaow');
 });
 
+Route::get('/conteudo2', function () {
+    return view('conteudo2');
+});
+
 Route::get('/conteudo3', function () {
     return view('conteudo3');
 });
-
+Route::get('/redacao3', function () {
+    return view('redacao3');
+});
 
 Route::get('/questaor', function () {
     return view('questaor');
@@ -112,6 +118,22 @@ Route::get('/welcome', function () {
 
 Route::get('usuario', function () {
     return view('usuario');
+});
+Route::get('simulados', function () {
+    return view('simulados');
+});
+
+Route::get('simuconcluido', function () {
+    return view('simuconcluido');
+});
+
+Route::get('cronogramasem', function () {
+    return view('cronogramasem');
+});
+
+
+Route::get('areaaluno', function () {
+    return view('areaaluno');
 });
 
 Route::get('/dashboard', function () {
