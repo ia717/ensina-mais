@@ -10,7 +10,13 @@ export default {
   ],
 
   theme: {
+    screens: {
+      'mm': '460px',
+    },
     extend: {
+      // screens: {
+      //   'mm': { 'raw': '(min-width: 460px)' },
+      // },
       userSelect: {
         'none': 'none',
         'text': 'text',
