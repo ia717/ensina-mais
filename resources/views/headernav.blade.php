@@ -1,7 +1,8 @@
-<body id="início" class="bg-blue-500">
+@include('customcss')
+<body id="inicio" class="bg-blue-500 user-select-none">
 <nav class="relative px-4 py-4 flex justify-between items-center bg-gray-100">
         <!-- Container das logos -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4">   
             <!-- Logo "ensina+" -->
             <a class="text-3xl font-bold leading-none" href="#">
                 <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
@@ -26,10 +27,10 @@
 
     <section class="bg-sky-800 shadow-md p-1 mb-16 py-1.5 z-20">
         <ul class="hidden justify-center lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#">Sobre nós</a></li>
-            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#">Mural dos Aprovados</a></li>
-            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#">Nossa Metodologia</a></li>
-            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#">Estude Conosco</a></li>
+            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#sobre">Sobre nós</a></li>
+            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#aprova">Mural dos Aprovados</a></li>
+            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#turbina">Nossa Metodologia</a></li>
+            <li><a class="text-sm text-white hover:font-bold transition-all mx-10" href="#aluno">Estude Conosco</a></li>
         </ul>
     </section>
 
@@ -49,16 +50,16 @@
             <div>
                 <ul>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Sobre Nós</a>
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#sobre">Sobre Nós</a>
                     </li>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Mural dos Aprovados</a>
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#aprova">Mural dos Aprovados</a>
                     </li>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Nossa Metodologia</a>
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#turbina">Nossa Metodologia</a>
                     </li>
                     <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Estude Conosco</a>
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#aluno">Estude Conosco</a>
                     </li>
                 </ul>
             </div>

@@ -9,18 +9,18 @@
 </head>
 <body class="bg-gray-100 ">
 
-<main class="max-w-6xl mx-auto p-9 ">   
-    
-    <div class="container p-10 flex flex-col justify-center items-start">
-        
-   
-        <div class="flex items-center mb-8">
+<main class="max-w-7xl  mx-auto p-9 sm:p-6 md:p-8 ml-72  ">   
+<div class="flex items-center bg-white   ">
             <button class="text-black text-3xl border-2 border-black rounded-full p-2 mr-4"><</button>
             <span class="text-purple-400 text-3xl font-bold mb-2">|</span>
             <h1 class="text-black text-4xl font-bold">Conteúdo</h1>
         </div>
+    <div class="container p-10 flex flex-col justify-center items-start pl-20 bg-white">
+   
+   
+      
 
-        <div class="h-3/5 w-full lg:w-3/5 p-6 rounded-xl bg-black aspect-w-16 aspect-h-9 mb-8">
+        <div class="h-4/5 w-full lg:w-5/5 p-6 rounded-xl bg-black aspect-w-16 aspect-h-9 mb-8">
             <video class="h-full w-full p-4" autoplay muted loop playsinline src=""></video>
         </div>
         <p class="text-start mt-2 text-gray-600 mb-6">Matéria - Professor: Fulano</p>
@@ -29,7 +29,7 @@
             <span class="text-purple-400 text-3xl font-bold mb-4">|</span>
             <h2 class="text-3xl font-bold mb-4">Mapa Mental</h2>
         </div>
-        <div class="h-3/5 w-full lg:w-3/5 mt-6 p-8 rounded-xl bg-white shadow-lg mb-10">
+        <div class="h-3/5 w-full lg:w-4/5 mt-6 p-8 rounded-xl bg-white shadow-lg mb-10">
             <img class="h-full w-full rounded-xl" src="{{asset('imagens/mapamental.png')}}" alt="Mapa Mental">
         </div>
 
@@ -37,7 +37,7 @@
             <span class="text-purple-400 -500 text-3xl font-bold mb-7">|</span>
             <h2 class="text-3xl font-bold mb-6">Resumo</h2>
         </div>
-        <div class="w-full lg:w-3/5 bg-white p-8 rounded-xl shadow-lg leading-relaxed text-gray-800">
+        <div class="w-full lg:w-4/5 bg-white p-8 rounded-xl shadow-lg leading-relaxed text-gray-800">
             <p>As <strong>funções da linguagem</strong> representam diferentes propósitos que a comunicação pode ter em um diálogo, focando em aspectos específicos da interação.</p>
 
             <ol class="list-decimal list-inside mt-4 space-y-4">
