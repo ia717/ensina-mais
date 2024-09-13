@@ -10,12 +10,15 @@
 <body>
     <div>
         @include('menuteste')
-    </div>
+</div>
 
-    <div class="max-w-4xl mx-auto mt-4">
-                <div class="bg-white rounded-lg shadow p-6 w-80 h-80">
+<main class="flex-1 flex justify-around items-center">
+        <div class="text-center w-full p-8 md:p-0 md:w-auto">
+            <div class="text-gray-500 text-lg mb-5">Utilize os filtros para buscar cronogramas</div>
+            <span class="material-icons text-gray-400 text-5xl"></span>
+        </div>
+    </main>
 
-                </div>
             </div>
             <!-- Filtro de Matérias -->
              <aside class="left-3/4 ml-32 absolute w-full h-full md:w-64 bg-white shadow-lg p-6">
