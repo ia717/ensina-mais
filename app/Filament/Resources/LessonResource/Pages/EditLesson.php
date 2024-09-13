@@ -16,4 +16,10 @@ class EditLesson extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function afterSave(): void
+    {
+        // Aqui chamamos o método fetchAndStoreVideoDurations para atualizar a duração do vídeo
+        $this->record->fetchAndStoreVideoDurations();
+    }
 }
