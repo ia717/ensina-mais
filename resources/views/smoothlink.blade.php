@@ -1,5 +1,5 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const menuLinks = document.querySelectorAll('a[href^="#"]');
 
         function getDistanceFromTheTop(element) {

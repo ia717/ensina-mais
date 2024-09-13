@@ -14,6 +14,9 @@ Route::get('/topicomat', function () {
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
+Route::get('/topicosmaterias', function () {
+    return view('topicosmaterias');
+});
 Route::get('/questaow', function () {
     return view('questaow');
 });

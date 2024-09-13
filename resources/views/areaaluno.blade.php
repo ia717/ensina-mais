@@ -9,9 +9,9 @@
 </head>
 
 <body class="bg-gray-100 font-sans">
-<div>
-   
-</div>
+    <div>
+        @include('menuteste')
+    </div>
     <main class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
         <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
             <div class="text-start mb-6">
