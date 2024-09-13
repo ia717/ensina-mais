@@ -14,7 +14,7 @@ class AnswerController extends Controller
         ]);
 
         AnswerForum::create([
-            'question_forum_id' => $questionId, // Altere para question_forum_id
+            'question_forum_id' => $questionId, // Usando o ID da pergunta passado pela URL
             'user_id' => auth()->id(),
             'answer' => $request->answer
         ]);
