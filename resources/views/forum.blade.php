@@ -18,44 +18,48 @@
 
             <!-- Perguntas e Respostas -->
             @foreach ($questions as $question)
-    <div class="bg-white p-4 rounded-lg shadow mb-4 relative">
-        <div class="flex justify-between items-start mb-4">
-            <div>
-                <h2 class="text-lg font-semibold">{{ $question->user->name }}</h2>
-                <span class="text-sm text-gray-600">{{ $question->user->role }}</span>
-            </div>
-            <div class="flex font-bold space-x-2">
-                <!-- Aqui, a cor da categoria será aplicada dinamicamente -->
-                <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->subject->category->color ?? '#ccc' }};">
-                    {{ $question->subject->category->name ?? 'Categoria Desconhecida' }}
-                </span>
-            </div>
-        </div>
-
-        <p class="mb-4">{{ $question->content }}</p>
-
-        <!-- Respostas -->
-        <div class="relative">
-            <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
-            <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
-                @foreach ($question->answers as $answer)
-                    <div class="mt-4">
-                        <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
-                        <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
-                        <p class="mt-2">{{ $answer->answer }}</p>
+            <div class="bg-white p-4 rounded-lg shadow mb-4 relative">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h2 class="text-lg font-semibold">{{ $question->user->name }}</h2>
+                        <span class="text-sm text-gray-600">{{ $question->user->role }}</span>
                     </div>
-                @endforeach
-            </div>
-        </div>
+                    <div class="flex space-x-2">
+                        <!-- Categoria da Disciplina -->
+                        <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->subject->category->color ?? '#ccc' }};">
+                            {{ $question->subject->name ?? 'Disciplina Desconhecida' }}
+                        </span>
+                        <!-- Categoria do Assunto -->
+                        <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->topic->category->color ?? '#ccc' }};">
+                            {{ $question->topic->name ?? 'Assunto Desconhecido' }}
+                        </span>
+                    </div>
+                </div>
 
-        <!-- Formulário para Responder -->
-        <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
-            @csrf
-            <textarea name="answer" placeholder="Escreva sua resposta..." class="w-full p-2 border border-gray-300 rounded mb-2"></textarea>
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Responder</button>
-        </form>
-    </div>
-@endforeach
+                <p class="mb-4">{{ $question->content }}</p>
+
+                <!-- Respostas -->
+                <div class="relative">
+                    <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
+                    <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
+                        @foreach ($question->answers as $answer)
+                        <div class="mt-4">
+                            <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
+                            <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
+                            <p class="mt-2">{{ $answer->answer }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Formulário para Responder -->
+                <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
+                    @csrf
+                    <textarea name="answer" placeholder="Escreva sua resposta..." class="w-full p-2 border border-gray-300 rounded mb-2"></textarea>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Responder</button>
+                </form>
+            </div>
+            @endforeach
             <!-- Caixa de Texto para Nova Pergunta -->
             <form action="/forum" method="POST">
                 @csrf
