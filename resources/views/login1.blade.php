@@ -139,7 +139,7 @@
             </div>
 
             <!-- Carousel Controls -->
-            <div class="absolute mt-10 left-2 top-1/2 transform -translate-y-1/2">
+            <div class="absolute mt-10 left-0 top-1/2 transform -translate-y-1/2">
                 <button id="prev" class="transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium hover:text-sky-800 hover:pl-4 transition-all duration-75">
                     <svg height="40px" width="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000000">
                         <g>
