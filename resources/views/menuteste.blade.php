@@ -14,7 +14,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             height: 100vh;
-            overflow: hidden;
+            overflow: auto;
             background-color: #f5f5f5;
             color: #000;
             transition: background-color 0.3s, color 0.3s;

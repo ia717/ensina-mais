@@ -8,34 +8,12 @@
     <title>Ensina+</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body class="relative bg-gray-100 user-select-none">
-    <!-- @include('headernav') -->
-    <header id="inicio" class="bg-gray-100 shadow z-10">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
-                <span class="border-l border-gray-500 pl-2 flex items-center space-x-2">
-                    <img src="{{asset('/imagens/logos_sesi_preto_01.webp')}}" alt="SESI" class="inline h-6">
-                    <img src="{{asset('/imagens/logo-senai.fw_.png')}}" alt="SENAI" class="inline h-6 bg-black">
-                </span>
-            </div>
-            <!-- <a href="#" class="z-20 mr-5 font-bold text-blue-500 hover:cursor-pointer hover:underline text-bs mb-1">Login</a> -->
-        </div>
-    </header>
-    <section class="bg-sky-800 shadow-md p-1 mb-16 py-1.5 z-20">
-        <nav class="flex space-x-28 justify-center">
-            <a href="#sobre" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Sobre nós</a>
-            <a href="#aprova" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Mural dos Aprovados</a>
-            <a href="#turbina" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Nossa Metodologia</a>
-            <a href="#aluno" class="transition-all text-white font-medium hover:text-sky-500 subpixel-antialiased">Estude Conosco</a>
-        </nav>
-    </section>
-    
-
+    @include('headernav')
     <div><img class="absolute z-0 left-0 top-48" src="{{asset('/imagens/Vector (2).png')}}" alt=""></div>
 
     <!-- Main Content -->
@@ -141,37 +119,36 @@
         </div>
         <h3 id="aprova" class="reveal text-5xl font-bold text-black justify-center items-center flex">Alunos <span class="text-red-600 p-4">SESI SENAI</span></h3>
         <div class="relative overflow-hidden w-full max-w-5xl mx-auto">
-            <div id="carousel" class="reveal flex transition-transform duration-75 ease-in-out">
+            <div id="carousel" class="reveal flex transition-transform duration-75 ease-out">
 
                 <div class="flex-shrink-0 flex min-w-full space-x-8">
-                    <span><img src="{{asset('imagens/joao2r.PNG')}}" alt="" class="rounded-full h-80 w-80"></span>
-                    <img src="{{asset('imagens/mariar.PNG')}}" alt="" class="rounded-full h-80 w-80">
-                    <img src="{{asset('imagens/everton.PNG')}}" alt="" class="rounded-full h-80 w-80">
+                    <span><img src="{{asset('imagens/teste foto 1.png')}}" alt="" class="rounded-full h-80 w-80"></span>
+                    <img src="{{asset('imagens/teste foto 2.png')}}" alt="" class="rounded-full h-80 w-80">
+                    <img src="{{asset('imagens/teste foto 3.png')}}" alt="" class="rounded-full h-80 w-80">
                 </div>
-                <div class="flex justify-between">
-                    <button id="prev" class="absolute -left-20 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-1 mt-1 hover:text-sky-800 transition-all duration-75">
-                        << /button>
-                            <button id="next" class="absolute -right-20 top-1/2 transform -translate-y-1/2 px-2.5 pb-1.5 bg-none text-6xl rounded-full font-medium pt-1 text-sky-500 mt-1 hover:text-sky-800 transition-all duration-75">></button>
-                </div>
-                <div class="flex-shrink-0 flex min-w-full space-x-8">
-                    <img src="{{asset('imagens/Pedromendes.PNG')}}" alt="" class="rounded-full h-80 w-80">
-                    <img src="{{asset('imagens/arthurcoghi.PNG')}}" alt="" class="rounded-full h-80 w-80">
-                    <img src="{{asset('imagens/Marcelaa.PNG')}}" alt="" class="rounded-full h-80 w-80">
+                <div class="flex-shrink-0 flex min-w-full space-x-8 mb-20">
+                    <img src="{{asset('imagens/teste foto 4.png')}}" alt="" class="rounded-full h-80 w-80">
+                    <img src="{{asset('imagens/teste foto 5.png')}}" alt="" class="rounded-full h-80 w-80">
+                    <img src="{{asset('imagens/teste foto 6.png')}}" alt="" class="rounded-full h-80 w-80">
                 </div>
             </div>
-
-
-
+                    
+                
             <!-- Controles -->
         </div>
+        
+
+            
+                <div class=" absolute pt-96 mt-96 left-40">
+                   <button id="prev" class="mt-96 pt-10 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-1 mt-1 hover:text-sky-800 transition-all duration-75"><svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000" class="transition-all hover:h-11 hover:w-11">><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#2D6796;" cx="256" cy="256" r="256"></circle> <path style="fill:#2D6796;" d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z"></path> <path style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z"></path> <path style="fill:#CFDBE6;" d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z"></path> </g></svg></button>
+                </div>
+
+                <div class="absolute left-96 ml-40 pt-96 mt-96">
+                    <button id="next" class="mt-96 pt-10 transform ml-96 pl-96 px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-1 mt-1 hover:text-sky-800 transition-all duration-75"><svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000" class="transition-all hover:h-11 hover:w-11" transform="rotate(0)matrix(-1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#2D6796;" cx="256" cy="256" r="256"></circle> <path style="fill:#2D6796;" d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z"></path> <path style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z"></path> <path style="fill:#CFDBE6;" d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z"></path> </g></svg></button>
+                </div>
+          
 
     </section>
-    <div class="flex justify-between absolute">
-        <button id="prev" class="z-40 absolute left-40 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75">
-            << /button>
-                <button id="next" class="z-40 absolute left-96 top-1/2 transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium pt-80 mt-36 hover:text-sky-800 transition-all duration-75">></button>
-
-    </div>
     <!-- TURBINA -->
     <div id="turbina" class="reveal relative w-full mt-8 pt-1">
         <img src="{{asset('/imagens/turbinanovo.png')}}" class="w-full object-cover" alt="">
@@ -181,7 +158,7 @@
                 <p class="font-thin mt-1 pr-20 mr-14 text-4xl subpixel-antialiased">+ Conteudo</p>
                 <p class="font-thin mt-2 pr-20 mr-14 text-4xl subpixel-antialiased">+ Resultados</p>
                 <p class="font-thin mt-2 pr-20 mr-14 text-4xl subpixel-antialiased">+ Aprovados</p>
-                <div class=""><a target="blank" href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button h class="transition-all duration-75 text-lg mt-20 font-medium w-auto bg-yellow-500 text-black py-2 px-8 rounded-md  hover:bg-yellow-600 subpixel-antialiased">Saiba Mais</button></a></div>
+                <div class=""><a target="blank" href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button h class="transition-all duration-75 text-lg mt-20 font-medium w-auto bg-yellow-500 text-black py-2 px-8 rounded-md  hover:bg-yellow-600 hover:px-10 subpixel-antialiased">Saiba Mais</button></a></div>
             </div>
         </div>
     </div>
@@ -191,7 +168,7 @@
             <h5 class="text-5xl font-bold text-black">Ainda não é nosso aluno?</h5>
             <p class="text-xl text-gray w-3/4">Garanta uma preparação de excelência para o vestibular! Somos referência nacional em
                 educação e preparação para vestibular.</p>
-            <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-lg text-white font-semibold rounded-md hover:bg-sky-500 p-4">Conheça nossa proposta de ensino!</a>
+            <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-lg text-white font-semibold rounded-md hover:bg-sky-500 hover:px-6 p-4">Conheça nossa proposta de ensino!</a>
         </div>
         <img src="{{asset('imagens/jéssica.png')}}" class="">
     </section>
@@ -212,12 +189,7 @@
             </div>
         </div>
     </footer>
-    <a id="scrollToTop" class="fixed right-2 bottom-2 z-40 bg-sky-800 py-1 rounded-full px-1 text-white transition-opacity duration-300 ease-in-out opacity-0 hover:text-sky-500 font-bold text-xl no-underline border border-white" href="#inicio"><svg href="#inicio" class="hover:invert transition-all duration-100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" height="30px" width="30px" version="1.1" id="Layer_1" viewBox="0 0 330 330" xml:space="preserve">
-            <g id="XMLID_13_">
-                <path id="XMLID_14_" d="M175.605,104.393c-2.814-2.813-6.628-4.393-10.607-4.393c-3.979,0-7.794,1.581-10.607,4.394l-79.998,80   c-5.857,5.858-5.857,15.355,0.001,21.213c5.857,5.857,15.355,5.858,21.213-0.001l69.392-69.393l69.395,69.394   C237.322,208.536,241.161,210,245,210s7.678-1.464,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L175.605,104.393z" />
-                <path id="XMLID_15_" d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300   c-74.439,0-135-60.561-135-135S90.561,30,165,30s135,60.561,135,135S239.439,300,165,300z" />
-            </g>
-        </svg></a>
+    <a id="scrollToTop" class="fixed right-2 bottom-2 z-40 bg-sky-800 rounded-full text-white transition-opacity duration-300 ease-in-out opacity-0 hover:text-sky-500 font-bold text-xl no-underline border border-white" href="#inicio"><svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000" class="transition-all hover:h-11 hover:w-11" transform="matrix(1, 0, 0, 1, 0, 0)rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" href="#inicio" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle href="#inicio" style="fill:#2D6796;" cx="256" cy="256" r="256"></circle> <path style="fill:#2D6796;" d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z"></path> <path href="#inicio" style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z"></path> <path style="fill:#CFDBE6;" d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z" href="#inicio"></path> </g></svg></a>
 </body>
 
 <script>

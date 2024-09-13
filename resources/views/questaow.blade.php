@@ -70,17 +70,17 @@
     
     
 </div>
-        <div class="w-full bg-[#ff041569] border-2 border-[#04A582] p-8 rounded-lg space-y-6">
+        <div class="w-full bg-[#ff041569] border-2 border-[#ff3e3e] p-8 rounded-lg space-y-6">
 
             <div class="flex justify-between items-center">
                
                 <div class="flex flex-col items-center space-y-4">
                     <h1 class="text-bold font-semibold">Resolução</h1>
-                    <button class="bg-[#ff0415] text-white py-2 px-6 rounded-full hover:bg-green-600 flex items-center space-x-2">
+                    <button class="bg-[#ff0415] text-white py-2 px-6 rounded-full hover:bg-[#ff3e3e] flex items-center space-x-2">
                         <span>Ver Resolução</span>
                        
                     </button>
-                    <button class="bg-[#ff0415] text-white py-2 px-6 rounded-full hover:bg-green-600 flex items-center space-x-2">
+                    <button class="bg-[#ff0415] text-white py-2 px-6 rounded-full hover:bg-[#ff3e3e] flex items-center space-x-2">
                         <span>Ver Resolução</span>
                             
                     </button>
