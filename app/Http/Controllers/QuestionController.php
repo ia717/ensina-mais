@@ -11,20 +11,21 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        // $questions = QuestionForum::with(['user', 'subject', 'topic']) // , 'answers.user'
-        //     ->get();
-        $questions = QuestionForum::all();
+        $questions = QuestionForum::with(['user', 'subject', 'topic', 'answers.user'])
+            ->get();
+
         $subjects = Subject::all();
         $topics = Topic::all();
+        $disciplines = Subject::distinct()->get(['name']); // Se você usa disciplinas como subjects
 
-        return view('forum', compact('questions', 'subjects', 'topics'));
+        return view('forum', compact('questions', 'subjects', 'topics', 'disciplines'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'subject_id' => 'required|exists:subjects,id',
-            'topic_id' => 'required|exists:topics,id',
+            'topic_id' => 'nullable|exists:topics,id',
             'question' => 'required|string'
         ]);
 

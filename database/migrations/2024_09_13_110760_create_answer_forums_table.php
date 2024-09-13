@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('answer_forums', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Professor que respondeu
+            $table->foreignId('question_forum_id')->constrained('question_forums')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('answer');
             $table->timestamps();
         });
