@@ -51,7 +51,7 @@
 
 
 
-                <a href="{{ route('aulas', ['materia' => $materia->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
+                <a href="{{ route('conteudo', ['materia' => $materia->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
                     <div class="bg-gray-200 h-16 mb-4 rounded"></div>
                     <h3 class="text-xl font-semibold text-gray-800">{{ $topic->name }}</h3>
                     <p class="text-sm text-gray-600 mt-2">{{ $topic->lessons->count() }} AULAS</p>

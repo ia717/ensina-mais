@@ -72,6 +72,6 @@ class Lesson extends Model
         }
     
         // Retorna o formato min:seg, sem os zeros extras
-        return sprintf("%d:%02d", $minutes, $seconds);
+        return sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
     }
 }

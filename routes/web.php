@@ -75,8 +75,10 @@ Route::get('/materia/{materia}/{slug}', function($materia, $slug) {
     // Puxa as aulas relacionadas ao tópico
     $aulas = $topic->lessons;
     // Retorna a view com o tópico e as aulas
-    return view('aulas', compact('topic', 'aulas'));
-})->name('aulas');
+    $materia = \App\Models\Subject::where('slug', $materia)->firstOrFail();
+    $corCategoria = $materia->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
+    return view('conteudo', compact('topic', 'aulas', 'corCategoria'));
+})->name('conteudo');
 
 Route::get('questao', function () {
     return view('questao');
@@ -108,14 +110,6 @@ Route::get('semana', function () {
     return view('semana');
 });
 
-
-
-
-
-Route::get('aulas', function () {
-    $aulas = \App\Models\Lesson::with('topic')->get();
-    return view('aulas', compact('aulas'));
-});
 
 Route::get('perguntas', function () {
     return view('perguntas');

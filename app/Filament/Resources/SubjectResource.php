@@ -55,9 +55,9 @@ class SubjectResource extends Resource
                     ->label('Categoria')
                     ->options(\App\Models\Category::pluck('name', 'id')->toArray())
                     ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição')
-                    ->nullable(),
+                // Forms\Components\Textarea::make('description')
+                //     ->label('Descrição')
+                //     ->nullable(),
                 Forms\Components\Section::make('Material de Apoio')
                     ->columns(2)
                     ->schema([
