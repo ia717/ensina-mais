@@ -8,7 +8,7 @@
 </head>
 <body class="flex justify-end h-screen bg-gray-100">
     <!-- Caixa de Filtros -->
-    <div class="filters-container w-full  h-full bg-white p-4 rounded-lg shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto">
+    <div class="filters-container w-full h-full bg-white p-4 rounded-lg shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto">
         <h2 class="text-xl font-medium text-gray-800 mb-4">Filtrar questões</h2>
         <div class="space-y-4">
             <div>

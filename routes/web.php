@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login1');
 });
+Route::get('/topicomat', function () {
+    return view('topicomat');
+});
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
@@ -14,9 +17,12 @@ Route::get('/questaow', function () {
     return view('questaow');
 });
 
-Route::get('/conteudo2', function () {
-    return view('conteudo2');
+
+
+Route::get('/conteudo', function () {
+    return view('conteudo');
 });
+
 
 Route::get('/conteudo3', function () {
     return view('conteudo3');
