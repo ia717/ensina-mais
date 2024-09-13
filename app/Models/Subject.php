@@ -25,4 +25,8 @@ class Subject extends Model
     {
         return $this->belongsToMany(User::class, 'teachers_subjects');
     }
+    public function questions()
+    {
+        return $this->hasMany(QuestionForum::class);
+    }
 }
