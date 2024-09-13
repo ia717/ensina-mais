@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login1');
 });
-Route::get('/topicomat', function () {
-    return view('topicomat');
-});
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
+});
+Route::get('/topicosmaterias', function () {
+    return view('topicosmaterias');
 });
 Route::get('/questaow', function () {
     return view('questaow');

@@ -1,84 +1,263 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Cronograma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-    
-   
-        <aside class="">
+
+<body class=" h-screen">
+
+    <main class="flex-1 flex flex-col">
+        <!-- Navigation -->
+        <nav class="bg-gray-200 p-4 flex justify-between items-center">
+            <a href="#" class="text-blue-600"></a>
+            <p class="text-gray-700"></p>
+
+            <!-- Right-side Icons -->
+            <div class="flex items-center space-x-4">
+                <!-- Hamburger Menu for Mobile (Menu) -->
+                <button id="mobile-menu-button" class="block lg:hidden">
+                    <!-- Hamburger Icon -->
+                    <svg class="h-6 w-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <!-- Filter Icon for Mobile -->
+                <button id="mobile-filter-button" class="block lg:hidden">
+                    <!-- Filter Icon -->
+                    <svg class="h-6 w-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707l-6.414 6.414A1 1 0 0014 13v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5a1 1 0 00-.293-.707L3.293 6.707A1 1 0 013 6V4z" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Question Card -->
+        <div class="flex-grow flex w-full  mx-auto"> <!-- Added max-w and mx-auto for proper centering -->
+            <!-- Left Sidebar (Desktop) -->
+            <div class="hidden lg:flex w-64 flex-shrink-0">
+                @include('menuteste')
+            </div>
+
+            <!-- Main Content -->
+            
+                <div class="w-screen h-screen max-w-4xl ">
+
+                    <div class="bg-white rounded-lg w-full shadow-md mb-4 p-6 flex items-center cursor-pointer border border-[#2D6796]" onclick="toggleSubtasks('subtasks1')">
+                        <div class="mr-4">
+                            <i class="fas fa-chevron-right text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-semibold">Semana 1</div>
+                            <div class="text-gray-500 text-sm">Dia/mes/ano - Horario</div>
+                        </div>
+                    </div>
+
+                    <div id="subtasks1" class="space-y-4 hidden">
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-orange-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-pink-500">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-purple-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md mb-4 p-6 flex items-center cursor-pointer border border-[#2D6796]" onclick="toggleSubtasks('subtasks2')">
+                        <div class="mr-4">
+                            <i class="fas fa-chevron-right text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-semibold">Semana 2</div>
+                            <div class="text-gray-500 text-sm">08/01/2024 - 02:30:10</div>
+                        </div>
+                    </div>
+
+                    <div id="subtasks2" class="space-y-4 hidden">
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-orange-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-pink-500">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-purple-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md mb-4 p-6 flex items-center cursor-pointer border border-[#2D6796]" onclick="toggleSubtasks('subtasks4')">
+                        <div class="mr-4">
+                            <i class="fas fa-chevron-right text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-semibold">Semana 4</div>
+                            <div class="text-gray-500 text-sm">22/01/2024 - 01:50:45</div>
+                        </div>
+                    </div>
+
+
+                    <div id="subtasks4" class="space-y-4 hidden">
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-orange-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-pink-500">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 rounded-lg shadow-md mb-2 p-4 flex items-center border-2 border-purple-400">
+                            <div class="mr-4">
+                                <i class="fas fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 text-md">Hórario</div>
+                                <div class="text-black font-semibold">Tarefa</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex w-64 flex-shrink-0">
+                    @include('caixafiltros')
+                </div>
+        </div>
+    </main>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="absolute top-0 right-0 w-64 bg-white h-full p-6">
+            <!-- Close Button -->
+            <button id="close-mobile-menu" class="text-gray-700 mb-4">
+                <!-- Close Icon -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
             @include('menuteste')
-        </aside>
+        </div>
+    </div>
 
-        <main class="mx-auto w-6/6  p-24 flex flex-col items-center space-y-16 ">
-            <div class="w-screen h-screen max-w-4xl">
-                
-                <div class="bg-white rounded-lg w-full shadow-md mb-4 p-6 flex items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-chevron-right text-xl"></i>
-                    </div>
-                    <div>
-                        <div class="text-xl font-semibold">Semana 1</div>
-                        <div class="text-gray-500 text-sm">01/01/2024 - 02:41:15</div>
-                    </div>
-                </div>
+    <!-- Mobile Filter Overlay -->
+    <div id="mobile-filter-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="absolute top-0 right-0 w-64 bg-white h-full p-6">
+            <!-- Close Button -->
+            <button id="close-mobile-filter" class="text-gray-700 mb-4">
+                <!-- Close Icon -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            @include('caixafiltros')
+        </div>
+    </div>
 
-                <div class="bg-white rounded-lg shadow-md mb-4 p-6 flex items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-chevron-right text-xl"></i>
-                    </div>
-                    <div>
-                        <div class="text-xl font-semibold">Semana 2</div>
-                        <div class="text-gray-500 text-sm">08/01/2024 - 02:30:10</div>
-                    </div>
-                </div>
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
 
-              
-                <div class="bg-white rounded-lg shadow-md mb-4 p-6 flex items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-chevron-right text-xl"></i>
-                    </div>
-                    <div>
-                        <div class="text-xl font-semibold">Semana 3</div>
-                        <div class="text-gray-500 text-sm">15/01/2024 - 03:20:30</div>
-                    </div>
-                </div>
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('hidden');
+        });
 
-                <div class="bg-white rounded-lg shadow-md mb-4 p-6 flex items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-chevron-right text-xl"></i>
-                    </div>
-                    <div>
-                        <div class="text-xl font-semibold">Semana 4</div>
-                        <div class="text-gray-500 text-sm">22/01/2024 - 01:50:45</div>
-                    </div>
-                </div>
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('hidden');
+        });
 
-            </div>
-        </main>
-        <aside class="fixed right-0 top-0 w-1/6 h-full bg-white shadow-lg p-6">
-            <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-lg font-semibold mb-4">Filtrar matérias</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-blue-600 flex items-center hover:text-blue-800"><i class="fas fa-calculator mr-2"></i>MATEMÁTICA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-dna mr-2"></i>BIOLOGIA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-flask mr-2"></i>QUÍMICA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-atom mr-2"></i>FÍSICA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-landmark mr-2"></i>HISTÓRIA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-globe mr-2"></i>GEOGRAFIA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-users mr-2"></i>SOCIOLOGIA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-book mr-2"></i>FILOSOFIA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-pencil-alt mr-2"></i>GRAMÁTICA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-book-open mr-2"></i>LITERATURA</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-pen mr-2"></i>REDAÇÃO</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-language mr-2"></i>INGLÊS</a></li>
-                    <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-paint-brush mr-2"></i>ARTE</a></li>
-                </ul>
-            </div>
-        </aside>
-  
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                mobileMenuOverlay.classList.add('hidden');
+            }
+        });
+
+        // Mobile Filter
+        const mobileFilterButton = document.getElementById('mobile-filter-button');
+        const mobileFilterOverlay = document.getElementById('mobile-filter-overlay');
+        const closeMobileFilter = document.getElementById('close-mobile-filter');
+
+        mobileFilterButton.addEventListener('click', () => {
+            mobileFilterOverlay.classList.remove('hidden');
+        });
+
+        closeMobileFilter.addEventListener('click', () => {
+            mobileFilterOverlay.classList.add('hidden');
+        });
+
+        mobileFilterOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileFilterOverlay) {
+                mobileFilterOverlay.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
+
 </html>
