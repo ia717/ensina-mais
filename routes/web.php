@@ -68,13 +68,14 @@ Route::get('/materia/{slug}', function($slug) {
     return view('topicos', compact('materia', 'topicos'));
 })->name('topicos');
 
+
 Route::get('/materia/{materia}/{slug}', function($materia, $slug) {
     // Busca o topico pelo slug
-    $topico = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico
-    $aulas = $topico->lessons;
+    $aulas = $topic->lessons;
     // Retorna a view com o tópico e as aulas
-    return view('aulas', compact('topico', 'aulas'));
+    return view('aulas', compact('topic', 'aulas'));
 })->name('aulas');
 
 Route::get('questao', function () {
@@ -108,6 +109,9 @@ Route::get('semana', function () {
 });
 
 
+
+
+
 Route::get('aulas', function () {
     $aulas = \App\Models\Lesson::with('topic')->get();
     return view('aulas', compact('aulas'));
@@ -117,6 +121,9 @@ Route::get('perguntas', function () {
     return view('perguntas');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 
 Route::get('usuario', function () {
