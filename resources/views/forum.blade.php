@@ -18,60 +18,72 @@
 
             <!-- Perguntas e Respostas -->
             @foreach ($questions as $question)
-                <div class="bg-white p-4 rounded-lg shadow mb-4 relative">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h2 class="text-lg font-semibold">{{ $question->user->name }}</h2>
-                            <span class="text-sm text-gray-600">{{ $question->user->role }}</span>
-                        </div>
-                        <div class="flex font-bold space-x-2">
-                            <span class="bg-sky-800 text-white px-2 py-1 rounded text-xs">{{ $question->user->role }}</span>
-                            <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs">{{ $question->subject->name }}</span>
-                        </div>
+            <div class="bg-white p-4 rounded-lg shadow mb-4 relative">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h2 class="text-lg font-semibold">{{ $question->user->name }}</h2>
+                        <span class="text-sm text-gray-600">{{ $question->user->role }}</span>
                     </div>
-                    
-                    <p class="mb-4">{{ $question->content }}</p>
-                    <div class="relative">
-                        <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
-                        <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
-                            @foreach ($question->answers as $answer)
-                                <div class="mt-4">
-                                    <h3 class="text-sm font-semibold">{{ $answer->user->name }}</h3>
-                                    <span class="text-xs text-gray-600">{{ $answer->user->role }}</span>
-                                    <div class="flex font-bold space-x-2 mt-2">
-                                        <span class="bg-sky-800 text-white px-2 py-1 rounded text-xs">{{ $answer->user->role }}</span>
-                                        <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs">{{ $answer->subject->name }}</span>
-                                    </div>
-                                    <p class="mt-2">{{ $answer->content }}</p>
-                                </div>
-                            @endforeach
-                        </div>
+                    <div class="flex space-x-2">
+                        <!-- Categoria da Disciplina -->
+                        <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->subject->category->color ?? '#ccc' }};">
+                            {{ $question->subject->name ?? 'Disciplina Desconhecida' }}
+                        </span>
+                        <!-- Categoria do Assunto -->
+                        <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->topic->category->color ?? '#ccc' }};">
+                            {{ $question->topic->name ?? 'Assunto Desconhecido' }}
+                        </span>
                     </div>
                 </div>
-            @endforeach
 
-       <!-- Caixa de Texto para Nova Pergunta -->
-<form action="/forum" method="POST">
-    @csrf
-    <div class="bg-white p-4 rounded-lg shadow flex flex-col">
-        <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
-        <div class="flex space-x-2 mb-4">
-            <select name="subject_id" class="w-full p-2 border border-gray-300 rounded">
-                <option value="">Selecione uma disciplina</option>
-                @foreach ($subjects as $subject)
-                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
-                @endforeach
-            </select>
-            <select name="topic_id" class="w-full p-2 border border-gray-300 rounded">
-                <option value="">Assunto primário</option>
-                @foreach ($topics as $topic)
-                    <option value="{{ $topic->id }}">{{ $topic->name }}</option>
-                @endforeach
-            </select>
+                <p class="mb-4">{{ $question->content }}</p>
+
+                <!-- Respostas -->
+                <div class="relative">
+                    <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
+                    <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
+                        @foreach ($question->answers as $answer)
+                        <div class="mt-4">
+                            <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
+                            <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
+                            <p class="mt-2">{{ $answer->answer }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Formulário para Responder -->
+                <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
+                    @csrf
+                    <textarea name="answer" placeholder="Escreva sua resposta..." class="w-full p-2 border border-gray-300 rounded mb-2"></textarea>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Responder</button>
+                </form>
+            </div>
+            @endforeach
+            <!-- Caixa de Texto para Nova Pergunta -->
+            <form action="/forum" method="POST">
+                @csrf
+                <div class="bg-white p-4 rounded-lg shadow flex flex-col">
+                    <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
+                    <div class="flex space-x-2 mb-4">
+                        <select name="subject_id" class="w-full p-2 border border-gray-300 rounded">
+                            <option value="">Selecione uma disciplina</option>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            @endforeach
+                        </select>
+                        <select name="topic_id" class="w-full p-2 border border-gray-300 rounded">
+                            <option value="">Assunto primário</option>
+                            @foreach ($topics as $topic)
+                                <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500">Enviar dúvida</button>
+                </div>
+            </form>
         </div>
-        <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500">Enviar dúvida</button>
-    </div>
-</form>
+
         <!-- Barra Lateral de Filtro -->
         <div class="w-1/5 p-6 bg-gray-200">
             <h2 class="text-lg font-semibold mb-4">Filtrar dúvidas</h2>

@@ -158,7 +158,9 @@ Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
 Route::post('/forum', [QuestionController::class, 'store']);
 
 // Rotas para respostas
-Route::post('/forum/{question}/answer', [AnswerController::class, 'store'])->name('answer.store');
+Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('answers.store');
+
+
 
 require __DIR__.'/auth.php';
 

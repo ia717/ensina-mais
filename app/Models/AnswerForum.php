@@ -9,19 +9,19 @@ class AnswerForum extends Model
 {
     use HasFactory;
 
-protected $fillable = [
-    'question_id',
-    'user_id',
-    'answer',
-    'created-at',
-    'updated-at',
-];
+    protected $fillable = [
+        'question_forum_id',
+        'user_id',
+        'answer',
+        'created_at',
+        'updated_at',
+    ];
 
-public function question() {
-    return $this->belongsTo(QuestionForum::class);
-}
+    public function question() {
+        return $this->belongsTo(QuestionForum::class, 'question_id');
+    }
 
-public function user() {
-    return $this->belongsTo(User::class);
-}
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
