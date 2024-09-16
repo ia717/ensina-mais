@@ -38,16 +38,16 @@
     <!-- Conteúdo Principal -->
 
     <div class="main-content">
-        <h1>Página de {{ $materia->name }}</h1>
+        <h1>Página de {{ $disciplina->name }}</h1>
 
         <div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @if ($topicos->isEmpty())
-                <p>Não há tópicos cadastrados para esta matéria.</p>
-                <p>Não há tópicos cadastrados para esta matéria.</p>
+                <p>Não há tópicos cadastrados para esta disciplina.</p>
+                <p>Não há tópicos cadastrados para esta disciplina.</p>
                 @else
                 @foreach ($topicos as $topic)
-                <a href="{{ route('aulas', ['materia' => $materia->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
+                <a href="{{ route('aulas', ['disciplina' => $disciplina->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
                     <div class="bg-gray-200 h-16 mb-4 rounded"></div>
                     <h3 class="text-xl font-semibold text-gray-800">{{ $topic->name }}</h3>
                     <p class="text-sm text-gray-600 mt-2">{{ $topic->lessons->count() }} AULAS</p>

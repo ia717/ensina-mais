@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
+            $table->foreignId('discipline_id')->constrained('disciplines')->onDelete('cascade');
             $table->foreignId('topic_id')->nullable()->constrained('topics')->onDelete('cascade');
             $table->text('statement'); // Enunciado da questão
             $table->string('type')->default('multiple_choice'); // Tipo de questão (múltipla escolha, dissertativa, etc.)

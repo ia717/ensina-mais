@@ -50,22 +50,22 @@ Route::get('/login1', function () {
     return view('login1');
 });
 
-Route::get('materias', function () {
-    $categorias = \App\Models\Category::with('subjects')->get();
-    return view('materias', compact('categorias'));
+Route::get('disciplinas', function () {
+    $categorias = \App\Models\Category::with('disciplines')->get();
+    return view('disciplinas', compact('categorias'));
 });
 
-Route::get('/materia/{slug}', function($slug) {
-    // Busca a matéria pelo slug
-    $materia = \App\Models\Subject::where('slug', $slug)->firstOrFail();
-    // Puxa os tópicos relacionados à matéria
-    $topicos = $materia->topics;
-    // Retorna a view com a matéria e os tópicos
-    return view('topicos', compact('materia', 'topicos'));
+Route::get('/disciplinas/{slug}', function($slug) {
+    // Busca a disciplina pelo slug
+    $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
+    // Puxa os tópicos relacionados à disciplina
+    $topicos = $disciplina->topics;
+    // Retorna a view com a disciplina e os tópicos
+    return view('topicos', compact('disciplina', 'topicos'));
 })->name('topicos');
 
 
-Route::get('/materia/{materia}/{slug}', function($materia, $slug) {
+Route::get('/disciplinas/{disciplina}/{slug}', function($disciplina, $slug) {
     // Busca o topico pelo slug
     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico

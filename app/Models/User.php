@@ -47,9 +47,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function subjects()
+    public function disciplines()
     {
-        return $this->belongsToMany(Subject::class, 'teachers_subjects');
+        return $this->belongsToMany(Discipline::class, 'teachers_disciplines');
     }
 
     public function lessons()

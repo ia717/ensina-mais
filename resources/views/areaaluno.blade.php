@@ -51,10 +51,10 @@
 
                 <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap">
                     <div class="flex-1 mb-2 md:mb-0">
-                        <p><strong>Matérias restantes:</strong> Arte, História, Física</p>
+                        <p><strong>Disciplinas restantes:</strong> Arte, História, Física</p>
                     </div>
                     <div class="flex-1 mb-2 md:mb-0">
-                        <p><strong>Matérias estudadas:</strong> Matemática</p>
+                        <p><strong>Disciplinas estudadas:</strong> Matemática</p>
                     </div>
                     <div class="flex-1">
                         <p><strong>Questões feitas:</strong> 5/20</p>
@@ -121,7 +121,7 @@
                 <div class="flex flex-col md:flex-row justify-center space-x-0 md:space-x-8">
                     <!-- Box de Química -->
                     <div class="w-full max-w-xs bg-gray-50 border border-gray-700 rounded-lg p-4 text-center shadow-sm mb-8 md:mb-0">
-                        <h3 class="text-xl sm:text-2xl font-medium">Sua matéria favorita é</h3>
+                        <h3 class="text-xl sm:text-2xl font-medium">Sua disciplina favorita é</h3>
                         <span class="text-green-500 font-medium text-2xl sm:text-3xl">Química!</span>
                         <p class="mt-4 sm:mt-8 text-left">Revise seu último conteúdo:</p>
                         <p class="text-gray-600 text-left">Moléculas e Propriedades</p>

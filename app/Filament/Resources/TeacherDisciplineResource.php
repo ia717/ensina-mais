@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TeacherSubjectResource\Pages;
-use App\Filament\Resources\TeacherSubjectResource\RelationManagers;
-use App\Models\TeacherSubject;
+use App\Filament\Resources\TeacherDisciplineResource\Pages;
+use App\Filament\Resources\TeacherDisciplineResource\RelationManagers;
+use App\Models\TeacherDiscipline;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\User;
-use App\Models\Subject;
+use App\Models\Discipline;
 
-class TeacherSubjectResource extends Resource
+class TeacherDisciplineResource extends Resource
 {
-    protected static ?string $model = TeacherSubject::class;
+    protected static ?string $model = TeacherDiscipline::class;
     protected static ?string $modelLabel = 'professor(a)';
 
 
@@ -34,9 +34,9 @@ class TeacherSubjectResource extends Resource
                     ->label('Professor(a)')
                     ->options(User::where('role', 'professor')->pluck('name', 'id'))
                     ->required(),
-                Forms\Components\Select::make('subject_id')
-                    ->label('Matéria')
-                    ->options(Subject::pluck('name', 'id'))
+                Forms\Components\Select::make('discipline_id')
+                    ->label('Disciplina')
+                    ->options(Discipline::pluck('name', 'id'))
                     ->required(),
             ]);
     }
@@ -49,8 +49,8 @@ class TeacherSubjectResource extends Resource
                     ->label('Professor(a)')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('subject.name')
-                    ->label('Matéria')
+                Tables\Columns\TextColumn::make('discipline.name')
+                    ->label('Disciplina')
                     ->searchable()
                     ->sortable(),                
 
@@ -78,9 +78,9 @@ class TeacherSubjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTeacherSubjects::route('/'),
-            'create' => Pages\CreateTeacherSubject::route('/create'),
-            'edit' => Pages\EditTeacherSubject::route('/{record}/edit'),
+            'index' => Pages\ListTeacherDisciplines::route('/'),
+            'create' => Pages\CreateTeacherDiscipline::route('/create'),
+            'edit' => Pages\EditTeacherDiscipline::route('/{record}/edit'),
         ];
     }
 }

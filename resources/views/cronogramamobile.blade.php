@@ -21,8 +21,8 @@
         </div>
         <div class="mt-4">
             <div id="weekLabel" class="text-center text-gray-600 text-lg font-bold">Semana 1</div>
-            <div id="subjects" class="mt-4 space-y-3">
-                <!-- As matérias da semana vão ser inseridas aqui -->
+            <div id="disciplines" class="mt-4 space-y-3">
+                <!-- As disciplinas da semana vão ser inseridas aqui -->
             </div>
         </div>
     </div>
@@ -39,33 +39,33 @@
 
         let currentWeek = 0;
 
-        function updateSubjects() {
-            const subjectsContainer = document.getElementById("subjects");
+        function updateDisciplines() {
+            const disciplinesContainer = document.getElementById("disciplines");
             const weekLabel = document.getElementById("weekLabel");
-            subjectsContainer.innerHTML = "";
+            disciplinesContainer.innerHTML = "";
 
             weekLabel.textContent = `Semana ${currentWeek + 1}`;
 
-            weeks[currentWeek].forEach((subject, index) => {
+            weeks[currentWeek].forEach((discipline, index) => {
                 const button = document.createElement("button");
                 button.className = `w-full ${colors[index % colors.length]} text-white py-2 rounded-lg font-semibold hover:${colors[index % colors.length].replace('400', '500').replace('300', '400')} focus:outline-none`;
-                button.textContent = subject;
-                subjectsContainer.appendChild(button);
+                button.textContent = discipline;
+                disciplinesContainer.appendChild(button);
             });
         }
 
         document.getElementById("nextWeek").addEventListener("click", () => {
             currentWeek = (currentWeek + 1) % weeks.length;
-            updateSubjects();
+            updateDisciplines();
         });
 
         document.getElementById("prevWeek").addEventListener("click", () => {
             currentWeek = (currentWeek - 1 + weeks.length) % weeks.length;
-            updateSubjects();
+            updateDisciplines();
         });
 
         // Inicializa a primeira semana
-        updateSubjects();
+        updateDisciplines();
     </script>
 </body>
 

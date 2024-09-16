@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Discipline extends Model
 {
     use HasFactory;
 
@@ -23,7 +23,7 @@ class Subject extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(User::class, 'teachers_subjects');
+        return $this->belongsToMany(User::class, 'teachers_disciplines');
     }
     public function questions()
     {
