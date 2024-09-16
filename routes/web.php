@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 
 Route::get('/', function () {
     return view('login1');
@@ -34,9 +36,6 @@ Route::get('/redacao3', function () {
 
 Route::get('/questaor', function () {
     return view('questaor');
-});
-Route::get('/forumduvida', function () {
-    return view('forumduvida');
 });
 
 Route::get('/redacao', function () {
@@ -154,4 +153,12 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
+// Rotas para perguntas
+Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
+Route::post('/forum', [QuestionController::class, 'store']);
+
+// Rotas para respostas
+Route::post('/forum/{question}/answer', [AnswerController::class, 'store'])->name('answer.store');
+
 require __DIR__.'/auth.php';
+

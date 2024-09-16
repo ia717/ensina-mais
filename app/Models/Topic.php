@@ -20,4 +20,14 @@ class Topic extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
+        public function questionsAsPrimary()
+    {
+        return $this->hasMany(QuestionForum::class, 'topic_primary_id');
+    }
+
+        public function questionsAsSecondary()
+    {
+        return $this->hasMany(QuestionForum::class, 'topic_secondary_id');
+    }
 }
