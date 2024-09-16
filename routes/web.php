@@ -7,17 +7,24 @@ use App\Http\Controllers\AnswerController;
 
 Route::get('/', function () {
     return view('login1');
+}); // ADICIONAR ->middleware('guest');
+
+Route::get('/topicomat', function () {
+    return view('topicomat');
 });
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
+Route::get('/topicosmaterias', function () {
+    return view('topicosmaterias');
+});
 Route::get('/questaow', function () {
     return view('questaow');
 });
 
-Route::get('/conteudo2', function () {
-    return view('conteudo2');
+Route::get('/conteudo', function () {
+    return view('conteudo');
 });
 
 Route::get('/conteudo3', function () {
@@ -43,10 +50,6 @@ Route::get('/login1', function () {
     return view('login1');
 });
 
-Route::get('paginainicial', function () {
-    return view('paginainicial');
-});
-
 Route::get('materias', function () {
     $categorias = \App\Models\Category::with('subjects')->get();
     return view('materias', compact('categorias'));
@@ -61,13 +64,14 @@ Route::get('/materia/{slug}', function($slug) {
     return view('topicos', compact('materia', 'topicos'));
 })->name('topicos');
 
+
 Route::get('/materia/{materia}/{slug}', function($materia, $slug) {
     // Busca o topico pelo slug
-    $topico = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico
-    $aulas = $topico->lessons;
+    $aulas = $topic->lessons;
     // Retorna a view com o tópico e as aulas
-    return view('aulas', compact('topico', 'aulas'));
+    return view('aulas', compact('topic', 'aulas'));
 })->name('aulas');
 
 Route::get('questao', function () {
@@ -101,6 +105,7 @@ Route::get('semana', function () {
 });
 
 
+
 Route::get('aulas', function () {
     $aulas = \App\Models\Lesson::with('topic')->get();
     return view('aulas', compact('aulas'));
@@ -110,6 +115,9 @@ Route::get('perguntas', function () {
     return view('perguntas');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 
 Route::get('usuario', function () {
@@ -132,14 +140,17 @@ Route::get('areaaluno', function () {
     return view('areaaluno');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/paginainicial', function () {
+        return view('paginainicial');
+    })->name('dashboard');
 });
 
 // Rotas para perguntas

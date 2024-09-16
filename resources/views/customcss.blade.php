@@ -5,5 +5,4 @@
         -ms-user-select: none;/* Internet Explorer/Edge */
         user-select: none;/* Padrão */
     }
-    
 </style>

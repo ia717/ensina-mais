@@ -69,9 +69,26 @@
                 </li>
                 <li class="flex items-center px-5 py-3 text-red-500 ">
                     <i class="mr-3 fa-solid fa-sign-in-alt"></i>
-                    <a href="#"
-                        class="text-red-500   no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Log-out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+    
+                        <a :href="route('logout')" onclick="event.preventDefault();
+                                        this.closest('form').submit();" class="text-red-500  no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">
+                            {{ __('Logout') }}
+                        </a>
+                    </form>
                 </li>
+
+                {{-- BOTAO DE LOGOUT
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                        {{ __('SAIR') }}
+                    </x-dropdown-link>
+                </form> --}}
+                
                 <x-theme-toggle />
             </ul>
         </div>

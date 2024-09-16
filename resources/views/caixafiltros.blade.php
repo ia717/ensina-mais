@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
+
 <body class="flex justify-end h-screen bg-gray-100">
     <!-- Caixa de Filtros -->
-    <div class="filters-container w-full  h-full bg-white p-4 rounded-lg shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto">
-        <h2 class="text-xl font-medium text-gray-800 mb-4">Filtrar questões</h2>
+    <div class=" h-full bg-white p-4 rounded-lg shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto">
+        <h2 class="text-xl font-medium text-gray-800 mb-4">Filtrar</h2>
         <div class="space-y-4">
             <div>
                 <label for="disciplina" class="block text-gray-700 mb-1">Disciplina</label>
@@ -52,4 +54,5 @@
         </div>
     </div>
 </body>
+
 </html>

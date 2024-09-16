@@ -10,13 +10,7 @@ export default {
   ],
 
   theme: {
-    screens: {
-      'mm': '460px',
-    },
     extend: {
-      // screens: {
-      //   'mm': { 'raw': '(min-width: 460px)' },
-      // },
       userSelect: {
         'none': 'none',
         'text': 'text',
@@ -24,13 +18,13 @@ export default {
         'auto': 'auto',
       },
       fontFamily: {
-        // Outras customizações podem ir aqui
+        // Outras customizações de fontes podem ir aqui
       },
       backgroundColor: {
-        // Outras customizações podem ir aqui
+        // Outras customizações de cores podem ir aqui
       },
       colors: {
-        // Outras customizações podem ir aqui
+        // Outras customizações de cores podem ir aqui
       },
     },
   },
