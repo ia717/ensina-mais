@@ -49,10 +49,8 @@ Route::get('/login1', function () {
 
 Route::get('disciplinas', function () {
     $categorias = \App\Models\Category::with('disciplines')->get();
-    return view('disciplinas', compact('categorias'));
-});
-
-
+    return view('painel-aulas.disciplinas', compact('categorias'));
+})->name('disciplinas');
 
 Route::get('/disciplinas/{slug}', function ($slug) {
     // Busca a disciplina pelo slug
@@ -60,11 +58,18 @@ Route::get('/disciplinas/{slug}', function ($slug) {
     // Puxa os tópicos relacionados à disciplina
     $topicos = $disciplina->topics;
     // Retorna a view com a disciplina e os tópicos
-    return view('topicos', compact('disciplina', 'topicos'));
+    return view('painel-aulas.topicos', compact('disciplina', 'topicos'));
 })->name('topicos');
 
-
 Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
+    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+    // Puxa as aulas relacionadas ao tópico
+    $aulas = $topic->lessons;
+    return view('painel-aulas.aulas', compact('topic','aulas'));
+})->name('aulas');
+
+
+Route::get('/disciplinas/{disciplina}/{topico}/{slug}', function ($disciplina, $slug) {
     // Busca o topico pelo slug
     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico
@@ -72,8 +77,11 @@ Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
     // Retorna a view com o tópico e as aulas
     $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
     $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
-    return view('conteudo', compact('topic', 'aulas', 'corCategoria'));
+    return view('painel-aulas.conteudo', compact('topic', 'aulas', 'corCategoria'));
 })->name('conteudo');
+
+
+
 
 Route::get('questao', function () {
     return view('questao');
@@ -104,13 +112,6 @@ Route::get('cronograma', function () {
 Route::get('semana', function () {
     return view('semana');
 });
-
-
-
-Route::get('aulas', function () {
-    $aulas = \App\Models\Lesson::with('topic')->get();
-    return view('aulas', compact('aulas'));
-})->name('aulas');
 
 Route::get('perguntas', function () {
     return view('perguntas');

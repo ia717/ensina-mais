@@ -12,8 +12,6 @@
 
 <body>
 
-
-
     <!-- Conteúdo Principal -->
     <div class="main-content">
         <h1 class="text-3xl">Disciplinas</h1>
