@@ -226,7 +226,7 @@
     </label>
 
     <!-- Menu Lateral -->
-    <div class="sidebar">
+    <div class="sidebar user-select-none">
         <ul>
             <li><a href="paginainicial"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="areaaluno"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>

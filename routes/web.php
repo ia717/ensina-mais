@@ -150,10 +150,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/paginainicial', function () {
-        return view('paginainicial');
-    })->name('dashboard');
+   
 });
+Route::get('/paginainicial', function () {
+    return view('paginainicial');
+})->name('dashboard');
 
 // Rotas para perguntas
 Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
