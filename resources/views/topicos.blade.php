@@ -9,34 +9,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Importando Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Conteúdo Principal */
-        .main-content {
-            margin-left: 245px;
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-            transition: margin-left 0.3s ease;
-        }
 
-        .main-content.hamburger-active {
-            margin-left: 30px;
-            /* Move o conteúdo para a esquerda quando o menu é escondido */
-        }
-
-        .main-content h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    @include("menuteste")
-
     <div class="main-content">
-        <h1>Tópicos de {{ $disciplina->name }}</h1>
+        <h1 class="text-3xl">Tópicos de {{ $disciplina->name }}</h1>
 
         <div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -45,7 +23,7 @@
                 @else
                 @foreach ($topicos as $topic)
 
-                <a href="{{ route('aulas', ['disciplinas' => $disciplina->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
+                <a href="{{ route('aulas', ['disciplinas' => $disciplina->slug, 'slug' => $topic->slug,'topicos' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
                     <div class="bg-gray-200 h-16 mb-4 rounded"></div>
                     <h3 class="text-xl font-semibold text-gray-800">{{ $topic->name }}</h3>
                     <p class="text-sm text-gray-600 mt-2">{{ $topic->lessons->count() }} AULAS</p>

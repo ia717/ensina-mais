@@ -54,7 +54,7 @@ Route::get('disciplinas', function () {
 
 
 
-Route::get('/disciplinas/{slug}', function($slug) {
+Route::get('/disciplinas/{slug}', function ($slug) {
     // Busca a disciplina pelo slug
     $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
     // Puxa os tópicos relacionados à disciplina
@@ -64,7 +64,7 @@ Route::get('/disciplinas/{slug}', function($slug) {
 })->name('topicos');
 
 
-Route::get('/disciplinas/{disciplina}/{slug}', function($disciplina, $slug) {
+Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
     // Busca o topico pelo slug
     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico
@@ -88,6 +88,10 @@ Route::get('menuteste', function () {
 });
 Route::get('calendario', function () {
     return view('calendario');
+});
+
+Route::get('menuteste', function () {
+    return view('menuteste');
 });
 
 Route::get('teste', function () {
@@ -144,8 +148,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-   
 });
 Route::get('/paginainicial', function () {
     return view('paginainicial');
@@ -160,5 +162,4 @@ Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('
 
 
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

@@ -8,37 +8,15 @@
     <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Conteúdo Principal */
-        .main-content {
-            margin-left: 245px;
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            transition: margin-left 0.3s ease;
-        }
-
-        .main-content.hamburger-active {
-            margin-left: 30px;
-            /* Move o conteúdo para a esquerda quando o menu é escondido */
-        }
-
-        .main-content h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 
 <body>
 
-        @include ('menuteste')
 
 
     <!-- Conteúdo Principal -->
     <div class="main-content">
-        <h1 class="text-9xl">Disciplinas</h1>
+        <h1 class="text-3xl">Disciplinas</h1>
         @foreach ($categorias as $categoria)
         <div class="mb-10">
             <h2 class="mb-2.5 gray-700 text-xl">{{ $categoria->name }}</h2>
