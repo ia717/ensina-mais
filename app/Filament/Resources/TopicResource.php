@@ -39,12 +39,13 @@ class TopicResource extends Resource
                 ->label('Disciplina')
                 ->options(\App\Models\Discipline::pluck('name', 'id')->toArray())
                 ->required(),
-            Forms\Components\Textarea::make('description')
-                ->label('Descrição')
-                ->nullable(),
-            Forms\Components\Toggle::make('is_high_relevance')
-                ->label('Alto Relevância')
-                ->inline(false),
+            // Forms\Components\Textarea::make('description')
+            //     ->label('Descrição')
+            //     ->nullable(),
+            // Forms\Components\Toggle::make('is_high_relevance')
+            //     ->label('Alto Relevância')
+            //     ->inline(false),
+
             Forms\Components\FileUpload::make('image')
                 ->label('Imagem')
                 ->image()

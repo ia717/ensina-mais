@@ -44,7 +44,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @if ($topicos->isEmpty())
                 <p>Não há tópicos cadastrados para esta disciplina.</p>
-                <p>Não há tópicos cadastrados para esta disciplina.</p>
                 @else
                 @foreach ($topicos as $topic)
                 <a href="{{ route('aulas', ['disciplina' => $disciplina->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">

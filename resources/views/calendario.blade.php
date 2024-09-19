@@ -39,13 +39,19 @@
                 <!-- Filtro de eventos -->
                 <div class="flex justify-start w-max mt-6">
                     <div class="flex space-x-2 justify-center">
-                    <svg class=" absolute top-30 mt-2 left-96 ml-8 z-50" fill="#8c8c8c" width="25px" height="25px" fill="#9ca3af" viewBox="0 0 256.00098 256.00098" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="#9ca3af" stroke-width="14.080053900000001"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M226.82129,221.17236,180.955,175.306a88.10138,88.10138,0,1,0-5.657,5.65649L221.165,226.82959a3.99992,3.99992,0,0,0,5.65625-5.65723ZM35.999,116a80,80,0,1,1,80,80A80.09041,80.09041,0,0,1,35.999,116Z"></path> </g></svg>
+                        <svg class=" absolute top-30 mt-2 left-96 ml-8 z-50" fill="#8c8c8c" width="25px" height="25px" fill="#9ca3af" viewBox="0 0 256.00098 256.00098" id="Flat" xmlns="http://www.w3.org/2000/svg" stroke="#9ca3af" stroke-width="14.080053900000001">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M226.82129,221.17236,180.955,175.306a88.10138,88.10138,0,1,0-5.657,5.65649L221.165,226.82959a3.99992,3.99992,0,0,0,5.65625-5.65723ZM35.999,116a80,80,0,1,1,80,80A80.09041,80.09041,0,0,1,35.999,116Z"></path>
+                            </g>
+                        </svg>
                         <input type="text" placeholder=" Pesquisar eventos" class="placeholder-gray-400 w-full pr-4 pl-8 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <button for="eventFilter" class=" text-gray-600 dark:text-gray-100">Filtrar </button>
                     </div>
 
                 </div>
-                
+
                 <!-- Calendário -->
                 <div class="flex flex-col items-center mt-8">
                     <div class="flex items-center justify-between ">
@@ -86,10 +92,10 @@
                         <div id="calendar-body" class="grid grid-cols-7 gap-6 mt-2">
                             <!-- Dias do mês serão gerados dinamicamente -->
                         </div>
-                       
+
                     </div>
-                
-                                
+
+
                     <!-- Formulário de eventos -->
                     <div class="justify-center items-center mt-8">
                         <hr class="border-t border-gray-300 my-6">
@@ -116,12 +122,12 @@
 
                         <div class="flex justify-center items-center space-x-2 mt-4">
                             <input type="text" placeholder="Adicionar novo evento" class="p-2 border rounded-lg text-gray-600 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
-                            
+
                             <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Salvar evento</button>
                         </div>
                         <hr class="border-t border-gray-300 my-6">
                     </div>
-                   
+
                     <!-- Sugestões de eventos -->
                     <div class="mt-10">
                         <h3 class="text-center text-xl font-semibold mb-4">Saiba +</h3>

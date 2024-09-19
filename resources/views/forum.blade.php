@@ -69,13 +69,13 @@
                         <select name="discipline_id" class="w-full p-2 border border-gray-300 rounded">
                             <option value="">Selecione uma disciplina</option>
                             @foreach ($disciplines as $discipline)
-                                <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
+                            <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
                             @endforeach
                         </select>
                         <select name="topic_id" class="w-full p-2 border border-gray-300 rounded">
                             <option value="">Tópico</option>
                             @foreach ($topics as $topic)
-                                <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                            <option value="{{ $topic->id }}">{{ $topic->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -91,7 +91,7 @@
                 <select class="w-full p-2 border border-gray-300 rounded">
                     <option>Selecione uma disciplina</option>
                     @foreach ($disciplines as $discipline)
-                        <option>{{ $discipline->name }}</option>
+                    <option>{{ $discipline->name }}</option>
                     @endforeach
                 </select>
                 <select class="w-full p-2 border border-gray-300 rounded">
@@ -101,7 +101,7 @@
                 <select class="w-full p-2 border border-gray-300 rounded">
                     <option>Tópico</option>
                     @foreach ($topics as $topic)
-                        <option>{{ $topic->name }}</option>
+                    <option>{{ $topic->name }}</option>
                     @endforeach
                 </select>
                 <button class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500">Filtrar</button>
