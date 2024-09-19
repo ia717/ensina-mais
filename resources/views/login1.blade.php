@@ -18,7 +18,7 @@
     <!-- Main Content -->
     <main class="container p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0 md:my-8 sm:mx-auto">
         <!-- Promotional Section (Video) -->
-        <div class="relative bg-white shadow-lg sm:rounded-3xl w-full md:w-2/3 overflow-hidden md:ml-6 z-10 order-1 md:order-2 space-y-4 md:space-y-2">
+        <div class="relative  bg-white sm:rounded-3xl w-full md:w-2/3 overflow-hidden md:ml-6 z-10 order-1 md:order-2 space-y-4 md:space-y-2">
             <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar.mp4')}}"></video>
         </div>
         <!-- Login Form -->
@@ -54,7 +54,7 @@
         </div>
     </main>
     <!-- Section Title -->
-    <section class="mt-56 container mx-auto flex flex-col justify-center gap-24 mb-24 bg-white pt-24">
+    <section class="mt-56 container mx-auto flex flex-col justify-center gap-24 bg-white pt-24">
             <div class="flex items-center justify-center">
                 <div class="mt-7">
                     <h2 class="text-5xl font-semibold text-black text-balance subpixel-antialiased reveal">A nossa</h2>
@@ -119,7 +119,7 @@
         <h3 id="aprova" class=" reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
             Alunos <span class="text-red-600 p-3">SESI SENAI</span>
         </h3>
-        <div class="relative overflow-hidden w-full max-w-5xl mx-auto pt-10">
+        <div class="relative overflow-hidden w-full max-w-5xl mx-auto pt-20">
             <div id="carousel" class="reveal flex transition-transform duration-300 ease-out">
 
                 <!-- First Slide -->
@@ -139,31 +139,15 @@
             </div>
 
             <!-- Carousel Controls -->
-            <div class="absolute mt-10 left-0 top-1/2 transform -translate-y-1/2">
-                <button id="prev" class="transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium hover:text-sky-800 hover:pl-4 transition-all duration-75">
-                    <svg height="40px" width="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000000">
-                        <g>
-                            <circle style="fill:#2D6796;" cx="256" cy="256" r="256"></circle>
-                            <path style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019
-                    c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806
-                    c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862
-                    C314.192,119.551,309.363,112.323,301.954,109.254z"></path>
-                        </g>
-                    </svg>
+            <div class="absolute mt-20 left-0 top-1/2 transform -translate-y-1/2">
+                <button id="prev" class="transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium hover:text-sky-800 hover:pl-4 transition-all">
+                <svg fill="#ffffff" width="64px" height="64px" viewBox="-3.36 -3.36 30.72 30.72" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" transform="matrix(1, 0, 0, -1, 0, 0)" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"><path transform="translate(-3.36, -3.36), scale(0.96)" d="M16,26.770188650581986C19.186110614276764,27.11547725260842,22.68931702461402,27.21229436467344,25.095483017937546,25.095483017937546C27.599505000857558,22.892583400609073,28.341167811617755,19.33363745909855,28.242404932621866,16C28.146717551394396,12.770172744395039,26.819293836365066,9.749766874708184,24.572061505161194,7.427938494838806C22.284507987394075,5.064450481484889,19.277483836460757,3.628839294882452,16,3.3512129494920373C12.388512296909237,3.0452940853690538,8.457891164992812,3.3333361709602727,5.841309719822798,5.841309719822796C3.188764466079395,8.383754307522999,2.213701304776176,12.373402508800119,2.8034567129798234,15.999999999999998C3.3255412866585403,19.21046755783813,6.163241126417239,21.260222871149118,8.68316981832066,23.316830181679336C10.855253596890229,25.089548351222476,13.212666114083566,26.46811670852938,16,26.770188650581986" fill="#2D6796" strokewidth="0"></path></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="arrow-left"> <rect width="24" height="24" opacity="0"></rect> <path d="M13.54 18a2.06 2.06 0 0 1-1.3-.46l-5.1-4.21a1.7 1.7 0 0 1 0-2.66l5.1-4.21a2.1 2.1 0 0 1 2.21-.26 1.76 1.76 0 0 1 1.05 1.59v8.42a1.76 1.76 0 0 1-1.05 1.59 2.23 2.23 0 0 1-.91.2z"></path> </g> </g> </g></svg>
                 </button>
             </div>
 
-            <div class="absolute right-10 mt-10 top-1/2 transform -translate-y-1/2">
-                <button id="next" class="transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium hover:text-sky-800 hover:pr-4 transition-all duration-75">
-                    <svg height="40px" width="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000000" transform="rotate(180)">
-                        <g>
-                            <circle style="fill:#2D6796;" cx="256" cy="256" r="256"></circle>
-                            <path style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019
-                    c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806
-                    c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862
-                    C314.192,119.551,309.363,112.323,301.954,109.254z"></path>
-                        </g>
-                    </svg>
+            <div class="absolute right-10 mt-20 top-1/2 transform -translate-y-1/2">
+                <button id="next" class="transform px-2.5 pb-1.5 bg-none text-sky-500 text-6xl rounded-full font-medium hover:text-sky-800 hover:pr-4 transition-all">
+                <svg fill="#ffffff" width="64px" height="64px" viewBox="-3.36 -3.36 30.72 30.72" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" transform="matrix(-1, 0, 0, -1, 0, 0)" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"><path transform="translate(-3.36, -3.36), scale(0.96)" d="M16,26.770188650581986C19.186110614276764,27.11547725260842,22.68931702461402,27.21229436467344,25.095483017937546,25.095483017937546C27.599505000857558,22.892583400609073,28.341167811617755,19.33363745909855,28.242404932621866,16C28.146717551394396,12.770172744395039,26.819293836365066,9.749766874708184,24.572061505161194,7.427938494838806C22.284507987394075,5.064450481484889,19.277483836460757,3.628839294882452,16,3.3512129494920373C12.388512296909237,3.0452940853690538,8.457891164992812,3.3333361709602727,5.841309719822798,5.841309719822796C3.188764466079395,8.383754307522999,2.213701304776176,12.373402508800119,2.8034567129798234,15.999999999999998C3.3255412866585403,19.21046755783813,6.163241126417239,21.260222871149118,8.68316981832066,23.316830181679336C10.855253596890229,25.089548351222476,13.212666114083566,26.46811670852938,16,26.770188650581986" fill="#2D6796" strokewidth="0"></path></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="arrow-left"> <rect width="24" height="24" opacity="0"></rect> <path d="M13.54 18a2.06 2.06 0 0 1-1.3-.46l-5.1-4.21a1.7 1.7 0 0 1 0-2.66l5.1-4.21a2.1 2.1 0 0 1 2.21-.26 1.76 1.76 0 0 1 1.05 1.59v8.42a1.76 1.76 0 0 1-1.05 1.59 2.23 2.23 0 0 1-.91.2z"></path> </g> </g> </g></svg>
                 </button>
             </div>
 
@@ -222,16 +206,9 @@
         </footer>
 
         <!-- Scroll to Top Button -->
-        <a id="scrollToTop" class="fixed right-2 bottom-2 z-40 bg-sky-800 rounded-full text-white transition-opacity duration-300 ease-in-out opacity-0 hover:text-sky-400 font-bold text-xl no-underline border border-white" href="#inicio"><svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000" class="transition-all hover:h-11 hover:w-11 " transform="matrix(1, 0, 0, 1, 0, 0)rotate(90)">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" href="#inicio" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <circle href="#inicio" style="fill:#2D6796;" cx="256" cy="256" r="256"></circle>
-                    <path style="fill:#2D6796;" d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z"></path>
-                    <path href="#inicio" style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z"></path>
-                    <path style="fill:#CFDBE6;" d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z" href="#inicio"></path>
-                </g>
-            </svg></a>
+        <a id="scrollToTop" class="fixed right-2 bottom-2 z-40 bg-sky-800 rounded-full text-white transition-opacity duration-300 ease-in-out opacity-0 hover:text-sky-400 font-bold text-xl no-underline border" href="#inicio">
+        <svg fill="#ffffff" width="50px" height="50px" class="hover:px-2 hover:py-2 transition-all" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" transform="matrix(1, 0, 0, 1, 0, 0)rotate(90)" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="arrow-left"> <rect width="24" height="24" opacity="0"></rect> <path d="M13.54 18a2.06 2.06 0 0 1-1.3-.46l-5.1-4.21a1.7 1.7 0 0 1 0-2.66l5.1-4.21a2.1 2.1 0 0 1 2.21-.26 1.76 1.76 0 0 1 1.05 1.59v8.42a1.76 1.76 0 0 1-1.05 1.59 2.23 2.23 0 0 1-.91.2z"></path> </g> </g> </g></svg>
+        </a>
 
         @include('smoothlink')
         <script>
