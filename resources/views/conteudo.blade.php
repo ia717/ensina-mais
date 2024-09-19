@@ -83,6 +83,8 @@
             @endforeach
         </div>
     </div>
+<<<<<<< HEAD
+=======
     <<<<<<< HEAD=======<a href="#">
         <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" class="absolute top-7 mt-1 left-72 hover:pl-1 transition-all " xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -213,6 +215,7 @@
         </div>
 
         >>>>>>> 4a0f38714b2c2a6c6d132fe687d39528ee33a5bc
+>>>>>>> 7be0a6a04814be523f25e1ad7774a0b78c717c06
 </body>
 
 </html>

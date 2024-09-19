@@ -26,7 +26,7 @@ class DisciplineResource extends Resource
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
 
-    protected static ?string $slug = 'materias';
+    protected static ?string $slug = 'disciplinas';
 
     public static function form(Form $form): Form
     {
@@ -36,20 +36,20 @@ class DisciplineResource extends Resource
                     ->label('Nome')
                     ->required()
                     ->maxLength(255)
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
+                    ->live(onBlur: true),
+                    // ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
                         
-                        // Se for uma edição não atualiza o campo slug
-                        if ($operation === 'edit') {
-                            return;
-                        }
+                    //     // Se for uma edição não atualiza o campo slug
+                    //     if ($operation === 'edit') {
+                    //         return;
+                    //     }
 
-                        $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
+                    //     $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
             
-                    }),
-                Forms\Components\Hidden::make('slug')
-                    ->label('Slug')
-                    ->required(),
+                    // }),
+                // Forms\Components\Hidden::make('slug')
+                //     ->label('Slug')
+                //     ->required(),
                     // ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->label('Categoria')
@@ -80,10 +80,10 @@ class DisciplineResource extends Resource
                     ->label('Nome')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('slug')
+                //     ->label('Slug')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('Categoria')
                     ->searchable()

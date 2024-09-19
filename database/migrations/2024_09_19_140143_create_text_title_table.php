@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('student_texts', function (Blueprint $table) {
+        Schema::create('text_title', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('title_id')->constrained('text_title')->onDelete('cascade');
-            $table->foreignId('eixo_id')->constrained('tematic_axis')->onDelete('cascade');
+            $table->string('title');
             $table->foreignId('vest_id')->constrained('vestibular')->onDelete('cascade');
-            $table->integer('number_line');
-            $table->integer('number_word');
-            $table->integer('paragraphs');
-            $table->time('time');
+            $table->foreignId('eixo_id')->constrained('tematic_axis')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('student_texts');
+        Schema::dropIfExists('text_title');
     }
 };
