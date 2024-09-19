@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ensina+</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +14,8 @@
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
     @include('headernav')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{asset('/imagens/Vector (2).png')}}" alt="">
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
+            alt="">
     </div>
     <!-- Main Content -->
     <main class="container p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0 md:my-8 sm:mx-auto">
@@ -24,20 +26,53 @@
         <!-- Login Form -->
         <div class="relative md:bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
-            <form>
-                <label class="block mb-4">
-                    <span class="font-medium text-gray-700">Email ou CPF</span>
-                    <input type="text" class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50" placeholder="Digite seu Email ou CPF">
-                </label>
-                <label class="block mb-4">
+
+            @auth
+                @php
+                    $user = Auth::user();
+
+                    if ($user->role == 'aluno') {
+                        $redirect = route('dashboard');
+                    } elseif ($user->role == 'professor') {
+                        $redirect = url('/teacherPanel');
+                    } elseif ($user->role == 'admin') {
+                        $redirect = url('/admin');
+                    }
+                @endphp
+                <form method="GET" action="{{ $redirect }}">
+                    @csrf
+
+                    <p>Você já está logado. <button type="submit">Clique aqui</button> para acessar o sistema.</p>
+
+                </form>
+            @endauth
+
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="block mb-4">
+                    <span class="font-medium text-gray-700">Email</span>
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        :value="old('email')" required autofocus autocomplete="username"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        placeholder="Digite seu Email ou CPF" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <div class="block mb-4">
                     <span class="font-medium text-gray-700 ">Senha</span>
-                    <input type="password" class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50" placeholder="Digite sua Senha">
-                </label>
+                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                        autocomplete="current-password"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        placeholder="Digite sua Senha" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
                 <div class="mb-4">
                     <span class="font-medium text-gray-700">Eu sou um(a)</span>
                     <div class="mt-2">
                         <label class="inline-flex items-center">
-                            <input type="radio" class="form-radio text-green-600" name="role" value="Aluno">
+                            <input type="radio" class="form-radio text-green-600" name="role" value="Aluno"
+                                checked>
                             <span class="ml-2">Aluno(a)</span>
                         </label>
                     </div>
@@ -48,10 +83,34 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="transition-all duration-75 w-full bg-sky-800 text-white py-2 rounded-lg hover:bg-sky-500 font-medium">Acessar</button>
-                <a href="#" class="block text-center mt-4 text-sky-800 hover:underline transition-all duration-75 font-thin">Esqueci minha senha</a>
+
+
+                <button type="submit"
+                    class="transition-all duration-75 w-full bg-sky-800 text-white py-2 rounded-lg hover:bg-sky-500 font-medium">Acessar</button>
+                {{-- <x-primary-button class="ms-3">
+                    {{ __('Log in') }}
+                </x-primary-button> --}}
+
+
+                <a href="#"
+                    class="block text-center mt-4 text-sky-800 hover:underline transition-all duration-75 font-thin">Esqueci
+                    minha senha</a>
+                @if (Route::has('password.request'))
+                    {{-- <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a> --}}
+                @endif
             </form>
+
+
+            <div class="flex items-center justify-end mt-4">
+
+
+
+            </div>
+
         </div>
+
     </main>
     <!-- Section Title -->
     <section class="mt-56 container mx-auto flex flex-col justify-center gap-24 bg-white pt-24">
@@ -83,54 +142,51 @@
                 </div>
             </div>
 
-<!-- Sobre nós Section -->
-<section id="sobre" class="reveal flex flex-col items-center justify-center bg-white py-12">
-    <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black subpixel-antialiased text-center mb-8">Sobre nós <span class="text-sky-800">+</span></h3>
-    
-    <!-- Content Container -->
-    <div class="relative w-full flex justify-center items-center z-10 px-4">
-        <!-- Blue Bar Behind -->
-        <div class="absolute bg-sky-800 w-full h-8 sm:h-10 md:h-12 top-1/2 transform -translate-y-1/2"></div>
-        
-        <!-- Card Container -->
-        <div class="flex space-x-4 sm:space-x-8 relative z-10 w-full max-w-screen-lg justify-center items-center">
-            <!-- Card 1 -->
-            <div class="bg-white shadow-lg rounded-2xl sm:rounded-3xl p-4 sm:p-6 w-1/2">
-                <ul class="text-sm sm:text-lg list-disc pl-4 space-y-2 text-gray-700">
-                    <li class="subpixel-antialiased">Plataforma de estudos focada em vestibulares</li>
-                    <li class="subpixel-antialiased">Criada pela escola para apoio aos alunos</li>
-                    <li class="subpixel-antialiased">Combina conteúdos teóricos, exercícios, videoaulas e simulados</li>
-                </ul>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="bg-white shadow-lg rounded-2xl sm:rounded-3xl p-4 sm:p-6 w-1/2">
-                <ul class="text-sm sm:text-lg list-disc pl-4 space-y-2 text-gray-700">
-                    <li class="subpixel-antialiased">Consolida conhecimentos e prepara para exames</li>
-                    <li class="subpixel-antialiased">Aumenta as chances de sucesso acadêmico</li>
-                    <li class="subpixel-antialiased">Oferece um ambiente de aprendizado interativo e acessível</li>
-                </ul>
+        <!-- sobre nós -->
+
+        <h3 class="reveal text-5xl font-bold text-black justify-center items-center flex subpixel-antialiased" id="sobre">Sobre nós <span class="text-sky-800">+</span></h3>
+        <div class="reveal container justify-center items-center flex z-10">
+            <div class="bg-sky-800 w-full h-12 absolute"></div>
+            <div class="flex space-x-20 mx-20">
+                <div class="font-medium text-1xl bg-white shadow-lg rounded-3xl p-6 w-1/3 z-10">
+                    <ul class="text-lg list-disc pl-4 space-y-2 text-gray-700">
+                        <li class="py-2 subpixel-antialiased">Plataforma de estudos focada em vestibulares</li>
+                        <li class="py-2 subpixel-antialiased">Criada pela escola para apoio aos alunos</li>
+                        <li class="py-2 subpixel-antialiased">Combina conteúdos teóricos, exercícios, videoaulas e simulados</li>
+                    </ul>
+                </div>
+                <div class="font-medium text-1xl bg-white shadow-lg rounded-3xl p-6 w-1/3 z-10">
+                    <ul class="text-lg list-disc pl-4 space-y-2 text-gray-700">
+                        <li class="py-2 subpixel-antialiased">Consolida conhecimentos e prepara para exames</li>
+                        <li class="py-2 subpixel-antialiased">Aumenta as chances de sucesso acadêmico</li>
+                        <li class="py-2 subpixel-antialiased">Oferece um ambiente de aprendizado interativo e acessível</li>
+                    </ul>
+                </div>
+                <div class="font-medium text-1xl bg-white shadow-lg rounded-3xl p-6 w-1/3 z-10">
+                    <ul class="text-lg list-disc pl-4 space-y-2 text-gray-700">
+                        <li class="py-4">Estudo personalizado para cada aluno</li>
+                        <li class="py-4">Flexibilidade de tempo e lugar</li>
+                        <li class="py-4">Feedback contínuo para melhorar o desempenho</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-        <section class="bg-white">
-        <h3 id="aprova" class=" reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
-            Alunos <span class="text-red-600 p-3">SESI SENAI</span>
+        <h3 id="aprova" class="reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
+            Alunos <span class="text-red-600 p-4">SESI SENAI</span>
         </h3>
         <div class="relative overflow-hidden w-full max-w-5xl mx-auto pt-20">
             <div id="carousel" class="reveal flex transition-transform duration-300 ease-out">
 
                 <!-- First Slide -->
-                <div class="flex-shrink-0 flex min-w-full space-x-0 pt-">
+                <div class="flex-shrink-0 flex min-w-full space-x-0 ml-5">
                     <span><img src="{{asset('imagens/teste marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
                     <img src="{{asset('imagens/teste cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     <img src="{{asset('imagens/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                 </div>
 
                 <!-- Second Slide -->
-                <div class="flex-shrink-0 flex min-w-full space-x-0">
+                <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
                     <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
@@ -155,7 +211,7 @@
         </section>
         </div>
         <!-- TURBINA (Banner) -->
-        <div id="turbina" class="reveal relative w-full mt-6 ml-0 pt-1 -mx-10">
+        <div id="turbina" class="reveal relative w-full mt-8 pt-1">
             <img src="{{asset('/imagens/turbinanovo.png')}}" class="w-full object-cover" alt="Banner Image">
             <div class="absolute inset-0 flex flex-col items-end justify-center text-white pr-10 mr-10">
                 <p class="mt-5 font-medium text-3xl md:text-5xl subpixel-antialiased">Método Ensina</p>
@@ -165,7 +221,8 @@
                     <p class="font-thin mt-2 text-2xl md:text-4xl subpixel-antialiased">+ Aprovados</p>
                     <div class="mt-5">
                         <a target="blank" href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
-                            <button class="transition-all duration-75 text-sm md:text-lg hover:px-10 font-medium bg-yellow-500 text-black py-2 px-4 md:px-8 rounded-md hover:bg-yellow-600 subpixel-antialiased">
+                            <button
+                                class="transition-all duration-75 text-sm md:text-lg hover:px-10 font-medium bg-yellow-500 text-black py-2 px-4 md:px-8 rounded-md hover:bg-yellow-600 subpixel-antialiased">
                                 Saiba Mais
                             </button>
                         </a>
@@ -174,19 +231,15 @@
             </div>
         </div>
 
-        <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
-    <div class="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 gap-4 md:gap-8">
-        <h5 class="text-2xl md:text-4xl font-bold text-black">Ainda não é nosso aluno?</h5>
-        <p class="text-base md:text-lg text-gray-600 w-full md:w-3/4">Garanta uma preparação de excelência para o vestibular! Somos referência nacional em educação e preparação para vestibular.</p>
-        <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
-    </div>
-    <div class="flex justify-center md:w-1/2">
-        <img src="{{asset('imagens/jéssica.png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
-    </div>
-</section>
-
-
-
+        <section id="aluno" class="reveal flex justify-center bg-white my-20 p-20">
+            <div class="flex flex-col items-start w-1/2 gap-8">
+                <h5 class="text-5xl font-bold text-black">Ainda não é nosso aluno?</h5>
+                <p class="text-xl text-gray w-3/4">Garanta uma preparação de excelência para o vestibular! Somos referência nacional em
+                    educação e preparação para vestibular.</p>
+                <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-lg text-white font-semibold rounded-md hover:bg-sky-500 hover:px-6 p-4">Conheça nossa proposta de ensino!</a>
+            </div>
+            <img src="{{asset('imagens/jéssica.png')}}" class="">
+        </section>
         <!-- Footer -->
         <footer class="bg-sky-800 text-white py-5 mt-10 px-14 ">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">

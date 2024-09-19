@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SubjectResource\Pages;
-use App\Filament\Resources\SubjectResource\RelationManagers;
-use App\Models\Subject;
+use App\Filament\Resources\DisciplineResource\Pages;
+use App\Filament\Resources\DisciplineResource\RelationManagers;
+use App\Models\Discipline;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\Support\Str;
 
-class SubjectResource extends Resource
+class DisciplineResource extends Resource
 {
-    protected static ?string $model = Subject::class;
-    protected static ?string $modelLabel = 'matéria';
+    protected static ?string $model = Discipline::class;
+    protected static ?string $modelLabel = 'disciplina';
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
     protected static ?int $navigationSort = 2;
@@ -55,9 +55,9 @@ class SubjectResource extends Resource
                     ->label('Categoria')
                     ->options(\App\Models\Category::pluck('name', 'id')->toArray())
                     ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição')
-                    ->nullable(),
+                // Forms\Components\Textarea::make('description')
+                //     ->label('Descrição')
+                //     ->nullable(),
                 Forms\Components\Section::make('Material de Apoio')
                     ->columns(2)
                     ->schema([
@@ -112,9 +112,9 @@ class SubjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSubjects::route('/'),
-            'create' => Pages\CreateSubject::route('/create'),
-            'edit' => Pages\EditSubject::route('/{record}/edit'),
+            'index' => Pages\ListDisciplines::route('/'),
+            'create' => Pages\CreateDiscipline::route('/create'),
+            'edit' => Pages\EditDiscipline::route('/{record}/edit'),
         ];
     }
 }

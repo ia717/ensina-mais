@@ -39,7 +39,15 @@ class TopicResource extends Resource
                 ->live(onBlur: true)
                 ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
                     // Se for uma edição não atualiza o campo slug
-        
+                    
+
+
+                    if (is_null($state)) {
+                        return;
+                    }
+                    if ($get('id')) {
+                        return;
+                    }
                     if ($operation === 'edit') {
                         return;
                     }
@@ -51,16 +59,17 @@ class TopicResource extends Resource
                 ->required()
                 ->unique(ignoreRecord: true),
                 // ->maxLength(255),
-            Forms\Components\Select::make('subject_id')
-                ->label('Matéria')
-                ->options(\App\Models\Subject::pluck('name', 'id')->toArray())
+            Forms\Components\Select::make('discipline_id')
+                ->label('Disciplina')
+                ->options(\App\Models\Discipline::pluck('name', 'id')->toArray())
                 ->required(),
-            Forms\Components\Textarea::make('description')
-                ->label('Descrição')
-                ->nullable(),
-            Forms\Components\Toggle::make('is_high_relevance')
-                ->label('Alto Relevância')
-                ->inline(false),
+            // Forms\Components\Textarea::make('description')
+            //     ->label('Descrição')
+            //     ->nullable(),
+            // Forms\Components\Toggle::make('is_high_relevance')
+            //     ->label('Alto Relevância')
+            //     ->inline(false),
+
             Forms\Components\FileUpload::make('image')
                 ->label('Imagem')
                 ->image()
@@ -81,8 +90,8 @@ class TopicResource extends Resource
                     ->label('Slug')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('subject.name')
-                    ->label('Matéria')
+                Tables\Columns\TextColumn::make('discipline.name')
+                    ->label('Disciplina')
                     ->searchable()
                     ->sortable(),
             ])

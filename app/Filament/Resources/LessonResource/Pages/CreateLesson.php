@@ -14,6 +14,9 @@ class CreateLesson extends CreateRecord
     {
         $this->record->fetchAndStoreVideoDurations();
     }
-
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 
 }

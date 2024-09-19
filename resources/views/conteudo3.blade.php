@@ -36,7 +36,7 @@
             <div class="h-4/5 w-full lg:w-5/5 p-6 rounded-xl bg-black aspect-w-16 aspect-h-9 mb-8">
                 <video class="h-full w-full p-4" autoplay muted loop playsinline src=""></video>
             </div>
-            <p class="text-start mt-2 text-gray-600 mb-6">Matéria - Professor: Fulano</p>
+            <p class="text-start mt-2 text-gray-600 mb-6">Disciplina - Professor: Fulano</p>
 
             <div class="flex items-center mb-8">
                 <span class="text-purple-400 text-3xl font-bold mb-4">|</span>

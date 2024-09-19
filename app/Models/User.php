@@ -47,9 +47,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function subjects()
+    public function disciplines()
     {
-        return $this->belongsToMany(Subject::class, 'teachers_subjects');
+        return $this->belongsToMany(Discipline::class, 'teachers_disciplines');
     }
 
     public function lessons()
@@ -71,5 +71,15 @@ class User extends Authenticatable
         }
     
         return in_array($this->role, $rolesAllowed[$panel]);
+    }
+
+        public function questions()
+    {
+        return $this->hasMany(QuestionForum::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(AnswerForum::class);
     }
 }

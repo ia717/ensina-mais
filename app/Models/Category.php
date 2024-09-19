@@ -11,8 +11,8 @@ class Category extends Model
 
     protected $fillable = ['name', 'slug', 'description', 'color'];
 
-    public function subjects()
+    public function disciplines()
     {
-        return $this->hasMany(Subject::class);
+        return $this->hasMany(Discipline::class);
     }
 }
