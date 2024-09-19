@@ -28,7 +28,75 @@
                     </div>
                     <p class="text-sky-800 text-lg font-semibold">45%</p>
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
     </div>
 </x-app-layout>
+=======
+
+                <div class="hidden md:block mt-6">
+                    <button class="w-full justify-center"> 
+                        <div class="bg-white shadow-md rounded-md p-4 flex">
+                            <div class="flex-none">
+                                <h1 class="text-lg font-semibold">Continuar Assistindo</h1>
+                                <div class="rounded-md flex items-center justify-center">
+                                    <img src="{{asset('imagens/matematica.png')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="p-10">
+                                <h2 class="text-lg font-semibold">Expressões numéricas</h2>
+                                <p class="text-gray-500">Matemática Básica</p>
+                                <div>
+                                    <p class="text-sm text-start text-gray-500">10:20 de 20:46</p>
+                                    <div class="w-full bg-gray-300 rounded-full h-4">
+                                        <div class="bg-sky-800 h-4 rounded-full" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="block md:hidden mt-6">
+                    <div class="bg-white shadow-md rounded-md p-4">
+                        <h2 class="text-lg font-semibold mb-4">Aulas Assistidas</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-md font-semibold">Matemática</h3>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-sky-800 h-4 rounded-full" style="width: 40%;"></div>
+                                </div>
+                                <p class="text-sm text-gray-700">40% concluído</p>
+                            </div>
+                            <div>
+                                <h3 class="text-md font-semibold">Química</h3>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-sky-800 h-4 rounded-full" style="width: 20%;"></div>
+                                </div>
+                                <p class="text-sm text-gray-700">20% concluído</p>
+                            </div>
+                            <div>
+                                <h3 class="text-md font-semibold">Física</h3>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-sky-800 h-4 rounded-full" style="width: 60%;"></div>
+                                </div>
+                                <p class="text-sm text-gray-700">60% concluído</p>
+                            </div>
+                            <div>
+                                <h3 class="text-md font-semibold">Redação</h3>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-sky-800 h-4 rounded-full" style="width: 80%;"></div>
+                                </div>
+                                <p class="text-sm text-gray-700">80% concluído</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+>>>>>>> 95fa23d5097dc7e5162abdc40328240020089381
