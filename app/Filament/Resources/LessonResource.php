@@ -34,22 +34,7 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nome')
                     ->required()
-                    ->maxLength(255)
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-                        // Se for uma edição não atualiza o campo slug
-            
-                        if ($operation === 'edit') {
-                            return;
-                        }
-                        $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
-            
-                    }),
-                Forms\Components\Hidden::make('slug')
-                    ->label('Slug')
-                    ->required()
-                    ->unique(ignoreRecord: true),
-                    // ->maxLength(255),
+                    ->maxLength(255),
                 Forms\Components\Select::make('topic_id')
                     ->label('Tópico')
                     ->options(\App\Models\Topic::pluck('name', 'id')->toArray())
@@ -57,9 +42,9 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('link')
                     ->label('Link da aula')
                     ->required(),
-                Forms\Components\Textarea::make('content')
-                    ->label('Conteúdo')
-                    ->nullable(),
+                // Forms\Components\Textarea::make('content')
+                //     ->label('Conteúdo') Seria a descrição do vídeo
+                //     ->nullable(),
                 Forms\Components\ToggleButtons::make('is_high_relevance')
                     ->label('Alta Relevância')
                     ->boolean(),

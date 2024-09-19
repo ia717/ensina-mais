@@ -44,7 +44,8 @@ export default {
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
     // Plugin oficial de forms do Tailwind
-    forms,
+    
+    require('daisyui'),
   ],
 
   darkMode: 'selector',
