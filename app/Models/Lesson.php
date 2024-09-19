@@ -4,14 +4,16 @@
 
 namespace App\Models;
 
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
 
 class Lesson extends Model
 {
-
     use HasFactory;
+    use HasSlug;
 
     protected $fillable = ['topic_id', 'name', 'slug', 'link', 'content', 'order', 'is_high_relevance', 'duration'];
 
@@ -73,5 +75,12 @@ class Lesson extends Model
     
         // Retorna o formato min:seg, sem os zeros extras
         return sprintf("%d:%02d", $minutes, $seconds);
+    }
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }

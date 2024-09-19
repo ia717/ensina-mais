@@ -80,10 +80,10 @@ class DisciplineResource extends Resource
                     ->label('Nome')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('slug')
+                //     ->label('Slug')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('Categoria')
                     ->searchable()
