@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html data-theme="dark">
 <html lang="pt-BR">
 
 <head>
@@ -25,7 +25,7 @@
             <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar.mp4')}}"></video>
         </div>
         <!-- Login Form -->
-        <div class="relative md:bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
+        <div class="relative md:bg-white dark:bg-neutral-700 md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
 
             @auth
