@@ -38,11 +38,14 @@
 
     <!-- Conteúdo Principal -->
     <div class="main-content">
-        <h1>Disciplinas</h1>
-
+        <h1 class="text-9xl">Disciplinas</h1>
         @foreach ($categorias as $categoria)
         <div class="mb-10">
             <h2 class="mb-2.5 gray-700 text-xl">{{ $categoria->name }}</h2>
+
+            @if ($categoria->disciplines->isEmpty())
+            <p>Nenhuma disciplina cadastrada</p>
+            @endif
 
             <div class="flex flex-wrap gap-5">
                 @foreach ($categoria->disciplines as $disciplina)
