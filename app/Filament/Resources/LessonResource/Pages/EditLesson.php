@@ -21,5 +21,7 @@ class EditLesson extends EditRecord
     {
         // Aqui chamamos o método fetchAndStoreVideoDurations para atualizar a duração do vídeo
         $this->record->fetchAndStoreVideoDurations();
+        // Redirecionamos para a lista de aulas
+        $this->redirect($this->getResource()::getUrl('index'));
     }
 }

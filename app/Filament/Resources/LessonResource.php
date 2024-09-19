@@ -57,9 +57,9 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('link')
                     ->label('Link da aula')
                     ->required(),
-                Forms\Components\Textarea::make('content')
-                    ->label('Conteúdo')
-                    ->nullable(),
+                // Forms\Components\Textarea::make('content')
+                //     ->label('Conteúdo') Seria a descrição do vídeo
+                //     ->nullable(),
                 Forms\Components\ToggleButtons::make('is_high_relevance')
                     ->label('Alta Relevância')
                     ->boolean(),
