@@ -9,9 +9,6 @@ Route::get('/', function () {
     return view('login1');
 }); // ADICIONAR ->middleware('guest');
 
-Route::get('/topicomat', function () {
-    return view('topicomat');
-});
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
@@ -55,6 +52,8 @@ Route::get('disciplinas', function () {
     return view('disciplinas', compact('categorias'));
 });
 
+
+
 Route::get('/disciplinas/{slug}', function($slug) {
     // Busca a disciplina pelo slug
     $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
@@ -71,8 +70,8 @@ Route::get('/disciplinas/{disciplina}/{slug}', function($disciplina, $slug) {
     // Puxa as aulas relacionadas ao tópico
     $aulas = $topic->lessons;
     // Retorna a view com o tópico e as aulas
-    $materia = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
-    $corCategoria = $materia->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
+    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
+    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
     return view('conteudo', compact('topic', 'aulas', 'corCategoria'));
 })->name('conteudo');
 
@@ -91,10 +90,6 @@ Route::get('calendario', function () {
     return view('calendario');
 });
 
-Route::get('menuteste', function () {
-    return view('menuteste');
-});
-
 Route::get('teste', function () {
     return view('teste');
 });
@@ -111,7 +106,7 @@ Route::get('semana', function () {
 Route::get('aulas', function () {
     $aulas = \App\Models\Lesson::with('topic')->get();
     return view('aulas', compact('aulas'));
-});
+})->name('aulas');
 
 Route::get('perguntas', function () {
     return view('perguntas');

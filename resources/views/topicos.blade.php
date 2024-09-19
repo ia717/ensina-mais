@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Matemática</title>
+    <title>Tópicos de {{$disciplina->name}}</title>
     <!-- Importando Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Importando Font Awesome para ícones -->
@@ -33,12 +33,10 @@
 </head>
 
 <body>
-    @include('menuteste')
-
-    <!-- Conteúdo Principal -->
+    @include("menuteste")
 
     <div class="main-content">
-        <h1>Página de {{ $disciplina->name }}</h1>
+        <h1>Tópicos de {{ $disciplina->name }}</h1>
 
         <div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -46,7 +44,6 @@
                 <p>Não há tópicos cadastrados para esta disciplina.</p>
                 @else
                 @foreach ($topicos as $topic)
-                <a href="{{ route('aulas', ['disciplina' => $disciplina->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
 
                 <a href="{{ route('aulas', ['disciplinas' => $disciplina->slug, 'slug' => $topic->slug]) }}" class="bg-white rounded-lg shadow p-4">
                     <div class="bg-gray-200 h-16 mb-4 rounded"></div>
@@ -59,61 +56,6 @@
                 @endif
             </div>
         </div>
-
-        <!-- Categoria: Matemática -->
-        <!-- <div class="category">
-            <h2>Escolha um assunto</h2>
-            Grid de Assuntos
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
-                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
-                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Matemática básica</h3>
-                    <p class="text-sm text-gray-600 mt-2">35 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">10 de 35 aulas</div>
-                    <div class="bg-blue-400 h-1 mt-2 rounded"></div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Exponencial</h3>
-                    <p class="text-sm text-gray-600 mt-2">15 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">0 de 15 aulas</div>
-                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Probabilidade</h3>
-                    <p class="text-sm text-gray-600 mt-2">10 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">0 de 10 aulas</div>
-                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
-                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
-                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-4">
-                    <div class="bg-gray-200 h-16 mb-4 rounded"></div>
-                    <h3 class="text-xl font-semibold text-gray-800">Matriz</h3>
-                    <p class="text-sm text-gray-600 mt-2">5 AULAS</p>
-                    <div class="mt-2 text-sm text-gray-600">0 de 5 aulas</div>
-                    <div class="bg-gray-300 h-1 mt-2 rounded"></div>
-                </div>
-            </div>
-        </div> -->
     </div>
 </body>
 
