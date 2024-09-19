@@ -26,7 +26,19 @@ class StudentTextResource extends Resource
     {
         return $form
             ->schema([
-                //
+
+                Forms\Components\Select::make('text_title_id')
+                    ->label('Título da Redação')
+                    ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
+                    ->required(),
+                Forms\Components\Select::make('text_title_id')
+                    ->label('Título da Redação')
+                    ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
+                    ->required(),
+                Forms\Components\Select::make('text_title_id')
+                    ->label('Título da Redação')
+                    ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
+                    ->required(),
             ]);
     }
 
