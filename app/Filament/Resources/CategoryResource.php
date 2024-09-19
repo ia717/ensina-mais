@@ -35,37 +35,7 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('name') // Componente de input do Título da categoria
                     ->label('Nome')
                     ->required()
-                    ->maxLength(255)
-                    ->unique(ignoreRecord: true) // nome da aula unico
-                    ->live(onBlur: true) // No caso ele só irá atualizar o campo slug quando o campo name perder o foco
-                    ->afterStateUpdated(function (
-                        string $operation,
-                        string $state,
-                        Forms\Set $set,
-                        Forms\get $get,
-                    ) { 
-
-                        /*
-                            Nota:
-                            o $get é uma instância da classe Get que é responsável por pegar o valor de outros campos do formulário
-                        
-                        */
-
-
-                        // Se for uma edição não atualiza o campo slug
-
-                        if($operation === 'edit'){ 
-                            return;
-                        }
-                        $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
-
-                    }),
-
-                Forms\Components\Hidden::make('slug')
-                    ->label('Slug')
-                    ->required()
-                    ->unique(ignoreRecord: true),
-                    // ->maxLength(255),
+                    ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')
                     ->nullable(),
@@ -81,10 +51,6 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('color')

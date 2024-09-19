@@ -232,7 +232,7 @@
             <li><a href="areaaluno"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
             <li><a href="calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
             <li><a href="cronograma"><i class="fas fa-list"></i> Cronograma</a></li>
-            <li><a href="materias"><i class="fas fa-book"></i> Disciplinas</a></li>
+            <li><a href="disciplinas"><i class="fas fa-book"></i> Disciplinas</a></li>
             <li><a href="simulados"><i class="fas fa-pencil-ruler"></i> Simulados</a></li>
             <li><a href="forumduvida"><i class="fas fa-comments"></i> Fórum</a></li>
             <li><a href="redacao"><i class="fas fa-file-alt"></i> Redação</a></li>
