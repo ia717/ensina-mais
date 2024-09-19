@@ -47,9 +47,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Filtro de Matérias -->
+            <!-- Filtro de Disciplinas -->
             <div class="bg-white rounded-lg shadow p-6 md:sticky md:top-0">
-                <h3 class="text-lg font-semibold mb-4">Filtrar matérias</h3>
+                <h3 class="text-lg font-semibold mb-4">Filtrar disciplinas</h3>
                 <ul class="space-y-2">
                     <li><a href="#" class="text-blue-600 flex items-center hover:text-blue-800"><i class="fas fa-calculator mr-2"></i>MATEMÁTICA</a></li>
                     <li><a href="#" class="text-gray-600 flex items-center hover:text-gray-800"><i class="fas fa-dna mr-2"></i>BIOLOGIA</a></li>

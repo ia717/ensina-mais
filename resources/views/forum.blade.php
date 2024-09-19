@@ -26,8 +26,8 @@
                     </div>
                     <div class="flex space-x-2">
                         <!-- Categoria da Disciplina -->
-                        <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->subject->category->color ?? '#ccc' }};">
-                            {{ $question->subject->name ?? 'Disciplina Desconhecida' }}
+                        <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
+                            {{ $question->discipline->name ?? 'Disciplina Desconhecida' }}
                         </span>
                         <!-- Categoria do Assunto -->
                         <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->topic->category->color ?? '#ccc' }};">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <p class="mb-4">{{ $question->content }}</p>
+                <p class="mb-4">{{ $question->question }}</p>
 
                 <!-- Respostas -->
                 <div class="relative">
@@ -66,14 +66,14 @@
                 <div class="bg-white p-4 rounded-lg shadow flex flex-col">
                     <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
                     <div class="flex space-x-2 mb-4">
-                        <select name="subject_id" class="w-full p-2 border border-gray-300 rounded">
+                        <select name="discipline_id" class="w-full p-2 border border-gray-300 rounded">
                             <option value="">Selecione uma disciplina</option>
-                            @foreach ($subjects as $subject)
-                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            @foreach ($disciplines as $discipline)
+                                <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
                             @endforeach
                         </select>
                         <select name="topic_id" class="w-full p-2 border border-gray-300 rounded">
-                            <option value="">Assunto primário</option>
+                            <option value="">Tópico</option>
                             @foreach ($topics as $topic)
                                 <option value="{{ $topic->id }}">{{ $topic->name }}</option>
                             @endforeach
@@ -90,8 +90,8 @@
             <div class="space-y-4">
                 <select class="w-full p-2 border border-gray-300 rounded">
                     <option>Selecione uma disciplina</option>
-                    @foreach ($subjects as $subject)
-                        <option>{{ $subject->name }}</option>
+                    @foreach ($disciplines as $discipline)
+                        <option>{{ $discipline->name }}</option>
                     @endforeach
                 </select>
                 <select class="w-full p-2 border border-gray-300 rounded">

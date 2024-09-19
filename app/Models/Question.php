@@ -9,11 +9,11 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['subject_id', 'topic_id', 'statement', 'type', 'is_high_relevance', 'solution'];
+    protected $fillable = ['discipline_id', 'topic_id', 'statement', 'type', 'is_high_relevance', 'solution'];
 
-    public function subject()
+    public function discipline()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(Discipline::class);
     }
 
     public function topic()

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('question_forums', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            $table->foreignId('discipline_id')->constrained()->onDelete('cascade');
             $table->foreignId('topic_id')->nullable()->constrained('topics')->onDelete('cascade');
             $table->text('question');
             $table->timestamps();

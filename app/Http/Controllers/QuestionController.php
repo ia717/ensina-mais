@@ -3,35 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\QuestionForum;
-use App\Models\Subject;
+use App\Models\Discipline;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = QuestionForum::with(['user', 'subject', 'topic', 'answers.user'])
+        $questions = QuestionForum::with(['user', 'discipline', 'topic', 'answers.user'])
             ->get();
 
-        $subjects = Subject::all();
+        $disciplines = Discipline::all();
         $topics = Topic::all();
-        $disciplines = Subject::distinct()->get(['name']); // Se você usa disciplinas como subjects
 
-        return view('forum', compact('questions', 'subjects', 'topics', 'disciplines'));
+        return view('forum', compact('questions', 'disciplines', 'topics'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'subject_id' => 'required|exists:subjects,id',
+            'discipline_id' => 'required|exists:disciplines,id',
             'topic_id' => 'nullable|exists:topics,id',
             'question' => 'required|string'
         ]);
 
         QuestionForum::create([
-            'user_id' => auth()->id(),
-            'subject_id' => $request->subject_id,
+            'user_id' => Auth::id(),
+            'discipline_id' => $request->discipline_id,
             'topic_id' => $request->topic_id,
             'question' => $request->question
         ]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnswerForum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnswerController extends Controller
 {
@@ -15,7 +16,7 @@ class AnswerController extends Controller
 
         AnswerForum::create([
             'question_forum_id' => $questionId, // Usando o ID da pergunta passado pela URL
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
             'answer' => $request->answer
         ]);
 

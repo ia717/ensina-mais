@@ -22,7 +22,7 @@
     </main>
 
     </div>
-    <!-- Filtro de Matérias -->
+    <!-- Filtro de Disciplinas -->
     @include('caixafiltros')
 
 </body>

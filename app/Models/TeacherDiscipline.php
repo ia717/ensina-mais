@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TeacherSubject extends Model
+class TeacherDiscipline extends Model
 {
     use HasFactory;
 
-    protected $table = 'teachers_subjects';
+    protected $table = 'teachers_disciplines';
 
-    protected $fillable = ['user_id', 'subject_id'];
+    protected $fillable = ['user_id', 'discipline_id'];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function subject()
+    public function discipline()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->belongsTo(Discipline::class, 'discipline_id');
     }
 }
