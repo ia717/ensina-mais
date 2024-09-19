@@ -1,29 +1,19 @@
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Incial</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Conteúdo principal -->
-    <div id="main-content" class="main-content">
-        <!-- Seção de Banner -->
-        <div class="bg-teal-500 text-white p-6 rounded-lg shadow-lg mb-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-2/3">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4">A PREPARAÇÃO QUE VOCÊ PRECISA PARA GABARITAR</h1>
-                    <span class="bg-orange-500 text-white py-2 px-4 rounded-full inline-block mb-4">NOTA 1000</span>
-                    <ul class="text-lg list-disc pl-6">
-                        <li>Vídeo aulas online</li>
-                        <li>Correção de redações</li>
-                        <li>Dicas e mentorias</li>
-                        <li>Aulas e correções ao vivo</li>
-                        <li>Mais de 1000 questões</li>
-                        <li>Simulados semanais</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/3 flex justify-center mt-6 md:mt-0">
-                    <img src="https://via.placeholder.com/300" alt="Livros" class="w-64 h-64">
-                </div>
-            </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="justify-end items-end flex">
+    
+    <main class="w-1/2">
+  
+        <div class="p-6   ">
+                <img src="{{asset('imagens/banner home.png')}}" alt="">
         </div>
-
-        <!-- Seção de Progresso -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
                 <h2 class="text-xl font-semibold mb-4 text-black dark:text-white">Progresso diário</h2>
@@ -49,5 +39,8 @@
                 <p class="text-teal-500 text-lg font-semibold">45%</p>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    
+    </main>
+</body>
+</html>
+    

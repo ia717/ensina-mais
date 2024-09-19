@@ -12,9 +12,7 @@
 
     <main class="flex-1 flex flex-col">
         <!-- Navigation -->
-        <nav class="bg-gray-200 p-4 flex justify-between items-center">
-            <a href="#" class="text-blue-600"></a>
-            <p class="text-gray-700"></p>
+        
 
             <!-- Right-side Icons -->
             <div class="flex items-center space-x-4">
@@ -179,12 +177,13 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:flex w-64 flex-shrink-0">
-                    @include('caixafiltros')
-                </div>
+                
         </div>
     </main>
     </div>
+    <div class="hidden lg:flex w-64 flex-shrink-0">
+                    @include('caixafiltros')
+                </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
@@ -214,7 +213,7 @@
                         d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            @include('caixafiltros')
+           
         </div>
     </div>
 
