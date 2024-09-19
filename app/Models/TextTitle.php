@@ -5,21 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentText extends Model
+class TextTitle extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['id', 'number_line','number_word', 'paragraph', 'time'];
 
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
-
-    public function title()
-    {
-        return $this->hasMany(TextTitle::class);
-    }
+    protected $fillable = ['id', 'title'];
 
     public function tematicAxis()
     {

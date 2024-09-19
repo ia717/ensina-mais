@@ -34,31 +34,7 @@ class TopicResource extends Resource
                 Forms\Components\TextInput::make('name')
                 ->label('Nome')
                 ->required()
-                ->unique(ignoreRecord: true)
-                ->maxLength(255)
-                ->live(onBlur: true)
-                ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-                    // Se for uma edição não atualiza o campo slug
-                    
-
-
-                    if (is_null($state)) {
-                        return;
-                    }
-                    if ($get('id')) {
-                        return;
-                    }
-                    if ($operation === 'edit') {
-                        return;
-                    }
-                    $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
-        
-                }),
-            Forms\Components\Hidden::make('slug')
-                ->label('Slug')
-                ->required()
-                ->unique(ignoreRecord: true),
-                // ->maxLength(255),
+                ->maxLength(255),
             Forms\Components\Select::make('discipline_id')
                 ->label('Disciplina')
                 ->options(\App\Models\Discipline::pluck('name', 'id')->toArray())
@@ -84,10 +60,6 @@ class TopicResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('discipline.name')

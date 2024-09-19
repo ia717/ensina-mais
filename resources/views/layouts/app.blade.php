@@ -18,6 +18,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body x-cloak x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }"  class="font-sans antialiased">
+        <x-theme-toggle></x-theme-toggle>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
@@ -29,33 +30,5 @@
         </div>
     </body>
     
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('main-content'); // Seleciona o conteúdo principal
-        const bars = document.querySelectorAll('.bars');
-
-        checkbox.addEventListener('change', function() {
-            sidebar.classList.toggle('-translate-x-64'); // Mostra ou esconde o menu lateral
-            mainContent.classList.toggle('ml-64'); // Ajusta a margem do conteúdo principal
-            bars.forEach(bar => bar.classList.toggle('open')); // Animação do ícone de hambúrguer
-        });
-
-        function handleResize() {
-            const isSmallScreen = window.innerWidth < 640; // Verifica se a tela é menor que 640px
-            if (isSmallScreen) {
-                sidebar.classList.add('-translate-x-64'); // Esconde a barra lateral
-                mainContent.classList.remove('ml-64'); // Remove a margem do conteúdo principal
-            } else {
-                if (checkbox.checked) {
-                    mainContent.classList.add('ml-64'); // Se o checkbox estiver marcado, adiciona margem
-                }
-                sidebar.classList.remove('-translate-x-64'); // Garante que o menu esteja visível em telas maiores
-            }
-        }
-
-        // Chama a função na inicialização da página e no redimensionamento da janela
-        window.addEventListener('load', handleResize);
-        window.addEventListener('resize', handleResize);
-    </script>
+  
 </html>

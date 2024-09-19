@@ -1,7 +1,35 @@
-@include('customcss')
-<!DOCTYPE html>
-<html lang="pt-BR">
+<div class="h-screen fixed mr-80">
+    <div class="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <!-- Page Content -->
+        <div class="drawer-content flex flex-col">
+            <!-- Mobile Navbar -->
+            <div class="navbar lg:hidden">
+                <div class="flex-none">
+                    <label for="my-drawer-2" class="btn btn-square btn-ghost">
+                        <!-- Hamburger Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </label>
+                </div>
+            </div>
 
+<<<<<<< HEAD
+        </div>
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu bg-white dark:bg-neutral-800 text-base-content min-h-full w-64 p-4 rounded-r-3xl">
+                <!-- Sidebar content here -->
+                <li><a>Sidebar Item 1</a></li>
+                <li><a>Sidebar Item 2</a></li>
+                <x-theme-toggle></x-theme-toggle>
+            </ul>
+        </div>
+=======
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -241,47 +269,7 @@
             <li><a href="login1" class="logout" style="color: #4cbd97!important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             <li class="theme-toggle"><i class="fas fa-moon"></i> Alternar Tema</li> <!-- Botão de alternância de tema -->
         </ul>
+>>>>>>> cc74a3f536cb8bbcece13c73ff1c4e261005bdd7
     </div>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkbox = document.getElementById('checkbox');
-            const sidebar = document.querySelector('.sidebar');
-            const mainContent = document.querySelector('.main-content');
-            const themeToggle = document.querySelector('.theme-toggle');
-
-            // Verifica se há uma preferência salva no localStorage
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-                sidebar.classList.add('dark-mode');
-            }
-
-            // Função para alternar entre tema claro e escuro
-            themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-                sidebar.classList.toggle('dark-mode');
-
-                // Salva a preferência do tema no localStorage
-                if (document.body.classList.contains('dark-mode')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
-            // Função para esconder/mostrar a barra lateral e ajustar o conteúdo
-            checkbox.addEventListener('change', function() {
-                if (this.checked) {
-                    sidebar.classList.add('hidden'); // Esconde o menu
-                    mainContent.classList.add('hamburger-active'); // Ajusta o conteúdo
-                } else {
-                    sidebar.classList.remove('hidden'); // Mostra o menu
-                    mainContent.classList.remove('hamburger-active'); // Ajusta o conteúdo
-                }
-            });
-        });
-    </script>
-
-</body>
-
-</html>
