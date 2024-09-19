@@ -4,40 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ensina+</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
-<body class="relative bg-gray-100 user-select-none">
+<body class="relative bg-gray-100 user-select-none m-0 p-0">
     @include('headernav')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{asset('/imagens/Vector (2).png')}}" alt="">
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
+            alt="">
     </div>
     <!-- Main Content -->
-    <main class="container mx-auto mt-8 p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0">
+    <main class="container p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0 md:my-8 sm:mx-auto">
         <!-- Promotional Section (Video) -->
         <div class="relative bg-white shadow-lg rounded-3xl w-full md:w-2/3 overflow-hidden md:ml-6 z-10 order-1 md:order-2 space-y-4 md:space-y-2 mt-0">
             <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar.mp4')}}"></video>
         </div>
         <!-- Login Form -->
-        <div class="bg-white shadow-lg rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0">
+        <div class="relative md:bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
-            <form>
-                <label class="block mb-4">
-                    <span class="font-medium text-gray-700">Email ou CPF</span>
-                    <input type="text" class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50" placeholder="Digite seu Email ou CPF">
-                </label>
-                <label class="block mb-4">
+
+            @auth
+                @php
+                    $user = Auth::user();
+
+                    if ($user->role == 'aluno') {
+                        $redirect = route('dashboard');
+                    } elseif ($user->role == 'professor') {
+                        $redirect = url('/teacherPanel');
+                    } elseif ($user->role == 'admin') {
+                        $redirect = url('/admin');
+                    }
+                @endphp
+                <form method="GET" action="{{ $redirect }}">
+                    @csrf
+
+                    <p>Você já está logado. <button type="submit">Clique aqui</button> para acessar o sistema.</p>
+
+                </form>
+            @endauth
+
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="block mb-4">
+                    <span class="font-medium text-gray-700">Email</span>
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        :value="old('email')" required autofocus autocomplete="username"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        placeholder="Digite seu Email ou CPF" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <div class="block mb-4">
                     <span class="font-medium text-gray-700 ">Senha</span>
-                    <input type="password" class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50" placeholder="Digite sua Senha">
-                </label>
+                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                        autocomplete="current-password"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        placeholder="Digite sua Senha" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
                 <div class="mb-4">
                     <span class="font-medium text-gray-700">Eu sou um(a)</span>
                     <div class="mt-2">
                         <label class="inline-flex items-center">
-                            <input type="radio" class="form-radio text-green-600" name="role" value="Aluno">
+                            <input type="radio" class="form-radio text-green-600" name="role" value="Aluno"
+                                checked>
                             <span class="ml-2">Aluno(a)</span>
                         </label>
                     </div>
@@ -48,10 +83,34 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="transition-all duration-75 w-full bg-sky-800 text-white py-2 rounded-lg hover:bg-sky-500 font-medium">Acessar</button>
-                <a href="#" class="block text-center mt-4 text-sky-800 hover:underline transition-all duration-75 font-thin">Esqueci minha senha</a>
+
+
+                <button type="submit"
+                    class="transition-all duration-75 w-full bg-sky-800 text-white py-2 rounded-lg hover:bg-sky-500 font-medium">Acessar</button>
+                {{-- <x-primary-button class="ms-3">
+                    {{ __('Log in') }}
+                </x-primary-button> --}}
+
+
+                <a href="#"
+                    class="block text-center mt-4 text-sky-800 hover:underline transition-all duration-75 font-thin">Esqueci
+                    minha senha</a>
+                @if (Route::has('password.request'))
+                    {{-- <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a> --}}
+                @endif
             </form>
+
+
+            <div class="flex items-center justify-end mt-4">
+
+
+
+            </div>
+
         </div>
+
     </main>
     <!-- Section Title -->
     <section class="mt-20 md:mt-56 container mx-auto flex flex-col justify-center gap-20 md:gap-40 bg-white pt-10 md:pt-24">
@@ -82,17 +141,27 @@
                     <p class="text-3xl md:text-5xl font-bold">+12.500</p>
                     <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
                 </div>
-                <div class="mx-5 md:mx-10 flex-1 text-center">
-                    <p class="text-3xl md:text-5xl font-bold">+400</p>
-                    <p class="font-medium text-sm md:text-base">questões no</p>
-                    <p class="font-medium text-sm md:text-base">repertório</p>
-                </div>
-                <div class="mx-5 md:mx-10 flex-1 text-center">
-                    <p class="text-3xl md:text-5xl font-bold">+700</p>
-                    <p class="font-medium text-sm md:text-base">aprovações no vestibular</p>
+                <div><img class="absolute left-0 -mt-20" src="{{asset('/imagens/Vector (4).png')}}" alt=""></div>
+                <div><img class="reveal hidden md:flex absolute left-36 top-96 pt-20 mt-10" src="{{asset('/imagens/Vector (5).png')}}" alt=""></div>
+                <div><img class="reveal absolute left-2/3 ml-56 -mt-10" src="{{asset('/imagens/Vector (3).png')}}" alt=""></div>
+
+                <!-- Statistics Section -->
+                <div class="reveal bg-sky-800 text-white rounded-3xl px-1 py-10 ml-32 mt-8 flex items-center justify-around relative">
+                    <div class="mx-10 flex-1 text-center">
+                        <p class="text-5xl font-bold">+12.500</p>
+                        <p class="font-medium">do Ensino Médio cadastrados</p>
+                    </div>
+                    <div class="mx-10 flex-1 text-center">
+                        <p class="text-5xl font-bold">+400</p>
+                        <p class="font-medium">questões no</p>
+                        <p class="font-medium">repertório</p>
+                    </div>
+                    <div class="mx-10 flex-1 text-center">
+                        <p class="text-5xl font-bold">+700</p>
+                        <p class="font-medium">aprovações no vestibular</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
         <!-- sobre nós -->
@@ -127,7 +196,7 @@
         <h3 id="aprova" class="reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
             Alunos <span class="text-red-600 p-4">SESI SENAI</span>
         </h3>
-        <div class="relative overflow-hidden w-full max-w-5xl mx-auto">
+        <div class="relative overflow-hidden w-full max-w-5xl mx-auto pt-10">
             <div id="carousel" class="reveal flex transition-transform duration-300 ease-out">
 
                 <!-- First Slide -->
@@ -137,14 +206,13 @@
                     <img src="{{asset('imagens/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                 </div>
 
-
-
                 <!-- Second Slide -->
                 <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
                     <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                 </div>
+                
             </div>
 
             <!-- Carousel Controls -->
@@ -177,7 +245,7 @@
             </div>
 
         </div>
-
+        </section>
         </div>
         <!-- TURBINA (Banner) -->
         <div id="turbina" class="reveal relative w-full mt-8 pt-1">
@@ -190,7 +258,8 @@
                     <p class="font-thin mt-2 text-2xl md:text-4xl subpixel-antialiased">+ Aprovados</p>
                     <div class="mt-5">
                         <a target="blank" href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
-                            <button class="transition-all duration-75 text-sm md:text-lg hover:px-10 font-medium bg-yellow-500 text-black py-2 px-4 md:px-8 rounded-md hover:bg-yellow-600 subpixel-antialiased">
+                            <button
+                                class="transition-all duration-75 text-sm md:text-lg hover:px-10 font-medium bg-yellow-500 text-black py-2 px-4 md:px-8 rounded-md hover:bg-yellow-600 subpixel-antialiased">
                                 Saiba Mais
                             </button>
                         </a>
@@ -209,7 +278,7 @@
             <img src="{{asset('imagens/jéssica.png')}}" class="">
         </section>
         <!-- Footer -->
-        <footer class="bg-sky-800 text-white py-5 mt-10">
+        <footer class="bg-sky-800 text-white py-5 mt-10 px-14 ">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div class="font-bold text-center md:text-left flex flex-col mb-4 md:mb-0">
                     <p class="text-sm">SESI - MONTE ALTO</p>
@@ -232,9 +301,15 @@
                 <g id="SVGRepo_tracerCarrier" href="#inicio" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
                     <circle href="#inicio" style="fill:#2D6796;" cx="256" cy="256" r="256"></circle>
-                    <path style="fill:#2D6796;" d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z"></path>
-                    <path href="#inicio" style="fill:#E6F3FF;" d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z"></path>
-                    <path style="fill:#CFDBE6;" d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z" href="#inicio"></path>
+                    <path style="fill:#2D6796;"
+                        d="M505.866,311.875l-197.43-198.204l-21.304,131.963l-28.134,131.491L368.083,486.21 C437.127,452.532,488.76,388.711,505.866,311.875z">
+                    </path>
+                    <path href="#inicio" style="fill:#E6F3FF;"
+                        d="M301.954,109.254c-7.406-3.067-15.936-1.372-21.606,4.298L151.897,242.019 c-3.718,3.718-5.806,8.763-5.806,14.019c0,5.258,2.089,10.302,5.81,14.019l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806 c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315l0.021-256.862 C314.192,119.551,309.363,112.323,301.954,109.254z">
+                    </path>
+                    <path style="fill:#CFDBE6;"
+                        d="M146.135,255.138c-0.014,0.3-0.045,0.598-0.045,0.9c0,5.258,2.089,10.302,5.81,14.019 l128.431,128.395c3.793,3.791,8.863,5.806,14.021,5.806c2.553,0,5.13-0.495,7.583-1.51c7.406-3.069,12.236-10.297,12.238-18.315 l0.009-129.295H146.135z"
+                        href="#inicio"></path>
                 </g>
             </svg></a>
 

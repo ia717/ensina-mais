@@ -1,14 +1,15 @@
 @include('customcss')
+
 <body id="inicio" class="bg-blue-500 user-select-none">
-<nav class="relative px-4 py-4 flex justify-between items-center bg-gray-100">
+    <nav class="relative px-4 py-4 flex justify-between items-center bg-gray-100">
         <!-- Container das logos -->
-        <div class="flex items-center space-x-4">   
+        <div class="flex items-center space-x-4">
             <!-- Logo "ensina+" -->
             <a class="text-3xl font-bold leading-none" href="#">
                 <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
             </a>
             <!-- Logos SESI e SENAI -->
-            <div class="flex items-center space-x-2">
+            <div class="md:flex items-center space-x-2 hidden ">
                 <img src="{{asset('/imagens/logos_sesi_preto_01.webp')}}" alt="SESI" class="h-8">
                 <img src="{{asset('/imagens/logo-senai.fw_.png')}}" alt="SENAI" class="h-8 bg-black">
             </div>

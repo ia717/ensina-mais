@@ -44,8 +44,8 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="Universidade">Universidade</label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="modelo">
-                <option>Todas</option>
-                <option>ENEM</option>
+                    <option>Todas</option>
+                    <option>ENEM</option>
                     <option>USP</option>
                     <option>Unesp</option>
                     <option>UFSCAR</option>
@@ -55,8 +55,8 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="Banca">Banca</label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="area">
-                <option>Todas</option>
-                <option>2012</option>
+                    <option>Todas</option>
+                    <option>2012</option>
                     <option>2013</option>
                     <option>2014</option>
                     <option>2015</option>

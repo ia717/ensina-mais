@@ -25,6 +25,10 @@
             background-color: #333;
             color: black;
         }
+        .txl.dark-mode{
+            color: white;
+        }
+        
 
         /* Menu Lateral */
         .sidebar {
@@ -224,17 +228,17 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
         <ul>
-            <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="/usuario"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
-            <li><a href="/calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
-            <li><a href="/cronograma"><i class="fas fa-list"></i> Cronograma</a></li>
-            <li><a href="/materias"><i class="fas fa-book"></i> Matérias</a></li>
-            <li><a href="#"><i class="fas fa-pencil-ruler"></i> Simulados</a></li>
+            <li><a href="paginainicial"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="areaaluno"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
+            <li><a href="calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
+            <li><a href="cronograma"><i class="fas fa-list"></i> Cronograma</a></li>
+            <li><a href="materias"><i class="fas fa-book"></i> Matérias</a></li>
+            <li><a href="simulados"><i class="fas fa-pencil-ruler"></i> Simulados</a></li>
             <li><a href="forumduvida"><i class="fas fa-comments"></i> Fórum</a></li>
             <li><a href="redacao"><i class="fas fa-file-alt"></i> Redação</a></li>
             <li><a href="questao"><i class="fas fa-question-circle"></i> Questões</a></li>
             <li><a href="#" style="color: #4cbd97;"><i class="fas fa-cog"></i> Configurações</a></li>
-            <li><a href="#" class="logout" style="color: #4cbd97!important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="login1" class="logout" style="color: #4cbd97!important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             <li class="theme-toggle"><i class="fas fa-moon"></i> Alternar Tema</li> <!-- Botão de alternância de tema -->
         </ul>
     </div>

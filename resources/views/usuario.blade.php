@@ -181,10 +181,10 @@
 
         /* Container do formulário */
         .container {
-          
+
             padding: 20px;
             border-radius: 10px;
-          
+
             max-width: 400px;
             width: 100%;
             text-align: center;

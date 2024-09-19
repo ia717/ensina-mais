@@ -17,8 +17,9 @@ return new class extends Migration
             $table->foreignId('topic_id')->nullable()->constrained('topics')->onDelete('cascade');
             $table->text('statement'); // Enunciado da questão
             $table->string('type')->default('multiple_choice'); // Tipo de questão (múltipla escolha, dissertativa, etc.)
-            $table->foreignId('correct_answer_id')->nullable()->constrained('question_answers')->onDelete('set null'); // Resposta correta
-            $table->boolean('is_high_relevance')->default(false); // Se é de alta relevância
+            $table->enum('difficulty_level', ['easy', 'medium', 'hard'])->default('medium');
+            $table->text('solution')->nullable();
+            $table->foreignId('exam_board_id')->nullable()->constrained('exam_boards')->onDelete('set null');
             $table->timestamps();
         });
     }

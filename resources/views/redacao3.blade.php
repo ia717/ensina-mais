@@ -1,32 +1,34 @@
 @include('menuteste')
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redação</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
-   
-       
-        <div class="flex flex-1 items-center justify-center p-8 bg-gray-100">
-            <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
-                <div class="flex justify-between items-center mb-6">
-                    <a href="redacao" class="text-gray-600 hover:text-blue-600">Voltar</a>
-                    <div class="space-x-4">
-                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded">Salvar rascunho</button>
-                        <button class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded">Aplicar correção</button>
-                    </div>
-                </div>
 
-                <div class="bg-white shadow-lg rounded-lg p-4">
-                    <input type="text" placeholder="Digite o título aqui" class="w-full bg-gray-100 p-4 mb-4 border border-gray-300 rounded text-gray-700">
-                    <textarea rows="10" placeholder="Escreva aqui a sua redação..." class="w-full bg-gray-100 p-4 border border-gray-300 rounded text-gray-700"></textarea>
+<body class="bg-gray-100 font-sans">
+
+
+    <div class="flex flex-1 items-center justify-center p-8 bg-gray-100">
+        <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
+            <div class="flex justify-between items-center mb-6">
+                <a href="redacao" class="text-gray-600 hover:text-blue-600">Voltar</a>
+                <div class="space-x-4">
+                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded">Salvar rascunho</button>
+                    <button class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded">Aplicar correção</button>
                 </div>
             </div>
+
+            <div class="bg-white shadow-lg rounded-lg p-4">
+                <input type="text" placeholder="Digite o título aqui" class="w-full bg-gray-100 p-4 mb-4 border border-gray-300 rounded text-gray-700">
+                <textarea rows="10" placeholder="Escreva aqui a sua redação..." class="w-full bg-gray-100 p-4 border border-gray-300 rounded text-gray-700"></textarea>
+            </div>
         </div>
-        <aside class="left-3/4 ml-32 absolute w-full h-full md:w-64 bg-white shadow-lg p-6">
+    </div>
+    <aside class="left-3/4 ml-32 absolute w-full h-full md:w-64 bg-white shadow-lg p-6">
         <div class="w-64 bg-white p-6 shadow-lg">
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-bold text-gray-700">Correção</h2>
@@ -103,12 +105,12 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
-    <script>
-        function toggleContent(contentId) {
-            var content = document.getElementById(contentId);
-            content.classList.toggle('hidden');
-        }
-    </script>
-        </aside>
+        <script>
+            function toggleContent(contentId) {
+                var content = document.getElementById(contentId);
+                content.classList.toggle('hidden');
+            }
+        </script>
+    </aside>

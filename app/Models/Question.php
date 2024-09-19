@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Question extends Model
 {
-    protected $fillable = ['subject_id', 'topic_id', 'statement', 'type', 'correct_answer_id', 'is_high_relevance'];
+    use HasFactory;
+
+    protected $fillable = ['subject_id', 'topic_id', 'statement', 'type', 'is_high_relevance', 'solution'];
 
     public function subject()
     {
@@ -21,5 +24,15 @@ class Question extends Model
     public function answers()
     {
         return $this->hasMany(QuestionAnswer::class);
+    }
+
+    public function correctAnswer()
+    {
+        return $this->hasOne(QuestionAnswer::class)->where('is_correct', true);
+    }
+
+    public function examBoard()
+    {
+        return $this->belongsTo(ExamBoard::class);
     }
 }

@@ -72,4 +72,14 @@ class User extends Authenticatable
     
         return in_array($this->role, $rolesAllowed[$panel]);
     }
+
+        public function questions()
+    {
+        return $this->hasMany(QuestionForum::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(AnswerForum::class);
+    }
 }

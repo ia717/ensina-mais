@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('question_answers', function (Blueprint $table) {
+        Schema::create('exam_boards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->constrained('questions')->onDelete('cascade'); // Relação com as questões
-            $table->text('answer_text'); // Texto da resposta
-            $table->boolean('is_correct')->default(false); // Indica se essa resposta é correta
+            $table->string('name'); // Nome da banca examinadora
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('question_answers');
+        Schema::dropIfExists('exam_boards');
     }
 };

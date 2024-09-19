@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 
 Route::get('/', function () {
     return view('login1');
-});
+}); // ADICIONAR ->middleware('guest');
+
 Route::get('/topicomat', function () {
     return view('topicomat');
 });
@@ -13,16 +16,16 @@ Route::get('/topicomat', function () {
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
 });
+Route::get('/topicosmaterias', function () {
+    return view('topicosmaterias');
+});
 Route::get('/questaow', function () {
     return view('questaow');
 });
 
-
-
 Route::get('/conteudo', function () {
     return view('conteudo');
 });
-
 
 Route::get('/conteudo3', function () {
     return view('conteudo3');
@@ -33,9 +36,6 @@ Route::get('/redacao3', function () {
 
 Route::get('/questaor', function () {
     return view('questaor');
-});
-Route::get('/forumduvida', function () {
-    return view('forumduvida');
 });
 
 Route::get('/redacao', function () {
@@ -48,10 +48,6 @@ Route::get('/redacao2', function () {
 
 Route::get('/login1', function () {
     return view('login1');
-});
-
-Route::get('paginainicial', function () {
-    return view('paginainicial');
 });
 
 Route::get('materias', function () {
@@ -111,6 +107,12 @@ Route::get('semana', function () {
 });
 
 
+
+Route::get('aulas', function () {
+    $aulas = \App\Models\Lesson::with('topic')->get();
+    return view('aulas', compact('aulas'));
+});
+
 Route::get('perguntas', function () {
     return view('perguntas');
 });
@@ -140,14 +142,27 @@ Route::get('areaaluno', function () {
     return view('areaaluno');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/paginainicial', function () {
+        return view('paginainicial');
+    })->name('dashboard');
 });
 
+// Rotas para perguntas
+Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
+Route::post('/forum', [QuestionController::class, 'store']);
+
+// Rotas para respostas
+Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('answers.store');
+
+
+
 require __DIR__.'/auth.php';
+
