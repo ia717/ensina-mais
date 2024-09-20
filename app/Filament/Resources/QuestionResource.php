@@ -80,7 +80,11 @@ class QuestionResource extends Resource
                             ->required(),
                         Forms\Components\Checkbox::make('is_correct')
                             ->label('Correta')
-                            ->default(false),
+                            ->default(false)
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, callback $set, $get) {
+
+                            }),
                     ])
                     
                 
