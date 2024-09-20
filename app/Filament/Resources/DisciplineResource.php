@@ -97,19 +97,15 @@ class DisciplineResource extends Resource
             ])
             ->filters(
                 [
-                    Filter::make('category_id')
-                        // Filtro por Categoria
-                        ->query(fn(Builder $query): Builder => $query->where('category_id', '1'))
-                        ->label('Categoria'),
-
-                    
+                  
                     SelectFilter::make('category_id')
                         ->label('Categoria')
-                        ->options(Category::pluck('name', 'id')->toArray())
+                            ->options(fn() => Category::pluck('name', 'id')->toArray()
+                        )
 
 
                 ],
-                layout: FiltersLayout::BelowContent
+                layout: FiltersLayout::AboveContent
 
             )
 
