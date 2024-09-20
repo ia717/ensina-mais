@@ -7,34 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{{$topic->name}}</title>
 </head>
-<style>
-    /* Conteúdo Principal */
-    .main-content {
-        margin-left: 245px;
-        flex: 1;
-        padding: 2rem;
-        overflow-y: auto;
-        transition: margin-left 0.3s ease;
-    }
-
-    .main-content.hamburger-active {
-        margin-left: 30px;
-        /* Move o conteúdo para a esquerda quando o menu é escondido */
-    }
-
-    .main-content h1 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    @media screen and (max-width: 770px) {
-        .main-content {
-            margin-left: 0px;
-        }
-
-    }
-</style>
 
 <body>
     @include('menuteste')

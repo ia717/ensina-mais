@@ -43,7 +43,6 @@ class TopicResource extends Resource
             Forms\Components\Toggle::make('is_high_relevance')
                 ->label('Alta Relevância')
                 ->inline(false),
-
             Forms\Components\FileUpload::make('image')
                 ->label('Imagem')
                 ->image()
