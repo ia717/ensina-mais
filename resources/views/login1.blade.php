@@ -23,7 +23,7 @@
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-24 top-1/4 hidden md:block" src="{{ asset('/imagens/Vector (5).png') }}"
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/imagens/Vector (5).png') }}"
             alt="">
     </div>
     <!-- Main Content -->
@@ -122,43 +122,24 @@
     </main>
     <!-- Section Title -->
     <div class="bg-white">
-        <section class="lg:mt-56 container mx-auto flex flex-col justify-center gap-24 bg-white pt-24">
-            <div class="flex flex-col md:flex-row items-center justify-center">
-                <div class="mt-7 text-center md:text-left ">
-                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">A nossa</h2>
-                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">
-                        <span class="text-sky-800 font-bold">educação</span> em
-                    </h2>
-                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">números</h2>
-                </div>
-
-                <div>
-                    <img class="absolute left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
-                </div>
-
-                <div>
-                    <img class="reveal absolute left-2/3 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
-                </div>
-
-                <!-- Statistics Section -->
-                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-8 w-full md:w-auto flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+12.500</p>
-                        <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
-                    </div>
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+400</p>
-                        <p class="font-medium text-sm md:text-base">questões no</p>
-                        <p class="font-medium text-sm md:text-base">repertório</p>
-                    </div>
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+700</p>
-                        <p class="font-medium text-sm md:text-base">aprovações no vestibular</p>
-                    </div>
+        <div class="stats bg-primary text-primary-content">
+            <div class="stat">
+                <div class="stat-title">Account balance</div>
+                <div class="stat-value">$89,400</div>
+                <div class="stat-actions">
+                    <button class="btn btn-sm btn-success">Add funds</button>
                 </div>
             </div>
 
-        </section>
+            <div class="stat">
+                <div class="stat-title">Current balance</div>
+                <div class="stat-value">$89,400</div>
+                <div class="stat-actions">
+                    <button class="btn btn-sm">Withdrawal</button>
+                    <button class="btn btn-sm">Deposit</button>
+                </div>
+            </div>
+        </div>
         <!-- Sobre nós Section -->
         <section id="sobre" class="md:mt-44 reveal flex flex-col items-center justify-center bg-white py-12">
             <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black subpixel-antialiased text-center mb-8">Sobre nós <span class="text-sky-800">+</span></h3>
@@ -211,7 +192,7 @@
                         <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                         <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                         <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        
+
                     </div>
 
                 </div>
@@ -257,11 +238,13 @@
             </div>
         </section>
     </div>
+
     <div>
-        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><img src="{{asset('imagens/turbina 2_0.png')}}" alt="Banner Turbina"></a>
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+            <img class="hidden md:block" src="{{asset('imagens/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
+            <img class="block md:hidden" src="{{asset('imagens/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
+        </a>
     </div>
-
-
     <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
         <div class="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 gap-4 md:gap-8">
             <h5 class="text-2xl md:text-4xl font-bold text-black">Ainda não é nosso aluno?</h5>
