@@ -9,9 +9,6 @@ Route::get('/', function () {
     return view('login1');
 }); // ADICIONAR ->middleware('guest');
 
-Route::get('/topicomat', function () {
-    return view('topicomat');
-});
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
@@ -55,7 +52,9 @@ Route::get('disciplinas', function () {
     return view('disciplinas', compact('categorias'));
 });
 
-Route::get('/disciplinas/{slug}', function($slug) {
+
+
+Route::get('/disciplinas/{slug}', function ($slug) {
     // Busca a disciplina pelo slug
     $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
     // Puxa os tópicos relacionados à disciplina
@@ -65,14 +64,14 @@ Route::get('/disciplinas/{slug}', function($slug) {
 })->name('topicos');
 
 
-Route::get('/disciplinas/{disciplina}/{slug}', function($disciplina, $slug) {
+Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
     // Busca o topico pelo slug
     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
     // Puxa as aulas relacionadas ao tópico
     $aulas = $topic->lessons;
     // Retorna a view com o tópico e as aulas
-    $materia = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
-    $corCategoria = $materia->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
+    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
+    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
     return view('conteudo', compact('topic', 'aulas', 'corCategoria'));
 })->name('conteudo');
 
@@ -111,7 +110,7 @@ Route::get('semana', function () {
 Route::get('aulas', function () {
     $aulas = \App\Models\Lesson::with('topic')->get();
     return view('aulas', compact('aulas'));
-});
+})->name('aulas');
 
 Route::get('perguntas', function () {
     return view('perguntas');
@@ -149,8 +148,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-   
 });
 Route::get('/paginainicial', function () {
     return view('paginainicial');
@@ -165,5 +162,4 @@ Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('
 
 
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

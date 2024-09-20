@@ -1,106 +1,46 @@
-<div class="m-0 font-sans overflow-hidden bg-gray-100 transition-colors duration-300">
-
-    <div class="">
-        <!-- Menu Hambúrguer -->
-        <input type="checkbox" id="checkbox" class="hidden">
-        <label for="checkbox" class="fixed top-4 left-4 z-[1001] cursor-pointer lg:hidden">
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300 transform origin-top-left"
-                id="bar1"></div>
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300" id="bar2"></div>
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300 transform origin-bottom-left"
-                id="bar3"></div>
-        </label>
-
-        <!-- Menu Lateral -->
-        <div id="sidebar"
-            class="fixed w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
-            <h2 class="text-black dark:text-white text-center mb-5 text-xl font-bold">Menu</h2>
-            <ul class="list-none p-0 m-0">
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-home"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Home</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-user-graduate"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Área
-                        do Aluno</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-calendar-alt"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Calendário</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-list"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Cronograma</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-book"></i>
-                    <a href="/materias"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Disciplinas</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-pencil-ruler"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Simulados</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-comments"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Fórum</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-file-alt"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Redação</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-question-circle"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Questões</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-cogs"></i>
-                    <a href="#"
-                        class="text-red-500  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Configurações</a>
-                </li>
-                <li class="flex items-center px-5 py-3 text-red-500 ">
-                    <i class="mr-3 fa-solid fa-sign-in-alt"></i>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-    
-                        <a :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();" class="text-red-500  no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">
-                            {{ __('Logout') }}
-                        </a>
-                    </form>
-                </li>
-
-                {{-- BOTAO DE LOGOUT
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                        {{ __('SAIR') }}
-                    </x-dropdown-link>
-                </form> --}}
+<aside class="lg:w-64 md:w-32 sm:w-2">
+    <div class="h-screen fixed ">
+        <div class="drawer lg:drawer-open">
+            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+            <!-- Page Content -->
+            <div class="drawer-content flex flex-col">
+                <!-- Mobile Navbar -->
+                <div class="navbar lg:hidden">
+                    <div class="flex-none">
+                        <label for="my-drawer-2" class="btn btn-square btn-ghost">
+                            <!-- Hamburger Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </label>
+                    </div>
+                </div>
+            
+        </div>
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
+                <!-- Sidebar content here -->
+                <li><a>Home</a></li>
+                <li><a>Área do Aluno</a></li>
+                <li><a>Calendário</a></li>
+                <li><a>Cronograma</a></li>
+                <li><a>Matérias</a></li>
+                <li><a>Simulados</a></li>
+                <li><a>Fórum</a></li>
+                <li><a>Redação</a></li>
+                <li><a>Questões</a></li>
+                <div class="divider"></div>
+                <li><a>FAQ</a></li>
+                <li><a class="text-red-500">Logout</a></li>
+                <div class="divider"></div>
                 
-                <x-theme-toggle />
+                <x-theme-toggle></x-theme-toggle>
             </ul>
         </div>
-
-
     </div>
-
-    <!-- Ícones no Canto Superior Direito -->
-    <div class="fixed top-4 right-4 space-x-4 z-[1001]">
-        <i class="fas fa-calendar-alt text-2xl cursor-pointer"></i>
-        <i class="fas fa-clock text-2xl cursor-pointer"></i>
-    </div>
-
-    
 </div>
+</aside>
