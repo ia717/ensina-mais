@@ -68,7 +68,7 @@
             </div>
             <div class="flex flex-col sm:flex-row justify-center items-center space-x-0 sm:space-x-2 mt-4">
               <input type="text" placeholder="Adicionar novo evento" class="p-2 border rounded-lg text-gray-600 bg-gray-50 dark:bg-gray-700 dark:text-gray-300 w-full sm:w-auto">
-              <button class="px-4 py-2 bg-blue-500 text-white rounded-lg mt-2 sm:mt-0 text-black dark:text-white">Salvar evento</button>
+              <button class="px-4 py-2 bg-blue-500 dark:text-white rounded-lg mt-2 sm:mt-0 text-black">Salvar evento</button>
             </div>
             <hr class="border-t border-gray-300 my-6">
           </div>

@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- <title>Aulas sobre {{$topic->name}}</title> --}}
-    <div class= rounded-md shadow-md w-full">
+    <div class="lg:ml-80 md:ml-40 ml-20">
         <div>
             <h1 class="text-4xl mb-4">| {{$topic->name}}</h1>
         </div>
