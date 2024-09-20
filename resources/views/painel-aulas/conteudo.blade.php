@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="sm:p-6 md:p-8">
+    <div class="lg:ml-80 md:ml-40 ml-20 sm:p-6 md:p-8">
 
         <div class="container flex flex-col justify-center items-start bg-white dark:bg-neutral-800 rounded-lg p-10">
             <div class="flex items-center mb-12">
