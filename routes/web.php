@@ -4,10 +4,38 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\DisciplineController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\LessonController;
 
 Route::get('/', function () {
     return view('login1');
 }); // ADICIONAR ->middleware('guest');
+
+Route::get('disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
+
+Route::get('/disciplinas/{disciplina:slug}', [TopicController::class, 'index'])->name('topicos');
+
+Route::get('/disciplinas/{disciplina:slug}/{topico:slug}', [LessonController::class, 'index'])->name('aulas');
+
+// Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
+//     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+//     // Puxa as aulas relacionadas ao tópico
+//     $aulas = $topic->lessons;
+//     return view('painel-aulas.aulas', compact('topic','aulas'));
+// })->name('aulas');
+
+
+Route::get('/disciplinas/{disciplina}/{topico}/{slug}', function ($disciplina, $slug) {
+    // Busca o topico pelo slug
+    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
+    // Puxa as aulas relacionadas ao tópico
+    $aulas = $topic->lessons;
+    // Retorna a view com o tópico e as aulas
+    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
+    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
+    return view('painel-aulas.conteudo3', compact('topic', 'aulas', 'corCategoria'));
+})->name('conteudo');
 
 
 Route::get('/caixafiltros', function () {
@@ -46,42 +74,6 @@ Route::get('/redacao2', function () {
 Route::get('/login1', function () {
     return view('login1');
 });
-
-Route::get('disciplinas', function () {
-    $categorias = \App\Models\Category::with('disciplines')->get();
-    return view('painel-aulas.disciplinas', compact('categorias'));
-})->name('disciplinas');
-
-Route::get('/disciplinas/{slug}', function ($slug) {
-    // Busca a disciplina pelo slug
-    $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
-    // Puxa os tópicos relacionados à disciplina
-    $topicos = $disciplina->topics;
-    // Retorna a view com a disciplina e os tópicos
-    return view('painel-aulas.topicos', compact('disciplina', 'topicos'));
-})->name('topicos');
-
-Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
-    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
-    // Puxa as aulas relacionadas ao tópico
-    $aulas = $topic->lessons;
-    return view('painel-aulas.aulas', compact('topic','aulas'));
-})->name('aulas');
-
-
-Route::get('/disciplinas/{disciplina}/{topico}/{slug}', function ($disciplina, $slug) {
-    // Busca o topico pelo slug
-    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
-    // Puxa as aulas relacionadas ao tópico
-    $aulas = $topic->lessons;
-    // Retorna a view com o tópico e as aulas
-    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
-    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
-    return view('painel-aulas.conteudo', compact('topic', 'aulas', 'corCategoria'));
-})->name('conteudo');
-
-
-
 
 Route::get('questao', function () {
     return view('questao');
