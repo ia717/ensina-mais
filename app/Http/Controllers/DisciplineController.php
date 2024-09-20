@@ -9,7 +9,7 @@ class DisciplineController extends Controller
 {
     public function index()
     {
-        $categorias = Category::with('disciplines')->get();
-        return view('painel-aulas.disciplinas', compact('categorias'));
+        $categories = Category::with('disciplines')->get();
+        return view('painel-aulas.disciplinas', compact('categories'));
     }
 }

@@ -14,28 +14,21 @@ Route::get('/', function () {
 
 Route::get('disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
 
-Route::get('/disciplinas/{disciplina:slug}', [TopicController::class, 'index'])->name('topicos');
+Route::get('/disciplinas/{discipline:slug}', [TopicController::class, 'index'])->name('topicos');
 
-Route::get('/disciplinas/{disciplina:slug}/{topico:slug}', [LessonController::class, 'index'])->name('aulas');
+Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::class, 'index'])->name('aulas');
 
-// Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
+
+// Route::get('/disciplinas/{disciplina}/{topico}/{slug}', function ($disciplina, $slug) {
+//     // Busca o topico pelo slug
 //     $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
 //     // Puxa as aulas relacionadas ao tópico
 //     $aulas = $topic->lessons;
-//     return view('painel-aulas.aulas', compact('topic','aulas'));
-// })->name('aulas');
-
-
-Route::get('/disciplinas/{disciplina}/{topico}/{slug}', function ($disciplina, $slug) {
-    // Busca o topico pelo slug
-    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
-    // Puxa as aulas relacionadas ao tópico
-    $aulas = $topic->lessons;
-    // Retorna a view com o tópico e as aulas
-    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
-    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
-    return view('painel-aulas.conteudo3', compact('topic', 'aulas', 'corCategoria'));
-})->name('conteudo');
+//     // Retorna a view com o tópico e as aulas
+//     $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
+//     $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
+//     return view('painel-aulas.conteudo3', compact('topic', 'aulas', 'corCategoria'));
+// })->name('conteudo');
 
 
 Route::get('/caixafiltros', function () {

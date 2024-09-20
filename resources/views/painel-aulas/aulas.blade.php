@@ -4,8 +4,8 @@
         <div>
             <h1 class="text-4xl mb-4">| {{$topic->name}}</h1>
         </div>
-        @foreach ($aulas as $aula)
-        <a href="{{ route('conteudo', [$topico->discipline->slug, $topico->slug, $aula->slug]) }}" class="flex flex-col">
+        @foreach ($lessons as $aula)
+        <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $aula->slug]) }}" class="flex flex-col">
             <div class="border-4 my-5 flex w-auto flex-col">
 
                 <p class="text-gray-700">

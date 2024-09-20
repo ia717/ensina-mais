@@ -10,9 +10,9 @@ class TopicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Discipline $disciplina)
+    public function index(Discipline $discipline)
     {
-        $topicos = $disciplina->topics;
-        return view('painel-aulas.topicos', compact('disciplina', 'topicos'));
+        $topics = $discipline->topics;
+        return view('painel-aulas.topicos', compact('discipline', 'topics'));
     }
 }

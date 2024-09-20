@@ -36,9 +36,6 @@ class CategoryResource extends Resource
                     ->label('Nome')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição')
-                    ->nullable(),
                 Forms\Components\ColorPicker::make('color')
                     ->label('Cor')
                     ->nullable(),

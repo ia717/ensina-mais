@@ -12,10 +12,10 @@ class LessonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Discipline $disciplina, Topic $topico)
+    public function index(Discipline $discipline, Topic $topic)
     {
-        $aulas = $topico->lessons;
-        return view('painel-aulas.aulas', compact('topico', 'aulas'));
+        $lessons = $topic->lessons;
+        return view('painel-aulas.aulas', compact('topic', 'lessons'));
     }
 
     /**
