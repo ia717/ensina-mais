@@ -18,9 +18,7 @@ class TopicResource extends Resource
 {
     protected static ?string $model = Topic::class;
     protected static ?string $modelLabel = 'tópico';
-
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
-    protected static ?string $navigationLabel = 'Tópicos';
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
