@@ -15,6 +15,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\Support\Str;
+use App\Models\Category;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Support\Enums\MaxWidth;
+use Livewire\Attributes\Layout;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
 
 class DisciplineResource extends Resource
 {
@@ -37,20 +43,20 @@ class DisciplineResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true),
-                    // ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-                        
-                    //     // Se for uma edição não atualiza o campo slug
-                    //     if ($operation === 'edit') {
-                    //         return;
-                    //     }
+                // ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
 
-                    //     $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
-            
-                    // }),
+                //     // Se for uma edição não atualiza o campo slug
+                //     if ($operation === 'edit') {
+                //         return;
+                //     }
+
+                //     $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
+
+                // }),
                 // Forms\Components\Hidden::make('slug')
                 //     ->label('Slug')
                 //     ->required(),
-                    // ->maxLength(255),
+                // ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->label('Categoria')
                     ->options(\App\Models\Category::pluck('name', 'id')->toArray())
@@ -68,7 +74,7 @@ class DisciplineResource extends Resource
                             ->label('Informações do Material')
                             ->maxLength(550),
                     ]),
-                
+
             ]);
     }
 
@@ -89,9 +95,21 @@ class DisciplineResource extends Resource
                     ->searchable()
                     ->sortable(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters(
+                [
+                  
+                    SelectFilter::make('category_id')
+                        ->label('Categoria')
+                            ->options(fn() => Category::pluck('name', 'id')->toArray()
+                        )
+
+
+                ],
+                layout: FiltersLayout::AboveContent
+
+            )
+
+
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])

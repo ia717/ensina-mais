@@ -18,7 +18,7 @@ Route::get('/disciplinas/{discipline:slug}', [TopicController::class, 'index'])-
 
 Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::class, 'index'])->name('aulas');
 
-Route::get('/disciplinas/{disciplin:slug}/{topic:slug}/{lesson:slug}', [LessonController::class, 'show'])->name('conteudo');
+Route::get('/disciplinas/{discipline:slug}/{topic:slug}/{lesson:slug}', [LessonController::class, 'show'])->name('conteudo');
 
 
 Route::get('/redacao3', function () {
