@@ -24,7 +24,6 @@ class LessonController extends Controller
     public function show(Discipline $discipline, Topic $topic, Lesson $lesson)
     {
         $corCategoria = $discipline->category->color;
-        $aula = $lesson;
-        return view('painel-aulas.conteudo3', compact('aula', 'corCategoria'));
+        return view('painel-aulas.conteudo', compact('lesson', 'corCategoria'));
     }
 }

@@ -6,7 +6,7 @@
         </div>
         @foreach ($lessons as $aula)
         <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $aula->slug]) }}" class="flex flex-col">
-            <div class="border-4 my-5 flex w-auto flex-col">
+            <div class="border-4 my-5 flex w-auto flex-col bg-gray-50">
 
                 <p class="text-gray-700">
                     <span class="font-bold">{{$aula->time}}</span>
