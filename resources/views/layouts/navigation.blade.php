@@ -28,7 +28,7 @@
                     <li><a href="questao"><i class="fas fa-question-circle mr-2"></i>Questões</a></li>
                     <div class="divider"></div>
                     <li><a href="perguntas"><i class="fas fa-info-circle mr-2"></i>FAQ</a></li>
-                    <li><a class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+                    <li><a href="login1" class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
                     <div class="divider"></div>
                     <div class="flex justify-center items-center">
                         <x-theme-toggle></x-theme-toggle>

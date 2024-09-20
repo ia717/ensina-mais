@@ -12,7 +12,7 @@
 </head>
 
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
-    @include('headernav')
+    @include('layouts.navigationlogin')
     <div>
         <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
             alt="">
@@ -108,42 +108,47 @@
                 </a> --}}
                 @endif
             </form>
-
-
             <div class="flex items-center justify-end mt-4">
-
-
-
             </div>
-
         </div>
-
     </main>
-    <!-- Section Title -->
-    < class="bg-white">
-
-        <!-- estatísticas -->
-        
-            <div class="stats bg-blue-500">
-                <div class="stat ">
-                    <div class="stat-title">Account balance</div>
-                    <div class="stat-value">$89,400</div>
-                    <div class="stat-actions">
-                        <button class="btn btn-sm btn-success">Add funds</button>
-                    </div>
+    <div class="bg-white">
+        <section class="lg:mt-56 container mx-auto flex flex-col items-center mb-4 justify-center gap-24 bg-white pt-24">
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="mt-7 text-center md:text-left ">
+                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">A nossa</h2>
+                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal mr-4">
+                        <span class="text-sky-800 font-bold">educação</span> em
+                    </h2>
+                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">números</h2>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-title">Current balance</div>
-                    <div class="stat-value">$89,400</div>
-                    <div class="stat-actions">
-                        <button class="btn btn-sm">Withdrawal</button>
-                        <button class="btn btn-sm">Deposit</button>
+                <div>
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
+                </div>
+                <div>
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
+                </div>
+
+                <!-- Statistics Section -->
+                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-8 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
+                    <div class="mx-5 md:mx-10 flex-1 text-center">
+                        <p class="text-3xl md:text-5xl font-bold">+12.500</p>
+                        <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
+                    </div>
+                    <div class="mx-5 md:mx-10 flex-1 text-center">
+                        <p class="text-3xl md:text-5xl font-bold">+400</p>
+                        <p class="font-medium text-sm md:text-base">questões no</p>
+                        <p class="font-medium text-sm md:text-base">repertório</p>
+                    </div>
+                    <div class="mx-5 md:mx-10 flex-1 text-center">
+                        <p class="text-3xl md:text-5xl font-bold">+700</p>
+                        <p class="font-medium text-sm md:text-base">aprovações no vestibular</p>
                     </div>
                 </div>
             </div>
-        
 
+        </section>
         <!-- Sobre nós Section -->
         <section id="sobre" class="md:mt-44 reveal flex flex-col items-center justify-center bg-white py-12">
             <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black subpixel-antialiased text-center mb-8">Sobre nós <span class="text-sky-800">+</span></h3>
@@ -256,7 +261,7 @@
             <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
         </div>
         <div class="flex justify-center md:w-1/2">
-            <img src="{{asset('imagens/jéssica.png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
+            <img src="{{asset('imagens\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
     </section>
     <!-- Footer -->
@@ -294,6 +299,7 @@
     </a>
 
     @include('smoothlink')
+    </div>
     <script>
         const scrollToTopButton = document.getElementById('scrollToTop');
 
