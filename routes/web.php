@@ -154,11 +154,15 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rotas para perguntas
-Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
-Route::post('/forum', [QuestionController::class, 'store']);
+Route::get('/forum', [QuestionController::class, 'index'])->name('forum.index'); // Para exibir o fórum
+Route::post('/forum', [QuestionController::class, 'store'])->name('forum.store'); // Para armazenar a pergunta
 
 // Rotas para respostas
 Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('answers.store');
+
+// Rotas para pegar os tópicos relacionados a uma disciplina
+Route::get('/topics/{discipline}', [QuestionController::class, 'getTopicsByDiscipline']);
+Route::get('/topics-by-discipline/{discipline}', [App\Http\Controllers\QuestionController::class, 'getTopicsByDiscipline']);
 
 
 
