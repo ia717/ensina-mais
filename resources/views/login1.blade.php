@@ -1,4 +1,4 @@
-<!DOCTYPE html data-theme="dark">
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -18,14 +18,22 @@
         <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
             alt="">
     </div>
+    <div>
+        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/imagens/Vector (1).png') }}"
+            alt="">
+    </div>
+    <div>
+        <img class="absolute z-0 left-24 top-1/4 hidden md:block" src="{{ asset('/imagens/Vector (5).png') }}"
+            alt="">
+    </div>
     <!-- Main Content -->
     <main class="container p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0 md:my-8 sm:mx-auto ">
         <!-- Promotional Section (Video) -->
         <div class="relative  bg-white sm:rounded-3xl w-full md:w-2/3 overflow-hidden md:ml-6 z-10 order-1 md:order-2 space-y-4 md:space-y-2">
-            <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar.mp4')}}"></video>
+            <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar Zuchi.mp4')}}"></video>
         </div>
         <!-- Login Form -->
-        <div class="relative md:bg-white dark:bg-neutral-700 md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
+        <div class="relative md:bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
 
             @auth
@@ -128,7 +136,6 @@
                     <img class="absolute left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
                 </div>
 
-
                 <div>
                     <img class="reveal absolute left-2/3 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
                 </div>
@@ -202,8 +209,9 @@
                     <!-- Second Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
                         <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                         <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        
                     </div>
 
                 </div>
@@ -249,6 +257,9 @@
             </div>
         </section>
     </div>
+    <div>
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><img src="{{asset('imagens/turbina 2_0.png')}}" alt="Banner Turbina"></a>
+    </div>
 
 
     <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
@@ -262,7 +273,7 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-sky-800 text-white py-5 mt-10 px-14 ">
+    <footer class="bg-sky-800 text-white py-5 mt-10 pr-16 pl-10 ">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="font-bold text-center md:text-left flex flex-col mb-4 md:mb-0">
                 <p class="text-sm">SESI - MONTE ALTO</p>
