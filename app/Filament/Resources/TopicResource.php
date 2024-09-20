@@ -18,9 +18,7 @@ class TopicResource extends Resource
 {
     protected static ?string $model = Topic::class;
     protected static ?string $modelLabel = 'tópico';
-
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
-    protected static ?string $navigationLabel = 'Tópicos';
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationGroup = 'Painel de Aulas';
 
@@ -42,9 +40,9 @@ class TopicResource extends Resource
             // Forms\Components\Textarea::make('description')
             //     ->label('Descrição')
             //     ->nullable(),
-            // Forms\Components\Toggle::make('is_high_relevance')
-            //     ->label('Alto Relevância')
-            //     ->inline(false),
+            Forms\Components\Toggle::make('is_high_relevance')
+                ->label('Alta Relevância')
+                ->inline(false),
 
             Forms\Components\FileUpload::make('image')
                 ->label('Imagem')
