@@ -21,9 +21,10 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Discipline $disciplina, Topic $topico, Lesson $aula)
+    public function show(Discipline $discipline, Topic $topic, Lesson $lesson)
     {
-        $corCategoria = $disciplina->category->color;
+        $corCategoria = $discipline->category->color;
+        $aula = $lesson;
         return view('painel-aulas.conteudo3', compact('aula', 'corCategoria'));
     }
 }
