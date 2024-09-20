@@ -17,7 +17,6 @@
             @include("menuteste")
         </aside>
 
-        <!-- Conteúdo principal centralizado -->
         <main class="flex-1 flex flex-col justify-center items-center p-4 lg:p-6">
         <div class="block md:hidden w-full">
             @include('headernav')
@@ -33,7 +32,7 @@
 
                 <hr class="border-t border-gray-300 my-6">
 
-                <!-- Filtro de eventos -->
+              
                 <div class="flex flex-col sm:flex-row items-center sm:space-x-2 mt-6">
                     <div class="relative flex items-center w-1/2">
                         <svg class="absolute left-2 text-gray-500" fill="#9ca3af" width="25px" height="25px" viewBox="0 0 256.00098 256.00098">
@@ -44,10 +43,9 @@
                     </div>
                 </div>
 
-                <!-- Calendário -->
                 <div class="flex flex-col items-center mt-8 px-4">
                     <div class="flex items-center justify-between w-full max-w-md">
-                        <!-- Botões de navegação do calendário -->
+                     
                         <button id="prev-month-btn" class="text-gray-500 hover:text-gray-800 focus:outline-none">
                         <i class="fas fa-chevron-left"></i>
                     </button> 
