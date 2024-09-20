@@ -28,7 +28,7 @@
                 <li><a>Área do Aluno</a></li>
                 <li><a>Calendário</a></li>
                 <li><a>Cronograma</a></li>
-                <li><a>Matérias</a></li>
+                <li><a href="{{ route('disciplinas') }}">Disciplinas</a></li>
                 <li><a>Simulados</a></li>
                 <li><a>Fórum</a></li>
                 <li><a>Redação</a></li>
