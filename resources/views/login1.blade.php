@@ -7,9 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ensina+</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
@@ -33,7 +32,7 @@
             <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar Zuchi.mp4')}}"></video>
         </div>
         <!-- Login Form -->
-        <div class="relative md:bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
+        <div class="relative bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
 
             @auth
@@ -63,7 +62,7 @@
                     <span class="font-medium text-gray-700">Email</span>
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
                         :value="old('email')" required autofocus autocomplete="username"
-                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50 text-black bg-white"
                         placeholder="Digite seu Email ou CPF" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
@@ -72,7 +71,7 @@
                     <span class="font-medium text-gray-700 ">Senha</span>
                     <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                         autocomplete="current-password"
-                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50 text-black"
                         placeholder="Digite sua Senha" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
