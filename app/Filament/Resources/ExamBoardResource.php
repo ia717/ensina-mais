@@ -2,43 +2,36 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
-use App\Models\Category;
+use App\Filament\Resources\ExamBoardResource\Pages;
+use App\Filament\Resources\ExamBoardResource\RelationManagers;
+use App\Models\ExamBoard;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 
-class CategoryResource extends Resource
+class ExamBoardResource extends Resource
 {
-    protected static ?string $model = Category::class;
-    protected static ?string $modelLabel = 'categoria';
-
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static ?string $navigationLabel = 'Categorias';
-    protected static ?int $navigationSort = 1;
-    protected static ?string $navigationGroup = 'Painel de Aulas';
-
-    protected static ?string $slug = 'categorias';
+    protected static ?string $model = ExamBoard::class;
+    protected static ?string $modelLabel = 'banca examinadora';
+    protected static ?string $pluralModelLabel = 'bancas examinadoras';
+    protected static ?string $slug = 'banca-examinadora';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 6;
+    protected static ?string $navigationGroup = 'Banco de Questões';
 
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name') // Componente de input do Título da categoria
+                Forms\Components\TextInput::make('name')
                     ->label('Nome')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\ColorPicker::make('color')
-                    ->label('Cor')
-                    ->nullable(),
             ]);
     }
 
@@ -48,10 +41,6 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('color')
-                    ->label('Cor')
                     ->searchable()
                     ->sortable(),
             ])
@@ -78,9 +67,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListExamBoards::route('/'),
+            'create' => Pages\CreateExamBoard::route('/create'),
+            'edit' => Pages\EditExamBoard::route('/{record}/edit'),
         ];
     }
 }

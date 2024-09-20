@@ -1,106 +1,40 @@
-<div class="m-0 font-sans overflow-hidden bg-gray-100 transition-colors duration-300">
-
-    <div class="">
-        <!-- Menu Hambúrguer -->
-        <input type="checkbox" id="checkbox" class="hidden">
-        <label for="checkbox" class="fixed top-4 left-4 z-[1001] cursor-pointer lg:hidden">
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300 transform origin-top-left"
-                id="bar1"></div>
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300" id="bar2"></div>
-            <div class="w-8 h-1 bg-black dark:bg-white my-1.5 transition-all duration-300 transform origin-bottom-left"
-                id="bar3"></div>
-        </label>
-
-        <!-- Menu Lateral -->
-        <div id="sidebar"
-            class="fixed w-64 h-full bg-white dark:bg-neutral-800 pt-16 transform transition-transform duration-300 z-[1000]">
-            <h2 class="text-black dark:text-white text-center mb-5 text-xl font-bold">Menu</h2>
-            <ul class="list-none p-0 m-0">
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-home"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Home</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-user-graduate"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Área
-                        do Aluno</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-calendar-alt"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Calendário</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-list"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Cronograma</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-book"></i>
-                    <a href="/materias"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Disciplinas</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-pencil-ruler"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Simulados</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-comments"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Fórum</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-file-alt"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Redação</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-question-circle"></i>
-                    <a href="#"
-                        class="text-black  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Questões</a>
-                </li>
-                <li class="flex items-center px-5 py-3 dark:text-white">
-                    <i class="mr-3 fa-solid fa-cogs"></i>
-                    <a href="#"
-                        class="text-red-500  dark:text-white no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">Configurações</a>
-                </li>
-                <li class="flex items-center px-5 py-3 text-red-500 ">
-                    <i class="mr-3 fa-solid fa-sign-in-alt"></i>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-    
-                        <a :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();" class="text-red-500  no-underline text-base block flex-1 hover:bg-gray-100 hover:pl-2 transition-all duration-300">
-                            {{ __('Logout') }}
+<aside class="lg:w-60 md:w-32 sm:w-2 z-10">
+    <div class="h-screen fixed ">
+        <div class="drawer lg:drawer-open">
+            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+            <!-- Page Content -->
+            <div class="drawer-content flex flex-col">
+            </div>
+            <!-- Sidebar -->
+            <div class="drawer-side ">
+                <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
+                    <div class="mb-8">
+                        <a class="text-3xl font-bold leading-none" href="#">
+                            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="">
                         </a>
-                    </form>
-                </li>
-
-                {{-- BOTAO DE LOGOUT
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                        {{ __('SAIR') }}
-                    </x-dropdown-link>
-                </form> --}}
-                
-                <x-theme-toggle />
-            </ul>
+                    </div>
+                    <!-- Sidebar content here -->
+                    <li><a href="paginainicial"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="areaaluno"><i class="fas fa-user-graduate mr-2"></i>Área do Aluno</a></li>
+                    <li><a href="calendario"><i class="fas fa-calendar-alt mr-2"></i>Calendário</a></li>
+                    <li><a href="cronograma"><i class="fas fa-calendar-check mr-2"></i>Cronograma</a></li>
+                    <!-- AINDA N TEM A PÁGINA MATÉRIAS   -->
+                    <li><a href="#"><i class="fas fa-book mr-2"></i>Matérias</a></li>
+                    
+                    <li><a href="simulados"><i class="fas fa-pencil-alt mr-2"></i>Simulados</a></li>
+                    <li><a href="forum"><i class="fas fa-comments mr-2"></i>Fórum</a></li>
+                    <li><a href="redacao"><i class="fas fa-file-alt mr-2"></i>Redação</a></li>
+                    <li><a href="questao"><i class="fas fa-question-circle mr-2"></i>Questões</a></li>
+                    <div class="divider"></div>
+                    <li><a href="perguntas"><i class="fas fa-info-circle mr-2"></i>FAQ</a></li>
+                    <li><a class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+                    <div class="divider"></div>
+                    <div class="flex justify-center items-center">
+                        <x-theme-toggle></x-theme-toggle>
+                    </div>
+                </ul>
+            </div>
         </div>
-
-
     </div>
-
-    <!-- Ícones no Canto Superior Direito -->
-    <div class="fixed top-4 right-4 space-x-4 z-[1001]">
-        <i class="fas fa-calendar-alt text-2xl cursor-pointer"></i>
-        <i class="fas fa-clock text-2xl cursor-pointer"></i>
-    </div>
-
-    
-</div>
+</aside>

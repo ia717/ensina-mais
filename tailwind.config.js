@@ -43,10 +43,17 @@ export default {
 
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
-    // Plugin oficial de forms do Tailwind
-    
+      // removi o forms, se precisar podemos colocar dnv, mas o daisyui nao vai funcionar - ian
+    forms,
     require('daisyui'),
   ],
+  darkMode:'selector', // or 'media' or 'class'
 
-  darkMode: 'selector',
+  
+  daisyui: {
+    themes: [
+      "light",
+      "dark",
+    ],
+  },
 };

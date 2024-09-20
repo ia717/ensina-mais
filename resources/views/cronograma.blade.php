@@ -175,13 +175,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
   </main>
   </div>
   <div class="hidden lg:flex w-64 flex-shrink-0">
