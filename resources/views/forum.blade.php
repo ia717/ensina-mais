@@ -30,28 +30,28 @@
                             {{ $question->discipline->name ?? 'Disciplina Desconhecida' }}
                         </span>
                         <!-- Categoria do Assunto -->
-                        <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->topic->category->color ?? '#ccc' }};">
+                        <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
                             {{ $question->topic->name ?? 'Assunto Desconhecido' }}
                         </span>
                     </div>
                 </div>
-
+        
                 <p class="mb-4">{{ $question->question }}</p>
-
+        
                 <!-- Respostas -->
                 <div class="relative">
                     <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
                     <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
                         @foreach ($question->answers as $answer)
-                        <div class="mt-4">
-                            <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
-                            <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
-                            <p class="mt-2">{{ $answer->answer }}</p>
-                        </div>
+                            <div class="mt-4">
+                                <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
+                                <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
+                                <p class="mt-2">{{ $answer->answer }}</p>
+                            </div>
                         @endforeach
                     </div>
                 </div>
-
+        
                 <!-- Formulário para Responder -->
                 <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
                     @csrf
@@ -59,64 +59,74 @@
                     <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Responder</button>
                 </form>
             </div>
-            @endforeach
-            <!-- Caixa de Texto para Nova Pergunta -->
-            <form action="/forum" method="POST">
-                @csrf
-                <div class="bg-white p-4 rounded-lg shadow flex flex-col">
-                    <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
-                    <div class="flex space-x-2 mb-4">
-                        <select name="discipline_id" class="w-full p-2 border border-gray-300 rounded">
-                            <option value="">Selecione uma disciplina</option>
-                            @foreach ($disciplines as $discipline)
-                            <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
-                            @endforeach
-                        </select>
-                        <select name="topic_id" class="w-full p-2 border border-gray-300 rounded">
-                            <option value="">Tópico</option>
-                            @foreach ($topics as $topic)
-                            <option value="{{ $topic->id }}">{{ $topic->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500">Enviar dúvida</button>
-                </div>
-            </form>
-        </div>
-
+        @endforeach
+        
+        <!-- Caixa de Texto para Nova Pergunta -->
+        <form action="{{ route('forum.store') }}" method="POST">
+            @csrf
+            <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
+            <div class="flex space-x-2 mb-4">
+                <select id="discipline" name="discipline_id" class="w-full p-2 border border-gray-300 rounded">
+                    <option value="">Selecione uma disciplina</option>
+                    @foreach ($disciplines as $discipline)
+                        <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
+                    @endforeach
+                </select>
+                <select id="topic" name="topic_id" class="w-full p-2 border border-gray-300 rounded">
+                    <option value="">Selecione um tópico</option>
+                </select>
+            </div>
+            <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500">Enviar dúvida</button>
+        </form>
+        </div>  
         <!-- Barra Lateral de Filtro -->
         <div class="w-1/5 p-6 bg-gray-200">
             <h2 class="text-lg font-semibold mb-4">Filtrar dúvidas</h2>
-            <div class="space-y-4">
-                <select class="w-full p-2 border border-gray-300 rounded">
-                    <option>Selecione uma disciplina</option>
-                    @foreach ($disciplines as $discipline)
-                    <option>{{ $discipline->name }}</option>
-                    @endforeach
-                </select>
-                <select class="w-full p-2 border border-gray-300 rounded">
-                    <option>Professor</option>
-                    <!-- Adicione aqui a lista de professores se necessário -->
-                </select>
-                <select class="w-full p-2 border border-gray-300 rounded">
-                    <option>Tópico</option>
-                    @foreach ($topics as $topic)
-                    <option>{{ $topic->name }}</option>
-                    @endforeach
-                </select>
-                <button class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500">Filtrar</button>
-            </div>
+            <form method="GET" action="/forum">
+                <div class="space-y-4">
+                    <!-- Seleção de Disciplina no Filtro -->
+                    <select id="filter-discipline" name="discipline_id" class="w-full p-2 border border-gray-300 rounded" onchange="updateFilterTopics(this.value)">
+                        <option value="">Selecione uma disciplina</option>
+                        @foreach ($disciplines as $discipline)
+                            <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <!-- Seleção de Tópico no Filtro -->
+                    <select id="filter-topic" name="topic_id" class="w-full p-2 border border-gray-300 rounded">
+                        <option value="">Selecione um tópico</option>
+                        <!-- Tópicos serão preenchidos aqui -->
+                    </select>
+                    <button type="submit" class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500">Filtrar</button>
+                </div>
+            </form>
         </div>
     </div>
-</body>
-<script>
-    document.querySelectorAll('.toggle-button').forEach((button) => {
-        button.addEventListener('click', function() {
-            const resposta = this.nextElementSibling;
-            resposta.classList.toggle('hidden');
-            this.textContent = resposta.classList.contains('hidden') ? 'Respostas' : 'Ocultar Resposta';
-        });
-    });
-</script>
+    
+    <script src="{{ asset('js/forumscript.js') }}"></script>
+    <script>
+        function updateTopics(disciplineId) {
+            const topicSelect = document.getElementById('topic');
+            const filterTopicSelect = document.getElementById('filter-topic');
 
+            // Limpa as opções
+            topicSelect.innerHTML = '<option value="">Selecione um tópico</option>';
+            filterTopicSelect.innerHTML = '<option value="">Selecione um tópico</option>';
+
+            if (disciplineId) {
+                fetch(`/forum/topics?discipline_id=${disciplineId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(topic => {
+                            const option = document.createElement('option');
+                            option.value = topic.id;
+                            option.textContent = topic.name;
+                            topicSelect.appendChild(option);
+                            filterTopicSelect.appendChild(option.cloneNode(true));
+                        });
+                    });
+            }
+        }
+    </script>
+</body>
 </html>
