@@ -30,6 +30,10 @@ Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::cla
 //     return view('painel-aulas.conteudo3', compact('topic', 'aulas', 'corCategoria'));
 // })->name('conteudo');
 
+Route::get('/redacao3', function () {
+    return view('redacao3');
+});
+
 
 Route::get('/caixafiltros', function () {
     return view('caixafiltros');
@@ -39,17 +43,6 @@ Route::get('/topicosmaterias', function () {
 });
 Route::get('/questaow', function () {
     return view('questaow');
-});
-
-Route::get('/conteudo', function () {
-    return view('conteudo');
-});
-
-Route::get('/conteudo3', function () {
-    return view('conteudo3');
-});
-Route::get('/redacao3', function () {
-    return view('redacao3');
 });
 
 Route::get('/questaor', function () {
