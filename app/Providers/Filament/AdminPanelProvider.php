@@ -56,6 +56,12 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
                 CheckAdminPanelAccess::class, // Adicione esta linha
+            ])
+            ->sidebarCollapsibleOnDesktop()
+            ->navigationGroups([
+                'Painel de Aulas',
+                'Banco de Questões',
+                'Redações do Alunos',
             ]);
     }
 }
