@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórum de Dúvidas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-
-<body class="bg-gray-100 flex ml-0">
+<x-app-layout>
     <div class="flex ">
 
         <!-- Conteúdo do Fórum -->
@@ -80,7 +69,7 @@
         </form>
         </div>  
         <!-- Barra Lateral de Filtro -->
-        <div class="w-1/5 p-6 bg-gray-200">
+        <div class="w-1/5 p-6 bg-red-900 ">
             <h2 class="text-lg font-semibold mb-4">Filtrar dúvidas</h2>
             <form method="GET" action="/forum">
                 <div class="space-y-4">
@@ -128,5 +117,4 @@
             }
         }
     </script>
-</body>
-</html>
+</x-app-layout>

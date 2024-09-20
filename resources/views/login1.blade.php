@@ -121,25 +121,30 @@
 
     </main>
     <!-- Section Title -->
-    <div class="bg-white">
-        <div class="stats bg-primary text-primary-content">
-            <div class="stat">
-                <div class="stat-title">Account balance</div>
-                <div class="stat-value">$89,400</div>
-                <div class="stat-actions">
-                    <button class="btn btn-sm btn-success">Add funds</button>
-                </div>
-            </div>
+    < class="bg-white">
 
-            <div class="stat">
-                <div class="stat-title">Current balance</div>
-                <div class="stat-value">$89,400</div>
-                <div class="stat-actions">
-                    <button class="btn btn-sm">Withdrawal</button>
-                    <button class="btn btn-sm">Deposit</button>
+        <!-- estatísticas -->
+        
+            <div class="stats bg-blue-500">
+                <div class="stat ">
+                    <div class="stat-title">Account balance</div>
+                    <div class="stat-value">$89,400</div>
+                    <div class="stat-actions">
+                        <button class="btn btn-sm btn-success">Add funds</button>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Current balance</div>
+                    <div class="stat-value">$89,400</div>
+                    <div class="stat-actions">
+                        <button class="btn btn-sm">Withdrawal</button>
+                        <button class="btn btn-sm">Deposit</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        
+
         <!-- Sobre nós Section -->
         <section id="sobre" class="md:mt-44 reveal flex flex-col items-center justify-center bg-white py-12">
             <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black subpixel-antialiased text-center mb-8">Sobre nós <span class="text-sky-800">+</span></h3>
