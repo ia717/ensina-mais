@@ -1,46 +1,40 @@
-<aside class="lg:w-64 md:w-32 sm:w-2">
+<aside class="lg:w-60 md:w-32 sm:w-2 z-10">
     <div class="h-screen fixed ">
         <div class="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <!-- Page Content -->
             <div class="drawer-content flex flex-col">
-                <!-- Mobile Navbar -->
-                <div class="navbar lg:hidden">
-                    <div class="flex-none">
-                        <label for="my-drawer-2" class="btn btn-square btn-ghost">
-                            <!-- Hamburger Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </label>
+            </div>
+            <!-- Sidebar -->
+            <div class="drawer-side ">
+                <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
+                    <div class="mb-8">
+                        <a class="text-3xl font-bold leading-none" href="#">
+                            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="">
+                        </a>
                     </div>
-                </div>
-            
-        </div>
-        <!-- Sidebar -->
-        <div class="drawer-side">
-            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-            <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
-                <!-- Sidebar content here -->
-                <li><a>Home</a></li>
-                <li><a>Área do Aluno</a></li>
-                <li><a>Calendário</a></li>
-                <li><a>Cronograma</a></li>
-                <li><a href="{{ route('disciplinas') }}">Disciplinas</a></li>
-                <li><a>Simulados</a></li>
-                <li><a>Fórum</a></li>
-                <li><a>Redação</a></li>
-                <li><a>Questões</a></li>
-                <div class="divider"></div>
-                <li><a>FAQ</a></li>
-                <li><a class="text-red-500">Logout</a></li>
-                <div class="divider"></div>
-                
-                <x-theme-toggle></x-theme-toggle>
-            </ul>
+                    <!-- Sidebar content here -->
+                    <li><a href="paginainicial"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="areaaluno"><i class="fas fa-user-graduate mr-2"></i>Área do Aluno</a></li>
+                    <li><a href="calendario"><i class="fas fa-calendar-alt mr-2"></i>Calendário</a></li>
+                    <li><a href="cronograma"><i class="fas fa-calendar-check mr-2"></i>Cronograma</a></li>
+                    <!-- AINDA N TEM A PÁGINA MATÉRIAS   -->
+                    <li><a href="#"><i class="fas fa-book mr-2"></i>Matérias</a></li>
+                    
+                    <li><a href="simulados"><i class="fas fa-pencil-alt mr-2"></i>Simulados</a></li>
+                    <li><a href="forum"><i class="fas fa-comments mr-2"></i>Fórum</a></li>
+                    <li><a href="redacao"><i class="fas fa-file-alt mr-2"></i>Redação</a></li>
+                    <li><a href="questao"><i class="fas fa-question-circle mr-2"></i>Questões</a></li>
+                    <div class="divider"></div>
+                    <li><a href="perguntas"><i class="fas fa-info-circle mr-2"></i>FAQ</a></li>
+                    <li><a class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+                    <div class="divider"></div>
+                    <div class="flex justify-center items-center">
+                        <x-theme-toggle></x-theme-toggle>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 </aside>

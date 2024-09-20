@@ -45,9 +45,9 @@ class LessonResource extends Resource
                 // Forms\Components\Textarea::make('content')
                 //     ->label('Conteúdo') Seria a descrição do vídeo
                 //     ->nullable(),
-                Forms\Components\ToggleButtons::make('is_high_relevance')
+                Forms\Components\Toggle::make('is_high_relevance')
                     ->label('Alta Relevância')
-                    ->boolean(),
+                    ->inline(false),
             ]);
     }
 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tematic_axis', function (Blueprint $table) {
+        Schema::create('vestibulares', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tematic_axis');
+        Schema::dropIfExists('vestibulares');
     }
 };
