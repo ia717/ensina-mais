@@ -1,4 +1,4 @@
-<!DOCTYPE html data-theme="dark">
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -7,25 +7,32 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ensina+</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
-    @include('headernav')
+    @include('layouts.navigationlogin')
     <div>
         <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
+            alt="">
+    </div>
+    <div>
+        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/imagens/Vector (1).png') }}"
+            alt="">
+    </div>
+    <div>
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/imagens/Vector (5).png') }}"
             alt="">
     </div>
     <!-- Main Content -->
     <main class="container p-0 md:p-0 md:flex md:space-x-8 space-y-0 md:space-y-0 m-0 md:my-8 sm:mx-auto ">
         <!-- Promotional Section (Video) -->
         <div class="relative  bg-white sm:rounded-3xl w-full md:w-2/3 overflow-hidden md:ml-6 z-10 order-1 md:order-2 space-y-4 md:space-y-2">
-            <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar.mp4')}}"></video>
+            <video class="w-full" autoplay muted loop playsinline src="{{asset('videos/Para Gabaritar Zuchi.mp4')}}"></video>
         </div>
         <!-- Login Form -->
-        <div class="relative md:bg-white dark:bg-neutral-700 md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
+        <div class="relative bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
 
             @auth
@@ -55,7 +62,7 @@
                     <span class="font-medium text-gray-700">Email</span>
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
                         :value="old('email')" required autofocus autocomplete="username"
-                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50 text-black bg-white"
                         placeholder="Digite seu Email ou CPF" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
@@ -64,7 +71,7 @@
                     <span class="font-medium text-gray-700 ">Senha</span>
                     <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                         autocomplete="current-password"
-                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50"
+                        class="focus:outline-none mb-5 mt-1 block w-full rounded-md border-black border-2 shadow-sm focus:border-sky-800 focus:ring-2 p-2 focus:ring-sky-800 focus:ring-opacity-50 text-black"
                         placeholder="Digite sua Senha" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
@@ -101,40 +108,30 @@
                 </a> --}}
                 @endif
             </form>
-
-
             <div class="flex items-center justify-end mt-4">
-
-
-
             </div>
-
         </div>
-
     </main>
-    <!-- Section Title -->
     <div class="bg-white">
-        <section class="lg:mt-56 container mx-auto flex flex-col justify-center gap-24 bg-white pt-24">
+        <section class="lg:mt-56 container mx-auto flex flex-col items-center mb-4 justify-center gap-24 bg-white pt-24">
             <div class="flex flex-col md:flex-row items-center justify-center">
                 <div class="mt-7 text-center md:text-left ">
                     <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">A nossa</h2>
-                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">
+                    <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal mr-4">
                         <span class="text-sky-800 font-bold">educação</span> em
                     </h2>
                     <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">números</h2>
                 </div>
 
                 <div>
-                    <img class="absolute left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
                 </div>
-
-
                 <div>
-                    <img class="reveal absolute left-2/3 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
                 </div>
 
                 <!-- Statistics Section -->
-                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-8 w-full md:w-auto flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
+                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-8 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
                     <div class="mx-5 md:mx-10 flex-1 text-center">
                         <p class="text-3xl md:text-5xl font-bold">+12.500</p>
                         <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
@@ -202,8 +199,9 @@
                     <!-- Second Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
                         <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                         <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+
                     </div>
 
                 </div>
@@ -250,7 +248,12 @@
         </section>
     </div>
 
-
+    <div>
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+            <img class="hidden md:block" src="{{asset('imagens/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
+            <img class="block md:hidden" src="{{asset('imagens/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
+        </a>
+    </div>
     <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
         <div class="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 gap-4 md:gap-8">
             <h5 class="text-2xl md:text-4xl font-bold text-black">Ainda não é nosso aluno?</h5>
@@ -258,11 +261,11 @@
             <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
         </div>
         <div class="flex justify-center md:w-1/2">
-            <img src="{{asset('imagens/jéssica.png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
+            <img src="{{asset('imagens\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-sky-800 text-white py-5 mt-10 px-14 ">
+    <footer class="bg-sky-800 text-white py-5 mt-10 pr-16 pl-10 ">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="font-bold text-center md:text-left flex flex-col mb-4 md:mb-0">
                 <p class="text-sm">SESI - MONTE ALTO</p>
@@ -296,6 +299,7 @@
     </a>
 
     @include('smoothlink')
+    </div>
     <script>
         const scrollToTopButton = document.getElementById('scrollToTop');
 

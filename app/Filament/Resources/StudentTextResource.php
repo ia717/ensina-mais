@@ -16,9 +16,13 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class StudentTextResource extends Resource
 {
     protected static ?string $model = StudentText::class;
-    protected static ?string $navigationGroup = 'Redações dos Alunos';
+    protected static ?string $navigationGroup = 'Painel de Redações';
 
     protected static ?string $modelLabel = 'redação';
+
+    protected static ?string $pluralModelLabel = 'redações';
+
+    protected static ?string $slug = 'redacoes';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -27,17 +31,17 @@ class StudentTextResource extends Resource
         return $form
             ->schema([
 
-                Forms\Components\Select::make('text_title_id')
+                Forms\Components\Select::make('title_id')
                     ->label('Título da Redação')
                     ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
                     ->required(),
-                Forms\Components\Select::make('text_title_id')
-                    ->label('Título da Redação')
-                    ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
+                Forms\Components\Select::make('vest_id')
+                    ->label('Vestibular')
+                    ->options(\App\Models\Vestibular::pluck('vest_id', 'id')->toArray())
                     ->required(),
-                Forms\Components\Select::make('text_title_id')
-                    ->label('Título da Redação')
-                    ->options(\App\Models\TextTitle::pluck('title', 'id')->toArray())
+                Forms\Components\Select::make('eixo_id')
+                    ->label('Eixo temático')
+                    ->options(\App\Models\TextTheme::pluck('axis_id', 'id')->toArray())
                     ->required(),
             ]);
     }
@@ -46,7 +50,6 @@ class StudentTextResource extends Resource
     {
         return $table
             ->columns([
-                //
             ])
             ->filters([
                 //

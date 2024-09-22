@@ -9,5 +9,12 @@ class Vestibular extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'name'];
+    protected $table = 'vestibulares';
+
+    protected $fillable = ['name'];
+
+    public function textTitles()
+    {
+        return $this->hasMany(TextTitle::class);
+    }
 }

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vestibular', function (Blueprint $table) {
+        Schema::create('text_titles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->foreignId('vest_id')->constrained('vestibulares')->onDelete('cascade');
+            $table->foreignId('theme_id')->constrained('text_themes')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vestibular');
+        Schema::dropIfExists('text_titles');
     }
 };

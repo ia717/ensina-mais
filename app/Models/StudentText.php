@@ -11,23 +11,23 @@ class StudentText extends Model
     
     protected $fillable = ['id', 'number_line','number_word', 'paragraph', 'time'];
 
-    public function student()
+    public function user()
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(User::class);
     }
 
     public function title()
     {
-        return $this->hasMany(TextTitle::class);
+        return $this->belongsTo(TextTitle::class);
     }
 
-    public function tematicAxis()
+    public function TextTheme()
     {
-        return $this->hasMany(TematicAxis::class);
+        return $this->belongsTo(TextTheme::class);
     }
 
     public function vestibular()
     {
-        return $this->hasMany(Vestibular::class);
+        return $this->belongsTo(Vestibular::class);
     }
 }

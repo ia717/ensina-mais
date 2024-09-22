@@ -1,101 +1,81 @@
-@include('menuteste')
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perguntas Frequentes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-100 flex  items-center h-screen">
-    <main class="items-center justify-center flex min-h-screen ml-96">
-        <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl w-full justify-center items-center ">
-            <h2 class="text-2xl font-bold mb-4 text-center text-sky-800">Perguntas Frequentes</h2>
-            <div class="relative mb-6 text-center">
-                <h1 class="text-lg font-bold text-sky-800">Selecione sua Dúvida</h1>
-
-            </div>
+<x-app-layout>
+    <div class="items-center justify-center flex min-h-screen">
+        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 max-w-4xl w-full justify-center items-center">
+            <h2 class="text-2xl font-bold mb-4 text-center text-sky-800 dark:text-white">Perguntas Frequentes</h2>
 
             <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
                 <!-- FAQ Container -->
-                <div class="bg-gray-50 rounded-lg p-6 md:w-1/2">
-                    <!-- Question 1 -->
-                    <div class="border-b border-gray-200 py-3">
-                        <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleAnswer('answer1')">
-                            O que fazer se o site estiver fora do ar ou lento?
-                            <span>▼</span>
-                        </button>
-                        <div id="answer1" class="hidden mt-2 text-gray-600">
-                            Se o site estiver fora do ar ou lento, verifique sua conexão com a internet e tente novamente mais tarde.
+                <div class="bg-gray-100 dark:bg-neutral-700 rounded-3xl p-6 md:w-1/2 z-50">
+                    <!-- Accordion -->
+                    <div class="space-y-4">
+                        <!-- Question 1 -->
+                        <div tabindex="0" class="collapse collapse-arrow  rounded-md dark:border-neutral-600">
+                            <input type="checkbox" />
+                            <div class="collapse-title text-gray-800 dark:text-white font-semibold">
+                                O que fazer se o site estiver fora do ar ou lento?
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300">
+                                Se o site estiver fora do ar ou lento, verifique sua conexão com a internet e tente novamente mais tarde.
+                            </div>
+                            <div class="divider m-0 "></div>
                         </div>
-                    </div>
-                    <!-- Question 2 -->
-                    <div class="border-b border-gray-200 py-3">
-                        <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleAnswer('answer2')">
-                            Posso personalizar meu plano de estudos no site?
-                            <span>▼</span>
-                        </button>
-                        <div id="answer2" class="hidden mt-2 text-gray-600">
-                            Sim, o site permite a personalização do seu plano de estudos de acordo com suas necessidades.
+                        <!-- Question 2 -->
+                        <div tabindex="0" class="collapse collapse-arrow  rounded-md dark:border-neutral-600">
+                            <input type="checkbox" />
+                            <div class="collapse-title text-gray-800 dark:text-white font-semibold">
+                                Posso personalizar meu plano de estudos no site?
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300">
+                                Sim, o site permite a personalização do seu plano de estudos de acordo com suas necessidades.
+                            </div>
+                            <div class="divider m-0"></div>
                         </div>
-                    </div>
-                    <!-- Question 3 -->
-                    <div class="border-b border-gray-200 py-3">
-                        <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleAnswer('answer3')">
-                            O site oferece conteúdo para todos os níveis de aprendizado?
-                            <span>▼</span>
-                        </button>
-                        <div id="answer3" class="hidden mt-2 text-gray-600">
-                            Sim, o site oferece conteúdos que abrangem desde o nível iniciante até o avançado.
+                        <!-- Question 3 -->
+                        <div tabindex="0" class="collapse collapse-arrow  rounded-md dark:border-neutral-600">
+                            <input type="checkbox" />
+                            <div class="collapse-title text-gray-800 dark:text-white font-semibold">
+                                O site oferece conteúdo para todos os níveis de aprendizado?
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300">
+                                Sim, o site oferece conteúdos que abrangem desde o nível iniciante até o avançado.
+                            </div>
+                            <div class="divider m-0"></div>
                         </div>
-                    </div>
-                    <!-- Question 4 -->
-                    <div class="border-b border-gray-200 py-3">
-                        <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleAnswer('answer4')">
-                            O site prepara para exames internacionais?
-                            <span>▼</span>
-                        </button>
-                        <div id="answer4" class="hidden mt-2 text-gray-600">
-                            Sim, oferecemos cursos específicos para preparação de exames internacionais como TOEFL, IELTS, etc.
+                        <!-- Question 4 -->
+                        <div tabindex="0" class="collapse collapse-arrow  rounded-md dark:border-neutral-600">
+                            <input type="checkbox" />
+                            <div class="collapse-title text-gray-800 dark:text-white font-semibold">
+                                O site prepara para exames internacionais?
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300">
+                                Sim, oferecemos cursos específicos para preparação de exames internacionais como TOEFL, IELTS, etc.
+                            </div>
+                            <div class="divider m-0"></div>
                         </div>
-                    </div>
-                    <!-- Question 5 -->
-                    <div class="border-b border-gray-200 py-3">
-                        <button class="w-full text-left flex justify-between items-center focus:outline-none" onclick="toggleAnswer('answer5')">
-                            Posso estimar o tempo do meu aprendizado?
-                            <span>▼</span>
-                        </button>
-                        <div id="answer5" class="hidden mt-2 text-gray-600">
-                            Sim, com base no seu ritmo de estudo e no plano escolhido, é possível estimar o tempo necessário.
+                        <!-- Question 5 -->
+                        <div tabindex="0" class="collapse collapse-arrow  rounded-md dark:border-neutral-600">
+                            <input type="checkbox" />
+                            <div class="collapse-title text-gray-800 dark:text-white font-semibold">
+                                Posso estimar o tempo do meu aprendizado?
+                            </div>
+                            <div class="collapse-content text-gray-600 dark:text-gray-300">
+                                Sim, com base no seu ritmo de estudo e no plano escolhido, é possível estimar o tempo necessário.
+                            </div>
+                            <div class="divider m-0"></div>
                         </div>
                     </div>
                 </div>
                 <!-- Contact Form Container -->
-                <div class="bg-gray-50 rounded-lg p-6 md:w-1/2">
-                    <h3 class="text-lg font-bold mb-4 text-sky-800">Fale Conosco</h3>
+                <div class="bg-gray-50 dark:bg-neutral-700 rounded-lg p-6 md:w-1/2">
+                    <h3 class="text-lg font-bold mb-4 text-sky-800 dark:text-white">Fale Conosco</h3>
                     <form>
-                        <input type="text" placeholder="Seu Nome" class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full" />
-                        <input type="email" placeholder="Seu Email" class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full" />
-                        <textarea placeholder="Digite aqui..." class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full"></textarea>
-                        <button type="submit" class="bg-sky-800 hover:bg-blue-500 transition-all duration-100 font-bold text-white px-4 py-2 rounded-full w-full">Enviar</button>
+                        <input type="text" placeholder="Seu Nome" class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full bg-white dark:bg-neutral-600 dark:text-white" />
+                        <input type="email" placeholder="Seu Email" class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full bg-white dark:bg-neutral-600 dark:text-white" />
+                        <textarea placeholder="Digite aqui..." class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full bg-white dark:bg-neutral-600 dark:text-white"></textarea>
+                        <button type="submit" class="bg-sky-800 hover:bg-blue-500 transition-all duration-100 font-bold text-white px-4 py-2 rounded-full w-full dark:bg-sky-600 dark:hover:bg-blue-500">Enviar</button>
                     </form>
                 </div>
             </div>
         </div>
-    </main>
-    <script>
-        function toggleAnswer(id) {
-            var answer = document.getElementById(id);
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-            } else {
-                answer.classList.add('hidden');
-            }
-        }
-    </script>
-</body>
-
-</html>
+    </div>
+</x-app-layout>
