@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="main-content">
+    <div class="lg:ml-80 md:ml-40 ml-20">
         <h1 class="text-3xl">Disciplinas</h1>
         @foreach ($categories as $category)
             <div class="mb-10">

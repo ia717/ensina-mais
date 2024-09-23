@@ -20,7 +20,7 @@
                     <li><a href="calendario"><i class="fas fa-calendar-alt mr-2"></i>Calendário</a></li>
                     <li><a href="cronograma"><i class="fas fa-calendar-check mr-2"></i>Cronograma</a></li>
                     <!-- AINDA N TEM A PÁGINA MATÉRIAS   -->
-                    <li><a href="#"><i class="fas fa-book mr-2"></i>Matérias</a></li>
+                    <li><a href="{{ route('disciplinas') }}"><i class="fas fa-book mr-2"></i>Matérias</a></li>
                     
                     <li><a href="simulados"><i class="fas fa-pencil-alt mr-2"></i>Simulados</a></li>
                     <li><a href="forum"><i class="fas fa-comments mr-2"></i>Fórum</a></li>
@@ -28,7 +28,7 @@
                     <li><a href="questao"><i class="fas fa-question-circle mr-2"></i>Questões</a></li>
                     <div class="divider"></div>
                     <li><a href="perguntas"><i class="fas fa-info-circle mr-2"></i>FAQ</a></li>
-                    <li><a class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+                    <li><a href="login1" class="text-red-500"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
                     <div class="divider"></div>
                     <div class="flex justify-center items-center">
                         <x-theme-toggle></x-theme-toggle>
