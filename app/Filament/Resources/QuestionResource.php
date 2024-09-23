@@ -63,31 +63,44 @@ class QuestionResource extends Resource
                     ->options(ExamBoard::all()->pluck('name', 'id'))
                     ->nullable()
                     ->searchable(),
-                Forms\Components\Section::make('answers')
-                    ->label('Respostas')
-                    ->schema([
-                        
-                        Forms\Components\Checkbox::make('is_correct')
-                            ->label('Correta')
-                            ->default(false),
-                    ]),
+                // Forms\Components\Section::make('answers')
+                //     ->label('Respostas')
+                //     ->schema([
+
+                //         Forms\Components\Checkbox::make('is_correct')
+                //             ->label('Correta')
+                //             ->default(false),
+                //     ]),
                 Forms\Components\Repeater::make('answers')
                     ->relationship('answers')
                     ->label('Respostas')
                     ->schema([
-                        Forms\Components\TextInput::make('text')
+                        Forms\Components\TextInput::make('answer_text')
                             ->label('Texto')
                             ->required(),
                         Forms\Components\Checkbox::make('is_correct')
                             ->label('Correta')
                             ->default(false)
                             ->reactive()
-                            ->afterStateUpdated(function ($state, callback $set, $get) {
-
+                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                if ($state) {
+                                    collect($get('answers'))->each(function ($answer, $index) use ($set) {
+                                        if ($answer['is_correct']) {
+                                            $set("answers.{$index}.is_correct", false);
+                                        }
+                                    });
+                                    $set('is_correct', true);
+                                }
                             }),
                     ])
-                    
-                
+                    ->minItems(2)
+                    ->maxItems(6)
+                    ->required()
+                    ->addActionLabel('Adicionar Resposta')
+                    ->collapsed(),
+
+
+
             ]);
     }
 
