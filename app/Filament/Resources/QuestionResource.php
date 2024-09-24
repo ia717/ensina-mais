@@ -31,78 +31,95 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('statement')
-                    ->label('Enunciado')
-                    ->required(),
-                Forms\Components\TextInput::make('type') // nao sei se vou manter
-                    ->label('Tipo')
-                    ->default('multiple_choice'),
-                Forms\Components\Select::make('difficulty_level')
-                    ->label('Nível de dificuldade')
-                    ->options([
-                        'easy' => 'Fácil',
-                        'medium' => 'Médio',
-                        'hard' => 'Difícil',
+                Forms\Components\Grid::make(2)
+                    ->schema([
+                        Forms\Components\Section::make()
+                            ->schema([
+
+                                Forms\Components\TextInput::make('type') // Campo de tipo com possibilidade de remoção futura
+                                    ->label('Tipo')
+                                    ->default('multiple_choice'),
+
+                                Forms\Components\Select::make('difficulty_level')
+                                    ->label('Nível de dificuldade')
+                                    ->options([
+                                        'easy' => 'Fácil',
+                                        'medium' => 'Médio',
+                                        'hard' => 'Difícil',
+                                    ])
+                                    ->default('medium')
+                                    ->required(),
+                            ]),
+
+                        Forms\Components\Section::make()
+                            ->schema([
+
+                                Forms\Components\Select::make('exam_board_id')
+                                    ->label('Banca examinadora')
+                                    ->options(ExamBoard::all()->pluck('name', 'id'))
+                                    ->nullable()
+                                    ->searchable(),
+
+                                Forms\Components\Select::make('discipline_id')
+                                    ->label('Disciplina')
+                                    ->options(Discipline::all()->pluck('name', 'id'))
+                                    ->required()
+                                    ->searchable(),
+
+                                Forms\Components\Select::make('topic_id')
+                                    ->label('Tópico')
+                                    ->options(Topic::all()->pluck('name', 'id')) // Restrição para pegar apenas tópicos dentro da disciplina selecionada
+                                    ->nullable()
+                                    ->searchable(),
+
+
+                            ])
+                    ]),
+
+
+
+                // Seção de Respostas com Repeater para múltiplas opções
+                Forms\Components\Section::make('Respostas')
+                    ->description('Adicione e configure as respostas para esta questão.')
+                    ->schema([
+                        Forms\Components\TextInput::make('statement')
+                            ->label('Enunciado')
+                            ->required()
+                            ->columnSpan(2), // Span across two columns for larger fields
+                        Forms\Components\Repeater::make('answers')
+                            ->relationship('answers')
+                            ->label('Respostas')
+                            ->schema([
+                                Forms\Components\TextInput::make('answer_text')
+                                    ->label('Texto')
+                                    ->required(),
+                                Forms\Components\Checkbox::make('is_correct')
+                                    ->label('Correta')
+                                    ->default(false)
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                                        if ($state) {
+                                            collect($get('answers'))->each(function ($answer, $index) use ($set) {
+                                                if ($answer['is_correct']) {
+                                                    $set("answers.{$index}.is_correct", false);
+                                                }
+                                            });
+                                            $set('is_correct', true);
+                                        }
+                                    }),
+                            ])
+                            ->minItems(2)
+                            ->maxItems(6)
+                            ->required()
+                            ->addActionLabel('Adicionar Resposta'),
                     ])
-                    ->default('medium')
-                    ->required(),
+                    ->collapsible(), // Seção colapsável para melhor visualização do formulário principal
+
                 Forms\Components\TextInput::make('solution')
                     ->label('Solução'),
-                Forms\Components\Select::make('discipline_id')
-                    ->label('Disciplina')
-                    ->options(Discipline::all()->pluck('name', 'id'))
-                    ->required()
-                    ->searchable(),
-                Forms\Components\Select::make('topic_id') // adicionar restrição para pegar apenas topics dentro de disciplines
-                    ->label('Tópico')
-                    ->options(Topic::all()->pluck('name', 'id'))
-                    ->nullable()
-                    ->searchable(),
-                Forms\Components\Select::make('exam_board_id')
-                    ->label('Banca examinadora')
-                    ->options(ExamBoard::all()->pluck('name', 'id'))
-                    ->nullable()
-                    ->searchable(),
-                // Forms\Components\Section::make('answers')
-                //     ->label('Respostas')
-                //     ->schema([
-
-                //         Forms\Components\Checkbox::make('is_correct')
-                //             ->label('Correta')
-                //             ->default(false),
-                //     ]),
-                Forms\Components\Repeater::make('answers')
-                    ->relationship('answers')
-                    ->label('Respostas')
-                    ->schema([
-                        Forms\Components\TextInput::make('answer_text')
-                            ->label('Texto')
-                            ->required(),
-                        Forms\Components\Checkbox::make('is_correct')
-                            ->label('Correta')
-                            ->default(false)
-                            ->reactive()
-                            ->afterStateUpdated(function ($state, callable $set, $get) {
-                                if ($state) {
-                                    collect($get('answers'))->each(function ($answer, $index) use ($set) {
-                                        if ($answer['is_correct']) {
-                                            $set("answers.{$index}.is_correct", false);
-                                        }
-                                    });
-                                    $set('is_correct', true);
-                                }
-                            }),
-                    ])
-                    ->minItems(2)
-                    ->maxItems(6)
-                    ->required()
-                    ->addActionLabel('Adicionar Resposta')
-                    ->collapsed(),
-
-
-
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
