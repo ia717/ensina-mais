@@ -31,8 +31,46 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Grid::make(2)
+                Forms\Components\Grid::make()
                     ->schema([
+
+                        Forms\Components\Section::make()
+                            ->schema([
+
+                                Forms\Components\Select::make('exam_board_id')
+                                    ->label('Banca examinadora')
+                                    ->options(ExamBoard::all()->pluck('name', 'id'))
+                                    ->nullable()
+                                    ->searchable(),
+
+                                Forms\Components\Select::make('discipline_id')
+                                    ->label('Disciplina')
+                                    ->options(Discipline::all()->pluck('name', 'id'))
+                                    ->required()
+                                    ->searchable()
+                                    ->reactive(),
+
+                                Forms\Components\Select::make('topic_id')
+                                    ->label('Tópico')
+                                    ->options(function ($get) {
+                                        $disciplineId = $get('discipline_id');
+                                        if ($disciplineId) {
+                                            return Topic::where('discipline_id', $disciplineId)->pluck('name', 'id');
+                                        }
+                                        return []; // Retorna um array vazio quando nenhuma disciplina é selecionada
+                                    })
+                                    ->disabled(function ($get) {
+                                        return !$get('discipline_id'); // Desativa o campo se 'discipline_id' não tiver valor
+                                    })
+                                    ->placeholder(function ($get) {
+                                        return !$get('discipline_id') ? '(Opcional) Selecione uma disciplina primeiro' : null;
+                                    })
+                                    ->nullable()
+                                    ->searchable(),
+
+
+                            ])->columnSpan(1),
+
                         Forms\Components\Section::make()
                             ->schema([
 
@@ -49,32 +87,9 @@ class QuestionResource extends Resource
                                     ])
                                     ->default('medium')
                                     ->required(),
-                            ]),
+                            ])->columnSpan(1),
 
-                        Forms\Components\Section::make()
-                            ->schema([
-
-                                Forms\Components\Select::make('exam_board_id')
-                                    ->label('Banca examinadora')
-                                    ->options(ExamBoard::all()->pluck('name', 'id'))
-                                    ->nullable()
-                                    ->searchable(),
-
-                                Forms\Components\Select::make('discipline_id')
-                                    ->label('Disciplina')
-                                    ->options(Discipline::all()->pluck('name', 'id'))
-                                    ->required()
-                                    ->searchable(),
-
-                                Forms\Components\Select::make('topic_id')
-                                    ->label('Tópico')
-                                    ->options(Topic::all()->pluck('name', 'id')) // Restrição para pegar apenas tópicos dentro da disciplina selecionada
-                                    ->nullable()
-                                    ->searchable(),
-
-
-                            ])
-                    ]),
+                    ])->columns(2), // Grid com duas colunas para melhor visualização do formulário
 
 
 
@@ -82,7 +97,7 @@ class QuestionResource extends Resource
                 Forms\Components\Section::make('Respostas')
                     ->description('Adicione e configure as respostas para esta questão.')
                     ->schema([
-                        Forms\Components\TextInput::make('statement')
+                        Forms\Components\RichEditor::make('statement')
                             ->label('Enunciado')
                             ->required()
                             ->columnSpan(2), // Span across two columns for larger fields
@@ -97,20 +112,14 @@ class QuestionResource extends Resource
                                     ->label('Correta')
                                     ->default(false)
                                     ->reactive()
-                                    ->afterStateUpdated(function ($state, callable $set, $get) {
-                                        if ($state) {
-                                            collect($get('answers'))->each(function ($answer, $index) use ($set) {
-                                                if ($answer['is_correct']) {
-                                                    $set("answers.{$index}.is_correct", false);
-                                                }
-                                            });
-                                            $set('is_correct', true);
-                                        }
-                                    }),
+                                    ->fixIndistinctState(),
+                                    
                             ])
                             ->minItems(2)
                             ->maxItems(6)
                             ->required()
+                            
+                            ->grid(2)
                             ->addActionLabel('Adicionar Resposta'),
                     ])
                     ->collapsible(), // Seção colapsável para melhor visualização do formulário principal
