@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('student_texts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('title_id')->constrained('text_title')->onDelete('cascade');
-            $table->foreignId('eixo_id')->constrained('tematic_axis')->onDelete('cascade');
-            $table->foreignId('vest_id')->constrained('vestibular')->onDelete('cascade');
+            $table->foreignId('title_id')->constrained('text_titles')->onDelete('cascade');
+            $table->foreignId('eixo_id')->constrained('text_themes')->onDelete('cascade');
+            $table->foreignId('vest_id')->constrained('vestibulares')->onDelete('cascade');
             $table->integer('number_line');
             $table->integer('number_word');
             $table->integer('paragraphs');
