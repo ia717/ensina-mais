@@ -1,4 +1,4 @@
-<div class="lg:w-60 md:w-32 sm:w-2 z-10">
+<div class="lg:w-64 z-10">
     <div class="h-screen fixed">
         <div x-data="{ drawerOpen: true }" class="drawer" :class="{ 'lg:drawer-open': drawerOpen }">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />

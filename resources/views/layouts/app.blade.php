@@ -21,7 +21,7 @@
         @include('layouts.navigation')
 
         <!-- Page Content -->
-        <main class="flex-1 bg-gray-200 dark:bg-neutral-700 px-4 lg:px-12 py-4">
+        <main class="flex-1 bg-gray-200 dark:bg-neutral-700 py-4 text-black dark:text-white">
             <div>
                 {{ $slot }}
             </div>
