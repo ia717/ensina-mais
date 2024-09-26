@@ -10,20 +10,43 @@
         </div>
 
         <!-- Container Principal -->
-        <div class="bg-white shadow-lg rounded-lg p-10 w-full lg:w-11/12 max-w-3xl">
-            <div class="flex justify-between items-center mb-6">
-                <a href="redacao" class="text-gray-600 hover:text-blue-600">Voltar</a>
-                <div class="space-x-4">
-                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded">Salvar rascunho</button>
-                    <button class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded">Aplicar correção</button>
+          <!-- Container principal para o conteúdo da redação -->
+          <div class="w-full lg:w-3/4 max-w-4xl mb-8 lg:mb-0 mx-auto lg:ml-4">
+            <!-- Botões acima do container de escrever -->
+            <div class="flex justify-between mb-4">
+                <a href="redacao" class="text-gray-600 hover:text-blue-600 flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-.707-10.707a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L8 10.414V15a1 1 0 102 0v-4.586l2.293 2.293a1 1 0 001.414-1.414l-3-3z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Voltar</span>
+                </a>
+                <div class="flex space-x-2">
+                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 12a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.5-10V7a1 1 0 10-2 0v1a1 1 0 102 0zm-2 4h2a1 1 0 110 2h-2a1 1 0 110-2z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Salvar rascunho</span>
+                    </button>
+                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 12a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.5-10V7a1 1 0 10-2 0v1a1 1 0 102 0zm-2 4h2a1 1 0 110 2h-2a1 1 0 110-2z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Aplicar correção</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="bg-white shadow-lg rounded-lg p-4">
-                <input type="text" placeholder="Digite o título aqui" class="w-full bg-gray-100 p-4 mb-4 border border-gray-300 rounded text-gray-700">
-                <textarea rows="10" placeholder="Escreva aqui a sua redação..." class="w-full bg-gray-100 p-4 border border-gray-300 rounded text-gray-700"></textarea>
+            <!-- Redação Section -->
+            <div class="bg-white shadow-lg rounded-lg p-8">
+                <div class="bg-white shadow-lg rounded-lg p-4">
+                    <input type="text" placeholder="A violência virtual e o desafio de garantir uma internet segura no Brasil" class="w-full bg-gray-100 p-4 mb-4 border border-gray-300 rounded text-gray-700">
+                    <textarea rows="10" placeholder="Escreva aqui a sua redação..." class="w-full bg-gray-100 p-4 border border-gray-300 rounded text-gray-700"></textarea>
+                </div>
             </div>
         </div>
+
 
         <div id="sidebar1" class="hidden fixed lg:static right-0 top-0 bg-gray-50 shadow-lg p-4 w-full lg:w-64 h-full z-10 overflow-y-auto">
             <div class="flex justify-between items-center mb-4">
@@ -34,17 +57,17 @@
 
             <h3 class="font-semibold mb-2 text-gray-700">Introdução</h3>
             <div class="flex flex-col space-y-2 mb-4">
-                <button class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Alusão</button>
-                <button class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Conectivo</button>
-                <button class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Contextualização</button>
-                <button class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Tese</button>
+                <button style=" background-color: rgb(147 197 253 / var(--tw-bg-opacity))" class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Alusão</button>
+                <button style=" background-color: rgb(147 197 253 / var(--tw-bg-opacity))" class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Conectivo</button>
+                <button style=" background-color: rgb(147 197 253 / var(--tw-bg-opacity))" class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Contextualização</button>
+                <button style=" background-color: rgb(147 197 253 / var(--tw-bg-opacity))" class="bg-blue-300 text-blue-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-400">Tese</button>
             </div>
 
 
             <h3 class="font-semibold mb-2 text-gray-700">Desenvolvimento</h3>
             <div class="flex flex-col space-y-2 mb-4">
                 <button class="bg-green-300 text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Conectivo</button>
-                <button class="bg-[#EBE6E6] text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Tóp. Frasal</button>
+                <button class="bg-green-300 text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Tóp. Frasal</button>
                 <button class="bg-green-300 text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Repertório</button>
                 <button class="bg-green-300 text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Legitimidade</button>
                 <button class="bg-green-300 text-green-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-green-400">Finalização</button>
@@ -53,13 +76,13 @@
 
             <h3 class="font-semibold mb-2 text-gray-700">Finalização</h3>
             <div class="flex flex-col space-y-2">
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Conectivo</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Tese</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Agente</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Ação</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Meio/Modo</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Finalidade</button>
-                <button class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Retomada</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Conectivo</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Tese</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Agente</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Ação</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Meio/Modo</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Finalidade</button>
+                <button style="background-color:blueviolet" class="bg-purple-300 text-purple-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-purple-400">Retomada</button>
             </div>
         </div>
 
@@ -68,7 +91,7 @@
         <div id="sidebar2" class="hidden fixed lg:static right-0 top-0 bg-white shadow-lg p-4 w-full lg:w-64 h-full z-10">
             <div class="flex justify-between items-center">
                 <h2 class="text-lg font-semibold mb-4">Correção</h2>
-                <button id="closeSidebar2" class="bg-red-900 hover:bg-red-600 text-white px-2 py-1 rounded">X</button>
+                <button id="closeSidebar2" class="bg-red-600 hover:bg-red-500 text-white px-2 py-1 rounded">X</button>
             </div>
 
             <!-- Nota geral -->
@@ -129,7 +152,7 @@
         <div id="sidebar3" class="hidden fixed right-0 top-0 bg-white shadow-lg p-4 w-64 h-full z-10">
             <div class="flex justify-between items-center">
                 <h2 class="text-lg font-semibold mb-4">Textos motivadores</h2>
-                <button id="closeSidebar3" class="bg-red-900 hover:bg-red-600 text-white px-2 py-1 rounded">X</button>
+                <button id="closeSidebar3" class="bg-red-600 hover:bg-red-500 text-white px-2 py-1 rounded">X</button>
             </div>
 
             <!-- Seção de Contadores -->

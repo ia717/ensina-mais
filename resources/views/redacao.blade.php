@@ -7,7 +7,6 @@
         </div>
     </div>
     
-    {{-- O código no arquivo abaixo está impedindo que o sidebar funcione! --}}
     @include('filtroredacao')
 
 </x-app-layout>
