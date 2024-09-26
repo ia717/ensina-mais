@@ -115,7 +115,7 @@
     <div class="bg-white">
         <section class="lg:mt-56 container mx-auto flex flex-col items-center mb-4 justify-center gap-24 bg-white pt-24">
             <div class="flex flex-col md:flex-row items-center justify-center">
-                <div class="mt-7 text-center md:text-left ">
+                <div class="mt-7 text-center md:text-left pr-14 ">
                     <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">A nossa</h2>
                     <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal mr-4">
                         <span class="text-sky-800 font-bold">educação</span> em
@@ -162,19 +162,19 @@
                 <div class="flex space-x-4 sm:space-x-8 relative z-10 w-full max-w-screen-lg justify-center items-center">
                     <!-- Card 1 -->
                     <div class="bg-white shadow-lg rounded-2xl sm:rounded-3xl p-4 sm:p-6 w-1/2">
-                        <ul class="text-sm sm:text-lg list-disc pl-4 space-y-2 text-gray-700">
-                            <li class="subpixel-antialiased">Plataforma de estudos focada em vestibulares</li>
-                            <li class="subpixel-antialiased">Criada pela escola para apoio aos alunos</li>
-                            <li class="subpixel-antialiased">Combina conteúdos teóricos, exercícios, videoaulas e simulados</li>
+                        <ul class="text-sm sm:text-xl list-disc pl-4 space-y-2 text-gray-700">
+                            <li class="subpixel-antialiased">Plataforma de estudos focada em vestibulares no geral;</li>
+                            <li class="subpixel-antialiased">Criada pela escola para apoio aos alunos;</li>
+                            <li class="subpixel-antialiased">Combina conteúdos teóricos, exercícios, videoaulas e simulados.</li>
                         </ul>
                     </div>
 
                     <!-- Card 2 -->
                     <div class="bg-white shadow-lg rounded-2xl sm:rounded-3xl p-4 sm:p-6 w-1/2">
-                        <ul class="text-sm sm:text-lg list-disc pl-4 space-y-2 text-gray-700">
-                            <li class="subpixel-antialiased">Consolida conhecimentos e prepara para exames</li>
-                            <li class="subpixel-antialiased">Aumenta as chances de sucesso acadêmico</li>
-                            <li class="subpixel-antialiased">Oferece um ambiente de aprendizado interativo e acessível</li>
+                        <ul class="text-sm sm:text-xl list-disc pl-4 space-y-2 text-gray-700">
+                            <li class="subpixel-antialiased">Consolida conhecimentos e prepara para exames;</li>
+                            <li class="subpixel-antialiased">Aumenta as chances de sucesso acadêmico;</li>
+                            <li class="subpixel-antialiased">Oferece um ambiente de aprendizado interativo e acessível.</li>
                         </ul>
                     </div>
                 </div>
