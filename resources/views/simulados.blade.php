@@ -1,16 +1,4 @@
-@include('menuteste')
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulados</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-100 font-sans">
-    <!-- Sidebar -->
+<x-app-layout> 
 
 
     <!-- Main content -->
@@ -75,6 +63,4 @@
         </form>
     </div>
     </div>
-</body>
-
-</html>
+</x-app-layout> 

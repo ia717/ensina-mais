@@ -182,7 +182,7 @@
         </section>
 
         <!-- Alunos section -->
-        <section class="bg-white md:mt-56">
+        <section class="bg-white md:mt-20 mb-36">
             <h3 id="aprova" class="reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
                 Alunos <span class="text-red-600 p-4">SESI SENAI</span>
             </h3>
@@ -249,7 +249,7 @@
     </div>
 
     <div>
-        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
             <img class="hidden md:block" src="{{asset('imagens/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
             <img class="block md:hidden" src="{{asset('imagens/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
         </a>
