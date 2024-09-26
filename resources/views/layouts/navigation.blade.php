@@ -1,4 +1,4 @@
-<aside class="lg:w-60 md:w-32 sm:w-2 z-10">
+<div class="lg:w-60 md:w-32 sm:w-2 z-10">
     <div class="h-screen fixed ">
         <div class="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-</aside>
+</div>
