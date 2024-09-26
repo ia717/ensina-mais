@@ -17,12 +17,12 @@
 
     <div class="flex-1">
         <a class="text-3xl font-bold leading-none" href="#">
-            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
+            <img src="{{asset('/images/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
         </a>
-        <img src="{{asset('/imagens/logos_sesi_preto_01.webp')}}" alt="SESI" class="h-8">
+        <img src="{{asset('/images/logos_sesi_preto_01.webp')}}" alt="SESI" class="h-8">
         <div class="divider lg:divider-horizontal"></div>
 
-        <img src="{{asset('/imagens/logo-senai.fw_.png')}}" alt="SENAI" class="h-8 bg-black">
+        <img src="{{asset('/images/logo-senai.fw_.png')}}" alt="SENAI" class="h-8 bg-black">
     </div>
     <div class="flex-none">
         <button class="btn btn-square btn-ghost">

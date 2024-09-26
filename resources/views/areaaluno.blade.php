@@ -1,6 +1,5 @@
 <x-app-layout> 
-    
-    <main class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-4">
         <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
             <div class="text-start mb-6">
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">Área do Aluno</h1>
@@ -161,5 +160,5 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </x-app-layout> 

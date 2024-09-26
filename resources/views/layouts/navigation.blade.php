@@ -11,7 +11,7 @@
                 <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
                     <div class="mb-8">
                         <a class="text-3xl font-bold leading-none" href="#">
-                            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="">
+                            <img src="{{asset('/images/Logo ensina claro.png')}}" alt="Logo" class="">
                         </a>
                     </div>
                     <!-- Sidebar content here -->

@@ -15,7 +15,7 @@
     </div>
     <div class="flex-1">
         <a class="text-3xl font-bold leading-none" href="#">
-            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
+            <img src="{{asset('/images/Logo ensina claro.png')}}" alt="Logo" class="h-8 pb-1">
         </a>
     </div>
 </div>

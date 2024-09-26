@@ -14,15 +14,15 @@
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
     @include('layouts.navigationlogin')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/imagens/Vector (2).png') }}"
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/Vector (2).png') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/imagens/Vector (1).png') }}"
+        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/Vector (1).png') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/imagens/Vector (5).png') }}"
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/Vector (5).png') }}"
             alt="">
     </div>
     <!-- Main Content -->
@@ -124,10 +124,10 @@
                 </div>
 
                 <div>
-                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (4).png')}}" alt="">
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/Vector (4).png')}}" alt="">
                 </div>
                 <div>
-                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/imagens/Vector (3).png')}}" alt="">
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/Vector (3).png')}}" alt="">
                 </div>
 
                 <!-- Statistics Section -->
@@ -191,16 +191,16 @@
 
                     <!-- First Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 ml-5">
-                        <span><img src="{{asset('imagens/teste marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
-                        <img src="{{asset('imagens/teste cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('imagens/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <span><img src="{{asset('images/teste marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
+                        <img src="{{asset('images/teste cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     </div>
 
                     <!-- Second Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
-                        <img src="{{asset('imagens/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('imagens/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('imagens/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
 
                     </div>
 
@@ -250,8 +250,8 @@
 
     <div>
         <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
-            <img class="hidden md:block" src="{{asset('imagens/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
-            <img class="block md:hidden" src="{{asset('imagens/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
+            <img class="hidden md:block" src="{{asset('images/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
+            <img class="block md:hidden" src="{{asset('images/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
         </a>
     </div>
     <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
@@ -261,7 +261,7 @@
             <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
         </div>
         <div class="flex justify-center md:w-1/2">
-            <img src="{{asset('imagens\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
+            <img src="{{asset('images\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
     </section>
     <!-- Footer -->

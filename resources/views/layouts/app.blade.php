@@ -19,16 +19,18 @@
 </head>
 
 <body x-cloak x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="font-sans antialiased">
+
     @include('layouts.navigationmobile')
-    @include('layouts.navigation')
+    <div class="flex min-h-screen">
+        @include('layouts.navigation')
 
-
-    <!-- Page Content -->
-    <main class="min-h-screen bg-gray-200 dark:bg-neutral-700">
-        <div>
-            {{ $slot }}
-        </div>
-    </main>
+        <!-- Page Content -->
+        <main class="flex-1 bg-gray-200 dark:bg-neutral-700 px-4 lg:px-12 py-4">
+            <div>
+                {{ $slot }}
+            </div>
+        </main>
+    </div>
 
 </body>
 
