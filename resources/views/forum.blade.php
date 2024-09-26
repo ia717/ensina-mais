@@ -1,121 +1,79 @@
-<x-app-layout>
-    <div class="flex flex-col lg:flex-row"> <!-- Mudança para responsividade em colunas menores e linhas maiores -->
 
-        <!-- Barra Lateral de Filtro -->
-        <div class="w-full lg:w-1/5 p-6 bg-red-900"> <!-- A barra ocupa 100% da largura em telas pequenas -->
-            <h2 class="text-lg font-semibold mb-4">Filtrar dúvidas</h2>
-            <form method="GET" action="/forum">
-                <div class="space-y-4">
-                    <!-- Seleção de Disciplina no Filtro -->
-                    <select id="filter-discipline" name="discipline_id" class="w-full p-2 border border-gray-300 rounded" onchange="updateFilterTopics(this.value)">
-                        <option value="">Selecione uma disciplina</option>
-                        @foreach ($disciplines as $discipline)
-                            <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
-                        @endforeach
-                    </select>
 
-                    <!-- Seleção de Tópico no Filtro -->
-                    <select id="filter-topic" name="topic_id" class="w-full p-2 border border-gray-300 rounded">
-                        <option value="">Selecione um tópico</option>
-                        <!-- Tópicos serão preenchidos aqui -->
-                    </select>
-                    <button type="submit" class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500">Filtrar</button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Conteúdo Principal -->
-        <div id="barra" class="w-full lg:flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto transition-all duration-300 ease-in-out">
-            <h1 class="text-2xl sm:text-3xl font-semibold text-center">Fórum de Dúvidas</h1>
-
-            <!-- Perguntas e Respostas -->
-            @foreach ($questions as $question)
-            <div class="bg-white p-4 rounded-lg shadow mb-4">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-                    <div>
-                        <h2 class="text-lg font-semibold">{{ $question->user->name }}</h2>
-                        <span class="text-sm text-gray-600">{{ $question->user->role }}</span>
-                    </div>
-                    <div class="flex space-x-2 mt-2 sm:mt-0">
-                        <!-- Categoria da Disciplina -->
-                        <span class="px-2 py-1 rounded text-xs" style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
-                            {{ $question->discipline->name ?? 'Disciplina Desconhecida' }}
-                        </span>
-                        <!-- Categoria do Assunto -->
-                        <span class="px-2 py-1 rounded text-xs ml-2" style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
-                            {{ $question->topic->name ?? 'Assunto Desconhecido' }}
-                        </span>
-                    </div>
-                </div>
-
-                <p class="mb-4">{{ $question->question }}</p>
-
-                <!-- Respostas -->
-                <div class="relative">
-                    <button class="toggle-button bottom-4 right-4 text-black px-4 py-2 bg-gray-200 rounded">Respostas</button>
-                    <div class="resposta border-t text-gray-600 hidden mt-12 text-xs">
-                        @foreach ($question->answers as $answer)
-                        <div class="mt-4">
-                            <h3 class="text-sm font-semibold">{{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</h3>
-                            <span class="text-xs text-gray-600">{{ optional($answer->user)->role ?? 'Função Desconhecida' }}</span>
-                            <p class="mt-2">{{ $answer->answer }}</p>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <!-- Formulário para Responder -->
-                <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
-                    @csrf
-                    <textarea name="answer" placeholder="Escreva sua resposta..." class="w-full p-2 border border-gray-300 rounded mb-2"></textarea>
-                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full sm:w-auto">Responder</button>
-                </form>
-            </div>
-            @endforeach
-
-            <!-- Caixa de Texto para Nova Pergunta -->
-            <form action="{{ route('forum.store') }}" method="POST">
-                @csrf
-                <textarea name="question" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
-                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-4">
-                    <select id="discipline" name="discipline_id" class="w-full p-2 border border-gray-300 rounded">
-                        <option value="">Selecione uma disciplina</option>
-                        @foreach ($disciplines as $discipline)
-                        <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
-                        @endforeach
-                    </select>
-                    <select id="topic" name="topic_id" class="w-full p-2 border border-gray-300 rounded">
-                        <option value="">Selecione um tópico</option>
-                    </select>
-                </div>
-                <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500 w-full sm:w-auto">Enviar dúvida</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="{{ asset('js/forumscript.js') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum de Dúvidas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        .transition-transform {
+            transition: transform 0.3s ease;
+        }
+        .fade {
+            transition: opacity 0.3s ease;
+        }
+        .hidden {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        .visible {
+            opacity: 1;
+            height: auto;
+        }
+    </style>
     <script>
-        function updateTopics(disciplineId) {
-            const topicSelect = document.getElementById('topic');
-            const filterTopicSelect = document.getElementById('filter-topic');
-
-            // Limpa as opções
-            topicSelect.innerHTML = '<option value="">Selecione um tópico</option>';
-            filterTopicSelect.innerHTML = '<option value="">Selecione um tópico</option>';
-
-            if (disciplineId) {
-                fetch(`/forum/topics?discipline_id=${disciplineId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        data.forEach(topic => {
-                            const option = document.createElement('option');
-                            option.value = topic.id;
-                            option.textContent = topic.name;
-                            topicSelect.appendChild(option);
-                            filterTopicSelect.appendChild(option.cloneNode(true));
-                        });
-                    });
-            }
+        function toggleAnswer(id, arrowId) {
+            const answer = document.getElementById(id);
+            const arrow = document.getElementById(arrowId);
+            answer.classList.toggle('hidden');
+            answer.classList.toggle('visible');
+            arrow.classList.toggle('rotate-180');
         }
     </script>
-</x-app-layout>
+</head>
+
+    <x-app-layout>
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold text-purple-700 mb-4">Fórum de Dúvidas</h1>
+            <div class="flex justify-between items-center mb-4">
+                <input type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded-lg">
+                <button class="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Filtrar dúvidas</button>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Disciplina</label>
+                <select class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option>Selecione uma disciplina</option>
+                    <option>Matemática</option>
+                    <option>Física</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+            </div>
+            <div class="space-y-4 mb-20">
+                <!-- Card de dúvida -->
+                <div class="bg-gray-50 p-4 rounded-lg shadow">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-semibold">Rogério Bilha</span>
+                        <span class="text-sm text-gray-500">Gramatica</span>
+                        <button onclick="toggleAnswer('answer1', 'arrow1')" class="text-gray-500 focus:outline-none transition-transform" id="arrow1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-gray-700 mt-2 mb-20">Professora, eu tenho uma dúvida sobre o uso da crase. Quando eu devo usar?</p>
+                    <div id="answer1" class="mt-2 hidden fade">
+                        <span class="text-sm text-gray-500">Respostas</span>
+                        <p class="text-gray-700">A crase é utilizada para indicar a fusão de duas vogais idênticas, geralmente a preposição "a" com o artigo definido "a" ou "as". Você deve usar a crase quando houver essa fusão.</p>
+                    </div>
+                </div>
+                <!-- Adicione mais cards de dúvida conforme necessário -->
+            </div>
+            
+            
+        </div>
+    </x-app-layout>
+
+

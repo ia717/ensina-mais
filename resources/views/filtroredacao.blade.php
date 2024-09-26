@@ -47,6 +47,9 @@
           <option>Cultura e Mídia</option>
           <option>Violência e Segurança</option>
         </select>
+
+        <button class="w-full flex justify-center p-2 mt-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Filtrar</button>
+      <button class="w-full flex justify-center p-2 bg-gray-500 text-white rounded-md mt-2 hover:bg-gray-600">Baixar PDF</button>
       </div>
   </div>
 </div>
