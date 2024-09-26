@@ -22,7 +22,7 @@
                             <img src="{{ asset('/images/Logo ensina claro.png') }}" alt="Logo" class="">
                         </a>
                     </div>
-                    <li><a href="paginainicial"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="{{ route('paginainicial') }}"><i class="fas fa-home mr-2"></i>Home</a></li>
                     <li><a href="areaaluno"><i class="fas fa-user-graduate mr-2"></i>Área do Aluno</a></li>
                     <li><a href="calendario"><i class="fas fa-calendar-alt mr-2"></i>Calendário</a></li>
                     <li><a href="cronograma"><i class="fas fa-calendar-check mr-2"></i>Cronograma</a></li>
