@@ -9,15 +9,15 @@ class TextTitle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'title'];
+    protected $fillable = ['title', 'vest_id', 'theme_id'];
 
-    public function tematicAxis()
+    public function TextTheme()
     {
-        return $this->hasMany(TematicAxis::class);
+        return $this->belongsTo(TextTheme::class);
     }
 
     public function vestibular()
     {
-        return $this->hasMany(Vestibular::class);
+        return $this->belongsTo(Vestibular::class);
     }
 }

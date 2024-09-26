@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Filament\Tables\Filters\SelectFilter;
 
 
 class LessonResource extends Resource
@@ -42,12 +43,12 @@ class LessonResource extends Resource
                 Forms\Components\TextInput::make('link')
                     ->label('Link da aula')
                     ->required(),
-                // Forms\Components\Textarea::make('content')
-                //     ->label('Conteúdo') Seria a descrição do vídeo
-                //     ->nullable(),
-                Forms\Components\ToggleButtons::make('is_high_relevance')
+                Forms\Components\Textarea::make('content')
+                    ->label('Resumo ') 
+                    ->nullable(),
+                Forms\Components\Toggle::make('is_high_relevance')
                     ->label('Alta Relevância')
-                    ->boolean(),
+                    ->inline(false),
             ]);
     }
 
@@ -73,15 +74,7 @@ class LessonResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Filtro por Matéria (Disciplines)
             ]);
     }
 

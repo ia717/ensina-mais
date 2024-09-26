@@ -4,10 +4,33 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\DisciplineController;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\LessonController;
 
 Route::get('/', function () {
     return view('login1');
 }); // ADICIONAR ->middleware('guest');
+
+Route::get('disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
+
+Route::get('/disciplinas/{discipline:slug}', [TopicController::class, 'index'])->name('topicos');
+
+Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::class, 'index'])->name('aulas');
+
+Route::get('/disciplinas/{discipline:slug}/{topic:slug}/{lesson:slug}', [LessonController::class, 'show'])->name('conteudo');
+
+
+Route::get('questao', [QuestionController::class, 'index'])->name('questao.index');
+
+Route::get('/questaow', function () {
+    return view('questaow');
+});
+
+Route::get('/questaor', function () {
+    return view('questaor');
+});
 
 
 Route::get('/caixafiltros', function () {
@@ -15,24 +38,6 @@ Route::get('/caixafiltros', function () {
 });
 Route::get('/topicosmaterias', function () {
     return view('topicosmaterias');
-});
-Route::get('/questaow', function () {
-    return view('questaow');
-});
-
-Route::get('/conteudo', function () {
-    return view('conteudo');
-});
-
-Route::get('/conteudo3', function () {
-    return view('conteudo3');
-});
-Route::get('/redacao3', function () {
-    return view('redacao3');
-});
-
-Route::get('/questaor', function () {
-    return view('questaor');
 });
 
 Route::get('/redacao', function () {
@@ -43,49 +48,18 @@ Route::get('/redacao2', function () {
     return view('redacao2');
 });
 
+Route::get('/redacao3', function () {
+    return view('redacao3');
+});
+
 Route::get('/login1', function () {
     return view('login1');
-});
-
-Route::get('disciplinas', function () {
-    $categorias = \App\Models\Category::with('disciplines')->get();
-    return view('disciplinas', compact('categorias'));
-});
-
-
-
-Route::get('/disciplinas/{slug}', function ($slug) {
-    // Busca a disciplina pelo slug
-    $disciplina = \App\Models\Discipline::where('slug', $slug)->firstOrFail();
-    // Puxa os tópicos relacionados à disciplina
-    $topicos = $disciplina->topics;
-    // Retorna a view com a disciplina e os tópicos
-    return view('topicos', compact('disciplina', 'topicos'));
-})->name('topicos');
-
-
-Route::get('/disciplinas/{disciplina}/{slug}', function ($disciplina, $slug) {
-    // Busca o topico pelo slug
-    $topic = \App\Models\Topic::where('slug', $slug)->firstOrFail();
-    // Puxa as aulas relacionadas ao tópico
-    $aulas = $topic->lessons;
-    // Retorna a view com o tópico e as aulas
-    $disciplina = \App\Models\Discipline::where('slug', $disciplina)->firstOrFail();
-    $corCategoria = $disciplina->category->color; //Enviandoa a variável corCategoria para a view conteudo.blade.php
-    return view('conteudo', compact('topic', 'aulas', 'corCategoria'));
-})->name('conteudo');
-
-Route::get('questao', function () {
-    return view('questao');
 });
 
 Route::get('cronogramamobile', function () {
     return view('cronogramamobile');
 });
 
-Route::get('menuteste', function () {
-    return view('menuteste');
-});
 Route::get('calendario', function () {
     return view('calendario');
 });
@@ -104,13 +78,6 @@ Route::get('cronograma', function () {
 Route::get('semana', function () {
     return view('semana');
 });
-
-
-
-Route::get('aulas', function () {
-    $aulas = \App\Models\Lesson::with('topic')->get();
-    return view('aulas', compact('aulas'));
-})->name('aulas');
 
 Route::get('perguntas', function () {
     return view('perguntas');
@@ -142,8 +109,6 @@ Route::get('areaaluno', function () {
 });
 
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -153,12 +118,19 @@ Route::get('/paginainicial', function () {
     return view('paginainicial');
 })->name('dashboard');
 
+
+// FORUM
+
 // Rotas para perguntas
-Route::get('/forum', [QuestionController::class, 'index'])->name('forum');
-Route::post('/forum', [QuestionController::class, 'store']);
+Route::get('/forum', [ForumController::class, 'index'])->name('forum.index'); // Para exibir o fórum
+Route::post('/forum', [ForumController::class, 'store'])->name('forum.store'); // Para armazenar a pergunta
 
 // Rotas para respostas
-Route::post('/answers/{questionId}', [AnswerController::class, 'store'])->name('answers.store');
+Route::post('/answers/{questionId}', [ForumController::class, 'storeAnswer'])->name('answers.store');
+
+// Rotas para pegar os tópicos relacionados a uma disciplina
+Route::get('/topics/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
+Route::get('/topics-by-discipline/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
 
 
 
