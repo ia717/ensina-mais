@@ -63,19 +63,22 @@
 
     <x-app-layout>
         <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <h1 class="text-2xl font-bold text-black mb-4">Fórum de Dúvidas</h1>
+            <h1 class="text-3xl font-bold text-black mb-4">Fórum de Dúvidas</h1>
             <div class="flex justify-between items-center mb-4">
-                <input id="searchQuery" type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded-lg">
-                <button onclick="searchQuestions()" class="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Filtrar dúvidas</button>
+                <input id="searchQuery" type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg">
+                <button onclick="searchQuestions()" class="ml-4 font-medium bg-blue-500 text-white px-3 py-2 rounded-lg">Filtrar</button>
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700">Disciplina</label>
+                <label class="block text-gray-500">Disciplina</label>
                 <select id="disciplineFilter" class="w-full p-2 border border-gray-300 rounded-lg" onchange="filterQuestions()">
                     <option value="all">Selecione uma disciplina</option>
                     <option value="Gramatica">Gramatica</option>
                     <option value="Matemática">Matemática</option>
                     <option value="História">História</option>
+
                     <!-- Adicione mais opções conforme necessário -->
+
+                    
                 </select>
             </div>
             <div class="space-y-4 mb-2.5">
