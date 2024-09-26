@@ -62,7 +62,7 @@
 </head>
 
     <x-app-layout>
-        <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
             <h1 class="text-2xl font-bold text-black mb-4">Fórum de Dúvidas</h1>
             <div class="flex justify-between items-center mb-4">
                 <input id="searchQuery" type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 border border-gray-300 rounded-lg">
