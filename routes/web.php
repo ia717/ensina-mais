@@ -113,7 +113,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/paginainicial', function () {
     return view('paginainicial');
-})->name('dashboard');
+})->name('paginainicial');
 
 
 // FORUM

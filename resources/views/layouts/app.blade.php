@@ -21,7 +21,7 @@
 <body x-cloak x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="font-sans antialiased">
 
     @include('layouts.navigationmobile')
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen bg-gray-200 dark:bg-neutral-700">
         @include('layouts.navigation')
 
         <!-- Page Content -->
