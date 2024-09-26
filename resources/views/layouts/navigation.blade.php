@@ -1,4 +1,4 @@
-<aside class="lg:w-60 md:w-32 sm:w-2 z-10">
+<div class="lg:w-60 md:w-32 sm:w-2 z-10">
     <div class="h-screen fixed ">
         <div class="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -11,7 +11,7 @@
                 <ul class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
                     <div class="mb-8">
                         <a class="text-3xl font-bold leading-none" href="#">
-                            <img src="{{asset('/imagens/Logo ensina claro.png')}}" alt="Logo" class="">
+                            <img src="{{asset('/images/Logo ensina claro.png')}}" alt="Logo" class="">
                         </a>
                     </div>
                     <!-- Sidebar content here -->
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-</aside>
+</div>
