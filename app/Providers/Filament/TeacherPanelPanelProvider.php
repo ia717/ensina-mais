@@ -22,6 +22,8 @@ use App\Filament\Resources\TopicResource;
 use App\Http\Middleware\CheckTeacherPanelAccess;
 use App\Policies\TeacherPanelPolicy;
 use App\Models\User;
+use App\Filament\TeacherPanel\Resources\ForumQuestionResource;
+
 
 
 class TeacherPanelPanelProvider extends PanelProvider
@@ -39,6 +41,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ->resources([
                 LessonResource::class,
                 TopicResource::class,
+                ForumQuestionResource::class,
             ])
             ->path('teacherPanel')
             ->colors([
