@@ -10,8 +10,75 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+    .scroll {
 
-<body class="relative bg-gray-100 user-select-none m-0 p-0">
+        margin-top: 20px;
+        margin-inline: auto;
+        max-width: 1440px;
+        padding: 10px;
+        border-radius: 5px;
+
+        overflow: hidden;
+        mask: linear-gradient(to right,
+                transparent,
+                black 10%,
+                black 95%,
+                transparent);
+    }
+
+    .scroll__container {
+        display: flex;
+        width: max-content;
+        gap: 0px;
+        animation: scrollInfinito 30s linear infinite;
+    }
+
+    .scroll__item {
+
+        border-radius: 5px;
+        padding: 7px 7px;
+        white-space: nowrap;
+    }
+
+    @keyframes scrollInfinito {
+        to {
+            translate: calc(-50% - 5px);
+        }
+    }
+
+    .scroll1 {
+    margin-top: 20px;
+    margin-inline: auto;
+    max-width: 1440px;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    mask: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
+}
+
+.scroll__container1 {
+    display: flex;
+    width: max-content;
+    gap: 0px;
+    animation: scrollInfinito1 25s linear infinite;
+}
+
+.scroll__item1 {
+    border-radius: 5px;
+    padding: 7px 7px;
+    white-space: nowrap;
+}
+
+@keyframes scrollInfinito1 {
+    to {
+        translate: calc(-50% - 5px); /* Agora move para a direita */
+    }
+}
+   
+</style>
+
+<body class="relative bg-gray-100 user-select-none m-0 p-0 font-poppins">
     @include('headernav')
     <div>
         <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/Vector (2).png') }}"
@@ -113,7 +180,7 @@
         </div>
     </main>
     <div class="bg-white">
-        <section class="lg:mt-56 container mx-auto flex flex-col items-center mb-4 justify-center gap-24 bg-white pt-24">
+        <section class="lg:mt-20 container mx-auto flex flex-col anima items-center mb-4 justify-center gap-24 bg-white pt-24">
             <div class="flex flex-col md:flex-row items-center justify-center">
                 <div class="mt-7 text-center md:text-left pr-14 ">
                     <h2 class="text-3xl md:text-5xl font-semibold text-black subpixel-antialiased reveal">A nossa</h2>
@@ -131,7 +198,7 @@
                 </div>
 
                 <!-- Statistics Section -->
-                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-8 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
+                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-5 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
                     <div class="mx-5 md:mx-10 flex-1 text-center">
                         <p class="text-3xl md:text-5xl font-bold">+12.500</p>
                         <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
@@ -150,11 +217,11 @@
 
         </section>
         <!-- Sobre nós Section -->
-        <section id="sobre" class="md:mt-44 reveal flex flex-col items-center justify-center bg-white py-12">
+        <section id="sobre" class="md:mt-44 reveal anima flex flex-col items-center justify-center bg-white py-12">
             <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black subpixel-antialiased text-center mb-8">Sobre nós <span class="text-sky-800">+</span></h3>
 
             <!-- Content Container -->
-            <div class="relative w-full flex justify-center items-center z-10 px-4">
+            <div class="relative w-full flex justify-center anima items-center z-10 px-4">
                 <!-- Blue Bar Behind -->
                 <div class="absolute bg-sky-800 w-full h-8 sm:h-10 md:h-12 top-1/2 transform -translate-y-1/2"></div>
 
@@ -182,7 +249,7 @@
         </section>
 
         <!-- Alunos section -->
-        <section class="bg-white md:mt-20 mb-36">
+        <section id="aprova" class="bg-white md:mt-20 anima mb-0">
             <h3 id="aprova" class="reveal text-3xl md:text-5xl font-bold text-black justify-center items-center flex">
                 Alunos <span class="text-red-600 p-4">SESI SENAI</span>
             </h3>
@@ -248,13 +315,13 @@
         </section>
     </div>
 
-    <div>
+    <div id="turbina" class="anima">
         <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
             <img class="hidden md:block" src="{{asset('images/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
             <img class="block md:hidden" src="{{asset('images/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
         </a>
     </div>
-    <section id="aluno" class="reveal flex flex-col-reverse md:flex-row justify-center bg-white my-6 p-4 md:p-20 items-center">
+    <section id="aluno" class="anima flex flex-col-reverse md:flex-row  justify-center bg-white my-1 p-4 md:p-10 items-center">
         <div class="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 gap-4 md:gap-8">
             <h5 class="text-2xl md:text-4xl font-bold text-black">Ainda não é nosso aluno?</h5>
             <p class="text-base md:text-lg text-gray-600 w-full md:w-3/4">Garanta uma preparação de excelência para o vestibular! Somos referência nacional em educação e preparação para vestibular.</p>
@@ -263,7 +330,38 @@
         <div class="flex justify-center md:w-1/2">
             <img src="{{asset('images\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
+
     </section>
+
+    <section class="text-center anima py-5 bg-gray-100">
+        <div class="flex justify-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/Logo ensina claro.png')}}" alt=""></span></h1>
+        </div>
+        <h1 class="text-2xl font-bold mt-16 text-gray-800">Alunos De Desenvolvimento de Sistemas</h1>
+        <div class="scroll m-0 p-0">
+            <div class="scroll__container">
+                <div class="scroll__item"><img src="{{asset('images/Caio.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{asset('images/Gi.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{asset('images/Japa.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{asset('images/Junin.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+            </div>
+
+        </div>
+
+        <h1 class="text-2xl mt-16 font-bold text-gray-800">Alunos De Multimídia</h1>
+        <div class="scroll1 m-0 p-0">
+        <div class="scroll__container1">
+                <div class="scroll__item1"><img src="{{asset('images/Caio.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{asset('images/Gi.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{asset('images/Japa.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{asset('images/Junin.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- Footer -->
     <footer class="bg-sky-800 text-white py-5 mt-10 pr-16 pl-10 ">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -366,6 +464,32 @@
                     });
                 });
             }
+        });
+
+        ScrollReveal().reveal('.anima', {
+            duration: 1000, // 
+            origin: 'bottom',
+            distance: '20px',
+            reset: false,
+        });
+
+        let elemScroll = document.querySelector(".scroll");
+        let elemContainer = elemScroll.querySelector(".scroll__container");
+        let elemChildren = Array.from(elemContainer.children);
+
+        elemChildren.forEach((item) => {
+            let itemDuplicado = item.cloneNode(true);
+
+            elemContainer.appendChild(itemDuplicado);
+        });
+        let elemScroll1 = document.querySelector(".scroll1");
+        let elemContainer1 = elemScroll1.querySelector(".scroll__container1");
+        let elemChildren1 = Array.from(elemContainer1.children);
+
+        elemChildren1.forEach((item) => {
+            let itemDuplicado1 = item.cloneNode(true);
+
+            elemContainer1.appendChild(itemDuplicado1);
         });
     </script>
 </body>

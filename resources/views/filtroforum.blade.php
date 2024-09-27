@@ -33,7 +33,7 @@
             });
         }
     </script>
-<div class="drawer drawer-end lg:drawer-open mr-96">
+<div class="drawer drawer-end lg:drawer-open mr-96 z-10">
   <input id="filtro-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
     <!-- Botão para abrir o filtro em telas móveis -->
@@ -54,7 +54,7 @@
     <label for="filtro-drawer" class="drawer-overlay"></label>
     <!-- Caixa de Filtros (sem modificações) -->
     <div class="h-full p-4 rounded-r shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto bg-white text-black dark:text-black dark:bg-neutral-800">
-      <h1 class="text-2xl font-bold text-black mb-4 dark:text-white">Filtrar dúvidas</h1>
+      <h1 class="text-2xl font-bold text-black mb-4 dark:text-white ">Filtrar dúvidas</h1>
       <div class="mb-4">
         <label class="block text-gray-500">Disciplina</label>
         <select id="disciplineFilter" class="w-full p-2 border border-gray-300 rounded-lg" onchange="filterQuestions()">

@@ -1,5 +1,45 @@
 <x-app-layout> 
 
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil - ENEM 2023</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
+
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Desafios para a valorização de comunidades e povos tradicionais no Brasil - ENEM 2022</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
+
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil - ENEM 2021</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
+
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">O estigma associado às doenças mentais na sociedade brasileira - ENEM 2020</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
+
     <div class="drawer drawer-end lg:drawer-open mr-96">
   <input id="filtro-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
@@ -50,7 +90,8 @@
       </div>
   </div>
 </div>
-    
+
+
 
 
 </x-app-layout>

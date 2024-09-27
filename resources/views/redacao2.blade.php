@@ -40,11 +40,13 @@
         </main>
 
         <!-- Botões para todas as telas (mobile e desktop) ajustados ao lado direito da caixa de redação -->
-        <div class="flex flex-col space-y-4 w-full lg:w-auto lg:ml-auto lg:self-start">
-            <button id="openSidebar1" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/book-01.png') }}" alt=""></button>
-            <button id="openSidebar2" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/file-question-02.png') }}" alt=""></button>
-            <button id="openSidebar3" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/server-02.png') }}" alt=""></button>
-        </div>
+        <aside>
+            <div class="flex flex-col space-y-4 w-full lg:w-auto lg:ml-auto lg:self-start">
+                <button id="openSidebar1" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/book-01.png') }}" alt=""></button>
+                <button id="openSidebar2" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/file-question-02.png') }}" alt=""></button>
+                <button id="openSidebar3" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded"><img src="{{ asset('/images/server-02.png') }}" alt=""></button>
+            </div>
+        </aside>
 
         <div id="sidebar1" class="fixed right-0 top-0 bg-white shadow-lg p-4 w-64 h-screen z-10 overflow-y-auto">
     <!-- Conteúdo da sidebar -->

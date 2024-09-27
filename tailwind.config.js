@@ -18,7 +18,7 @@ export default {
         'auto': 'auto',
       },
       fontFamily: {
-        // Outras customizações de fontes podem ir aqui
+        poppins: ['poppins', 'sans-serif']
       },
       backgroundColor: {
         // Outras customizações de cores podem ir aqui
