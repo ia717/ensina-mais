@@ -126,7 +126,7 @@ Route::post('/forum', [ForumController::class, 'store'])->name('forum.store'); /
 Route::post('/answers/{questionId}', [ForumController::class, 'storeAnswer'])->name('answers.store');
 
 // Rotas para pegar os tópicos relacionados a uma disciplina
-Route::get('/topics/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
+Route::get('/topics/{disciplineId}', [ForumController::class, 'getTopicsByDiscipline']);
 Route::get('/topics-by-discipline/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
 
 
