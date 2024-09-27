@@ -62,8 +62,11 @@
 </head>
 
     <x-app-layout>
-        <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold text-black mb-4">Fórum de Dúvidas</h1>
+
+    
+        <div class="max-w-7xl absolute dark:bg-neutral-800 mx-auto bg-white p-6 rounded-lg shadow-lg">
+        
+            <h1 class="text-3xl font-bold text-black mb-4 dark:text-white">Fórum de Dúvidas</h1>
             <div class="flex justify-between items-center mb-4">
                 <input id="searchQuery" type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg">
                 <button onclick="searchQuestions()" class="ml-4 font-medium bg-blue-500 text-white px-3 py-2 rounded-lg">Filtrar</button>
@@ -77,8 +80,6 @@
                     <option value="História">História</option>
 
                     <!-- Adicione mais opções conforme necessário -->
-
-                    
                 </select>
             </div>
             <div class="space-y-4 mb-2.5">
@@ -145,7 +146,13 @@
                     </div>
                 </div>
             </div>
+            
+            
         </div>
+        <aside class="right-0 top-0 fixed">
+        @include('filtroforum')
+        </aside>
+        
     </x-app-layout>
 
 

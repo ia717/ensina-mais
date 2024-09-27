@@ -72,38 +72,3 @@
         </nav>
     </div>
 </body>
-
-<script>
-    // Burger menus
-    document.addEventListener('DOMContentLoaded', function() {
-        const burger = document.querySelectorAll('.navbar-burger');
-        const menu = document.querySelectorAll('.navbar-menu');
-
-        if (burger.length && menu.length) {
-            burger.forEach((btn, index) => {
-                btn.addEventListener('click', () => {
-                    menu[index].classList.toggle('hidden');
-                });
-            });
-        }
-
-        const close = document.querySelectorAll('.navbar-close');
-        const backdrop = document.querySelectorAll('.navbar-backdrop');
-
-        if (close.length) {
-            close.forEach((btn, index) => {
-                btn.addEventListener('click', () => {
-                    menu[index].classList.toggle('hidden');
-                });
-            });
-        }
-
-        if (backdrop.length) {
-            backdrop.forEach((backdropEl, index) => {
-                backdropEl.addEventListener('click', () => {
-                    menu[index].classList.toggle('hidden');
-                });
-            });
-        }
-    });
-</script>

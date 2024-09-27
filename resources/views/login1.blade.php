@@ -12,7 +12,7 @@
 </head>
 
 <body class="relative bg-gray-100 user-select-none m-0 p-0">
-    @include('layouts.navigationlogin')
+    @include('headernav')
     <div>
         <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/Vector (2).png') }}"
             alt="">
@@ -297,7 +297,6 @@
             </g>
         </svg>
     </a>
-
     @include('smoothlink')
     </div>
     <script>
@@ -333,6 +332,39 @@
             if (currentIndex < carousel.children.length - 1) {
                 currentIndex++;
                 updateCarousel();
+            }
+        });
+
+        // Burger menus
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.querySelectorAll('.navbar-burger');
+            const menu = document.querySelectorAll('.navbar-menu');
+
+            if (burger.length && menu.length) {
+                burger.forEach((btn, index) => {
+                    btn.addEventListener('click', () => {
+                        menu[index].classList.toggle('hidden');
+                    });
+                });
+            }
+
+            const close = document.querySelectorAll('.navbar-close');
+            const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+            if (close.length) {
+                close.forEach((btn, index) => {
+                    btn.addEventListener('click', () => {
+                        menu[index].classList.toggle('hidden');
+                    });
+                });
+            }
+
+            if (backdrop.length) {
+                backdrop.forEach((backdropEl, index) => {
+                    backdropEl.addEventListener('click', () => {
+                        menu[index].classList.toggle('hidden');
+                    });
+                });
             }
         });
     </script>
