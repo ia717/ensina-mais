@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="">
         <div>
+            {{-- Breadcrumbs::render('home') apenas um teste --}}
             <div class="flex w-full h-max">
                 <img src="{{asset('images\rafao juninho.png')}}" alt="">
             </div>

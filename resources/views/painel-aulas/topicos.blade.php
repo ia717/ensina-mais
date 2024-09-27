@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="pl-4 lg:pl-8">
         <div class="p-6">
+            {{ Breadcrumbs::render('topicos', $discipline) }}
             <h1 class="text-4xl font-bold">Tópicos de {{ $discipline->name }}</h1>
 
             <div>

@@ -18,11 +18,11 @@
                     class="menu bg-white dark:bg-neutral-800 text-black dark:text-white min-h-full w-64 p-4 rounded-r-3xl space-y-2">
                     <!-- Sidebar content here -->
                     <div class="mb-8">
-                        <a href="{{ route('paginainicial') }}" class="text-3xl font-bold leading-none">
+                        <a href="{{ route('home') }}" class="text-3xl font-bold leading-none">
                             <img src="{{ asset('/images/Logo ensina claro.png') }}" alt="Logo" class="">
                         </a>
                     </div>
-                    <li><a href="{{ route('paginainicial') }}"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="{{ route('home') }}"><i class="fas fa-home mr-2"></i>Home</a></li>
                     <li><a href="areaaluno"><i class="fas fa-user-graduate mr-2"></i>Área do Aluno</a></li>
                     <li><a href="calendario"><i class="fas fa-calendar-alt mr-2"></i>Calendário</a></li>
                     <li><a href="cronograma"><i class="fas fa-calendar-check mr-2"></i>Cronograma</a></li>

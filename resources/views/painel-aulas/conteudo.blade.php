@@ -1,7 +1,6 @@
 <x-app-layout>
     <div>
         <div class="sm:p-6 md:p-8">
-
             <div class="container flex flex-col justify-center items-start bg-white dark:bg-neutral-800 rounded-lg p-10">
                 <div class="flex items-center mb-12">
                     <span style="color:{{$color}}" class="text-3xl font-bold mb-2 mr-4 translate-y-[2px]">|</span>
