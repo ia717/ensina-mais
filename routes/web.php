@@ -14,16 +14,13 @@ Route::get('/', function () {
     return view('login1');
 }); // ADICIONAR ->middleware('guest');
 
-Route::get('disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
-
+Route::get('/disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
 Route::get('/disciplinas/{discipline:slug}', [TopicController::class, 'index'])->name('topicos');
-
 Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::class, 'index'])->name('aulas');
-
 Route::get('/disciplinas/{discipline:slug}/{topic:slug}/{lesson:slug}', [LessonController::class, 'show'])->name('conteudo');
 
-
-Route::get('questao', [QuestionController::class, 'index'])->name('questao.index');
+Route::get('/questoes', [QuestionController::class, 'index'])->name('questao.index');
+Route::post('/questoes/{question}/check', [QuestionController::class, 'checkAnswer'])->name('questions.check');
 
 Route::get('/questaow', function () {
     return view('questaow');
@@ -118,7 +115,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/paginainicial', function () {
     return view('paginainicial');
-})->name('dashboard');
+})->name('paginainicial');
 
 
 // FORUM

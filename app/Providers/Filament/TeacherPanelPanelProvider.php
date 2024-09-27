@@ -44,7 +44,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(asset('imagens/logo ensina claro.png'))
+            ->brandLogo(asset('images/logo ensina claro.png'))
             ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
             ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([

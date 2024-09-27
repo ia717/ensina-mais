@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Aluno</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-100 font-sans">
-    <div>
-        @include('menuteste')
-    </div>
-    <main class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
+<x-app-layout> 
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-4">
         <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
             <div class="text-start mb-6">
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">Área do Aluno</h1>
@@ -173,7 +160,5 @@
                 </div>
             </div>
         </div>
-    </main>
-</body>
-
-</html>
+    </div>
+</x-app-layout> 

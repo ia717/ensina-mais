@@ -1,23 +1,9 @@
-@include('menuteste')
-<!DOCTYPE html>
-<html lang="pt-BR">
+<x-app-layout> 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redação</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-100 font-sans">
-    <!-- Sidebar -->
-
-
-    <!-- Main content -->
-    <main class="flex-1 flex justify-around items-center">
+    <div class="flex-1 flex justify-center items-center">
         <div class="text-center w-full p-8 md:p-0 md:w-auto">
             <div class="text-gray-500 text-lg mb-5">Utilize os filtros para buscar temas de redação</div>
-            <span class="material-icons text-gray-400 text-5xl"></span>
+            <spanw-full="material-icons text-gray-400 text-5xl"></span>
         </div>
     </main>
 
@@ -33,9 +19,10 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="vestibular">Vestibular</label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="vestibular">
-                    @foreach ( $vestibulares as $vestibular )
-                    $vestibular
-                    @endforeach
+                    <option>ENEM</option>
+                    <option>Unesp</option>
+                    <option>FUVEST</option>
+                    <option>Outros</option>
                 </select>
             </div>
 
@@ -63,7 +50,11 @@
             </button>
         </form>
     </div>
-    </div>
-</body>
+    
+    <aside class="right-0 top-0 fixed">
+    @include('filtroredacao')
+    </aside>
+    
 
-</html>
+
+</x-app-layout>
