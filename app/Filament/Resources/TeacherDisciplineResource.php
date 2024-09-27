@@ -22,9 +22,9 @@ class TeacherDisciplineResource extends Resource
 
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
-    protected static ?string $navigationLabel = 'Professores';
+    protected static ?string $navigationLabel = 'Disciplina do Professor';
 
-    protected static ?string $slug = 'professores';
+    protected static ?string $slug = 'disciplina-do-professor';
 
     public static function form(Form $form): Form
     {

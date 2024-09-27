@@ -38,6 +38,9 @@ Route::get('/caixafiltros', function () {
 Route::get('/topicosmaterias', function () {
     return view('topicosmaterias');
 });
+Route::get('/disciplina-do-professor', function () {
+    return view('teacherDiscipline');
+});
 
 Route::get('/redacao', function () {
     $vestibulares = Vestibular::all();
@@ -130,7 +133,7 @@ Route::post('/forum', [ForumController::class, 'store'])->name('forum.store'); /
 Route::post('/answers/{questionId}', [ForumController::class, 'storeAnswer'])->name('answers.store');
 
 // Rotas para pegar os tópicos relacionados a uma disciplina
-Route::get('/topics/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
+Route::get('/topics/{disciplineId}', [ForumController::class, 'getTopicsByDiscipline']);
 Route::get('/topics-by-discipline/{discipline}', [ForumController::class, 'getTopicsByDiscipline']);
 
 
