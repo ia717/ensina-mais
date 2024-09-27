@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Vestibular;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
@@ -41,7 +42,8 @@ Route::get('/topicosmaterias', function () {
 });
 
 Route::get('/redacao', function () {
-    return view('redacao');
+    $vestibulares = Vestibular::all();
+    return view('redacao', compact('vestibulares'));
 });
 
 Route::get('/redacao2', function () {

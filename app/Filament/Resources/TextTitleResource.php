@@ -42,6 +42,9 @@ class TextTitleResource extends Resource
                     ->label('Selecione o Tema da Redação')
                     ->options(\App\Models\TextTheme::pluck(column: 'name', key: 'id')->toArray())
                     ->required(),
+                Forms\Components\TextInput::make('motivating_text')
+                    ->label('Adicione o Texto Motivador')
+                    ->required(),
             ]);
     }
 
@@ -62,7 +65,11 @@ class TextTitleResource extends Resource
                     ->label('Tema da redação')
                     ->searchable()
                     ->sortable(),
-
+                Tables\Columns\TextColumn::make('motivating_text')
+                    ->label('Texto Motivador')
+                    ->searchable()
+                    ->sortable(),
+                
             ])
             ->filters([
                 //

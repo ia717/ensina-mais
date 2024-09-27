@@ -22,8 +22,8 @@
                 </div>
             </div>
 
-            <div class="bg-white shadow-lg rounded-lg p-4">
-                <input type="text" placeholder="Digite o título aqui" class="w-full bg-gray-100 p-4 mb-4 border border-gray-300 rounded text-gray-700">
+            <div class="bg-white shadow-lg rounded-lg p-4">    
+            <h3></h3>
                 <textarea rows="10" placeholder="Escreva aqui a sua redação..." class="w-full bg-gray-100 p-4 border border-gray-300 rounded text-gray-700"></textarea>
             </div>
         </div>

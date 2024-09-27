@@ -9,7 +9,7 @@ class TextTitle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'vest_id', 'theme_id'];
+    protected $fillable = ['title', 'vest_id', 'theme_id', 'motivating_text'];
 
     public function TextTheme()
     {
