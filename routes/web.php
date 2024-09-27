@@ -38,6 +38,9 @@ Route::get('/caixafiltros', function () {
 Route::get('/topicosmaterias', function () {
     return view('topicosmaterias');
 });
+Route::get('/disciplina-do-professor', function () {
+    return view('teacherDiscipline');
+});
 
 Route::get('/redacao', function () {
     $vestibulares = Vestibular::all();
