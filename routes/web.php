@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\TextTheme;
+use App\Models\Vestibular;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
@@ -38,7 +40,9 @@ Route::get('/topicosmaterias', function () {
 });
 
 Route::get('/redacao', function () {
-    return view('redacao');
+    $vestibulares = Vestibular::all();
+    $temaRedacao = TextTheme::all();
+    return view('redacao', compact('vestibulares', 'temaRedacao'));
 });
 
 Route::get('/redacao2', function () {
