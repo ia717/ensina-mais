@@ -289,7 +289,7 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
         <ul>
-            <li><a href="/paginainicial"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="/usuario"><i class="fas fa-user-graduate"></i> Área do Aluno</a></li>
             <li><a href="/calendario"><i class="fas fa-calendar-alt"></i> Calendário</a></li>
             <li><a href="/cronograma"><i class="fas fa-list"></i> Cronograma</a></li>

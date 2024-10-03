@@ -19,7 +19,6 @@
 
 <body x-cloak x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="font-sans antialiased bg-gray-200 dark:bg-neutral-700">
 
-
     <div class="flex min-h-screen">
         <nav class="fixed top-0 z-50 w-full">
             <div class="block md:hidden px-3 py-3 lg:px-5 lg:pl-3">

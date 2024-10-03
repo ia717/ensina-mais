@@ -8,6 +8,7 @@
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.4",
         "blade-ui-kit/blade-icons": "^1.7",
+        "diglactic/laravel-breadcrumbs": "^9.0",
         "filament/filament": "^3.2",
         "laravel-lang/lang": "^15.7",
         "laravel/breeze": "^2.1",

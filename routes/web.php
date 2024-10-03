@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+
 use App\Models\TextTheme;
 use App\Models\Vestibular;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\TopicController;
@@ -118,9 +118,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/paginainicial', function () {
-    return view('paginainicial');
-})->name('paginainicial');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 
 // FORUM
