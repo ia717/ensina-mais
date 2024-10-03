@@ -149,9 +149,9 @@
                             </a>
                         </form>
                     </li>
-                    
-                    
-                    <x-theme-toggle></x-theme-toggle>
+                    <div class="items-center justify-center flex mt-2">
+                        <x-theme-toggle></x-theme-toggle>
+                    </div>
                 </ul>
             </div>
         </aside>
