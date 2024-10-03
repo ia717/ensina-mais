@@ -75,13 +75,13 @@
 
         <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-neutral-800 dark:border-neutral-700 rounded-r-3xl" aria-label="Sidebar">
             <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-neutral-800">
-                <a href="{{ route('paginainicial') }}" class="flex justify-center items-center ps-2.5 mb-5 ">
+                <a href="{{ route('home') }}" class="flex justify-center items-center ps-2.5 mb-5 ">
                     <img src="{{ asset('images/logo ensina claro.png') }}" class="h-6 me-3 sm:h-7 items-center" alt="Ensina Mais Logo" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
                 </a>
                 <ul class="space-y-2 font-medium">
                     <li>
-                        <a href="{{ route('paginainicial') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="{{ route('home') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fas fa-home mr-2"></i>
                             <span class="ms-3">Home</span>
                         </a>
@@ -107,7 +107,7 @@
                     <li>
                         <a href="{{ route('disciplinas') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fas fa-book mr-2"></i>
-                            <span class="flex-1 ms-3 whitespace-nowrap">Matérias</span>
+                            <span class="flex-1 ms-3 whitespace-nowrap">Disciplinas</span>
                         </a>
                     </li>
                     <li>
@@ -146,7 +146,7 @@
                             <a :href="route('logout')"
                                 onclick="event.preventDefault();
                                         this.closest('form').submit();"
-                                class="text-red-500 no-underline text-base block flex-1 transition-all duration-300">
+                                class="flex items-center p-2 text-red-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-sign-out-alt mr-2"></i>
                                 Logout
                             </a>
