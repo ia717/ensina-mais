@@ -5,7 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
     .user-select {
         -webkit-user-select: none;/* Chrome, Safari */
