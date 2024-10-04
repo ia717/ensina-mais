@@ -335,7 +335,7 @@
 
     <section class="text-center anima py-5 bg-gray-100">
         <div class="flex justify-center mb-10">
-            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/Logo ensina claro.png')}}" alt=""></span></h1>
+            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/logos/logo-ensina-claro.png')}}" alt=""></span></h1>
         </div>
         <h1 class="text-2xl font-bold mt-16 text-gray-800">Alunos De Desenvolvimento de Sistemas</h1>
         <div class="scroll m-0 p-0">

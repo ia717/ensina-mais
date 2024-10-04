@@ -39,7 +39,7 @@
                             </svg>
                         </button>
                         <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                            <img src="{{ asset('images/logo ensina claro.png') }}" class="h-8 me-3"
+                            <img src="{{ asset('images/logos/logo-ensina-claro.png') }}" class="h-8 me-3"
                                 alt="FlowBite Logo" />
                             <span
                                 class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"></span>
@@ -102,7 +102,7 @@
             aria-label="Sidebar">
             <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-neutral-800">
                 <a href="{{ route('home') }}" class="flex justify-center items-center ps-2.5 mb-5 ">
-                    <img src="{{ asset('images/logo ensina claro.png') }}" class="h-6 me-3 sm:h-7 items-center"
+                    <img src="{{ asset('images/logos/logo-ensina-claro.png') }}" class="h-6 me-3 sm:h-7 items-center"
                         alt="Ensina Mais Logo" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
                 </a>
