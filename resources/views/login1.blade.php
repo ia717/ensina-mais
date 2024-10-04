@@ -81,15 +81,15 @@
 <body class="relative bg-gray-100 user-select-none m-0 p-0 font-poppins">
     @include('headernav')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/vector2.svg') }}"
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/login/vector2.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/vector1.svg') }}"
+        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/login/vector1.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/vector5.svg') }}"
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/login/vector5.svg') }}"
             alt="">
     </div>
     <!-- Main Content -->
@@ -191,10 +191,10 @@
                 </div>
 
                 <div>
-                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/vector4.svg')}}" alt="">
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/login/vector4.svg')}}" alt="">
                 </div>
                 <div>
-                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/vector3.svg')}}" alt="">
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/login/vector3.svg')}}" alt="">
                 </div>
 
                 <!-- Statistics Section -->
@@ -317,8 +317,8 @@
 
     <div id="turbina" class="anima">
         <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
-            <img class="hidden md:block" src="{{asset('images/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
-            <img class="block md:hidden" src="{{asset('images/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
+            <img class="hidden md:block" src="{{asset('images/login/turbina-desktop.png')}}" alt="Banner Turbina Desktop">
+            <img class="block md:hidden" src="{{asset('images/login/turbina-mobile.png')}}" alt="Banner Turbina Mobile">
         </a>
     </div>
     <section id="aluno" class="anima flex flex-col-reverse md:flex-row  justify-center bg-white my-1 p-4 md:p-10 items-center">
