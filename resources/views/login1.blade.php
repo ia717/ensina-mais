@@ -81,15 +81,15 @@
 <body class="relative bg-gray-100 user-select-none m-0 p-0 font-poppins">
     @include('headernav')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/Vector (2).png') }}"
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/vector2.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/Vector (1).png') }}"
+        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/vector1.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/Vector (5).png') }}"
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/vector5.svg') }}"
             alt="">
     </div>
     <!-- Main Content -->
@@ -191,10 +191,10 @@
                 </div>
 
                 <div>
-                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/Vector (4).png')}}" alt="">
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/vector4.svg')}}" alt="">
                 </div>
                 <div>
-                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/Vector (3).png')}}" alt="">
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/vector3.svg')}}" alt="">
                 </div>
 
                 <!-- Statistics Section -->
@@ -328,7 +328,7 @@
             <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
         </div>
         <div class="flex justify-center md:w-1/2">
-            <img src="{{asset('images\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
+            <img src="{{asset('images\login\rafa.png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
 
     </section>
@@ -340,11 +340,11 @@
         <h1 class="text-2xl font-bold mt-16 text-gray-800">Alunos De Desenvolvimento de Sistemas</h1>
         <div class="scroll m-0 p-0">
             <div class="scroll__container">
-                <div class="scroll__item"><img src="{{asset('images/Caio.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Gi.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Japa.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Junin.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/caio.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
 
         </div>
@@ -352,11 +352,11 @@
         <h1 class="text-2xl mt-16 font-bold text-gray-800">Alunos De Multimídia</h1>
         <div class="scroll1 m-0 p-0">
         <div class="scroll__container1">
-                <div class="scroll__item1"><img src="{{asset('images/Caio.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Gi.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Japa.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Junin.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/caio.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
         </div>
 
