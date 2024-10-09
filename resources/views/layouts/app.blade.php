@@ -136,8 +136,7 @@
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a :href="route('logout')"
-                                onclick="event.preventDefault();
+                            <a onclick="event.preventDefault();
                                         this.closest('form').submit();"
                                 class="flex items-center p-2 text-red-500 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer">
                                 <i class="fas fa-sign-out-alt mr-2"></i>
