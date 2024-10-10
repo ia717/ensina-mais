@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Ensina+</title>
+    <title>Ensina Mais</title>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
         .scroll {
-    
             margin-top: 20px;
             margin-inline: auto;
             max-width: 1440px;
             padding: 10px;
             border-radius: 5px;
-    
             overflow: hidden;
             mask: linear-gradient(to right,
                     transparent,
@@ -85,7 +83,7 @@
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/login/vector1.svg') }}"
+        <img class="absolute z-0 left-1/4 top-28 hidden md:block" src="{{ asset('/images/login/vector1.svg') }}"
             alt="">
     </div>
     <div>
