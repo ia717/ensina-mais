@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="pl-4 lg:pl-8">
-        <div class="p-6">
-            <div class="mb-4">
-                <h1 class="text-4xl font-bold">| {{ $topic->name }}</h1>
-            </div>
+    <div>
+        <div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
+            {{ Breadcrumbs::render('aulas', $topic->discipline, $topic) }}
+            <h1 class="text-4xl font-bold">| {{ $topic->name }}</h1>
+
             @foreach ($lessons as $aula)
                 <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $aula->slug]) }}"
                     class="flex flex-col">

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="pl-4 lg:pl-8">
+    <div>
         <div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
             {{ Breadcrumbs::render('topicos', $discipline) }}
             <h1 class="text-4xl font-bold">Tópicos de {{ $discipline->name }}</h1>
