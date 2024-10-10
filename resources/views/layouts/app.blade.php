@@ -141,7 +141,7 @@
                                 class="flex items-center p-2 text-red-500 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer">
                                 <i class="fas fa-sign-out-alt mr-2"></i>
                                 <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
-                            </a>
+                            </a> 
                         </form>
                     </li>
                     <div class="items-center justify-center flex mt-2">

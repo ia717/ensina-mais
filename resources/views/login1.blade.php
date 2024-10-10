@@ -9,75 +9,75 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<style>
-    .scroll {
 
+    <style>
+        .scroll {
+    
+            margin-top: 20px;
+            margin-inline: auto;
+            max-width: 1440px;
+            padding: 10px;
+            border-radius: 5px;
+    
+            overflow: hidden;
+            mask: linear-gradient(to right,
+                    transparent,
+                    black 10%,
+                    black 95%,
+                    transparent);
+        }
+    
+        .scroll__container {
+            display: flex;
+            width: max-content;
+            gap: 0px;
+            animation: scrollInfinito 30s linear infinite;
+        }
+    
+        .scroll__item {
+    
+            border-radius: 5px;
+            padding: 7px 7px;
+            white-space: nowrap;
+        }
+    
+        @keyframes scrollInfinito {
+            to {
+                translate: calc(-50% - 5px);
+            }
+        }
+    
+        .scroll1 {
         margin-top: 20px;
         margin-inline: auto;
         max-width: 1440px;
         padding: 10px;
         border-radius: 5px;
-
         overflow: hidden;
-        mask: linear-gradient(to right,
-                transparent,
-                black 10%,
-                black 95%,
-                transparent);
+        mask: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
     }
-
-    .scroll__container {
+    
+    .scroll__container1 {
         display: flex;
         width: max-content;
         gap: 0px;
-        animation: scrollInfinito 30s linear infinite;
+        animation: scrollInfinito1 25s linear infinite;
     }
-
-    .scroll__item {
-
+    
+    .scroll__item1 {
         border-radius: 5px;
         padding: 7px 7px;
         white-space: nowrap;
     }
-
-    @keyframes scrollInfinito {
+    
+    @keyframes scrollInfinito1 {
         to {
-            translate: calc(-50% - 5px);
+            translate: calc(-50% - 5px); /* Agora move para a direita */
         }
     }
-
-    .scroll1 {
-    margin-top: 20px;
-    margin-inline: auto;
-    max-width: 1440px;
-    padding: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    mask: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
-}
-
-.scroll__container1 {
-    display: flex;
-    width: max-content;
-    gap: 0px;
-    animation: scrollInfinito1 25s linear infinite;
-}
-
-.scroll__item1 {
-    border-radius: 5px;
-    padding: 7px 7px;
-    white-space: nowrap;
-}
-
-@keyframes scrollInfinito1 {
-    to {
-        translate: calc(-50% - 5px); /* Agora move para a direita */
-    }
-}
-   
-</style>
-
+       
+    </style>
+</head>
 <body class="relative bg-gray-100 user-select-none m-0 p-0 font-poppins">
     @include('headernav')
     <div>
@@ -258,17 +258,16 @@
 
                     <!-- First Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 ml-5">
-                        <span><img src="{{asset('images/teste marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
-                        <img src="{{asset('images/teste cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <span><img src="{{asset('images/login/marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
+                        <img src="{{asset('images/login/cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     </div>
 
                     <!-- Second Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
-                        <img src="{{asset('images/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-
+                        <img src="{{asset('images/login/eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     </div>
 
                 </div>
@@ -335,7 +334,7 @@
 
     <section class="text-center anima py-5 bg-gray-100">
         <div class="flex justify-center mb-10">
-            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/logos/logo-ensina-claro.png')}}" alt=""></span></h1>
+            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/logos/logo-ensina-claro.svg')}}" alt=""></span></h1>
         </div>
         <h1 class="text-2xl font-bold mt-16 text-gray-800">Alunos De Desenvolvimento de Sistemas</h1>
         <div class="scroll m-0 p-0">

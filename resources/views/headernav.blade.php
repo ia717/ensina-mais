@@ -6,7 +6,7 @@
         <div class="flex items-center space-x-4">
             <!-- Logo "ensina+" -->
             <a class="text-3xl font-bold leading-none" href="#">
-                <img src="{{asset('/images/logos/logo-ensina-claro.png')}}" alt="Logo" class="h-8 pb-1">
+                <img src="{{asset('/images/logos/logo-ensina-claro.svg')}}" alt="Logo" class="h-8 pb-1">
             </a>
             <!-- Logos SESI e SENAI -->
             <div class="md:flex items-center space-x-2 hidden ">
@@ -40,7 +40,7 @@
         <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center">
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                    <img src="{{asset('/images/logos/logo-ensina-claro.png')}}" alt="Logo" class="h-8 pb-1">
+                    <img src="{{asset('/images/logos/logo-ensina-claro.svg')}}" alt="Logo" class="h-8 pb-1">
                 </a>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

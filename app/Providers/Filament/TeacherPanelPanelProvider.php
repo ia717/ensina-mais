@@ -47,7 +47,7 @@ class TeacherPanelPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(asset('images/logos/logo-ensina-claro.png'))
+            ->brandLogo(asset('images/logos/logo-ensina-claro.svg'))
             ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
             ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([
