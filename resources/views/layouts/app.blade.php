@@ -150,16 +150,14 @@
                 </ul>
             </div>
         </aside>
-        <div class="sm:ml-64">
-
+        
+        <div class="sm:ml-64 w-full">
             <!-- Page Content -->
             <main class="flex-1 bg-gray-200 dark:bg-neutral-700 px-4 lg:px-12 py-4 mt-20 sm:mt-0">
                 <div>
                     {{ $slot }}
                 </div>
             </main>
-
-
         </div>
 
     </div>
