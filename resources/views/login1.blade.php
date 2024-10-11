@@ -5,91 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Ensina+</title>
+    <title>Ensina Mais</title>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<style>
-    .scroll {
 
+    <style>
+        .scroll {
+            margin-top: 20px;
+            margin-inline: auto;
+            max-width: 1440px;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            mask: linear-gradient(to right,
+                    transparent,
+                    black 10%,
+                    black 95%,
+                    transparent);
+        }
+    
+        .scroll__container {
+            display: flex;
+            width: max-content;
+            gap: 0px;
+            animation: scrollInfinito 30s linear infinite;
+        }
+    
+        .scroll__item {
+    
+            border-radius: 5px;
+            padding: 7px 7px;
+            white-space: nowrap;
+        }
+    
+        @keyframes scrollInfinito {
+            to {
+                translate: calc(-50% - 5px);
+            }
+        }
+    
+        .scroll1 {
         margin-top: 20px;
         margin-inline: auto;
         max-width: 1440px;
         padding: 10px;
         border-radius: 5px;
-
         overflow: hidden;
-        mask: linear-gradient(to right,
-                transparent,
-                black 10%,
-                black 95%,
-                transparent);
+        mask: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
     }
-
-    .scroll__container {
+    
+    .scroll__container1 {
         display: flex;
         width: max-content;
         gap: 0px;
-        animation: scrollInfinito 30s linear infinite;
+        animation: scrollInfinito1 25s linear infinite;
     }
-
-    .scroll__item {
-
+    
+    .scroll__item1 {
         border-radius: 5px;
         padding: 7px 7px;
         white-space: nowrap;
     }
-
-    @keyframes scrollInfinito {
+    
+    @keyframes scrollInfinito1 {
         to {
-            translate: calc(-50% - 5px);
+            translate: calc(-50% - 5px); /* Agora move para a direita */
         }
     }
-
-    .scroll1 {
-    margin-top: 20px;
-    margin-inline: auto;
-    max-width: 1440px;
-    padding: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    mask: linear-gradient(to right, transparent, black 10%, black 95%, transparent);
-}
-
-.scroll__container1 {
-    display: flex;
-    width: max-content;
-    gap: 0px;
-    animation: scrollInfinito1 25s linear infinite;
-}
-
-.scroll__item1 {
-    border-radius: 5px;
-    padding: 7px 7px;
-    white-space: nowrap;
-}
-
-@keyframes scrollInfinito1 {
-    to {
-        translate: calc(-50% - 5px); /* Agora move para a direita */
-    }
-}
-   
-</style>
-
+       
+    </style>
+</head>
 <body class="relative bg-gray-100 user-select-none m-0 p-0 font-poppins">
     @include('headernav')
     <div>
-        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/Vector (2).png') }}"
+        <img class="absolute z-0 left-0 top-48 hidden md:block" src="{{ asset('/images/login/vector2.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-1/4  top-28 hidden md:block" src="{{ asset('/images/Vector (1).png') }}"
+        <img class="absolute z-0 left-1/4 top-28 hidden md:block" src="{{ asset('/images/login/vector1.svg') }}"
             alt="">
     </div>
     <div>
-        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/Vector (5).png') }}"
+        <img class="absolute z-0 left-24 top-96 hidden md:block" src="{{ asset('/images/login/vector5.svg') }}"
             alt="">
     </div>
     <!-- Main Content -->
@@ -191,10 +189,10 @@
                 </div>
 
                 <div>
-                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/Vector (4).png')}}" alt="">
+                    <img class="absolute justify-center left-0 -mt-10 hidden md:block" src="{{asset('/images/login/vector4.svg')}}" alt="">
                 </div>
                 <div>
-                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/Vector (3).png')}}" alt="">
+                    <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/login/vector3.svg')}}" alt="">
                 </div>
 
                 <!-- Statistics Section -->
@@ -258,17 +256,16 @@
 
                     <!-- First Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 ml-5">
-                        <span><img src="{{asset('images/teste marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
-                        <img src="{{asset('images/teste cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <span><img src="{{asset('images/login/marcela.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80"></span>
+                        <img src="{{asset('images/login/cogh.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/joao.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     </div>
 
                     <!-- Second Slide -->
                     <div class="flex-shrink-0 flex min-w-full space-x-0 mb-20">
-                        <img src="{{asset('images/teste eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-                        <img src="{{asset('images/teste pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
-
+                        <img src="{{asset('images/login/eduarda.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/everton.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
+                        <img src="{{asset('images/login/pedro.png')}}" alt="" class=" h-40 md:h-80 w-40 md:w-80">
                     </div>
 
                 </div>
@@ -317,8 +314,8 @@
 
     <div id="turbina" class="anima">
         <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
-            <img class="hidden md:block" src="{{asset('images/TURBINA DESKTOP.png')}}" alt="Banner Turbina Desktop">
-            <img class="block md:hidden" src="{{asset('images/mobile sla fds me ajuda aaaaa.png')}}" alt="Banner Turbina Mobile">
+            <img class="hidden md:block" src="{{asset('images/login/turbina-desktop.png')}}" alt="Banner Turbina Desktop">
+            <img class="block md:hidden" src="{{asset('images/login/turbina-mobile.png')}}" alt="Banner Turbina Mobile">
         </a>
     </div>
     <section id="aluno" class="anima flex flex-col-reverse md:flex-row  justify-center bg-white my-1 p-4 md:p-10 items-center">
@@ -328,23 +325,23 @@
             <a href="#" class="transition-all duration-75 bg-sky-800 subpixel-antialiased text-sm md:text-base text-white font-semibold rounded-md hover:bg-sky-500 hover:px-7 py-2 px-4 md:py-3 md:px-6">Conheça nossa proposta de ensino</a>
         </div>
         <div class="flex justify-center md:w-1/2">
-            <img src="{{asset('images\rafa(antiga  jessica).png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
+            <img src="{{asset('images\login\rafa.png')}}" class="w-48 md:w-full max-w-xs md:max-w-md lg:max-w-lg object-contain">
         </div>
 
     </section>
 
     <section class="text-center anima py-5 bg-gray-100">
         <div class="flex justify-center mb-10">
-            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/Logo ensina claro.png')}}" alt=""></span></h1>
+            <h1 class="text-3xl font-bold text-gray-800">CONHEÇA A EQUIPE QUE DEU VIDA AO <span class="inline-block ml-2"><img src="{{asset('images/logos/logo-ensina-claro.svg')}}" alt=""></span></h1>
         </div>
         <h1 class="text-2xl font-bold mt-16 text-gray-800">Alunos De Desenvolvimento de Sistemas</h1>
         <div class="scroll m-0 p-0">
             <div class="scroll__container">
-                <div class="scroll__item"><img src="{{asset('images/Caio.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Gi.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Japa.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Junin.png')}}" alt=""></div>
-                <div class="scroll__item"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/caio.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
+                <div class="scroll__item"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
 
         </div>
@@ -352,11 +349,11 @@
         <h1 class="text-2xl mt-16 font-bold text-gray-800">Alunos De Multimídia</h1>
         <div class="scroll1 m-0 p-0">
         <div class="scroll__container1">
-                <div class="scroll__item1"><img src="{{asset('images/Caio.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Gi.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Japa.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Junin.png')}}" alt=""></div>
-                <div class="scroll__item1"><img src="{{asset('images/Leo.png')}}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/caio.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
+                <div class="scroll__item1"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
         </div>
 

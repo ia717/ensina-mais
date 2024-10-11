@@ -77,15 +77,15 @@
             <h3 class="text-center text-xl font-semibold mb-4 text-black dark:text-white">Saiba +</h3>
             <div class="flex flex-wrap justify-center gap-6">
               <div class="w-full sm:max-w-xs">
-                <img src="{{asset('images/image 5.png')}}" alt="Enem 2024" class="rounded-lg shadow-lg w-full">
+                <img src="{{asset('images/calendario/enem.png')}}" alt="Enem 2024" class="rounded-lg shadow-lg w-full">
                 <p class="text-center mt-2 text-black dark:text-white">Enem 2024</p>
               </div>
               <div class="w-full sm:max-w-xs">
-                <img src="{{asset('images/image 7.png')}}" alt="Fuvest 2024" class="rounded-lg shadow-lg w-full">
+                <img src="{{asset('images/calendario/fuvest.png')}}" alt="Fuvest 2024" class="rounded-lg shadow-lg w-full">
                 <p class="text-center mt-2 text-black dark:text-white">Fuvest 2024</p>
               </div>
               <div class="w-full sm:max-w-xs">
-                <img src="{{asset('images/image 8.png')}}" alt="Unesp 2024" class="rounded-lg shadow-lg w-full">
+                <img src="{{asset('images/calendario/unesp.png')}}" alt="Unesp 2024" class="rounded-lg shadow-lg w-full">
                 <p class="text-center mt-2 text-black dark:text-white">Unesp 2024</p>
               </div>
             </div>

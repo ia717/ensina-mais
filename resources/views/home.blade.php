@@ -3,7 +3,7 @@
         <div>
             {{-- Breadcrumbs::render('home') apenas um teste --}}
             <div class="flex w-full h-max">
-                <img src="{{asset('images\rafao juninho.png')}}" alt="">
+                <img src="{{asset('images\home\banner.png')}}" alt="">
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                 <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
