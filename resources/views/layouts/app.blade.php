@@ -71,21 +71,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="arealuno"
+                        <a href="areaaluno"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-user-graduate mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Área do Aluno</span>
                         </a>
                     </li>
                     <li>
-                        <a href="calendario"
+                        <a href="{{ route('calendario') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-calendar-alt mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Calendário</span>
                         </a>
                     </li>
                     <li>
-                        <a href="cronograma"
+                        <a href="{{ route('cronograma') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-calendar-check mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Cronograma</span>
@@ -99,21 +99,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="simulados"
+                        <a href="{{ route('simulados') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-pencil-alt mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Simulados</span>
                         </a>
                     </li>
                     <li>
-                        <a href="forum"
+                        <a href="{{ route('forum.index') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-comments mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Fórum</span>
                         </a>
                     </li>
                     <li>
-                        <a href="redacao"
+                        <a href="{{ route('redacao') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-file-alt mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Redação</span>
@@ -127,7 +127,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="perguntas"
+                        <a href="{{ route('perguntas') }}"
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <i class="fas fa-info-circle mr-2"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">FAQ</span>

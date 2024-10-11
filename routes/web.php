@@ -46,7 +46,7 @@ Route::get('/redacao', function () {
     $vestibulares = Vestibular::all();
     $temaRedacao = TextTheme::all();
     return view('redacao', compact('vestibulares', 'temaRedacao'));
-});
+})->name('redacao');
 
 Route::get('/redacao2', function () {
     return view('redacao2');
@@ -60,17 +60,9 @@ Route::get('/login1', function () {
     return view('login1');
 });
 
-Route::get('cronogramamobile', function () {
-    return view('cronogramamobile');
-});
-
 Route::get('calendario', function () {
     return view('calendario');
-});
-
-Route::get('menuteste', function () {
-    return view('menuteste');
-});
+})->name('calendario');
 
 Route::get('teste', function () {
     return view('teste');
@@ -78,26 +70,19 @@ Route::get('teste', function () {
 
 Route::get('cronograma', function () {
     return view('cronograma');
-});
-Route::get('semana', function () {
-    return view('semana');
-});
+})->name('cronograma');
 
 Route::get('perguntas', function () {
     return view('perguntas');
-});
+})->name('perguntas');
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-
-Route::get('usuario', function () {
-    return view('usuario');
-});
 Route::get('simulados', function () {
     return view('simulados');
-});
+})->name('simulados');
 
 Route::get('simuconcluido', function () {
     return view('simuconcluido');
@@ -107,11 +92,9 @@ Route::get('cronogramasem', function () {
     return view('cronogramasem');
 });
 
-
 Route::get('areaaluno', function () {
     return view('areaaluno');
 });
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

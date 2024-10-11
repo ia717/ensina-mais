@@ -1,8 +1,7 @@
 <x-app-layout>
     @foreach ($questions as $question)
         <div
-            class="h-1/2 bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg transition duration-300 lg:ml-80 lg:w-1/2">
-            <div class="flex-1 flex flex-col">
+            class="h-1/2 bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg transition duration-300">
                 <h1 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Questão</h1>
                 <form method="POST" action="{{ route('questions.check', $question) }}">
                     @csrf
