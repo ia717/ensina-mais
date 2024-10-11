@@ -1,18 +1,4 @@
-@include('menuteste')
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Cronograma</title>
-</head>
-
-<body>
-    <div>
-        @include('menuteste')
-    </div>
+<x-app-layout>
 
     <main class="flex-1 flex justify-around items-center">
         <div class="text-center w-full p-8 md:p-0 md:w-auto">
@@ -22,9 +8,9 @@
     </main>
 
     </div>
-    <!-- Filtro de Disciplinas -->
+    
+    <aside class="right-0 top-0 fixed">
     @include('caixafiltros')
-
-</body>
-
-</html>
+    </aside>
+    
+</x-app-layout>

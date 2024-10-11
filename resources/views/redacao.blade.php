@@ -1,70 +1,97 @@
-@include('menuteste')
-<!DOCTYPE html>
-<html lang="pt-BR">
+<x-app-layout> 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redação</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil - ENEM 2023</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
 
-<body class="bg-gray-100 font-sans">
-    <!-- Sidebar -->
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Desafios para a valorização de comunidades e povos tradicionais no Brasil - ENEM 2022</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
 
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil - ENEM 2021</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
 
-    <!-- Main content -->
-    <main class="flex-1 flex justify-around items-center">
-        <div class="text-center w-full p-8 md:p-0 md:w-auto">
-            <div class="text-gray-500 text-lg mb-5">Utilize os filtros para buscar temas de redação</div>
-            <span class="material-icons text-gray-400 text-5xl"></span>
-        </div>
-    </main>
+<div class="bg-white w-1/2 flex justify-around p-8 rounded-lg mt-4">
+  <div class="w-1/2">
+  <h6 class="text-md flex font-semibold text-gray-800 mb-4">O estigma associado às doenças mentais na sociedade brasileira - ENEM 2020</h6>
+  </div>
+  <div class="flex justify-between">
+  <button class="w-1/2 h-1/2 p-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600">Trabalho</button>
+      <button class="w-1/2 h-1/2 p-2 bg-gray-500 text-white text-sm rounded-md hover:bg-gray-600">Ver Tema</button>
+  </div>
+</div>
 
-    <!-- Filter panel -->
-    <div class="w-full md:w-60 bg-white h-auto md:h-screen shadow-lg p-6">
-        <h2 class="text-xl font-bold text-gray-700 mb-6">Filtrar temas</h2>
-        <form>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="palavras-chave">Palavras chave</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="palavras-chave" type="text" placeholder="Buscar por palavras chave">
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="vestibular">Vestibular</label>
-                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="vestibular">
-                    <option>ENEM</option>
-                    <option>Unesp</option>
-                    <option>FUVEST</option>
-                    <option>Outros</option>
-                </select>
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="modelo">Modelo</label>
-                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="modelo">
-                    <option>ENEM</option>
-                    <option>Estadual</option>
-                    <option>Geral</option>
-                </select>
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="area">Área</label>
-                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="area">
-                    <option>Todas</option>
-                    <option>Racismo</option>
-                    <option>Economia</option>
-                    <option>Machismo</option>
-                </select>
-            </div>
-
-            <button class="bg-sky-800 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all duration-100 w-full md:w-auto" type="button">
-                Filtrar
-            </button>
-        </form>
+    <div class="drawer drawer-end lg:drawer-open mr-96">
+  <input id="filtro-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Botão para abrir o filtro em telas móveis -->
+    <div class="fixed top-0 right-0 p-2 lg:hidden">
+      <label for="filtro-drawer" class="btn btn-ghost">
+        <!-- Filter Icon -->
+        <svg class="h-6 w-6 text-gray-700 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707l-6.414 6.414A1 1 0 0014 13v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5a1 1 0 00-.293-.707L3.293 6.707A1 1 0 013 6V4z" />
+        </svg>
+      </label>
     </div>
-    </div>
-</body>
+  </div>
+  <!-- Sidebar do Filtro -->
+  <div class="drawer-side">
+    <!-- Overlay para fechar o filtro ao clicar fora -->
+    <label for="filtro-drawer" class="drawer-overlay"></label>
+    <!-- Caixa de Filtros (sem modificações) -->
+    <div class="h-full p-4 rounded-r shadow-lg transition duration-300 hover:shadow-xl overflow-y-auto bg-white text-black dark:bg-neutral-800 dark:text-white">
+    <h2 class="text-xl font-medium mb-4">Filtrar</h2>
+    <div class="space-y-4">
+      <div>
+        <label for="disciplina" class="block mb-1">Palavras Chave</label>
+        <input type="text" id="palavraschave" class="rounded-lg" placeholder="Buscar por palavras chave">
+      </div>
+      <div>
+        <label for="tipo" class="block mb-1">Vestibular</label>
+        <select id="tipo" class="w-full p-2 border border-gray-300 rounded-md bg-white text-black dark:bg-neutral-700 dark:text-white">
+        <option value="">Selecione um Vestibular</option>  
+          @foreach ($vestibulares as $vestibular)
+            <option value="">{{ $vestibular->name }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div>
+        <label for="banca" class="block mb-1">Eixos Temáticos</label>
+        <select id="banca" class="w-full p-2 border border-gray-300 rounded-md bg-white text-black dark:bg-neutral-700 dark:text-white">
+          <option value="">Selecione um Tema</option>
+          @foreach ($temaRedacao as $tema)
+          <option value="">{{ $tema->name }}</option>
+          @endforeach
+        </select>
 
-</html>
+        <button class="w-full flex justify-center p-2 mt-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Filtrar</button>
+      <button class="w-full flex justify-center p-2 bg-gray-500 text-white rounded-md mt-2 hover:bg-gray-600">Baixar PDF</button>
+      </div>
+  </div>
+</div>
+
+
+
+
+</x-app-layout>
