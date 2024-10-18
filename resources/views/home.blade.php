@@ -30,6 +30,9 @@
                     <p class="text-sky-800 text-lg font-semibold">45%</p>
                 </div>
             </div>
+            <div class="flex w-full h-max">
+                <img src="{{asset('images\home\banner.png')}}" alt="">
+            </div>
         </div>
     </div>
 

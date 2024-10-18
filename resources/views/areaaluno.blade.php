@@ -1,26 +1,34 @@
-<x-app-layout> 
+<x-app-layout>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-4">
         <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
             <div class="text-start mb-6">
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">Área do Aluno</h1>
             </div>
-            <h2 class="flex justify-center items-center text-xl sm:text-2xl font-bold m-8 sm:m-12">Informações básicas</h2>
+            <h2 class="flex justify-center items-center text-xl sm:text-2xl font-bold m-8 sm:m-12">Informações básicas
+            </h2>
             <div class="flex flex-col md:flex-row flex-wrap items-center">
                 <div class="text-center mb-4 md:mb-0">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gray-300 rounded-full m-4"></div>
-                    <button class="text-blue-500">Editar perfil</button>
+                    <button class="text-blue-500" onclick="alert('Contate o administrador para editar suas informações.')"
+                        onmouseover="this.title='Contate o administrador para editar suas informações.'">
+                        Editar perfil
+                    </button>
                 </div>
                 <div class="flex-1 space-y-1 md:ml-4">
                     <p class="text-gray-500 text-sm">Nome:</p>
-                    <p>Fulano da Silva</p>
-                    <p class="text-gray-500 text-sm">Idade:</p>
-                    <p>17 anos</p>
+                    @if (auth()->check())
+                        <p>{{ auth()->user()->name }}</p>
+                    @endif
+                    <p class="text-gray-500 text-sm">Email:</p>
+                    @if (auth()->check())
+                        <p>{{ auth()->user()->email }}</p>
+                    @endif
                 </div>
                 <div class="flex-1 space-y-1 mt-4 md:mt-0 md:ml-8">
                     <p class="text-gray-500 text-sm">Escola:</p>
                     <p>CE SESI 227 - Monte Alto, SP</p>
-                    <p class="text-gray-500 text-sm">Email:</p>
-                    <p>fulano.silva@portalsesiSP.org.br</p>
+                    <p class="text-gray-500 text-sm">Idade:</p>
+                    <p>17 anos</p>
                 </div>
             </div>
 
@@ -107,7 +115,8 @@
                 <h2 class="flex justify-center items-center text-xl sm:text-2xl font-bold m-8 sm:m-12">Seu conteúdo</h2>
                 <div class="flex flex-col md:flex-row justify-center space-x-0 md:space-x-8">
                     <!-- Box de Química -->
-                    <div class="w-full max-w-xs bg-gray-50 border border-gray-700 rounded-lg p-4 text-center shadow-sm mb-8 md:mb-0">
+                    <div
+                        class="w-full max-w-xs bg-gray-50 border border-gray-700 rounded-lg p-4 text-center shadow-sm mb-8 md:mb-0">
                         <h3 class="text-xl sm:text-2xl font-medium">Sua disciplina favorita é</h3>
                         <span class="text-green-500 font-medium text-2xl sm:text-3xl">Química!</span>
                         <p class="mt-4 sm:mt-8 text-left">Revise seu último conteúdo:</p>
@@ -161,4 +170,4 @@
             </div>
         </div>
     </div>
-</x-app-layout> 
+</x-app-layout>

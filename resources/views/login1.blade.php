@@ -107,7 +107,7 @@
             $user = Auth::user();
 
             if ($user->role == 'aluno') {
-            $redirect = route('dashboard');
+            $redirect = route('home');
             } elseif ($user->role == 'professor') {
             $redirect = url('/teacherPanel');
             } elseif ($user->role == 'admin') {
