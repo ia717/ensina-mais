@@ -8,6 +8,8 @@
     <title>Ensina Mais</title>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
@@ -29,7 +31,7 @@
             display: flex;
             width: max-content;
             gap: 0px;
-            animation: scrollInfinito 30s linear infinite;
+            animation: scrollInfinito 20s linear infinite;
         }
     
         .scroll__item {
@@ -59,7 +61,7 @@
         display: flex;
         width: max-content;
         gap: 0px;
-        animation: scrollInfinito1 25s linear infinite;
+        animation: scrollInfinito1 25s linear infinite reverse;
     }
     
     .scroll__item1 {
@@ -195,23 +197,21 @@
                     <img class="reveal absolute right-0 ml-56 -mt-10 hidden md:block" src="{{asset('/images/login/vector3.svg')}}" alt="">
                 </div>
 
-                <!-- Statistics Section -->
-                <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-5 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+12.500</p>
-                        <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
-                    </div>
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+400</p>
-                        <p class="font-medium text-sm md:text-base">questões no</p>
-                        <p class="font-medium text-sm md:text-base">repertório</p>
-                    </div>
-                    <div class="mx-5 md:mx-10 flex-1 text-center">
-                        <p class="text-3xl md:text-5xl font-bold">+700</p>
-                        <p class="font-medium text-sm md:text-base">aprovações no vestibular</p>
-                    </div>
-                </div>
+        <div class="reveal bg-sky-800 text-white rounded-3xl px-2 py-5 md:py-10 mt-5 w-full md:w-auto sm:w-1/2 flex flex-col md:flex-row items-center justify-around relative space-y-4 md:space-y-0">
+            <div class="mx-5 md:mx-10 flex-1 text-center">
+                <p class="text-3xl md:text-5xl font-bold counter-up" data-count-to="1500">0</p>
+                <p class="font-medium text-sm md:text-base">do Ensino Médio cadastrados</p>
             </div>
+            <div class="mx-5 md:mx-10 flex-1 text-center">
+                <p class="text-3xl md:text-5xl font-bold counter-up" data-count-to="400">0</p>
+                <p class="font-medium text-sm md:text-base">questões no</p>
+                <p class="font-medium text-sm md:text-base">repertório</p>
+            </div>
+            <div class="mx-5 md:mx-10 flex-1 text-center">
+                <p class="text-3xl md:text-5xl font-bold counter-up" data-count-to="700">0</p>
+                <p class="font-medium text-sm md:text-base">aprovações no vestibular</p>
+            </div>
+        </div>
 
         </section>
         <!-- Sobre nós Section -->
@@ -488,6 +488,41 @@
 
             elemContainer1.appendChild(itemDuplicado1);
         });
+
+        function count_up(ele, count_to, timer, i) {
+        if (i > count_to) {
+            return;
+        }
+        ele.text(i.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."));
+        i += 1;
+        setTimeout(function() { count_up(ele, count_to, timer, i); }, timer);
+    }
+
+    // Intersection Observer para iniciar a contagem quando o container aparecer na tela
+    function startCounting(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(entry.target).find('.counter-up').each(function() {
+                    var count_to = parseInt($(this).data('count-to'));
+                    var timer = Math.floor(2000 / count_to); // Ajustar a duração da animação
+                    count_up($(this), count_to, timer, 0);
+                });
+                // Desconecta o observador após iniciar a animação
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    // Configuração do Intersection Observer
+    const observerOptions = {
+        threshold: 0.5 // Inicia a contagem quando 50% do container estiver visível
+    };
+    const observer = new IntersectionObserver(startCounting, observerOptions);
+
+    // Observa o container da classe "reveal"
+    document.querySelectorAll('.reveal').forEach(container => {
+        observer.observe(container);
+    });
     </script>
 </body>
 
