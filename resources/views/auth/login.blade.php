@@ -72,7 +72,7 @@
     
     @keyframes scrollInfinito1 {
         to {
-            translate: calc(-50% - 5px); /* Agora move para a direita */
+            translate: calc(-50% - 5px);
         }
     }
        
@@ -102,28 +102,8 @@
         <div class="relative bg-white md:shadow-lg md:rounded-3xl p-8 w-full md:w-1/3 z-10 order-2 md:order-1 mt-10 md:mt-0 bg-transparent">
             <h2 class="text-2xl font-semibold mb-7 subpixel-antialiased">Faça seu login</h2>
 
-            @auth
-            @php
-            $user = Auth::user();
-
-            if ($user->role == 'aluno') {
-            $redirect = route('home');
-            } elseif ($user->role == 'professor') {
-            $redirect = url('/teacherPanel');
-            } elseif ($user->role == 'admin') {
-            $redirect = url('/admin');
-            }
-            @endphp
-            <form method="GET" action="{{ $redirect }}">
-                @csrf
-
-                <p>Você já está logado. <button type="submit">Clique aqui</button> para acessar o sistema.</p>
-
-            </form>
-            @endauth
-
             <x-auth-session-status class="mb-4" :status="session('status')" />
-            <form method="POST" action="{{ route('login') }}">
+            <form class="space-y-8" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="block mb-4">
                     <span class="font-medium text-gray-700">Email</span>
@@ -142,20 +122,12 @@
                         placeholder="Digite sua Senha" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
-                <div class="mb-4">
-                    <span class="font-medium text-gray-700">Eu sou um(a)</span>
-                    <div class="form-control">
-                        <label class="cursor-pointer label">
-                            <input type="checkbox" checked="" class="checkbox checkbox-info" />
-                            <span class="label-text">Aluno(a)</span>
-                        </label>
-                    </div>
-                    <div class="form-control">
-                        <label class="cursor-pointer label">
-                            <input type="checkbox" checked="" class="checkbox checkbox-info" />
-                            <span class="label-text">Professor(a)</span>
-                        </label>
-                    </div>
+                <!-- Remember Me -->
+                <div class="block mt-4">
+                    <label for="remember_me" class="inline-flex items-center">
+                        <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                        <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                    </label>
                 </div>
 
 
@@ -165,15 +137,13 @@
                     {{ __('Log in') }}
                 </x-primary-button> --}}
 
+                <a class="block text-sky-800 hover:underline transition-all duration-75" href="{{ route('password.request') }}">
+                    Esqueci minha senha
+                </a>
 
-                <a href="#"
-                    class="block text-center mt-4 text-sky-800 hover:underline transition-all duration-75 font-thin">Esqueci
-                    minha senha</a>
-                @if (Route::has('password.request'))
-                {{-- <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                {{ __('Forgot your password?') }}
-                </a> --}}
-                @endif
+                <a class="block text-sky-800 hover:underline transition-all duration-75" href="{{ route('password.request') }}">
+                    Ainda não sou cadastrado
+                </a>
             </form>
             <div class="flex items-center justify-end mt-4">
             </div>

@@ -14,7 +14,6 @@
         "laravel/breeze": "^2.1",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "laravolt/avatar": "^6.0",
         "owenvoke/blade-fontawesome": "^2.6",
         "spatie/laravel-sluggable": "^3.6"
     },
