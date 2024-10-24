@@ -36,7 +36,6 @@ Route::middleware('auth')->group(function () {
         return view('questaor');
     });
 
-
     Route::get('/caixafiltros', function () {
         return view('caixafiltros');
     });
@@ -65,7 +64,7 @@ Route::middleware('auth')->group(function () {
         return view('login1');
     });
 
-    Route::get('calendario', function () {
+    Route::get('/calendario', function () {
         return view('calendario');
     })->name('calendario');
 
@@ -73,11 +72,7 @@ Route::middleware('auth')->group(function () {
         return view('teste');
     });
 
-    Route::get('cronograma', function () {
-        return view('cronograma');
-    })->name('cronograma');
-
-    Route::get('perguntas', function () {
+    Route::get('/perguntas', function () {
         return view('perguntas');
     })->name('perguntas');
 
@@ -85,21 +80,17 @@ Route::middleware('auth')->group(function () {
         return view('welcome');
     });
 
-    Route::get('simulados', function () {
+    Route::get('/simulados', function () {
         return view('simulados');
     })->name('simulados');
 
-    Route::get('simuconcluido', function () {
+    Route::get('/simuconcluido', function () {
         return view('simuconcluido');
     });
 
-    Route::get('cronogramasem', function () {
-        return view('cronogramasem');
-    });
-
-    Route::get('areaaluno', function () {
-        return view('areaaluno');
-    });
+    Route::get('/area-aluno', function () {
+        return view('area-aluno');
+    })->name('area-aluno');
 
     // FORUM
     // Rotas para perguntas
