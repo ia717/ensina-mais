@@ -40,38 +40,61 @@
               </div>
             </div>
           </div>
+          
           <!-- Event Form -->
           <div class="flex flex-col items-center mt-8">
             <hr class="border-t border-gray-300 my-6">
             <div class="flex flex-col items-center">
-              <h1 class="text-2xl sm:text-4xl font-bold text-black dark:text-white">Eventos</h1>
+                <h1 class="text-2xl sm:text-4xl font-bold text-black dark:text-white">Eventos</h1>
             </div>
-            <div class="flex flex-wrap justify-center items-center space-x-0 sm:space-x-4 mt-4">
-              <div class="flex items-center space-x-2 sm:space-x-4">
-                <div class="w-16 h-8 sm:w-20 sm:h-10 text-white bg-[#EB07FF] flex items-center justify-center rounded-lg">
-                  <p class="text-center text-sm sm:text-base text-white">20/09</p>
-                </div>
-                <p class="self-center text-sm sm:text-base text-black dark:text-white">Simulado</p>
-              </div>
-              <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
-                <div class="w-16 h-8 sm:w-20 sm:h-10 bg-[#3A89FF] text-white flex items-center justify-center rounded-lg">
-                  <p class="text-center text-sm sm:text-base text-white">20/09</p>
-                </div>
-                <p class="self-center text-sm sm:text-base text-black dark:text-white">Simulado</p>
-              </div>
-              <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
-                <div class="w-16 h-8 sm:w-20 sm:h-10 bg-[#129F75] text-white flex items-center justify-center rounded-lg">
-                  <p class="text-center text-sm sm:text-base text-white">20/09</p>
-                </div>
-                <p class="self-center text-sm sm:text-base text-black dark:text-white">Simulado</p>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-x-0 sm:space-x-2 mt-4">
-              <input type="text" placeholder="Adicionar novo evento" class="p-2 border rounded-lg text-gray-600 bg-gray-50 dark:bg-gray-700 dark:text-gray-300 w-full sm:w-auto">
-              <button class="px-4 py-2 bg-blue-500 dark:text-white rounded-lg mt-2 sm:mt-0 text-black">Salvar evento</button>
-            </div>
-            <hr class="border-t border-gray-300 my-6">
-          </div>
+           
+                  <div class="flex flex-wrap justify-center items-center  gap-3  mt-4">
+                    <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-red-500  text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">03/11</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">ENEM-1° Fase</p>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-green-500 text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">15/11</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">Unesp-1° Fase</p>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-purple-500 text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">17/11</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">Fuvest-1° Fase</p>
+                        </div>
+                        <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-red-500 text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">10/11</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">ENEM-2° Fase</p>
+                        </div>
+                        <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-green-500 text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">08/12</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">Unesp-2° Fase</p>
+                        </div>
+                        <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                          <div class="w-16 h-8 sm:w-20 sm:h-10 bg-purple-500 text-white flex items-center justify-center rounded-lg">
+                            <p class="text-center text-sm sm:text-base text-white">15/12</p>
+                          </div>
+                          <p class="self-center text-sm sm:text-base text-black dark:text-white">Fuvest-2° Fase</p>
+                        </div>
+                   
+                  </div>
+                
+            
+
+
+
+
           <!-- Event Suggestions -->
           <div class="mt-8 flex flex-col">
             <h3 class="text-center text-xl font-semibold mb-4 text-black dark:text-white">Saiba +</h3>
@@ -96,7 +119,14 @@
   </div>
   <script>
     // Event Definitions
-    let eventos2024 = {};
+    let eventos2024 = {
+      '2024-11-03': 'bg-red-500 text-black',
+      '2024-11-10': 'bg-red-500 text-black',
+      '2024-11-17': 'bg-purple-500 text-black',
+      '2024-12-15': 'bg-purple-500 text-black',
+      '2024-11-15': 'bg-green-500 text-black',
+      '2024-12-08': 'bg-green-500 text-black',
+    };
 
     const daysInMonth = (month, year) => {
       return new Date(year, month + 1, 0).getDate();
@@ -139,6 +169,7 @@
       }
       for (let day = 1; day <= days; day++) {
         const dateKey = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const cor =  ``;
         const eventClass = eventos2024[dateKey] || 'bg-gray-200 text-gray-800';
         const dayElement = document.createElement('div');
         dayElement.className = `day text-center cursor-pointer p-2 rounded-lg ${eventClass}`;
