@@ -21,6 +21,7 @@ use Filament\Support\Enums\MaxWidth;
 use Livewire\Attributes\Layout;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
+use Illuminate\Support\HtmlString;
 
 class DisciplineResource extends Resource
 {
@@ -43,27 +44,12 @@ class DisciplineResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true),
-                // ->afterStateUpdated(function (string $operation, string $state, Forms\Set $set, Forms\get $get, ) {
-
-                //     // Se for uma edição não atualiza o campo slug
-                //     if ($operation === 'edit') {
-                //         return;
-                //     }
-
-                //     $set('slug', Str::slug($state)); // Atualiza o campo slug com o valor do campo name
-
-                // }),
-                // Forms\Components\Hidden::make('slug')
-                //     ->label('Slug')
-                //     ->required(),
-                // ->maxLength(255),
                 Forms\Components\Select::make('category_id')
                     ->label('Categoria')
-                    ->options(\App\Models\Category::pluck('name', 'id')->toArray())
+                    ->options(Category::pluck('name', 'id')->toArray())
                     ->required(),
-                // Forms\Components\Textarea::make('description')
-                //     ->label('Descrição')
-                //     ->nullable(),
+                Forms\Components\TextInput::make('icon')
+                    ->label('Ícone'),
                 Forms\Components\Section::make('Material de Apoio')
                     ->columns(2)
                     ->schema([
@@ -86,21 +72,22 @@ class DisciplineResource extends Resource
                     ->label('Nome')
                     ->searchable()
                     ->sortable(),
-                // Tables\Columns\TextColumn::make('slug')
-                //     ->label('Slug')
-                //     ->searchable()
-                //     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('Categoria')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('icon')
+                ->formatStateUsing(function ($state) {
+                    return new HtmlString('<i class="fa-solid ' . $state . '"></i>');
+                })
             ])
             ->filters(
                 [
-                  
+
                     SelectFilter::make('category_id')
                         ->label('Categoria')
-                            ->options(fn() => Category::pluck('name', 'id')->toArray()
+                        ->options(
+                            fn() => Category::pluck('name', 'id')->toArray()
                         )
 
 
@@ -108,8 +95,6 @@ class DisciplineResource extends Resource
                 layout: FiltersLayout::AboveContent
 
             )
-
-
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -117,7 +102,9 @@ class DisciplineResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('order', 'asc')
+            ->reorderable('order');
     }
 
     public static function getRelations(): array
