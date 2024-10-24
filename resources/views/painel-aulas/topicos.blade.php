@@ -2,13 +2,17 @@
     <div>
         <div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
             {{ Breadcrumbs::render('topicos', $discipline) }}
-            <h1 class="text-4xl font-bold">Tópicos de {{ $discipline->name }}</h1>
+            <div class="flex items-center text-4xl font-bold">
+                <span class="inline-block w-2 h-8 mr-2"
+                    style="background-color: {{ $discipline->category->color }}"></span>
+                <h1 class="text-4xl font-bold">Tópicos de {{ $discipline->name }}</h1>
+            </div>
 
             <div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    @if ($topics->isEmpty())
-                        <p>Não há tópicos cadastrados para esta disciplina.</p>
-                    @else
+                @if ($topics->isEmpty())
+                    <p>Não há tópicos cadastrados para esta disciplina.</p>
+                @else
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         @foreach ($topics as $topic)
                             <a href="{{ route('aulas', [$discipline, $topic]) }}" class="bg-white rounded-lg shadow p-4">
                                 <div class="bg-gray-200 h-16 mb-4 rounded"></div>
@@ -18,8 +22,8 @@
                                 <div class="bg-blue-400 h-1 mt-2 rounded"></div>
                             </a>
                         @endforeach
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
