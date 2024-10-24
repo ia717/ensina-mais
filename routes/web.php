@@ -16,10 +16,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // HOME
     Route::get('/home', function () {
         return view('home');
     })->name('home');
 
+    // PAINEL AULAS
     Route::get('/disciplinas', [DisciplineController::class, 'index'])->name('disciplinas');
     Route::get('/disciplinas/{discipline:slug}', [TopicController::class, 'index'])->name('topicos');
     Route::get('/disciplinas/{discipline:slug}/{topic:slug}', [LessonController::class, 'index'])->name('aulas');
@@ -27,11 +29,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/questoes', [QuestionController::class, 'index'])->name('questao.index');
     Route::post('/questoes/{question}/check', [QuestionController::class, 'checkAnswer'])->name('questions.check');
-
     Route::get('/questaow', function () {
         return view('questaow');
     });
-
     Route::get('/questaor', function () {
         return view('questaor');
     });
