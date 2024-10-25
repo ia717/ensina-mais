@@ -113,12 +113,12 @@ class QuestionResource extends Resource
                                     ->default(false)
                                     ->reactive()
                                     ->fixIndistinctState(),
-                                    
+
                             ])
                             ->minItems(2)
                             ->maxItems(6)
                             ->required()
-                            
+
                             ->grid(2)
                             ->addActionLabel('Adicionar Resposta'),
                     ])
