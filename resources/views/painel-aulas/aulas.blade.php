@@ -1,28 +1,41 @@
 <x-app-layout>
     {{ Breadcrumbs::render('aulas', $topic->discipline, $topic) }}
-    
-    <h1 class="text-4xl font-bold">| {{ $topic->name }}</h1>
 
-    @foreach ($lessons as $aula)
-        <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $aula->slug]) }}" class="flex flex-col">
-            <div class="border-4 my-5 flex w-auto flex-col bg-gray-50">
+    <div class="flex items-center text-4xl font-bold">
+        <span class="inline-block w-2 h-8 mr-2"
+            style="background-color: {{ $topic->discipline->category->color }}"></span>
+        <h1 class="text-4xl font-bold">{{ $topic->name }}</h1>
+    </div>
 
-                <p class="text-gray-700">
-                    <span class="font-bold">{{ $aula->time }}</span>
-                    {{ $aula->name }}
-                </p>
-                <div>
-                    <span class="font-bold">Relevância:</span>
-                    @if ($aula->is_high_relevance)
-                        Alta
-                    @else
-                        Baixa
-                    @endif
+    @foreach ($lessons as $lesson)
+        <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $lesson->slug]) }}" class="flex flex-col">
+            <div style="border-color: {{ $topic->discipline->category->color }}"
+                class="border-[3px] rounded-2xl flex w-auto flex-col bg-gray-100 px-4 py-6">
+
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-bold">{{ $lesson->name }}</h2>
+
+                        <p class="">
+                            <span class="font-semibold">Duração:</span>
+                            {{ $lesson->duration }}
+                        </p>
+                    </div>
+
+
+                    <div class="block">
+                        <p class="">Relevância:</p>
+                        @if ($lesson->is_high_relevance)
+                            <div class="w-10 h-5 rounded-md bg-red-500 flex justify-center items-center">
+                                <span>Alta</span>
+                            </div>
+                        @else
+                            Baixa
+                        @endif
+                    </div>
                 </div>
 
-                <p class="font-bold">Duração:{{ $aula->duration }}</p>
             </div>
-
         </a>
     @endforeach
 </x-app-layout>
