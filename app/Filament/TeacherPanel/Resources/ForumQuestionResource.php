@@ -5,6 +5,7 @@ namespace App\Filament\TeacherPanel\Resources;
 use App\Filament\TeacherPanel\Resources\ForumQuestionResource\Pages;
 use App\Models\QuestionForum;
 use App\Models\AnswerForum;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\Actions\EditAction;
@@ -63,12 +64,18 @@ class ForumQuestionResource extends Resource
                     ->sortable(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\ViewAction::make()
+                ->action(function ($record) {
+                    return Pages\EditForumQuestion::route($record);
+                })
+                ->tooltip('Clique para visualizar a pergunta e a resposta'),
+                Tables\Actions\EditAction::make()
+                ->label('Responder')
+                ->tooltip('Clique para responder a pergunta'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -78,7 +85,7 @@ class ForumQuestionResource extends Resource
     {
         return [
             'index' => Pages\ListForumQuestions::route('/'),
-            // 'create' => Pages\CreateForumQuestion::route('/create')
+            'create' => Pages\CreateForumQuestion::route('/create'),
             'edit' => Pages\EditForumQuestion::route('/{record}/edit'),
         ];
     }
