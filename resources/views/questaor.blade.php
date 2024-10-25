@@ -1,4 +1,6 @@
 <x-app-layout>
+<div>
+<div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
     <div class="h-1/2 bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg transition duration-300">
         <div class="flex-1 flex flex-col w-96">
             <h1 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Questão</h1>
@@ -103,4 +105,6 @@
     <aside class="right-0 top-0 fixed">
         @include('caixafiltros')
     </aside>
+    </div>
+    </div>
 </x-app-layout>

@@ -35,17 +35,18 @@
 
                 <h2 class="flex justify-center items-center text-xl sm:text-2xl font-bold m-8 sm:m-12">Seu Progresso</h2>
 
+
                 <!-- Progresso Diário -->
                 <div class="mb-8">
                     <div class="flex justify-between items-center mb-2">
-                        <p class="text-gray-700 font-bold text-lg">Progresso diário</p>
-                        <p class="text-gray-500">10%</p>
+                        <p class="text-gray-700 font-bold text-lg dark:text-gray-200">Progresso diário</p>
+                        <p class="text-gray-500 dark:text-gray-200">10%</p>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
                         <div class="bg-blue-600 h-2.5 rounded-full" style="width: 10%;"></div>
                     </div>
 
-                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap">
+                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap dark:text-gray-200">
                         <div class="flex-1 mb-2 md:mb-0">
                             <p><strong>Disciplinas restantes:</strong> Arte, História, Física</p>
                         </div>
@@ -57,20 +58,20 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <a href="#" class="text-gray-600 font-medium hover:underline">Ver cronograma →</a>
+                        <a href="#" class="text-gray-600 font-medium hover:underline dark:text-gray-400">Ver cronograma →</a>
                     </div>
                 </div>
 
                 <!-- Progresso Mensal -->
                 <div class="mb-8">
                     <div class="flex justify-between items-center mb-2">
-                        <p class="text-gray-700 font-bold text-lg">Progresso mensal</p>
-                        <p class="text-gray-500">25%</p>
+                        <p class="text-gray-700 font-bold text-lg dark:text-gray-200">Progresso mensal</p>
+                        <p class="text-gray-500 dark:text-gray-200">25%</p>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
                         <div class="bg-blue-600 h-2.5 rounded-full" style="width: 25%;"></div>
                     </div>
-                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap">
+                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap dark:text-gray-200">
                         <div class="flex-1 mb-2 md:mb-0">
                             <p><strong>Redações feitas:</strong> 2/4</p>
                         </div>
@@ -82,20 +83,20 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <a href="#" class="text-gray-600 font-medium hover:underline">Ver cronograma →</a>
+                        <a href="#" class="text-gray-600 font-medium hover:underline dark:text-gray-400">Ver cronograma →</a>
                     </div>
                 </div>
 
                 <!-- Progresso Anual -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <p class="text-gray-700 font-bold text-lg">Progresso anual</p>
-                        <p class="text-gray-500">55%</p>
+                        <p class="text-gray-700 font-bold text-lg dark:text-gray-200">Progresso anual</p>
+                        <p class="text-gray-500 dark-text-gray-200">55%</p>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
                         <div class="bg-blue-600 h-2.5 rounded-full" style="width: 55%;"></div>
                     </div>
-                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap">
+                    <div class="flex flex-col md:flex-row justify-between text-gray-600 text-sm flex-wrap dark:text-gray-200">
                         <div class="flex-1 mb-2 md:mb-0">
                             <p><strong>Redações feitas:</strong> 31/50</p>
                         </div>
@@ -107,7 +108,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <a href="#" class="text-gray-600 font-medium hover:underline">Ver cronograma →</a>
+                        <a href="#" class="text-gray-600 font-medium hover:underline dark:text-gray-400">Ver cronograma →</a>
                     </div>
                 </div>
 
