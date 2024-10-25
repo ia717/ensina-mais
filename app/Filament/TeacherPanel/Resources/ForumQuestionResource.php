@@ -7,10 +7,12 @@ use App\Models\QuestionForum;
 use App\Models\AnswerForum;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Pages\Actions\EditAction;
 use Filament\Resources\Resource;
 use Filament\Support\View\Components\Modal;
 use Filament\Tables;
 use Filament\Tables\Table;
+use phpDocumentor\Reflection\Types\Void_;
 
 
 
@@ -33,7 +35,8 @@ class ForumQuestionResource extends Resource
                     Forms\Components\RichEditor::make('answer')  // Renomeie aqui
                     ->label('Resposta')
                     ->required(),
-            ]);
+            ])
+            ->columns(1);
     }
 
     public static function table(Table $table): Table
@@ -55,9 +58,9 @@ class ForumQuestionResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Criada em')
                     ->date(),
-                Tables\Columns\TextColumn::make('answer')
+                Tables\Columns\TextColumn::make('answer.answer') // Ajuste o caminho do campo
                     ->label('Resposta')
-                    ->date(),
+                    ->sortable(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -70,12 +73,16 @@ class ForumQuestionResource extends Resource
             ]);
     }
 
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListForumQuestions::route('/'),
-            // 'create' => Pages\CreateForumQuestion::route('/create'),
-            'edit' => Pages\EditForumQuestion::route('/{record}'),
+            // 'create' => Pages\CreateForumQuestion::route('/create')
+            'edit' => Pages\EditForumQuestion::route('/{record}/edit'),
         ];
     }
+
+    
+
 }
