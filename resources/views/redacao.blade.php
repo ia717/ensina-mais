@@ -1,5 +1,6 @@
 <x-app-layout> 
 
+<div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
 <div class="flex flex-col md:flex-row justify-between p-6">
   
   <!-- Coluna de Temas -->
@@ -116,6 +117,7 @@
     </div>
   </div>
 
+</div>
 </div>
 
 

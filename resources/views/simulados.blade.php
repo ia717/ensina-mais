@@ -1,5 +1,6 @@
 <x-app-layout> 
 
+<div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
 <main class="flex space-x-2 " >
 <div class="bg-gray-100 p-7 rounded-lg  w-1/2 max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Provas do ENEM</h1>
@@ -177,6 +178,8 @@
         </div>
     </div>  
 </aside>
+</div>
+
     
     
     

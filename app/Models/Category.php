@@ -15,6 +15,7 @@ class Category extends Model implements Sortable
     use HasSlug;
     use SortableTrait;
 
+
     protected $fillable = ['name', 'slug', 'description', 'color'];
 
     public $sortable = [
