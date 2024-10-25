@@ -7,6 +7,8 @@ use App\Models\Discipline;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class QuestionController extends Controller
 {
     public function index()
@@ -18,15 +20,17 @@ class QuestionController extends Controller
 
     public function checkAnswer(Question $question, Request $request)
     {   
+        $questions = Question::all();
         $inputField = 'options_'.$question->id;      
         $correctAnswerId = $question->answers->where('is_correct', true)->first()->id;
         $studentAnswerId = intval($request->input($inputField));
+        return view('questao', compact('questions'), );
         // falta terminar essa lógica
         // no futuro, salvar no banco de dados a resposta do aluno
         if ($studentAnswerId == $correctAnswerId) { 
-            return view('questaor');
+            alert('Parabéns, você acertou!');
         } else {
-            return view('questaow');
+            alert('Que pena, você errou!'); 
         }
     }
 }

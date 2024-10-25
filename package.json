@@ -19,6 +19,7 @@
     "dependencies": {
         "@alpinejs/persist": "^3.14.1",
         "flowbite": "^2.5.2",
-        "framer-motion": "^11.3.31"
+        "framer-motion": "^11.3.31",
+        "swiper": "^11.1.14"
     }
 }

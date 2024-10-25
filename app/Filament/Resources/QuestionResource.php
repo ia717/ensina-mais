@@ -76,7 +76,7 @@ class QuestionResource extends Resource
 
                                 Forms\Components\TextInput::make('type') // Campo de tipo com possibilidade de remoção futura
                                     ->label('Tipo')
-                                    ->default('multiple_choice'),
+                                    ->default('Multipla Escolha'),
 
                                 Forms\Components\Select::make('difficulty_level')
                                     ->label('Nível de dificuldade')
@@ -113,12 +113,12 @@ class QuestionResource extends Resource
                                     ->default(false)
                                     ->reactive()
                                     ->fixIndistinctState(),
-                                    
+
                             ])
                             ->minItems(2)
                             ->maxItems(6)
                             ->required()
-                            
+
                             ->grid(2)
                             ->addActionLabel('Adicionar Resposta'),
                     ])
