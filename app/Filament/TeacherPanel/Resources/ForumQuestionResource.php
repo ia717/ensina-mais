@@ -5,6 +5,7 @@ namespace App\Filament\TeacherPanel\Resources;
 use App\Filament\TeacherPanel\Resources\ForumQuestionResource\Pages;
 use App\Models\QuestionForum;
 use App\Models\AnswerForum;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\Actions\EditAction;
@@ -22,6 +23,7 @@ class ForumQuestionResource extends Resource
     
 
     protected static ?string $navigationLabel = 'Perguntas do Fórum';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
     
     protected static ?string $slug = 'forum-questions';
 
@@ -32,7 +34,7 @@ class ForumQuestionResource extends Resource
                 Forms\Components\Textarea::make('question')
                     ->label('Pergunta')
                     ->disabled(), // O professor não deve editar a pergunta
-                    Forms\Components\RichEditor::make('answer')  // Renomeie aqui
+                    Forms\Components\RichEditor::make('answer.answer')  // Renomeie aqui
                     ->label('Resposta')
                     ->required(),
             ])
@@ -63,12 +65,19 @@ class ForumQuestionResource extends Resource
                     ->sortable(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\ViewAction::make()
+                ->label('Visualizar')
+                ->action(function ($record) {
+                    return Pages\EditForumQuestion::route($record);
+                })
+                ->tooltip('Clique para visualizar a pergunta e a resposta'),
+                Tables\Actions\EditAction::make()
+                ->label('Responder')
+                ->tooltip('Clique para responder a pergunta'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -78,7 +87,7 @@ class ForumQuestionResource extends Resource
     {
         return [
             'index' => Pages\ListForumQuestions::route('/'),
-            // 'create' => Pages\CreateForumQuestion::route('/create')
+            'create' => Pages\CreateForumQuestion::route('/create'),
             'edit' => Pages\EditForumQuestion::route('/{record}/edit'),
         ];
     }
