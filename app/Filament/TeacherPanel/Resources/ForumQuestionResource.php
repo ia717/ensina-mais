@@ -23,6 +23,7 @@ class ForumQuestionResource extends Resource
     
 
     protected static ?string $navigationLabel = 'Perguntas do Fórum';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
     
     protected static ?string $slug = 'forum-questions';
 
@@ -33,7 +34,7 @@ class ForumQuestionResource extends Resource
                 Forms\Components\Textarea::make('question')
                     ->label('Pergunta')
                     ->disabled(), // O professor não deve editar a pergunta
-                    Forms\Components\RichEditor::make('answer')  // Renomeie aqui
+                    Forms\Components\RichEditor::make('answer.answer')  // Renomeie aqui
                     ->label('Resposta')
                     ->required(),
             ])
@@ -65,6 +66,7 @@ class ForumQuestionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()
+                ->label('Visualizar')
                 ->action(function ($record) {
                     return Pages\EditForumQuestion::route($record);
                 })
