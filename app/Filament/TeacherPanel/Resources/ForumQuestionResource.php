@@ -55,9 +55,9 @@ class ForumQuestionResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Criada em')
                     ->date(),
-                Tables\Columns\TextColumn::make('answer')
+                Tables\Columns\TextColumn::make('answer.answer') // Ajuste o caminho do campo
                     ->label('Resposta')
-                    ->date(),
+                    ->sortable(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
