@@ -24,12 +24,12 @@
         @include('layouts.navigation')
 
         <div class="sm:ml-64 w-full">
-            <!-- Page Content -->
-            <main class="flex-1 bg-gray-200 dark:bg-neutral-700 px-4 lg:px-12 py-4 mt-20 sm:mt-0">
-                <div>
+            <!-- Page Content --> 
+            <div class="flex-1 px-4 lg:px-8 py-4 mt-14 sm:mt-0 min-h-screen">
+                <main class="bg-white dark:bg-neutral-800 rounded-2xl p-8 space-y-8 h-full">
                     {{ $slot }}
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
 
     </div>

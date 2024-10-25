@@ -6,6 +6,7 @@ use App\Models\QuestionForum;
 use App\Models\Discipline;
 use App\Models\Topic;
 use App\Models\AnswerForum;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,6 +82,7 @@ class ForumController extends Controller
             'answer' => $request->answer
         ]);
 
-        return back()->with('success', 'Resposta enviada com sucesso!');
+        return redirect()->back()->with('success', 'Resposta criada com sucesso!');
     }
+    
 }

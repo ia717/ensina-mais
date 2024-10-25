@@ -4,7 +4,10 @@
     "scripts": {
         "dev": "vite",
         "preview": "vite preview",
-        "build": "vite build"
+        "build": "vite build",
+        "optimize": "php artisan optimize && php artisan filament:optimize",
+        "optimize:clear": "php artisan optimize:clear && php artisan filament:optimize-clear"
+
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
