@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Mockery\Matcher\Subset;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -56,23 +58,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Lesson::class, 'students_lessons')->withPivot('is_completed', 'completed_at');
     }
-
-    public function canAccessPanel(string $panel): bool
-    {
-        // Supondo que você tenha uma propriedade 'role' ou algo similar no seu modelo de usuário
-        $rolesAllowed = [
-            'teacherPanel' => ['professor', 'admin'],
-            'admin' => ['admin'],
-            // Adicione outros painéis e suas permissões conforme necessário
-        ];
-    
-        if (!array_key_exists($panel, $rolesAllowed)) {
-            return false;
-        }
-    
-        return in_array($this->role, $rolesAllowed[$panel]);
-    }
-
         public function questions()
     {
         return $this->hasMany(QuestionForum::class);
@@ -81,5 +66,22 @@ class User extends Authenticatable
     public function answers()
     {
         return $this->hasMany(AnswerForum::class);
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        $rolesAllowed = [
+            'teacherPanel' => ['professor', 'admin'],
+            'admin' => ['admin'],
+            // Define other panels and roles as needed
+        ];
+
+        // Check if the panel ID exists in the roles allowed list
+        if (!array_key_exists($panel->getId(), $rolesAllowed)) {
+            return false;
+        }
+
+        // Grant access based solely on the user's role for the specific panel
+        return in_array($this->role, $rolesAllowed[$panel->getId()]);
     }
 }

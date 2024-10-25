@@ -1,5 +1,7 @@
 <x-app-layout>
-    <div class="h-1/2 bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg transition duration-300 lg:ml-80 lg:w-1/2">
+<div>
+<div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
+    <div class="h-1/2 bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg transition duration-300">
         <div class="flex-1 flex flex-col w-96">
             <h1 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Questão</h1>
             <p class="text-lg text-gray-600 dark:text-white mb-6">Seja X o subconjunto dos números inteiros dado por {0,1,2,3,4,5}. Quantos pares distintos (A,B) de subconjuntos A e B de X existem tais que AC – B = {0,1}, em que AC denota o complementar de A em X?</p>
@@ -103,4 +105,6 @@
     <aside class="right-0 top-0 fixed">
         @include('caixafiltros')
     </aside>
+    </div>
+    </div>
 </x-app-layout>

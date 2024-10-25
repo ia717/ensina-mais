@@ -32,8 +32,8 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
 
         if ($user->role === 'aluno') {
-            // return redirect()->intended('/paginainicial');
-            return redirect()->route('dashboard');
+            // return redirect()->intended('/home');
+            return redirect()->route('home');
         } elseif ($user->role === 'professor') {
             return redirect()->intended('/teacherPanel');
             // return redirect()->route('teacherPanel');
@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller
         }
 
         // Caso o role não seja identificado, redireciona para o dashboard por padrão
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('home'));
     }
 
     /**

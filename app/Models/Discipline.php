@@ -4,15 +4,23 @@ namespace App\Models;
 
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Discipline extends Model
+class Discipline extends Model implements Sortable
 {
     use HasFactory;
     use HasSlug;
+    use SortableTrait;
 
     protected $fillable = ['name', 'slug', 'description', 'category_id', 'order', 'icon', 'material_link', 'material_info'];
+
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
     
     public function category()
     {

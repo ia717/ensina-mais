@@ -18,12 +18,9 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
     protected static ?string $modelLabel = 'usuário';
     
-
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
     
-
-
     public static function form(Form $form): Form
     {
         return $form
@@ -37,6 +34,8 @@ class UserResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('password')
                     ->label('Senha')
+                    ->password()
+                    ->revealable()
                     ->required(),
                 Forms\Components\Select::make('role')
                     ->label('Função')

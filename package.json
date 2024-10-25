@@ -4,14 +4,16 @@
     "scripts": {
         "dev": "vite",
         "preview": "vite preview",
-        "build": "vite build"
+        "build": "vite build",
+        "optimize": "php artisan optimize && php artisan filament:optimize",
+        "optimize:clear": "php artisan optimize:clear && php artisan filament:optimize-clear"
+
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.20",
         "axios": "^1.6.4",
-        "daisyui": "^4.12.10",
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.41",
         "tailwindcss": "^3.4.10",
@@ -19,7 +21,7 @@
     },
     "dependencies": {
         "@alpinejs/persist": "^3.14.1",
-        "@fortawesome/fontawesome-free": "^6.6.0",
+        "flowbite": "^2.5.2",
         "framer-motion": "^11.3.31"
     }
 }

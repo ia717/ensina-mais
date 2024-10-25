@@ -22,6 +22,8 @@ use App\Filament\Resources\TopicResource;
 use App\Http\Middleware\CheckTeacherPanelAccess;
 use App\Policies\TeacherPanelPolicy;
 use App\Models\User;
+use App\Filament\TeacherPanel\Resources\ForumQuestionResource;
+
 
 
 class TeacherPanelPanelProvider extends PanelProvider
@@ -39,12 +41,13 @@ class TeacherPanelPanelProvider extends PanelProvider
             ->resources([
                 LessonResource::class,
                 TopicResource::class,
+                ForumQuestionResource::class,
             ])
             ->path('teacherPanel')
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(asset('images/logo ensina claro.png'))
+            ->brandLogo(asset('images/logos/logo-ensina-claro.svg'))
             ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
             ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([

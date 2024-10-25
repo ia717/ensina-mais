@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +7,21 @@
         .rotate-180 {
             transform: rotate(180deg);
         }
+
         .transition-transform {
             transition: transform 0.3s ease;
         }
+
         .fade {
             transition: opacity 0.3s ease;
         }
+
         .hidden {
             opacity: 0;
             height: 0;
             overflow: hidden;
         }
+
         .visible {
             opacity: 1;
             height: auto;
@@ -34,15 +37,11 @@
         }
 
         function filterQuestions() {
-            const selectedDiscipline = document.getElementById('disciplineFilter').value;
+            const selectedDiscipline = document.getElementById('filter-discipline').value;
             const cards = document.querySelectorAll('.question-card');
             cards.forEach(card => {
                 const discipline = card.getAttribute('data-discipline');
-                if (selectedDiscipline === 'all' || discipline === selectedDiscipline) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                card.classList.toggle('hidden', selectedDiscipline !== 'all' && discipline !== selectedDiscipline);
             });
         }
 
@@ -51,108 +50,121 @@
             const cards = document.querySelectorAll('.question-card');
             cards.forEach(card => {
                 const questionText = card.querySelector('.question-text').textContent.toLowerCase();
-                if (questionText.includes(query)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                card.classList.toggle('hidden', !questionText.includes(query));
             });
         }
     </script>
 </head>
 
-    <x-app-layout>
+<x-app-layout>
+    <div>
+        <div class="rounded-md bg-white dark:bg-neutral-800 p-6 space-y-8">
+            <div class="flex">
+                <!-- Conteúdo do Fórum -->
+                <div id="barra" class="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg flex-grow dark:bg-neutral-700">
+                    <h1 class="text-3xl font-bold text-black mb-4 dark:text-gray-200">Fórum de Dúvidas</h1>
 
-    
-        <div class="max-w-7xl absolute dark:bg-neutral-800 mx-auto bg-white p-6 rounded-lg shadow-lg">
-        
-            <h1 class="text-3xl font-bold text-black mb-4 dark:text-white">Fórum de Dúvidas</h1>
-            <div class="flex justify-between items-center mb-4">
-                <input id="searchQuery" type="text" placeholder="Escreva aqui sua dúvida..." class="w-full p-2 text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg">
-                <button onclick="searchQuestions()" class="ml-4 font-medium bg-blue-500 text-white px-3 py-2 rounded-lg">Filtrar</button>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-500">Disciplina</label>
-                <select id="disciplineFilter" class="w-full p-2 border border-gray-300 rounded-lg" onchange="filterQuestions()">
-                    <option value="all">Selecione uma disciplina</option>
-                    <option value="Gramatica">Gramatica</option>
-                    <option value="Matemática">Matemática</option>
-                    <option value="História">História</option>
-
-                    <!-- Adicione mais opções conforme necessário -->
-                </select>
-            </div>
-            <div class="space-y-4 mb-2.5">
-                <!-- Card de dúvida 1 -->
-                <div class="bg-gray-50 p-4 rounded-lg shadow mb-2.5 border-2 border-pink-500 question-card" data-discipline="Gramatica">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-700 font-semibold">Rogério Bilha</span>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-sm font-medium bg-pink-500 rounded px-2 text-black">Gramatica</span>
-                        <button onclick="toggleAnswer('answer1', 'arrow1')" class="text-gray-500 focus:outline-none transition-transform" id="arrow1">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                    <p class="text-gray-700 mt-2 mb-2.5 question-text">Professora, eu tenho uma dúvida sobre o uso da crase. Quando eu devo usar?</p>
-                    <div id="answer1" class="mt-2 hidden fade">
-                        <hr class="my-5">
-                        <span class="text-sm text-gray-500">Resposta de: Tatiana Lozano</span>
-                        <p class="text-gray-700">A crase é utilizada para indicar a fusão de duas vogais idênticas, geralmente a preposição "a" com o artigo definido "a" ou "as". Você deve usar a crase quando houver essa fusão.</p>
-                    </div>
-                </div>
-                <!-- Card de dúvida 2 -->
-                                
-                <div class="bg-gray-50 p-4 rounded-lg shadow mb-2.5 border-2 border-orange-500 question-card" data-discipline="Matemática">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-700 font-semibold">Giovana Sprone</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-sm font-medium bg-orange-500 rounded px-2 text-black">Matemática</span>
-                            <button onclick="toggleAnswer('answer2', 'arrow2')" class="text-gray-500 focus:outline-none transition-transform" id="arrow2">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
+                    <!-- Perguntas e Respostas -->
+                    @foreach ($questions as $question)
+                    <div class="bg-gray-50 p-4 rounded-lg shadow mb-2.5 border-2 dark:bg-neutral-700"
+                        style="border-color: {{ $question->discipline->category->color ?? '#ccc' }};">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-semibold dark:text-gray-200">{{ $question->user->name }}</span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-sm font-medium rounded px-2 text-black"
+                                    style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
+                                    {{ $question->discipline->name ?? 'Disciplina Desconhecida' }}
+                                </span>
+                                <span class="text-sm font-medium rounded px-2 text-black ml-2"
+                                    style="background-color: {{ $question->discipline->category->color ?? '#ccc' }};">
+                                    {{ $question->topic->name ?? 'Assunto Desconhecido' }}
+                                </span>
+                                <button onclick="toggleAnswer('answer{{ $question->id }}', 'arrow{{ $question->id }}')"
+                                    class="text-gray-500 focus:outline-none transition-transform"
+                                    id="arrow{{ $question->id }}">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
+
+                        <p class="text-gray-700 mt-2 mb-2.5 question-text dark:text-gray-200">{{ $question->question }}</p>
+
+                        <div id="answer{{ $question->id }}" class="mt-2 hidden fade">
+                            <hr class="my-5">
+                            @foreach ($question->answers as $answer)
+                            <div class="mt-2">
+                                <span class="text-sm text-gray-500">Resposta de:
+                                    {{ optional($answer->user)->name ?? 'Usuário Desconhecido' }}</span>
+                                <p class="text-gray-700">{{ $answer->answer }}</p>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Formulário para Responder dentro do card -->
+                        <form action="{{ route('answers.store', $question->id) }}" method="POST" class="mt-4">
+                            @csrf
+                            <textarea name="answer" placeholder="Escreva sua resposta..." class="w-full p-2 border border-gray-300 rounded mb-2 dark:bg-neutral-700"
+                                ></textarea>
+                            <button type="submit"
+                                class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Responder</button>
+                        </form>
                     </div>
-                    <p class="text-gray-700 mt-2 mb-2.5 question-text">Professora, eu estou com uma dúvida sobre regra de três simples. Eu não entendi bem como fazer, pode me explicar?</p>
-                    <div id="answer2" class="mt-2 hidden fade">
-                        <hr class="my-5">
-                        <span class="text-sm text-gray-500">Resposta de: Giseli Barbosa</span>
-                        <p class="text-gray-700">Claro! Para fazer regra de três basta multiplicar os valores conhecidos e depois dividir pelo valor desconhecido, utilizando as operações básicas de multiplicação e divisão.</p>
-                    </div>
+                    @endforeach
+
+                    <!-- Caixa de Texto para Nova Pergunta -->
+                    <form action="{{ route('forum.store') }}" method="POST">
+                        @csrf
+                        <textarea name="question" placeholder="Escreva aqui sua dúvida..."
+                            class="w-full p-2 border border-gray-300 rounded mb-4 dark:bg-neutral-700"></textarea>
+                        <div class="flex space-x-2 mb-4">
+                            <select id="discipline" name="discipline_id" class="w-full p-2 border border-gray-300 rounded dark:bg-neutral-700">
+                                <option value="">Selecione uma disciplina</option>
+                                @foreach ($disciplines as $discipline)
+                                <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
+                                @endforeach
+                            </select>
+                            <select id="topic" name="topic_id" class="w-full p-2 border border-gray-300 rounded dark:bg-neutral-700">
+                                <option value="">Selecione um tópico</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="bg-sky-800 text-white p-2 rounded hover:bg-blue-500">Enviar
+                            dúvida</button>
+                    </form>
                 </div>
 
-                <!-- Card de dúvida 3 -->
-                <div class="bg-gray-50 p-4 rounded-lg shadow mb-2.5 border-2 border-yellow-500 question-card" data-discipline="História">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-700 font-semibold">Hiago Esteves</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-sm font-medium bg-yellow-500 rounded px-2 text-black">História</span>
-                            <button onclick="toggleAnswer('answer3', 'arrow3')" class="text-gray-500 focus:outline-none transition-transform" id="arrow3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
+                <!-- Barra Lateral de Filtro -->
+                <div class="w-1/5 p-6 bg-slate-50 rounded-lg shadow dark:bg-neutral-700 border-white">
+                    <h2 class="text-lg font-semibold mb-4 dark:text-gray-200">Filtrar dúvidas</h2>
+                    <form method="GET" action="/forum">
+                        <div class="space-y-4">
+                            <!-- Seleção de Disciplina no Filtro -->
+                            <select id="filter-discipline" name="discipline_id"
+                                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-neutral-700"
+                                onchange="updateFilterTopics(this.value)">
+                                <option value="">Selecione uma disciplina</option>
+                                @foreach ($disciplines as $discipline)
+                                <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
+                                @endforeach
+                            </select>
+
+                            <!-- Seleção de Tópico no Filtro -->
+                            <select id="filter-topic" name="topic_id"
+                                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-neutral-700">
+                                <option value="">Selecione um tópico</option>
+                                <!-- Tópicos serão preenchidos aqui -->
+                            </select>
+
+                            <button type="submit"
+                                class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500 transition duration-200">Filtrar</button>
                         </div>
-                    </div>
-                    <p class="text-gray-700 mt-2 mb-2.5 question-text">Tenho uma dúvida: Como o Estado Novo de Getúlio Vargas consolidou o poder presidencial no Brasil?</p>
-                    <div id="answer3" class="mt-2 hidden fade">
-                        <hr class="my-5">
-                        <span class="text-sm text-gray-500">Resposta de: Elisangela Campos</span>
-                        <p class="text-gray-700">O Estado Novo (1937-1945) centralizou o poder nas mãos de Vargas, dissolvendo o Congresso, suspendendo partidos políticos e implementando uma nova constituição que lhe conferia amplos poderes, eliminando a oposição e instaurando um governo autoritário que controlava rigidamente a sociedade e a economia.</p>
-                    </div>
+                    </form>
                 </div>
             </div>
-            
-            
         </div>
-        <aside class="right-0 top-0 fixed">
-        @include('filtroforum')
-        </aside>
-        
-    </x-app-layout>
-
-
+    </div>
+    <script src="{{ asset('js/forumscript.js') }}"></script>
+</x-app-layout>
