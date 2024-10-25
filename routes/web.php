@@ -39,12 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/caixafiltros', function () {
         return view('caixafiltros');
     });
-    Route::get('/topicosmaterias', function () {
-        return view('topicosmaterias');
-    });
-    Route::get('/disciplina-do-professor', function () {
-        return view('teacherDiscipline');
-    });
 
     Route::get('/redacao', function () {
         $vestibulares = Vestibular::all();
@@ -56,25 +50,13 @@ Route::middleware('auth')->group(function () {
         return view('redacao2');
     });
 
-    Route::get('/redacao3', function () {
-        return view('redacao3');
-    });
-
-    Route::get('/login1', function () {
-        return view('login1');
-    });
-
     Route::get('/calendario', function () {
         return view('calendario');
     })->name('calendario');
 
-    Route::get('teste', function () {
-        return view('teste');
-    });
-
-    Route::get('/perguntas', function () {
-        return view('perguntas');
-    })->name('perguntas');
+    Route::get('/faq', function () {
+        return view('faq');
+    })->name('faq');
 
     Route::get('/welcome', function () {
         return view('welcome');
