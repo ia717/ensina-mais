@@ -4,15 +4,20 @@ namespace App\Filament\TeacherPanel\Resources;
 
 use App\Filament\TeacherPanel\Resources\ForumQuestionResource\Pages;
 use App\Models\QuestionForum;
+use App\Models\AnswerForum;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\View\Components\Modal;
 use Filament\Tables;
 use Filament\Tables\Table;
+
+
 
 class ForumQuestionResource extends Resource
 {
     protected static ?string $model = QuestionForum::class;
+    
 
     protected static ?string $navigationLabel = 'Perguntas do Fórum';
     
@@ -25,7 +30,7 @@ class ForumQuestionResource extends Resource
                 Forms\Components\Textarea::make('question')
                     ->label('Pergunta')
                     ->disabled(), // O professor não deve editar a pergunta
-                Forms\Components\TextArea::make('answer')
+                    Forms\Components\RichEditor::make('answer')  // Renomeie aqui
                     ->label('Resposta')
                     ->required(),
             ]);
@@ -50,9 +55,13 @@ class ForumQuestionResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Criada em')
                     ->date(),
+                Tables\Columns\TextColumn::make('answer')
+                    ->label('Resposta')
+                    ->date(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -65,8 +74,8 @@ class ForumQuestionResource extends Resource
     {
         return [
             'index' => Pages\ListForumQuestions::route('/'),
-            'create' => Pages\CreateForumQuestion::route('/create'),
-            'edit' => Pages\EditForumQuestion::route('/{record}/edit'),
+            // 'create' => Pages\CreateForumQuestion::route('/create'),
+            'edit' => Pages\EditForumQuestion::route('/{record}'),
         ];
     }
 }

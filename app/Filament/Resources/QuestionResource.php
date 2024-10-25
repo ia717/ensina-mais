@@ -105,10 +105,10 @@ class QuestionResource extends Resource
                             ->relationship('answers')
                             ->label('Respostas')
                             ->schema([
-                                Forms\Components\TextInput::make('answer_text')
+                        Forms\Components\TextInput::make('answer_text')
                                     ->label('Texto')
                                     ->required(),
-                                Forms\Components\Checkbox::make('is_correct')
+                        Forms\Components\Checkbox::make('is_correct')
                                     ->label('Correta')
                                     ->default(false)
                                     ->reactive()
