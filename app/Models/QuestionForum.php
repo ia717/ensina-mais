@@ -29,7 +29,7 @@ class QuestionForum extends Model
 
     public function answers()
     {
-        return $this->belongsTo(AnswerForum::class);
+        return $this->hasMany(AnswerForum::class);
     }
 
 }
