@@ -14,7 +14,7 @@
                 @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         @foreach ($topics as $topic)
-                            <a href="{{ route('aulas', [$discipline, $topic]) }}" class="bg-white rounded-lg shadow p-4">
+                            <a href="{{ route('aulas', [$discipline, $topic]) }}" class="bg-white border-gray-900 border-2 rounded-lg shadow p-4">
                                 <div class="bg-gray-200 h-16 mb-4 rounded"></div>
                                 <h3 class="text-xl font-semibold text-gray-800">{{ $topic->name }}</h3>
                                 <p class="text-sm text-gray-600 mt-2">{{ $topic->lessons->count() }} AULAS</p>
