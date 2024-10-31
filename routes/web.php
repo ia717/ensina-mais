@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function () {
         return view('questaor');
     });
 
-    Route::get('/caixafiltros', function () {
-        return view('caixafiltros');
+    Route::get('/filtro', function () {
+        return view('components.question-filter');
     });
 
     Route::get('/redacao', function () {
