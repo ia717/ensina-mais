@@ -22,7 +22,7 @@ class QuestionResource extends Resource
     protected static ?string $modelLabel = 'questão';
     protected static ?string $pluralModelLabel = 'questões';
     protected static ?string $slug = 'questoes';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationGroup = 'Banco de Questões';
 

@@ -25,7 +25,7 @@ class TextTitleResource extends Resource
 
     protected static ?string $navigationGroup = 'Painel de Redações';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
 
     public static function form(Form $form): Form
     {

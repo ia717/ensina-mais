@@ -35,8 +35,8 @@ class AuthenticatedSessionController extends Controller
             // return redirect()->intended('/home');
             return redirect()->route('home');
         } elseif ($user->role === 'professor') {
-            return redirect()->intended('/teacherPanel');
-            // return redirect()->route('teacherPanel');
+            return redirect()->intended('/professor');
+            // return redirect()->route('professor');
         } elseif ($user->role === 'admin') {
             return redirect()->intended('/admin');
             // return redirect()->route('admin');

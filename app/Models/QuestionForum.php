@@ -27,9 +27,9 @@ class QuestionForum extends Model
         return $this->belongsTo(Topic::class, 'topic_id');
     }
 
-    public function answer()
+    public function answers()
     {
-        return $this->hasOne(AnswerForum::class, 'question_forum_id');
+        return $this->hasMany(AnswerForum::class, 'question_forum_id');
     }
 
 }

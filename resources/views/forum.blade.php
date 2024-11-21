@@ -137,7 +137,7 @@
                 </div>
 
                 <!-- Barra Lateral de Filtro -->
-                <div class="w-1/5 p-6 bg-slate-50 rounded-lg shadow dark:bg-neutral-700 border-white">
+                '<div class="w-1/5 p-6 bg-slate-50 rounded-lg shadow dark:bg-neutral-700 border-white">
                     <h2 class="text-lg font-semibold mb-4 dark:text-gray-200">Filtrar dúvidas</h2>
                     <form method="GET" action="/forum">
                         <div class="space-y-4">
@@ -162,7 +162,7 @@
                                 class="bg-sky-800 text-white p-2 w-full rounded hover:bg-blue-500 transition duration-200">Filtrar</button>
                         </div>
                     </form>
-                </div>
+                </div>'
             </div>
         </div>
     </div>

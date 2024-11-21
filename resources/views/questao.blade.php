@@ -34,7 +34,13 @@
             <!-- Navegação -->
 
 
-        <x-question-filter></x-question-filter>
+            <div class="w-1/5 p-6 bg-slate-50 rounded-lg shadow dark:bg-neutral-700 border-white mt-10">
+                <h2 class="text-lg font-semibold mb-4 dark:text-gray-200">Filtrar questões</h2>
+                <form method="GET" action="/forum">
+                    <div class="space-y-4">
+                        em construção
+                </form>
+            </div>
     </div>
 
     <!-- Script para Navegação -->

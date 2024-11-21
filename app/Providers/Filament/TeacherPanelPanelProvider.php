@@ -43,7 +43,7 @@ class TeacherPanelPanelProvider extends PanelProvider
                 TopicResource::class,
                 ForumQuestionResource::class,
             ])
-            ->path('teacherPanel')
+            ->path('professor')
             ->colors([
                 'primary' => Color::Amber,
             ])

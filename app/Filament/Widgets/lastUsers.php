@@ -13,7 +13,6 @@ class LastUsers extends BaseWidget
     {
         return User::query()->latest();
     }
-
     protected function getTableColumns(): array
     {
         return [
