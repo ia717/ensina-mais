@@ -10,7 +10,7 @@
     @foreach ($lessons as $lesson)
         <a href="{{ route('conteudo', [$topic->discipline->slug, $topic->slug, $lesson->slug]) }}" class="flex flex-col">
             <div style="border-color: {{ $topic->discipline->category->color }}"
-                class="border-[3px] rounded-2xl flex w-auto flex-col bg-gray-100 px-4 py-6">
+                class="border-[3px] rounded-2xl flex w-auto flex-col bg-gray-100 dark:bg-neutral-800 px-4 py-6 transition-all duration-300 hover:-translate-y-1.5 hover:brightness-75">
 
                 <div class="flex justify-between items-center">
                     <div>
@@ -30,7 +30,9 @@
                                 <span>Alta</span>
                             </div>
                         @else
-                            Baixa
+                        <div class="w-10 h-5 rounded-md bg-green-500 flex justify-center items-center">
+                            <span>Baixa</span>
+                        </div>
                         @endif
                     </div>
                 </div>

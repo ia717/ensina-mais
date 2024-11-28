@@ -10,7 +10,7 @@
         @if ($topics->isEmpty())
             <p>Não há tópicos cadastrados para esta disciplina.</p>
         @else
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-300 hover:-translate-y-1.5 hover:brightness-75">
                 @foreach ($topics as $topic)
                     <a href="{{ route('aulas', [$discipline, $topic]) }}"
                         class="border-gray-900 border-2 rounded-lg shadow p-4">
