@@ -5,7 +5,7 @@
         <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
             <!-- FAQ Container -->
             <div class="flex-col ">
-                <details class="mb-4 bg-gray-300  rounded-lg p-4">
+                <details class="mb-4 bg-gray-300 text-gray-800 rounded-lg p-4">
                     <summary class="cursor-pointer text-lg font-medium">
                         O que fazer se o site estiver fora do ar ou lento?
                     </summary>
@@ -15,7 +15,7 @@
                         Contate o Suporte: Se o problema continuar, entre em contato com o suporte do site
                     </p>
                 </details>
-                <details class="mb-4 bg-gray-300  rounded-lg p-4">
+                <details class="mb-4 bg-gray-300 text-gray-800 rounded-lg p-4">
                     <summary class="cursor-pointer text-lg font-medium">
                         Posso personalizar meu plano de estudos no site?
                     </summary>
@@ -28,7 +28,7 @@
                         para você.
                     </p>
                 </details>
-                <details class="mb-4 bg-gray-300  rounded-lg p-4">
+                <details class="mb-4 bg-gray-300 text-gray-800 rounded-lg p-4">
                     <summary class="cursor-pointer text-lg font-medium">
                         O site oferece conteúdo para todos os níveis de aprendizado?
                     </summary>
@@ -40,7 +40,7 @@
                         atual e aos seus objetivos de aprendizado.
                     </p>
                 </details>
-                <details class="mb-4 bg-gray-300 rounded-lg p-4">
+                <details class="mb-4 bg-gray-300 text-gray-800 rounded-lg p-4">
                     <summary class="cursor-pointer text-lg font-medium">
                         Como faço para alterar as minhas informações pessoais?
                     </summary>
@@ -52,7 +52,7 @@
                         detalhadas.
                     </p>
                 </details>
-                <details class="mb-4 bg-gray-300  rounded-lg p-4">
+                <details class="mb-4 bg-gray-300 text-gray-800 rounded-lg p-4">
                     <summary class="cursor-pointer text-lg font-medium">
                         Posso estimar o tempo do meu aprendizado?
                     </summary>
@@ -74,7 +74,7 @@
                     <input type="email" placeholder="Seu Email"
                         class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full bg-white dark:bg-neutral-600 dark:text-white" />
                     <textarea placeholder="Digite aqui..."
-                        class="block w-full h-1/2 mb-3 px-4 py-2 border border-gray-300  bg-white dark:bg-neutral-600 dark:text-white"></textarea>
+                        class="rounded-xg block w-full h-1/2 mb-3 px-4 py-2 border border-gray-300  bg-white dark:bg-neutral-600 dark:text-white"></textarea>
                     <button type="submit"
                         class="bg-sky-800 hover:bg-blue-500 transition-all duration-100 font-bold text-white px-4 py-2 rounded-full w-full dark:bg-sky-600 dark:hover:bg-blue-500">Enviar</button>
                 </form>
