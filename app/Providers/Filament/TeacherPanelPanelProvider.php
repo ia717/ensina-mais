@@ -17,7 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use App\Filament\Resources\LessonResource; 
+use App\Filament\Resources\LessonResource;
 use App\Filament\Resources\TopicResource;
 use App\Http\Middleware\CheckTeacherPanelAccess;
 use App\Policies\TeacherPanelPolicy;
@@ -32,7 +32,7 @@ class TeacherPanelPanelProvider extends PanelProvider
         User::class => TeacherPanelPolicy::class,
     ];
 
-    
+
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -48,6 +48,7 @@ class TeacherPanelPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->brandLogo(asset('images/logos/logo-ensina-claro.svg'))
+            ->darkModeBrandLogo(asset('images/logos/logo-ensina-escuro.svg'))
             ->discoverResources(in: app_path('Filament/TeacherPanel/Resources'), for: 'App\\Filament\\TeacherPanel\\Resources')
             ->discoverPages(in: app_path('Filament/TeacherPanel/Pages'), for: 'App\\Filament\\TeacherPanel\\Pages')
             ->pages([
