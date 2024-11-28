@@ -74,7 +74,7 @@
                     <input type="email" placeholder="Seu Email"
                         class="block w-full mb-3 px-4 py-2 border border-gray-300 rounded-full bg-white dark:bg-neutral-600 dark:text-white" />
                     <textarea placeholder="Digite aqui..."
-                        class="rounded-xg block w-full h-1/2 mb-3 px-4 py-2 border border-gray-300  bg-white dark:bg-neutral-600 dark:text-white"></textarea>
+                        class="block w-full h-1/2 mb-3 px-4 py-2 border border-gray-300  bg-white dark:bg-neutral-600 dark:text-white"></textarea>
                     <button type="submit"
                         class="bg-sky-800 hover:bg-blue-500 transition-all duration-100 font-bold text-white px-4 py-2 rounded-full w-full dark:bg-sky-600 dark:hover:bg-blue-500">Enviar</button>
                 </form>
