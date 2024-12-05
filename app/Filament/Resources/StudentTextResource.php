@@ -24,7 +24,7 @@ class StudentTextResource extends Resource
 
     protected static ?string $slug = 'redacoes';
 
-    protected static ?string $navigationIcon = 'document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
     {

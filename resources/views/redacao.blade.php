@@ -22,7 +22,7 @@
                            {{$titulo->vestibular->name}}
                         </button>
                     </div>
-                    <a href="{{route('redacao2')}}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-md text-sm transition duration-300">
+                    <a href="{{route('redacao2', $titulo)}}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-md text-sm transition duration-300">
                         Escrever Redação
                     </a>
                 </div>
