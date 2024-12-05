@@ -2,6 +2,7 @@
 
 
 use App\Models\TextTheme;
+use App\Models\TextTitle;
 use App\Models\Vestibular;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\TextTitleController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,15 +42,11 @@ Route::middleware('auth')->group(function () {
         return view('components.question-filter');
     });
 
-    Route::get('/redacao', function () {
-        $vestibulares = Vestibular::all();
-        $temaRedacao = TextTheme::all();
-        return view('redacao', compact('vestibulares', 'temaRedacao'));
-    })->name('redacao');
+    Route::get('/redacao', [TextTitleController::class, 'index'])->name('redacao');
 
     Route::get('/redacao2', function () {
         return view('redacao2');
-    });
+    })->name('redacao2');
 
     Route::get('/calendario', function () {
         return view('calendario');

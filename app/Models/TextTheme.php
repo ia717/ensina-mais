@@ -11,7 +11,7 @@ class TextTheme extends Model
 
     protected $fillable = ['name'];
 
-    public function TextTitle()
+    public function textTitle()
     {
         return $this->hasMany(TextTitle::class);
     }
