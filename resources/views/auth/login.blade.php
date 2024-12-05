@@ -437,7 +437,6 @@
                 <div class="scroll__item"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
                 <div class="scroll__item"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
                 <div class="scroll__item"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
-                <div class="scroll__item"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
 
         </div>
@@ -449,7 +448,6 @@
                 <div class="scroll__item1"><img src="{{ asset('images/alunos/gi.png') }}" alt=""></div>
                 <div class="scroll__item1"><img src="{{ asset('images/alunos/japa.png') }}" alt=""></div>
                 <div class="scroll__item1"><img src="{{ asset('images/alunos/junin.png') }}" alt=""></div>
-                <div class="scroll__item1"><img src="{{ asset('images/alunos/leo.png') }}" alt=""></div>
             </div>
         </div>
 
