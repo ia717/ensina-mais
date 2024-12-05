@@ -217,18 +217,10 @@
 
                 <button type="submit"
                     class="transition-all duration-75 w-full bg-sky-800 text-white py-2 rounded-lg hover:bg-sky-500 font-medium">Acessar</button>
-                {{-- <x-primary-button class="ms-3">
-                    {{ __('Log in') }}
-                </x-primary-button> --}}
 
                 <a class="block text-sky-800 hover:underline transition-all duration-75"
                     href="{{ route('password.request') }}">
                     Esqueci minha senha
-                </a>
-
-                <a class="block text-sky-800 hover:underline transition-all duration-75"
-                    href="{{ route('password.request') }}">
-                    Ainda não sou cadastrado
                 </a>
             </form>
             <div class="flex items-center justify-end mt-4">
@@ -564,7 +556,7 @@
         });
 
         ScrollReveal().reveal('.anima', {
-            duration: 1000, // 
+            duration: 1000, //
             origin: 'bottom',
             distance: '20px',
             reset: false,

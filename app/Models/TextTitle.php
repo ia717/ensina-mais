@@ -11,13 +11,13 @@ class TextTitle extends Model
 
     protected $fillable = ['title', 'vest_id', 'theme_id'];
 
-    public function TextTheme()
+    public function textTheme()
     {
-        return $this->belongsTo(TextTheme::class);
+        return $this->belongsTo(TextTheme::class, 'theme_id');
     }
 
     public function vestibular()
     {
-        return $this->belongsTo(Vestibular::class);
+        return $this->belongsTo(Vestibular::class, 'vest_id');
     }
 }
